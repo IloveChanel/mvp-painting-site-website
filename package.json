@@ -17,6 +17,7 @@
   "scripts": {
     "build": "npx tailwindcss -i ./src/input.css -o ./public/assets/css/style.css",
     "build:css": "npx tailwindcss -i ./src/input.css -o ./public/assets/css/style.css --watch",
+    "postinstall": "npx tailwindcss --help > NUL 2>&1 || true",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
