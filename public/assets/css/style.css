@@ -1,0 +1,133 @@
+/* Base Reset and Fonts */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Public Sans', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+  padding: 2rem;
+}
+
+/* Gallery Header */
+.gallery-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.gallery-header h2 {
+  font-size: 2.5rem;
+  color: #222;
+  margin-bottom: 1rem;
+}
+
+.gallery-header p {
+  color: #555;
+  font-size: 1rem;
+}
+
+/* Filter Buttons */
+.gallery-filters {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.gallery-filters button {
+  background-color: #e0e0e0;
+  color: #333;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  margin: 0.3rem;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.gallery-filters button:hover,
+.gallery-filters button.active {
+  background-color: #ff6f61;
+  color: #fff;
+}
+
+/* Gallery Grid Layout */
+.gallery-grid {
+  column-count: 3;
+  column-gap: 1.5rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+@media (max-width: 1024px) {
+  .gallery-grid {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .gallery-grid {
+    column-count: 1;
+  }
+}
+
+/* Individual Gallery Item */
+.gallery-item {
+  background-color: #fff;
+  margin-bottom: 1.5rem;
+  border-radius: 10px;
+  overflow: hidden;
+  display: inline-block;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  break-inside: avoid;
+  opacity: 1;
+  animation: fadeIn 0.6s ease forwards;
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+}
+
+/* Image Styling */
+.gallery-item img {
+  width: 100%;
+  display: block;
+}
+
+/* Caption Area */
+.gallery-caption {
+  padding: 1rem;
+}
+
+.gallery-caption h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.gallery-caption p {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hide filtered items */
+.gallery-item.hidden {
+  display: none;
+}
