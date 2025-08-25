@@ -15,12 +15,15 @@
     "tailwindcss": "^4.1.12"
   },
   "scripts": {
-    "build": "tailwindcss -i ./src/input.css -o ./mvp-painting-site/pages/public/assets/css/style.css",
-    "build:css": "tailwindcss -i ./src/input.css -o ./mvp-painting-site/pages/public/assets/css/style.css --watch",
+    "build": "npx tailwindcss -i ./src/input.css -o ./public/assets/css/style.css",
+    "build:css": "npx tailwindcss -i ./src/input.css -o ./public/assets/css/style.css --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs"
+  "type": "commonjs",
+  "engines": {
+    "node": "18.18.2"
+  }
 }
