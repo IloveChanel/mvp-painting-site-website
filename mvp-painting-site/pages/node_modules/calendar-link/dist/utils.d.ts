@@ -1,0 +1,5 @@
+export declare const TimeFormats: {
+    dateTimeLocal: string;
+    dateTimeUTC: string;
+    allDay: string;
+};

@@ -1,0 +1,25 @@
+{
+  "name": "mvp-painting-site-website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "devDependencies": {
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/forms": "^0.5.10",
+    "@tailwindcss/typography": "^0.5.16",
+    "aos": "^2.3.4",
+    "autoprefixer": "^10.4.21",
+    "axios": "^1.11.0",
+    "dayjs": "^1.11.13",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.12"
+  },
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/input.css -o ./mvp-painting-site/pages/public/assets/css/style.css --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
