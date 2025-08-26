@@ -1,10 +1,8 @@
-﻿module.exports = {
+module.exports = {
   content: [
-    "./pages/public/**/*.html",
-    "./pages/public/**/*.js"
+    "./public/**/*.html",
+    "./public/**/*.js"
   ],
-  theme: {
-    extend: {}
-  },
+  theme: { extend: {} },
   plugins: []
 };

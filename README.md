@@ -1,5 +1,7 @@
 # MVP Painting Site
 
+<!-- Trigger Netlify cache clear: redeploy -->
+
 This is the codebase for the MVP Painting website. It is a modern, mobile-friendly, static website built with HTML, CSS (with Tailwind CSS support), and JavaScript. The site features:
 
 - Home, About, Services, Gallery, Blog, and Contact pages

@@ -8,8 +8,8 @@
 2. **Connect to Netlify:**
    - Go to [Netlify](https://app.netlify.com/) and create a new site from Git.
    - Select your repository.
-   - Set the **publish directory** to `mvp-painting-site/pages/public`.
-   - Set the **build command** to `npm run build` (if you want Netlify to build Tailwind for you).
+   - Set the **publish directory** to `public`.
+   - Set the **build command** to `npm run build` (Netlify will build Tailwind for you).
 
 3. **Custom Routing (SPA):**
    - The `_redirects` file is included for client-side routing support.
@@ -23,5 +23,5 @@
 ---
 
 **Troubleshooting:**
-- If you see missing styles, make sure the Tailwind build ran and `assets/css/style.css` exists in the publish directory.
+- If you see missing styles, make sure the Tailwind build ran and `public/assets/css/style.css` exists in the publish directory.
 - For custom domains, set them up in Netlify's domain management.
