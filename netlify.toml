@@ -1,0 +1,9 @@
+[build]
+  command = "npm run build"
+  publish = "pages/public/dist"
+
+[build.environment]
+  NODE_VERSION = "20.19.4"
+
+[dev]
+  command = "npm run dev"
