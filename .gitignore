@@ -2,3 +2,5 @@
 .netlify
 node_modules/
 rescue_public_*/
+node_modules/
+rescue_public_*/
