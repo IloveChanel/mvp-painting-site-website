@@ -11,9 +11,9 @@ This is the codebase for the MVP Painting website. It is a modern, mobile-friend
 
 ## Structure
 
-- `mvp-painting-site/pages/public/` — Main site HTML files
-- `mvp-painting-site/pages/public/assets/css/` — CSS files (add Tailwind output here)
-- `mvp-painting-site/pages/public/assets/js/` — JavaScript files
+-- `dist/` — Main site HTML files
+-- `dist/assets/css/` — CSS files (add Tailwind output here)
+-- `dist/assets/js/` — JavaScript files
 - `backup_duplicates/` — Archived old/duplicate files for reference
 
 ## Development
@@ -26,8 +26,8 @@ This is the codebase for the MVP Painting website. It is a modern, mobile-friend
    ```
    npx tailwindcss init -p
    ```
-3. Add your custom CSS to `input.css` and build Tailwind output to `public/assets/css/style.css`.
-4. Edit HTML files in `public/` as needed.
+3. Add your custom CSS to `input.css` and build Tailwind output to `dist/assets/css/style.css`.
+4. Edit HTML files in `dist/` as needed.
 
 ## Features
 - Modern design

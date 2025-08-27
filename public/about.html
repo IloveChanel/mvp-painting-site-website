@@ -1,103 +1,102 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta name="description" content="MVP Painting is a top-rated residential and commercial painting company serving Oakland and Macomb County. Learn about our story, values, and dedication to excellence.">
-	<title>About Us | MVP Painting</title>
-		<link rel="stylesheet" href="assets/css/style.css" />
-		<script src="assets/js/scripts.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="MVP Painting is a top-rated residential and commercial painting company serving Oakland and Macomb County. Learn about our story, values, and dedication to excellence.">
+  <title>About Us | MVP Painting</title>
+  <!-- Tailwind brand config + CDN -->
+  <script>
+    tailwind = {
+      config: {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#0F172A',
+              accent:  '#C76C6C',
+              gold:    '#D6A354'
+            },
+            fontFamily: {
+              sans: ['Montserrat','system-ui','Segoe UI','Roboto','Helvetica','Arial','sans-serif']
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Your custom CSS & JS -->
+  <link rel="stylesheet" href="assets/index-Cp9mPwme.css" />
+  <script src="assets/js/scripts.js" defer></script>
 </head>
-<body>
-	<header class="site-header">
-		<div class="container">
-			<a href="index.html" class="logo"><img src="assets/images/logo.png" alt="MVP Painting Logo"></a>
-			<nav class="main-nav">
-				<a href="index.html">Home</a>
-				<a href="services.html">Services</a>
-				<a href="gallery.html">Gallery</a>
-				<a href="blog.html">Blog</a>
-				<a href="contact.html" class="btn btn-primary">Book an Estimate</a>
-			</nav>
-		</div>
-	</header>
-
-	<section class="page-hero about-hero">
-		<div class="container">
-			<h1>About MVP Painting</h1>
-			<p>Delivering excellence in every brushstroke. Proudly serving Oakland & Macomb County.</p>
-		</div>
-	</section>
-
-	<section class="about-intro">
-		<div class="container grid two-col">
-			<div class="text-content">
-				<h2>Our Story</h2>
-				<p>MVP Painting was founded with one mission — to raise the standard of professional painting in Southeast Michigan. With over 15 years of experience, our crew combines craftsmanship with integrity to provide a seamless, worry-free experience for homeowners and business owners alike.</p>
-
-				<p>We specialize in both <strong>residential</strong> and <strong>commercial</strong> interior and exterior painting, always using high-quality Sherwin-Williams paints to ensure stunning, long-lasting results.</p>
-			</div>
-			<div class="image-content">
-				<img src="assets/images/about-team.jpg" alt="MVP Painting Team">
-			</div>
-		</div>
-	</section>
-
-	<section class="about-values">
-		<div class="container">
-			<h2>Why Clients Choose MVP</h2>
-			<ul class="values-list grid three-col">
-				<li>
-					<h3>Integrity</h3>
-					<p>We show up on time, communicate clearly, and stand behind every job we do.</p>
-				</li>
-				<li>
-					<h3>Clean, Efficient Crews</h3>
-					<p>Our team treats your space with respect — no mess, no stress.</p>
-				</li>
-				<li>
-					<h3>Licensed & Insured</h3>
-					<p>Fully licensed, bonded, and insured for your peace of mind.</p>
-				</li>
-				<li>
-					<h3>Premium Materials</h3>
-					<p>We use <a href="https://www.sherwin-williams.com/" target="_blank">Sherwin-Williams</a> products for lasting beauty and durability.</p>
-				</li>
-				<li>
-					<h3>Local & Trusted</h3>
-					<p>Proudly serving Michigan families and businesses across top-tier neighborhoods.</p>
-				</li>
-				<li>
-					<h3>Satisfaction Guaranteed</h3>
-					<p>We’re not done until you’re happy. Guaranteed.</p>
-				</li>
-			</ul>
-		</div>
-	</section>
-
-	<section class="cta-banner">
-		<div class="container">
-			<h2>Book Your Free On-Site Estimate Today</h2>
-			<p>Let us show you why we’re Oakland & Macomb County’s trusted choice for painting.</p>
-			<a href="/contact.html#estimate-form" class="btn btn-primary">Get Your Estimate</a>
-		</div>
-	</section>
-
-	<footer class="site-footer">
-		<div class="container footer-content">
-			<div class="footer-logo">
-				<img src="assets/images/logo-white.png" alt="MVP Painting White Logo">
-			</div>
-			<div class="footer-contact">
-				<p><strong>Email:</strong> <a href="mailto:elvirpurovic@mvpdecor.com">elvirpurovic@mvpdecor.com</a></p>
-				<p><strong>Phone:</strong> <a href="tel:17343662493">(734) 366-2493</a></p>
-				<p><a href="https://www.sherwin-williams.com/" target="_blank">We proudly use Sherwin-Williams Paint</a></p>
-			</div>
-			<div class="footer-links">
-				<a href="/privacy-policy.html">Privacy Policy</a>
-				<a href="/terms.html">Terms & Conditions</a>
-			</div>
-		</div>
-	</footer>
+<body class="bg-gray-50 text-gray-900 font-sans">
+  <header class="bg-white/90 backdrop-blur shadow-sm">
+    <div class="max-w-7xl mx-auto flex items-center justify-between py-4 px-6">
+      <a href="index.html" class="text-primary font-extrabold text-xl">MVP Painting</a>
+      <nav class="hidden md:flex gap-6 items-center font-medium">
+        <a href="index.html" class="hover:text-accent">Home</a>
+        <a href="services.html" class="hover:text-accent">Services</a>
+        <a href="gallery.html" class="hover:text-accent">Gallery</a>
+        <a href="blog.html" class="hover:text-accent">Blog</a>
+        <a href="contact.html" class="ml-2 px-4 py-2 rounded-xl bg-accent text-white">Book an Estimate</a>
+      </nav>
+    </div>
+  </header>
+  <section class="bg-gradient-to-br from-primary to-slate-700 text-white py-16 px-6 text-center">
+    <h1 class="text-4xl font-extrabold">About MVP Painting</h1>
+    <p class="mt-3 text-lg opacity-90">Delivering excellence in every brushstroke. Proudly serving Oakland & Macomb County.</p>
+  </section>
+  <main class="max-w-6xl mx-auto py-12 px-6 grid md:grid-cols-2 gap-10">
+    <div>
+      <h2 class="text-2xl font-bold mb-3">Our Story</h2>
+      <p class="text-slate-700 leading-7">
+        MVP Painting was founded with one mission — to raise the standard of professional painting in Southeast Michigan.
+        With over 15 years of experience, our crew combines craftsmanship with integrity to provide a seamless, worry-free
+        experience for homeowners and business owners alike.
+      </p>
+      <p class="text-slate-700 leading-7 mt-4">
+        We specialize in both <strong>residential</strong> and <strong>commercial</strong> interior and exterior painting,
+        always using high-quality Sherwin-Williams paints to ensure stunning, long-lasting results.
+      </p>
+    </div>
+    <div class="rounded-2xl overflow-hidden shadow bg-white">
+      <img src="assets/images/gallery/interior/kitchen-after-sterling-heights-macomb-county.jpg" alt="MVP Painting project" class="w-full h-80 object-cover">
+    </div>
+  </main>
+  <section class="bg-white py-12 px-6">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-2xl font-bold mb-6">Why Clients Choose MVP</h2>
+      <ul class="grid md:grid-cols-3 gap-6">
+        <li class="p-6 rounded-xl bg-gray-50 shadow">
+          <h3 class="font-semibold">Integrity</h3>
+          <p class="text-slate-700 mt-2">We show up on time, communicate clearly, and stand behind every job we do.</p>
+        </li>
+        <li class="p-6 rounded-xl bg-gray-50 shadow">
+          <h3 class="font-semibold">Clean, Efficient Crews</h3>
+          <p class="text-slate-700 mt-2">Our team treats your space with respect — no mess, no stress.</p>
+        </li>
+        <li class="p-6 rounded-xl bg-gray-50 shadow">
+          <h3 class="font-semibold">Licensed & Insured</h3>
+          <p class="text-slate-700 mt-2">Fully licensed, bonded, and insured for your peace of mind.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <section class="bg-accent text-white text-center py-12 px-6">
+    <h2 class="text-3xl font-bold">Book Your Free On-Site Estimate</h2>
+    <p class="mt-2 opacity-95">See why we’re Oakland & Macomb County’s trusted choice for painting.</p>
+    <a href="contact.html#estimate-form" class="inline-block mt-4 px-6 py-3 rounded-xl bg-white text-accent font-semibold">Get Your Estimate</a>
+  </section>
+  <footer class="bg-primary text-white py-10 mt-12">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 px-6">
+      <div class="font-bold text-lg">MVP Painting</div>
+      <div class="text-sm text-slate-200">
+        <p><strong>Email:</strong> <a class="underline" href="mailto:elvirpurovic@mvpdecor.com">elvirpurovic@mvpdecor.com</a></p>
+        <p><strong>Phone:</strong> <a class="underline" href="tel:17343662493">(734) 366-2493</a></p>
+        <p><a class="underline" target="_blank" href="https://www.sherwin-williams.com/">We proudly use Sherwin-Williams Paint</a></p>
+      </div>
+      <div class="flex gap-4 text-sm"><a href="privacy-policy.html">Privacy</a><a href="terms.html">Terms</a></div>
+    </div>
+  </footer>
 </body>
 </html>
