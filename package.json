@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "sanitize": "powershell -ExecutionPolicy Bypass -File scripts/sanitize.ps1",
     "dev": "vite --root dist",
     "build:css": "npx tailwindcss -i ./src/input.css -o ./dist/assets/css/style.css --minify",
     "build": "npm run build:css && vite build --config vite.config.js",
