@@ -1,178 +1,78 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Premium Residential & Commercial Painting in Macomb & Oakland County. Trusted, professional, and beautiful results. Get your free estimate today!">
-  <title>MVP Painting | Residential & Commercial Painting in Macomb & Oakland County</title>
+:root{
+  --ink:#0f172a;          /* dark navy */
+  --paper:#f7f4ef;        /* warm paper */
+  --gold:#d0a64b;         /* button gold */
+  --ink-80:rgba(15,23,42,.8);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body.site{font-family:Montserrat,system-ui,-apple-system,Segoe UI,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.5}
 
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+/* --- helpers --- */
+.container{max-width:1180px;margin-inline:auto;padding:0 20px}
+.center{text-align:center}
+.mt-24{margin-top:24px}
 
-  <!-- keep your old CSS if you want; this new file handles everything important -->
-  <link rel="stylesheet" href="assets/css/custom.css">
-</head>
-<body>
+/* --- header --- */
+.site-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:saturate(150%) blur(6px);border-bottom:1px solid #eee}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:12px 0}
+.header-logo{height:52px;width:auto;display:block}
+.site-nav{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.site-nav .nav-link{font-weight:700;text-decoration:none;color:var(--ink)}
+.site-nav .nav-link:hover{text-decoration:underline}
 
-  <!-- ===== Header / Navbar ===== -->
-  <header class="navbar">
-    <div class="container nav-inner">
-      <a href="index.html" class="brand">
-        <img src="assets/images/logos/logo-black.png" alt="MVP Painting Logo" class="header-logo">
-        <span class="sr-only">MVP Painting</span>
-      </a>
+/* --- buttons --- */
+.btn{display:inline-block;padding:12px 18px;border-radius:12px;border:1px solid var(--ink);text-decoration:none;color:#fff;background:var(--ink);font-weight:700;box-shadow:0 4px 14px rgba(0,0,0,.10)}
+.btn:hover{opacity:.92}
+.btn-dark{background:var(--ink);color:#fff;border-color:var(--ink)}
+.btn-light{background:#fff;color:var(--ink);border-color:#fff}
+.btn-gold{background:var(--gold);border-color:var(--gold);color:var(--ink)}
 
-      <nav class="nav-links">
-        <a href="index.html" class="active">Home</a>
-        <a href="services.html">Services</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="about.html">About</a>
-        <a href="blog.html">Blog</a>
-        <a href="contact.html">Contact</a>
-        <a href="tel:17343662493" class="btn btn-call">Call Now</a>
-      </nav>
-    </div>
-  </header>
+/* --- hero --- */
+.parallax-hero{position:relative;min-height:70vh;isolation:isolate;overflow:hidden}
+.parallax-hero .slides{position:absolute;inset:0}
+.parallax-hero .slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity .8s ease}
+.parallax-hero .slide.active{opacity:1}
+.parallax-hero .shade{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,.25) 0%, rgba(0,0,0,.35) 60%, rgba(0,0,0,.45) 100%);mix-blend:normal}
+.parallax-hero .caption{position:absolute;inset:auto 0 12vh 0;display:grid;place-items:center;text-align:center;padding:0 20px;color:#fff}
+.parallax-hero .caption h1{font-size:clamp(28px,5.2vw,48px);line-height:1.15;margin:0 0 12px;text-shadow:0 2px 10px rgba(0,0,0,.4)}
+.parallax-hero .caption p{margin:0 0 18px;font-size:clamp(16px,2.4vw,20px);text-shadow:0 1px 6px rgba(0,0,0,.35)}
+.parallax-hero .arrow{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.82);border:0;border-radius:999px;width:42px;height:42px;font-size:26px;cursor:pointer}
+.parallax-hero .arrow:hover{background:#fff}
+.parallax-hero .prev{left:14px}
+.parallax-hero .next{right:14px}
 
-  <!-- ===== Hero (Rotation) ===== -->
-  <section class="parallax-hero" id="hero-index" data-hero="rotation" aria-label="Index hero">
-    <div class="slides">
-      <div class="slide" style="background-image:url('assets/images/hero-index/hero-index-1.jpeg')"></div>
-      <div class="slide" style="background-image:url('assets/images/hero-index/hero-index-2.jpeg')"></div>
-      <div class="slide" style="background-image:url('assets/images/hero-index/hero-index-4.jpeg')"></div>
-      <div class="slide" style="background-image:url('assets/images/hero-index/hero-index-5.jpeg')"></div>
-      <div class="slide" style="background-image:url('assets/images/hero-index/hero-index-6.jpeg')"></div>
-      <div class="slide" style="background-image:url('assets/images/hero-index/hero-index-7.jpeg')"></div>
-    </div>
+/* --- sections --- */
+.section{padding:64px 0}
+.bg-paper{background:var(--paper)}
+.h2{font-size:clamp(26px,3.3vw,34px);margin:0 0 24px}
 
-    <!-- gradient for contrast; no blurry box -->
-    <div class="overlay"></div>
+/* 3-up stats */
+.three-up{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.card.stat{background:#fff;border:1px solid #e7e7e7;border-radius:16px;box-shadow:0 6px 24px rgba(0,0,0,.06);padding:26px;text-align:center}
+.card.stat .icon{font-size:28px;margin-bottom:8px}
+.card.stat h3{margin:0 0 8px}
 
-    <div class="caption">
-      <h1>Premium Painting for Homes &amp; Businesses in Macomb &amp; Oakland County</h1>
-      <p>Transform your space with Michigan’s most trusted painting team. Clean, professional, and always on time.</p>
-      <a href="contact.html#estimate-form" class="btn btn-gold">Request Your Free Quote</a>
-    </div>
-  </section>
+/* work grid */
+.work-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+.card.work{display:block;text-decoration:none;color:inherit;background:#fff;border:1px solid #e7e7e7;border-radius:16px;overflow:hidden;box-shadow:0 8px 28px rgba(0,0,0,.06);transition:transform .15s ease, box-shadow .15s ease}
+.card.work:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(0,0,0,.10)}
+.card-img{width:100%;height:220px;display:block;object-fit:cover}
+.card.work .body{padding:16px}
+.card.work h3{margin:0 0 6px;font-size:18px}
 
-  <!-- ===== Why Choose Us ===== -->
-  <section class="section">
-    <div class="container">
-      <div class="features">
-        <div class="feature">
-          <div class="emoji">🏆</div>
-          <h3>15+ Years of Experience</h3>
-          <p>Expert crews delivering flawless results across Southeast Michigan.</p>
-        </div>
-        <div class="feature">
-          <div class="emoji">🛡️</div>
-          <h3>Licensed &amp; Insured</h3>
-          <p>Fully licensed, bonded, and insured for your peace of mind.</p>
-        </div>
-        <div class="feature">
-          <div class="emoji">⭐</div>
-          <h3>5-Star Reputation</h3>
-          <p>We’re not done until you’re thrilled — ask our clients.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+/* testimonials */
+.testimonials{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.quote{background:#fff;border:1px solid #e7e7e7;border-radius:16px;box-shadow:0 6px 24px rgba(0,0,0,.06);padding:22px}
+.quote footer{color:#566;}
 
-  <!-- ===== Project Gallery (3 cards) ===== -->
-  <section class="section bg-paper" id="gallery">
-    <div class="container">
-      <h2 class="h2 center">Project Gallery</h2>
+/* CTA */
+.cta{background:var(--ink);color:#fff;padding:56px 0;text-align:center}
+.cta .btn-light{margin-top:10px}
 
-      <div class="work-grid">
-        <a class="card" href="gallery.html#interior">
-          <img loading="lazy" decoding="async" class="card-img" src="assets/images/gallery/interior/kitchen-after-sterling-heights-macomb-county.jpg" alt="Residential Interior Painting">
-          <div class="card-body">
-            <h3>Residential Interior</h3>
-            <p>Clean lines, modern colors, flawless finishes.</p>
-          </div>
-        </a>
-
-        <a class="card" href="gallery.html#commercial">
-          <img loading="lazy" decoding="async" class="card-img" src="assets/images/gallery/commercial/commercial-masonic-temple-after-stclair-shores-macomb-county.jpg" alt="Commercial Painting">
-          <div class="card-body">
-            <h3>Commercial Projects</h3>
-            <p>Professional results for offices, retail, and more.</p>
-          </div>
-        </a>
-
-        <a class="card" href="gallery.html#exterior">
-          <img loading="lazy" decoding="async" class="card-img" src="assets/images/gallery/exterior/exterior-brick-after-eastpointe-macomb-county.jpg" alt="Exterior Painting">
-          <div class="card-body">
-            <h3>Exterior Painting</h3>
-            <p>Weather-resistant coatings that boost curb appeal.</p>
-          </div>
-        </a>
-      </div>
-
-      <p class="center mt-24">
-        <a class="btn" href="gallery.html">View Full Gallery</a>
-      </p>
-    </div>
-  </section>
-
-  <!-- ===== Testimonials ===== -->
-  <section class="section">
-    <div class="container">
-      <h2 class="h2 center">What Our Clients Say</h2>
-      <div class="testimonials">
-        <blockquote class="quote">
-          <p>“MVP Painting exceeded our expectations. The crew was professional, clean, and the results are stunning!”</p>
-          <footer>— Sarah M., Macomb</footer>
-        </blockquote>
-        <blockquote class="quote">
-          <p>“We love our new office look! Fast, friendly, and top quality. Highly recommend.”</p>
-          <footer>— John D., Troy</footer>
-        </blockquote>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== CTA Banner ===== -->
-  <section class="cta-banner">
-    <div class="container center">
-      <h2>Ready to Transform Your Space?</h2>
-      <p>Book your free, no-obligation estimate and see why Michigan trusts MVP Painting.</p>
-      <a href="contact.html#estimate-form" class="btn btn-light">Get Your Free Estimate</a>
-    </div>
-  </section>
-
-  <!-- ===== Footer ===== -->
-  <footer class="footer">
-    <div class="container footer-inner">
-      <div class="footer-brand">
-        <img loading="lazy" decoding="async" src="assets/images/logos/logo-white.png" alt="MVP Painting White Logo" class="footer-logo">
-        <span class="brand-name">MVP Painting</span>
-      </div>
-
-      <div class="footer-info">
-        <p><strong>Email:</strong> <a href="mailto:elvirpurovic@mvpdecor.com">elvirpurovic@mvpdecor.com</a></p>
-        <p><strong>Phone:</strong> <a href="tel:17343662493">(734) 366-2493</a></p>
-        <p><a href="https://www.sherwin-williams.com/" target="_blank" rel="noopener">We proudly use Sherwin-Williams Paint</a></p>
-      </div>
-
-      <div class="footer-links">
-        <a href="privacy-policy.html">Privacy Policy</a>
-        <a href="terms.html">Terms &amp; Conditions</a>
-      </div>
-    </div>
-  </footer>
-
-  <script src="assets/js/hero-rotator.js" defer></script>
-</body>
-</html>
-
-/* === Cards: image sizing === */
-.card-img{width:100%;display:block;object-fit:cover;aspect-ratio:16/9}
-
-/* === Header + Hero polish === */
-.header-logo{height:48px;width:auto;display:block}
-.site-nav a{font-weight:700}
-.parallax-hero .caption .card{background:transparent!important;box-shadow:none!important;border:0!important}
-.parallax-hero .caption h1{color:#0f172a;text-shadow:0 2px 8px rgba(255,255,255,.85),0 3px 12px rgba(0,0,0,.18)}
+/* footer */
+.footer{background:var(--ink);color:#fff;padding:28px 0;margin-top:28px}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.brand-foot{display:flex;align-items:center;gap:10px}
+.footer-logo{height:40px;width:auto;display:block}
+.foot-links a,.foot-info a{color:#fff;text-decoration:underline}

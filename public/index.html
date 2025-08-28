@@ -1,122 +1,118 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Premium Residential & Commercial Painting in Macomb & Oakland County. Trusted, professional, and beautiful results. Get your free estimate today!">
+  <meta name="description" content="Premium Residential & Commercial Painting in Macomb & Oakland County. Trusted, professional, and beautiful results. Get your free estimate today!" />
   <title>MVP Painting | Residential & Commercial Painting in Macomb & Oakland County</title>
 
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700&display=swap" rel="stylesheet" />
 
-  <!-- keep your old CSS if you want; this new file handles everything important -->
-  <link rel="stylesheet" href="assets/css/custom.css">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/custom.css">
-  <script src="assets/js/hero-rotator.js" defer></script>
+  <!-- your theme css (keep if you have styles here) -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <!-- our small overrides -->
+  <link rel="stylesheet" href="assets/css/custom.css" />
+
+  <script defer src="assets/js/hero-rotator.js"></script>
 </head>
-<body>
+<body class="site">
 
   <!-- ===== Header / Navbar ===== -->
-  <header class="navbar">
-    <div class="container nav-inner">
-      <a href="index.html" class="brand">
-        <img src="/assets/images/logos/logo-black.png" alt="MVP Painting Logo" class="header-logo">
-        <span class="sr-only">MVP Painting</span>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="MVP Painting Home">
+        <img src="/assets/images/logos/logo-black.png" alt="MVP Painting Logo" class="header-logo" />
       </a>
 
-      <nav class="nav-links">
-        <a href="index.html" class="active">Home</a>
-        <a href="services.html">Services</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="about.html">About</a>
-        <a href="blog.html">Blog</a>
-        <a href="contact.html">Contact</a>
-        <a href="tel:17343662493" class="btn btn-call">Call Now</a>
+      <nav class="site-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="gallery.html" class="nav-link">Gallery</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="tel:17343662493" class="btn btn-dark">Call Now</a>
       </nav>
     </div>
   </header>
 
-  <!-- ===== Hero (Rotation) ===== -->
-  <section class="parallax-hero" id="hero-index" data-hero="rotation" aria-label="Index hero">
+  <!-- ===== Hero (Parallax + Rotation) ===== -->
+  <section class="parallax-hero" id="hero-index" aria-label="Homepage hero">
     <div class="slides">
-      <div class="slide" style="background-image:url('assets/images/hero-index/hero-index-1.jpeg')"></div>
-      <div class="slide" style="background-image:url('assets/images/hero-index/hero-index-2.jpeg')"></div>
-      <div class="slide" style="background-image:url('assets/images/hero-index/hero-index-4.jpeg')"></div>
-      <div class="slide" style="background-image:url('assets/images/hero-index/hero-index-5.jpeg')"></div>
-      <div class="slide" style="background-image:url('assets/images/hero-index/hero-index-6.jpeg')"></div>
-      <div class="slide" style="background-image:url('assets/images/hero-index/hero-index-7.jpeg')"></div>
+      <div class="slide active" style="background-image:url('/assets/images/hero-index/hero-index-1.jpeg')"></div>
+      <div class="slide"         style="background-image:url('/assets/images/hero-index/hero-index-2.jpeg')"></div>
+      <div class="slide"         style="background-image:url('/assets/images/hero-index/hero-index-4.jpeg')"></div>
+      <div class="slide"         style="background-image:url('/assets/images/hero-index/hero-index-5.jpeg')"></div>
+      <div class="slide"         style="background-image:url('/assets/images/hero-index/hero-index-6.jpeg')"></div>
+      <div class="slide"         style="background-image:url('/assets/images/hero-index/hero-index-7.jpeg')"></div>
     </div>
-
-    <!-- gradient for contrast; no blurry box -->
-    <div class="overlay"></div>
+    <div class="shade"></div>
 
     <div class="caption">
       <h1>Premium Painting for Homes &amp; Businesses in Macomb &amp; Oakland County</h1>
       <p>Transform your space with Michigan’s most trusted painting team. Clean, professional, and always on time.</p>
       <a href="contact.html#estimate-form" class="btn btn-gold">Request Your Free Quote</a>
     </div>
+
+    <button class="arrow prev" aria-label="Previous slide">‹</button>
+    <button class="arrow next" aria-label="Next slide">›</button>
   </section>
 
-  <!-- ===== Why Choose Us ===== -->
+  <!-- ===== Why Us (3-up) ===== -->
   <section class="section">
-    <div class="container">
-      <div class="features">
-        <div class="feature">
-          <div class="emoji">🏆</div>
-          <h3>15+ Years of Experience</h3>
-          <p>Expert crews delivering flawless results across Southeast Michigan.</p>
-        </div>
-        <div class="feature">
-          <div class="emoji">🛡️</div>
-          <h3>Licensed &amp; Insured</h3>
-          <p>Fully licensed, bonded, and insured for your peace of mind.</p>
-        </div>
-        <div class="feature">
-          <div class="emoji">⭐</div>
-          <h3>5-Star Reputation</h3>
-          <p>We’re not done until you’re thrilled — ask our clients.</p>
-        </div>
+    <div class="container three-up">
+      <div class="card stat">
+        <div class="icon">���</div>
+        <h3>15+ Years of Experience</h3>
+        <p>Expert crews delivering flawless results across Southeast Michigan.</p>
+      </div>
+      <div class="card stat">
+        <div class="icon">���️</div>
+        <h3>Licensed &amp; Insured</h3>
+        <p>Fully licensed, bonded, and insured for your peace of mind.</p>
+      </div>
+      <div class="card stat">
+        <div class="icon">⭐</div>
+        <h3>5-Star Reputation</h3>
+        <p>We’re not done until you’re thrilled.</p>
       </div>
     </div>
   </section>
 
-  <!-- ===== Project Gallery (3 cards) ===== -->
-  <section class="section bg-paper" id="gallery">
+  <!-- ===== Project Gallery Preview ===== -->
+  <section class="section bg-paper">
     <div class="container">
       <h2 class="h2 center">Project Gallery</h2>
 
       <div class="work-grid">
-        <a class="card" href="gallery.html#interior">
-          <img loading="lazy" decoding="async" class="card-img" src="assets/images/gallery/interior/kitchen-after-sterling-heights-macomb-county.jpg" alt="Residential Interior Painting">
-          <div class="card-body">
+        <a class="card work" href="gallery.html#interior">
+          <img class="card-img" src="assets/images/gallery/interior/kitchen-after-sterling-heights-macomb-county.jpg" alt="Residential Interior Painting" loading="lazy" decoding="async" />
+          <div class="body">
             <h3>Residential Interior</h3>
             <p>Clean lines, modern colors, flawless finishes.</p>
           </div>
         </a>
 
-        <a class="card" href="gallery.html#commercial">
-          <img loading="lazy" decoding="async" class="card-img" src="assets/images/gallery/commercial/commercial-masonic-temple-after-stclair-shores-macomb-county.jpg" alt="Commercial Painting">
-          <div class="card-body">
+        <a class="card work" href="gallery.html#commercial">
+          <img class="card-img" src="assets/images/gallery/commercial/commercial-masonic-temple-after-stclair-shores-macomb-county.jpg" alt="Commercial Projects" loading="lazy" decoding="async" />
+          <div class="body">
             <h3>Commercial Projects</h3>
             <p>Professional results for offices, retail, and more.</p>
           </div>
         </a>
 
-        <a class="card" href="gallery.html#exterior">
-          <img loading="lazy" decoding="async" class="card-img" src="assets/images/gallery/exterior/exterior-brick-after-eastpointe-macomb-county.jpg" alt="Exterior Painting">
-          <div class="card-body">
+        <a class="card work" href="gallery.html#exterior">
+          <img class="card-img" src="assets/images/gallery/exterior/exterior-brick-after-eastpointe-macomb-county.jpg" alt="Exterior Painting" loading="lazy" decoding="async" />
+          <div class="body">
             <h3>Exterior Painting</h3>
             <p>Weather-resistant coatings that boost curb appeal.</p>
           </div>
         </a>
       </div>
 
-      <p class="center mt-24">
-        <a class="btn" href="gallery.html">View Full Gallery</a>
-      </p>
+      <p class="center mt-24"><a class="btn" href="gallery.html">View Full Gallery</a></p>
     </div>
   </section>
 
@@ -138,9 +134,9 @@
   </section>
 
   <!-- ===== CTA Banner ===== -->
-  <section class="cta-banner">
+  <section class="cta">
     <div class="container center">
-      <h2>Ready to Transform Your Space?</h2>
+      <h2 class="h2">Ready to Transform Your Space?</h2>
       <p>Book your free, no-obligation estimate and see why Michigan trusts MVP Painting.</p>
       <a href="contact.html#estimate-form" class="btn btn-light">Get Your Free Estimate</a>
     </div>
@@ -149,24 +145,22 @@
   <!-- ===== Footer ===== -->
   <footer class="footer">
     <div class="container footer-inner">
-      <div class="footer-brand">
-        <img loading="lazy" decoding="async" src="assets/images/logos/logo-white.png" alt="MVP Painting White Logo" class="footer-logo">
-        <span class="brand-name">MVP Painting</span>
+      <div class="brand-foot">
+        <img src="/assets/images/logos/logo-white.png" alt="MVP Painting White Logo" class="footer-logo" />
+        <span class="name">MVP Painting</span>
       </div>
 
-      <div class="footer-info">
+      <div class="foot-info">
         <p><strong>Email:</strong> <a href="mailto:elvirpurovic@mvpdecor.com">elvirpurovic@mvpdecor.com</a></p>
         <p><strong>Phone:</strong> <a href="tel:17343662493">(734) 366-2493</a></p>
         <p><a href="https://www.sherwin-williams.com/" target="_blank" rel="noopener">We proudly use Sherwin-Williams Paint</a></p>
       </div>
 
-      <div class="footer-links">
+      <div class="foot-links">
         <a href="privacy-policy.html">Privacy Policy</a>
         <a href="terms.html">Terms &amp; Conditions</a>
       </div>
     </div>
   </footer>
-
-  <script src="assets/js/hero-rotator.js" defer></script>
 </body>
 </html>
