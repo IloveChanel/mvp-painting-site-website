@@ -364,3 +364,28 @@
 /* Card images: use ratio so they aren’t short/cropped */
 .img-card{display:block;width:100%;aspect-ratio:1980/1000;min-height:220px;object-fit:cover}
 @media (max-width:640px){.img-card{aspect-ratio:16/10}}
+/* === HOME GRID HELPERS === */
+.section{padding:4rem 1rem}
+.container{max-width:80rem;margin-inline:auto}
+.h2{font-size:clamp(1.75rem,2.5vw,2.25rem);font-weight:800;color:#0f172a;margin-bottom:1.25rem}
+.center{text-align:center}
+.mt-10{margin-top:2.5rem}
+.bg-paper{background:#f7f5f2}
+
+.work-grid{display:grid;grid-template-columns:repeat(1,minmax(0,1fr));gap:2rem}
+@media (min-width: 768px){.work-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+.card{display:block;background:#fff;border:1px solid #e5e7eb;border-radius:1rem;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,.06)}
+.card-img{display:block;width:100%;aspect-ratio:1980/1000;object-fit:cover}
+.card .body{padding:1rem}
+.card .body h3{font-weight:700;color:#0f172a;margin:0 0 .25rem}
+.card .body p{color:#475569;margin:0}
+
+/* hero readability (keeps what we added earlier) */
+.parallax-hero .overlay{
+  position:absolute;inset:0;
+  background: linear-gradient(to bottom, rgba(0,0,0,.35) 0%, rgba(0,0,0,.15) 45%, rgba(0,0,0,0) 75%);
+  pointer-events:none;
+}
+.parallax-hero .caption h1{color:#0f172a;font-weight:900;letter-spacing:-.01em}
+.parallax-hero .caption p{color:#111827;font-weight:600}

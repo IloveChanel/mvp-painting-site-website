@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css?v=1756415682">
   <script src="assets/js/scripts.js" defer></script>
-  <link rel="stylesheet" href="assets/css/custom.css?v=1756420455">
+  <link rel="stylesheet" href="assets/css/custom.css?v=1756419944">
   <script src="assets/js/hero-rotator.js?v=1756419944" defer></script>
 </head>
 <body class="bg-paper font-sans text-gray-900">
@@ -83,12 +83,14 @@
         </div>
       </div>
       <div class="bg-white rounded-2xl shadow overflow-hidden border border-slate-200">
+        <img loading="lazy" decoding="async" src="assets/images/gallery/exterior/exterior-brick-after-eastpointe-macomb-county.jpg" alt="Exterior Painting" class="img-card">
         <div class="p-5">
           <h3 class="font-semibold text-lg mb-2">Exterior Painting</h3>
           <p class="text-slate-600">Weather-resistant coatings that boost curb appeal.</p>
         </div>
       </div>
       <div class="bg-white rounded-2xl shadow overflow-hidden border border-slate-200">
+        <img loading="lazy" decoding="async" src="assets/images/gallery/commercial/commercial-masonic-temple-after-stclair-shores-macomb-county.jpg" alt="Commercial Painting" class="img-card">
         <div class="p-5">
           <h3 class="font-semibold text-lg mb-2">Commercial Projects</h3>
           <p class="text-slate-600">Professional results for offices, retail, and more.</p>
@@ -103,26 +105,34 @@
   </section>
 
   <!-- Project Gallery Section -->
-<section id="gallery" class="section bg-paper">
-  <div class="container">
-    <h2 class="h2 center">Project Gallery</h2>
-    <div class="work-grid">
-      <a class="card" href="gallery.html#interior">
-        <img class="card-img" src="assets/images/gallery/interior/kitchen-after-sterling-heights-macomb-county.jpg" alt="Residential Interior Painting">
-        <div class="body"><h3>Residential Interior</h3><p>Clean lines, modern colors, flawless finishes.</p></div>
-      </a>
-      <a class="card" href="gallery.html#commercial">
-        <img class="card-img" src="assets/images/gallery/commercial/commercial-masonic-temple-after-stclair-shores-macomb-county.jpg" alt="Commercial Painting">
-        <div class="body"><h3>Commercial Projects</h3><p>Professional results for offices, retail, and more.</p></div>
-      </a>
-      <a class="card" href="gallery.html#exterior">
-        <img class="card-img" src="assets/images/gallery/exterior/exterior-brick-after-eastpointe-macomb-county.jpg" alt="Exterior Painting">
-        <div class="body"><h3>Exterior Painting</h3><p>Weather-resistant coatings that boost curb appeal.</p></div>
-      </a>
+  <section id="gallery" class="py-20 bg-paper">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-semibold text-center text-gray-800 mb-8">Project Gallery</h2>
+      <div class="columns-1 sm:columns-2 md:columns-3 gap-4 space-y-4">
+        <div class="break-inside-avoid overflow-hidden rounded-2xl shadow-md bg-white">
+          <img loading="lazy" decoding="async" src="assets/images/gallery/interior/fireplace-after-sterling-heights-macomb-county.jpg" alt="Interior painting in Macomb County" class="w-full object-cover rounded-t-2xl">
+          <div class="p-4">
+            <p class="text-sm text-slate-700">Interior Project – Macomb County</p>
+            <p class="text-xs text-accent mt-1">#interiorpainting #macombcounty #beforeandafter</p>
+          </div>
+        </div>
+        <div class="break-inside-avoid overflow-hidden rounded-2xl shadow-md bg-white">
+          <img loading="lazy" decoding="async" src="assets/images/gallery/commercial/commercial-masonic-temple-after-stclair-shores-macomb-county.jpg" alt="Commercial building in Detroit Masonic" class="w-full object-cover rounded-t-2xl">
+          <div class="p-4">
+            <p class="text-sm text-slate-700">Commercial Project – Detroit Masonic Building</p>
+            <p class="text-xs text-accent mt-1">#commercialpainting #detroitprojects #trustedresults</p>
+          </div>
+        </div>
+        <div class="break-inside-avoid overflow-hidden rounded-2xl shadow-md bg-white">
+          <img loading="lazy" decoding="async" src="assets/images/gallery/exterior/exterior-brick-after-eastpointe-macomb-county.jpg" alt="Exterior home painting in Shelby" class="w-full object-cover rounded-t-2xl">
+          <div class="p-4">
+            <p class="text-sm text-slate-700">Exterior Project – Shelby Township</p>
+            <p class="text-xs text-accent mt-1">#exteriorpainting #shelbytwp #curbappeal</p>
+          </div>
+        </div>
+      </div>
     </div>
-    <p class="center mt-10"><a class="btn" href="gallery.html">View Full Gallery</a></p>
-  </div>
-</section>
+  </section>
 
   <!-- Testimonials -->
   <section class="bg-white py-16 px-4">
