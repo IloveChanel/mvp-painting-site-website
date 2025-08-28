@@ -389,3 +389,6 @@
 }
 .parallax-hero .caption h1{color:#0f172a;font-weight:900;letter-spacing:-.01em}
 .parallax-hero .caption p{color:#111827;font-weight:600}
+/* === HEADER LOGO SIZE === */
+.header-logo{height:48px;width:auto;display:block}
+@media (min-width:768px){.header-logo{height:56px}}
