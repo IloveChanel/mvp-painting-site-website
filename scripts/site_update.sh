@@ -2,17 +2,17 @@
 set -euo pipefail
 shopt -s nullglob
 
-PAGES=(index about services gallery blog contact)
+PAGES=(index about gallery blog services)
 LOGO_SRC="assets/images/logos/logo-black.png"
 
 mkdir -p public/assets/css public/assets/js scripts
 
-# Build Tailwind if present (harmless if not)
+# Build Tailwind if input exists
 if [ -f ./src/input.css ]; then
   npx tailwindcss -i ./src/input.css -o ./public/assets/css/style.css --minify
 fi
 
-# ---- CSS: fixed logo + hero styles ----
+# Ensure CSS/JS
 touch public/assets/css/custom.css
 grep -q '\.logo-fixed' public/assets/css/custom.css || cat >> public/assets/css/custom.css <<'CSS'
 /* Fixed top-right logo */
@@ -30,67 +30,41 @@ grep -q '/* === PARALLAX HERO ROTATOR === */' public/assets/css/custom.css || ca
 .parallax-hero .overlay{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.12),rgba(0,0,0,.10))}
 CSS
 
-# ---- JS: rotator + light parallax ----
 cat > public/assets/js/hero-rotator.js <<'JS'
 document.addEventListener('DOMContentLoaded', () => {
-  // Cross-fade
   document.querySelectorAll('.parallax-hero .slides').forEach(slides => {
     const items = Array.from(slides.querySelectorAll('.slide'));
     if (!items.length) return;
-    let i = 0;
-    items[0].classList.add('is-active');
-    setInterval(() => {
-      items[i].classList.remove('is-active');
-      i = (i + 1) % items.length;
-      items[i].classList.add('is-active');
-    }, 5000);
+    let i = 0; items[0].classList.add('is-active');
+    setInterval(() => { items[i].classList.remove('is-active'); i=(i+1)%items.length; items[i].classList.add('is-active'); }, 5000);
   });
-  // Lightweight parallax
   const onScroll = () => {
     document.querySelectorAll('.parallax-hero .slides').forEach(slides => {
       const rect = slides.parentElement.getBoundingClientRect();
       slides.style.transform = `translateY(${rect.top * -0.15}px)`;
     });
   };
-  onScroll();
-  document.addEventListener('scroll', onScroll, { passive: true });
+  onScroll(); document.addEventListener('scroll', onScroll, { passive: true });
 });
 JS
 
-# ---- HEAD fixes (link compiled CSS, custom.css, rotator JS; remove CDN if present) ----
+# Ensure head links and fixed logo
 fix_head () {
   local f="public/$1.html"; [ -f "$f" ] || return 0
   sed -i '/cdn\.tailwindcss\.com/d' "$f"
   grep -q 'assets/css/style.css' "$f" || sed -i 's#</head>#  <link rel="stylesheet" href="assets/css/style.css">\n</head>#' "$f"
   grep -q 'assets/css/custom.css' "$f" || sed -i 's#</head>#  <link rel="stylesheet" href="assets/css/custom.css">\n</head>#' "$f"
   grep -q 'assets/js/hero-rotator.js' "$f" || sed -i 's#</head>#  <script src="assets/js/hero-rotator.js" defer></script>\n</head>#' "$f"
+  grep -q 'class="logo-fixed"' "$f" || sed -i "s#<body[^>]*>#&\n  <img src=\"$LOGO_SRC\" alt=\"MVP Painting Logo\" class=\"logo-fixed\">#" "$f"
 }
 for p in "${PAGES[@]}"; do fix_head "$p"; done
 
-# ---- Fixed logo on each page (inject once) ----
-ensure_logo () {
-  local f="public/$1.html"; [ -f "$f" ] || return 0
-  grep -q 'class="logo-fixed"' "$f" || sed -i "s#<body[^>]*>#&\n  <img src=\"$LOGO_SRC\" alt=\"MVP Painting Logo\" class=\"logo-fixed\">#" "$f"
-}
-for p in "${PAGES[@]}"; do ensure_logo "$p"; done
-
-# ---- Which hero folders to use (your names) ----
-hero_dir_for () {
-  case "$1" in
-    index)   for d in public/assets/images/hero-index-photos public/assets/images/hero-index-photo; do [ -d "$d" ] && { echo "$d"; return; }; done ;;
-    blog)    [ -d public/assets/images/hero-blog-photos ] && echo public/assets/images/hero-blog-photos ;;
-    about)   [ -d public/assets/images/hero-about-photos ] && echo public/assets/images/hero-about-photos ;;
-    gallery) [ -d public/assets/images/hero-gallery-photos ] && echo public/assets/images/hero-gallery-photos ;;
-    services)[ -d public/assets/images/hero-services-photos ] && echo public/assets/images/hero-services-photos ;;
-  esac
-}
-
-# ---- Inject hero after <body> using images in folder ----
+# Helper: inject hero from assets/images/hero-<page>/*
 inject_hero () {
-  local page="$1" ; local html="public/${page}.html"; [ -f "$html" ] || return 0
-  local dir; dir="$(hero_dir_for "$page" || true)"
-  [ -n "${dir:-}" ] || { echo "skip hero ($page): folder not found"; return 0; }
-  imgs=( "$dir"/*.jpg "$dir"/*.jpeg "$dir"/*.png "$dir"/*.webp )
+  local page="$1"; local html="public/${page}.html"; [ -f "$html" ] || return 0
+  local dir="public/assets/images/hero-$page"
+  [ -d "$dir" ] || { echo "skip hero ($page): $dir not found"; return 0; }
+  imgs=( "$dir"/*.jpeg "$dir"/*.jpg "$dir"/*.png "$dir"/*.webp )
   [ ${#imgs[@]} -gt 0 ] || { echo "skip hero ($page): no images in $dir"; return 0; }
 
   local block="scripts/hero_${page}.html"
@@ -108,7 +82,6 @@ inject_hero () {
     echo "<!-- END HERO (${page^^}) -->"
   } > "$block"
 
-  # Replace any previous hero block and inject right after <body>
   local begin="<!-- BEGIN HERO (${page^^}) -->" end="<!-- END HERO (${page^^}) -->"
   sed -i "/${begin//\//\\/}/,/${end//\//\\/}/d" "$html"
   awk -v r="$(cat "$block")" '
@@ -118,14 +91,7 @@ inject_hero () {
     END{ if(ins==0) print r }
   ' "$html" > "$html.tmp" && mv "$html.tmp" "$html"
 }
-
 for p in "${PAGES[@]}"; do inject_hero "$p"; done
 
-# ---- Commit (only if there are staged changes) ----
+# Stage changes
 git add public/assets/css/style.css public/assets/css/custom.css public/assets/js/hero-rotator.js public/*.html scripts/*.html 2>/dev/null || true
-if ! git diff --cached --quiet; then
-  git commit -m "Normalize head, add fixed logo, parallax flip heroes (hero-* folders)"
-  git push
-else
-  echo "No changes to commit."
-fi
