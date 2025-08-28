@@ -3,19 +3,14 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "sanitize": "powershell -ExecutionPolicy Bypass -File scripts/sanitize.ps1",
-    "dev": "vite --root dist",
-    "build:css": "npx tailwindcss -i ./src/input.css -o ./dist/assets/css/style.css --minify",
-    "build": "npm run build:css && vite build --config vite.config.js",
-    "preview": "vite preview --config vite.config.js"
-  },
-  "engines": {
-    "node": ">=20.19.4",
-    "npm": ">=10.0.0"
+    "dev": "vite",
+    "build:css": "npx tailwindcss -i ./src/input.css -o ./public/assets/css/style.css --minify",
+    "build": "npm run build:css && vite build",
+    "preview": "vite preview --port 8888",
+    "sanitize": "powershell -ExecutionPolicy Bypass -File scripts/sanitize.ps1"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.21",
-    "netlify-cli": "^23.4.1",
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.17",
     "vite": "^5.4.19"

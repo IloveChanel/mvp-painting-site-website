@@ -1,0 +1,50 @@
+Microsoft Windows [Version 10.0.26100.4946]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\selli\mvp-painting-site-website>C:\Users\selli\mvp-painting-site-website> Volume in drive C has no label.
+ Volume Serial Number is 82AB-13BA
+
+ Directory of C:\Users\selli\mvp-painting-site-website
+
+08/28/2025  03:57 PM    <DIR>          .
+08/24/2025  04:32 PM    <DIR>          ..
+08/27/2025  07:13 PM               113 .editorconfig
+08/27/2025  07:13 PM               178 .gitattributes
+08/27/2025  05:07 PM               130 .gitignore
+08/27/2025  07:39 PM    <DIR>          .netlify
+08/27/2025  01:48 PM                 7 .node-version
+08/26/2025  12:46 PM                 9 .nvmrc
+08/27/2025  02:01 PM    <DIR>          .vscode
+08/27/2025  06:24 PM                 3 about.html
+08/27/2025  02:23 PM    <DIR>          backup_20250827_142307
+08/27/2025  02:23 PM    <DIR>          backup_20250827_142340
+08/27/2025  06:24 PM                 3 blog.html
+08/27/2025  06:24 PM                 3 contact.html
+08/27/2025  07:03 PM    <DIR>          dist
+08/27/2025  06:24 PM                 3 gallery.html
+08/28/2025  08:53 AM               126 index.html
+08/27/2025  07:21 PM                43 netlify.toml
+08/27/2025  07:13 PM                43 netlify.toml.bak
+08/28/2025  08:21 AM    <DIR>          node_modules
+08/28/2025  08:21 AM            82,158 package-lock.json
+08/28/2025  08:21 AM               527 package.json
+08/26/2025  07:34 PM    <DIR>          pages
+08/26/2025  05:53 PM                87 postcss.config.js
+08/27/2025  02:07 PM             3,566 project-structure.txt
+08/28/2025  11:59 AM    <DIR>          public
+08/27/2025  02:07 PM               997 README-NETLIFY.md
+08/27/2025  02:07 PM             1,189 README.md
+08/27/2025  03:28 PM    <DIR>          rescue_public_20250827_152800
+08/27/2025  03:28 PM    <DIR>          rescue_public_20250827_152822
+08/27/2025  07:13 PM    <DIR>          scripts
+08/27/2025  06:24 PM                 3 services.html
+08/26/2025  07:08 PM    <DIR>          src
+08/27/2025  07:29 PM               387 tailwind.config.js
+08/28/2025  03:58 PM               137 tree-public.txt
+08/28/2025  03:57 PM               310 tree-scripts.txt
+08/28/2025  03:57 PM               296 tree-src.txt
+08/27/2025  05:26 PM               149 vite.config.js
+              24 File(s)         90,467 bytes
+              14 Dir(s)  221,503,012,864 bytes free
+
+C:\Users\selli\mvp-painting-site-website>
