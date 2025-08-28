@@ -93,3 +93,10 @@
 .parallax-hero .slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity .8s ease}
 .parallax-hero .slide.is-active{opacity:1}
 .parallax-hero .overlay{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.12),rgba(0,0,0,.10))}
+/* === PARALLAX HERO ROTATOR === */
+.parallax-hero{position:relative;min-height:440px;overflow:hidden}
+@media (max-width:640px){.parallax-hero{min-height:320px}}
+.parallax-hero .slides{position:absolute;inset:0;will-change:transform}
+.parallax-hero .slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity .8s ease}
+.parallax-hero .slide.is-active{opacity:1}
+.parallax-hero .overlay{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.12),rgba(0,0,0,.10))}
