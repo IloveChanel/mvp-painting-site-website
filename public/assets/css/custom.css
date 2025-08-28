@@ -336,3 +336,31 @@
 /* Card images: use ratio so they aren’t short/cropped */
 .img-card{display:block;width:100%;aspect-ratio:1980/1000;min-height:220px;object-fit:cover}
 @media (max-width:640px){.img-card{aspect-ratio:16/10}}
+/* === NAV + HERO TIGHTEN === */
+.site-nav a{font-weight:700} /* bolder nav */
+.site-nav a:hover{opacity:.85}
+
+/* Keep hero 2:1 and show first slide */
+.parallax-hero{position:relative;width:100%;aspect-ratio:1980/1000;height:auto;max-height:85vh;overflow:hidden}
+@media (max-width:640px){.parallax-hero{aspect-ratio:16/10;max-height:70vh}}
+.parallax-hero .slides{position:absolute;inset:0;will-change:transform}
+.parallax-hero .slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity .8s ease}
+.parallax-hero .slide.is-active,.parallax-hero .slide:first-child{opacity:1}
+
+/* Soft gradient overlay for readability (not a box) */
+.parallax-hero .overlay{
+  position:absolute;inset:0;
+  background: linear-gradient(to bottom, rgba(0,0,0,.35) 0%, rgba(0,0,0,.15) 45%, rgba(0,0,0,0) 75%);
+  pointer-events:none;
+}
+
+/* If you ever want zero overlay again, add class "no-overlay" on the section */
+.parallax-hero.no-overlay .overlay{background:none !important}
+
+/* Caption text: darker & heavier without blur */
+.parallax-hero .caption h1{color:#0f172a;font-weight:900;letter-spacing:-.01em}
+.parallax-hero .caption p{color:#111827;font-weight:600}
+
+/* Card images: use ratio so they aren’t short/cropped */
+.img-card{display:block;width:100%;aspect-ratio:1980/1000;min-height:220px;object-fit:cover}
+@media (max-width:640px){.img-card{aspect-ratio:16/10}}
