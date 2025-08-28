@@ -1,15 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.parallax-hero .slides').forEach(slides => {
-    const items = Array.from(slides.querySelectorAll('.slide'));
-    if (!items.length) return;
-    let i = 0; items[0].classList.add('is-active');
-    setInterval(() => { items[i].classList.remove('is-active'); i=(i+1)%items.length; items[i].classList.add('is-active'); }, 5000);
-  });
-  const onScroll = () => {
-    document.querySelectorAll('.parallax-hero .slides').forEach(slides => {
-      const rect = slides.parentElement.getBoundingClientRect();
-      slides.style.transform = `translateY(${rect.top * -0.15}px)`;
-    });
-  };
-  onScroll(); document.addEventListener('scroll', onScroll, { passive: true });
+  const hero = document.querySelector('[data-hero="rotation"]');
+  if (!hero) return;
+
+  const slides = Array.from(hero.querySelectorAll('.slide'));
+  if (!slides.length) return;
+
+  let i = 0;
+  slides[0].classList.add('active');
+
+  setInterval(() => {
+    slides[i].classList.remove('active');
+    i = (i + 1) % slides.length;
+    slides[i].classList.add('active');
+  }, 5000);
 });
