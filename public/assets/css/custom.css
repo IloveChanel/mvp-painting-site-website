@@ -235,3 +235,18 @@
 .parallax-hero .caption p{margin:0 0 1em;font-size:clamp(16px,2.1vw,20px);text-shadow:0 1px 6px rgba(0,0,0,.35)}
 .parallax-hero .caption .cta{display:inline-block;padding:12px 22px;font-weight:700;border-radius:12px;background:#f1c232;color:#111;text-decoration:none}
 .parallax-hero .caption .cta:hover{opacity:.92}
+/* === HERO FALLBACK === */
+.parallax-hero .slide:first-child{opacity:1}
+/* === HERO CAPTION NObox === */
+.parallax-hero{position:relative;min-height:520px;overflow:hidden}
+@media (max-width:640px){.parallax-hero{min-height:360px}}
+.parallax-hero .slides{position:absolute;inset:0;will-change:transform}
+.parallax-hero .slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity .8s ease}
+.parallax-hero .slide.is-active{opacity:1}
+.parallax-hero .overlay{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.18),rgba(0,0,0,.12))}
+.parallax-hero .caption{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:clamp(16px,3vw,48px);z-index:2}
+.parallax-hero .caption .card{max-width:960px;background:transparent;border:none;box-shadow:none;padding:clamp(18px,2.6vw,30px)}
+.parallax-hero .caption h1{margin:0 0 .4em;font-size:clamp(28px,4.2vw,48px);line-height:1.1;font-weight:800;text-shadow:0 2px 8px rgba(0,0,0,.35)}
+.parallax-hero .caption p{margin:0 0 1em;font-size:clamp(16px,2.1vw,20px);text-shadow:0 1px 6px rgba(0,0,0,.35)}
+.parallax-hero .caption .cta{display:inline-block;padding:12px 22px;font-weight:700;border-radius:12px;background:#f1c232;color:#111;text-decoration:none}
+.parallax-hero .caption .cta:hover{opacity:.92}
