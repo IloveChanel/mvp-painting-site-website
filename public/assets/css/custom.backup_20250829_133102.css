@@ -812,26 +812,4 @@ html::after{
  }
 
  /* Footer logo sizing */
- .footer-logo{height:40px;width:auto;display:block}/* === GOLD/ROSE BACKGROUND v3 (soft, subtle) === */
-html,body{min-height:100%}
-body{
-  /* base: soft cream to warm gold, fading to near-white */
-  background:
-    linear-gradient(165deg, #ffffff 0%, #fdf8f4 26%, #f6ead8 54%, #f2e7dc 76%, #fffefe 100%),
-    radial-gradient( at 85% 120%, rgba(232,198,198,.25) 0%, rgba(232,198,198,0) 60%);
-  background-attachment: fixed;
-}
-.parallax-hero .overlay{
-  /* gentle white veil to improve text legibility without a box */
-  background: linear-gradient(to bottom, rgba(255,255,255,.38), rgba(255,255,255,.10) 55%, rgba(255,255,255,.42));
-}
-.parallax-hero .caption .card{ background: transparent !important; box-shadow: none !important; border: 0 !important; }
-.parallax-hero .caption h1{ color:#111; text-shadow: 0 2px 8px rgba(255,255,255,.65), 0 3px 10px rgba(0,0,0,.12); }
-.parallax-hero .caption p{ color:#1f2937; text-shadow: 0 1px 6px rgba(255,255,255,.55); }
-.parallax-hero .caption .cta{ background:#d6a354; color:#0f172a; font-weight:700; border-radius:12px; }
-
-.site-nav a{ font-weight:700; }            /* bolder nav */
-.header-logo{ height:48px; width:auto; }   /* visible logo sizing */
-
-.card-img{ width:100%; display:block; object-fit:cover; aspect-ratio:16/9; } /* prevent gaps */
-.footer-big a, .footer-big{ font-size:1.05rem; line-height:1.8; }             /* larger email/phone */
+ .footer-logo{height:40px;width:auto;display:block}
