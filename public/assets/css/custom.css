@@ -53,3 +53,65 @@ body{font-family:Montserrat,ui-sans-serif,system-ui,-apple-system,Segoe UI,Robot
 /* Footer */
 .footer{background:#111;color:#fff;padding:2.25rem 1rem;margin-top:3rem}
 .footer a{color:#fff;text-decoration:underline}
+
+/* === LUXE GOLD THEME START === */
+:root{
+  --ink:#0f172a;
+  --paper:#fbf8f4;
+  --gold:#caa04a;
+  --gold-2:#e5c77a;
+  --rose:#d9a0a5;
+  --accent:#6b214e;
+  --accent-ink:#ffffff;
+}
+
+/* brushed gold -> rose gold */
+body{
+  color:var(--ink);
+  background:
+    repeating-linear-gradient(100deg, rgba(255,255,255,.06) 0 2px, rgba(0,0,0,.05) 2px 4px),
+    linear-gradient(135deg, var(--gold) 0%, var(--gold-2) 40%, var(--rose) 100%);
+  background-attachment: fixed;
+}
+
+/* content panels read clearly on the luxe background */
+.section, .bg-paper, .bg-white, .card, .value-card{
+  background: rgba(255,255,255,.78);
+  backdrop-filter: saturate(110%) blur(0px);
+}
+
+/* header / nav / CTA */
+.header-logo{height:48px;width:auto;display:block}
+.site-nav a{font-weight:700}
+.site-nav .cta{
+  padding:.55rem .95rem;border-radius:.75rem;
+  background:var(--accent);color:var(--accent-ink);
+  box-shadow:0 6px 18px rgba(107,33,78,.18);
+}
+.site-nav .cta:hover{filter:brightness(1.05)}
+
+/* hero overlay: crisp text, no blurry box */
+.parallax-hero .caption .card{
+  background:transparent!important;border:0!important;box-shadow:none!important;
+}
+.parallax-hero .caption h1{
+  color:#111827;
+  text-shadow:0 2px 12px rgba(255,255,255,.85), 0 3px 18px rgba(0,0,0,.18);
+  font-weight:800;
+}
+.parallax-hero .caption p{color:#1f2937}
+
+/* home project-gallery cards */
+.work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+@media (max-width:1024px){ .work-grid{grid-template-columns:repeat(2,1fr)} }
+@media (max-width:640px){ .work-grid{grid-template-columns:1fr} }
+.card{
+  border-radius:18px;overflow:hidden;border:1px solid rgba(17,24,39,.08);
+  box-shadow:0 8px 24px rgba(17,24,39,.06);background:#fff;
+}
+.card-img{width:100%;display:block;object-fit:cover;aspect-ratio:16/9}
+.card .body{padding:18px}
+
+/* image safety */
+img{max-width:100%;height:auto;display:block}
+/* === LUXE GOLD THEME END === */
