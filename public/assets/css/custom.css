@@ -280,3 +280,119 @@ section, .section, .bg-paper, .bg-white { background: transparent !important; }
 
 /* Footer contact size */
 footer .contact, footer .contact a{ font-size:1.125rem; font-weight:700; }
+/* ROSE-GOLD-SOFT v3 */
+:root{
+  --gold-1:#d8b46a;   /* soft gold */
+  --gold-2:#e8cf95;   /* light champagne */
+  --rose-1:#dba8aa;   /* soft rose */
+}
+html,body{min-height:100%}
+body{
+  /* subtle brushed feel via 2 layered gradients, no stripes */
+  background:
+    radial-gradient(1200px 700px at 20% 10%, rgba(255,255,255,.35), transparent 60%),
+    radial-gradient(1200px 700px at 80% 90%, rgba(255,255,255,.25), transparent 60%),
+    linear-gradient(135deg, var(--gold-1) 0%, var(--gold-2) 45%, var(--rose-1) 100%);
+  background-attachment: fixed;
+}
+section.bg-white, .bg-white.section, .section.bg-paper, section.bg-paper{
+  background: transparent !important;  /* let the gradient show through */
+}
+
+/* header bits */
+.header-logo{height:48px;width:auto;display:block}
+.site-nav a{font-weight:700}
+
+/* card images (prevents blank tall boxes) */
+.card-img{width:100%;display:block;object-fit:cover;aspect-ratio:16/9}
+
+/* CTA soft card */
+.cta-card{
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  background: rgba(255,255,255,.82);
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,.10);
+}
+
+/* footer emphasis */
+.footer-contact a{font-weight:700; text-underline-offset:3px}
+/* ROSE-GOLD-SOFT v3 */
+:root{
+  --gold-1:#d8b46a;   /* soft gold */
+  --gold-2:#e8cf95;   /* light champagne */
+  --rose-1:#dba8aa;   /* soft rose */
+}
+html,body{min-height:100%}
+body{
+  background:
+    radial-gradient(1200px 700px at 20% 10%, rgba(255,255,255,.35), transparent 60%),
+    radial-gradient(1200px 700px at 80% 90%, rgba(255,255,255,.25), transparent 60%),
+    linear-gradient(135deg, var(--gold-1) 0%, var(--gold-2) 45%, var(--rose-1) 100%);
+  background-attachment: fixed;
+}
+section.bg-white, .bg-white.section, .section.bg-paper, section.bg-paper{
+  background: transparent !important;
+}
+.header-logo{height:48px;width:auto;display:block}
+.site-nav a{font-weight:700}
+.card-img{width:100%;display:block;object-fit:cover;aspect-ratio:16/9}
+.cta-card{
+  max-width:56rem;margin:0 auto;padding:2rem 1.5rem;
+  background:rgba(255,255,255,.82);border-radius:1rem;
+  box-shadow:0 10px 30px rgba(0,0,0,.10);
+}
+.footer-contact a{font-weight:700;text-underline-offset:3px}
+/* ROSE-GOLD-SOFT v3 */
+:root{
+  --gold-1:#d8b46a;   /* soft gold */
+  --gold-2:#e8cf95;   /* light champagne */
+  --rose-1:#dba8aa;   /* soft rose */
+}
+html,body{min-height:100%}
+body{
+  background:
+    radial-gradient(1200px 700px at 20% 10%, rgba(255,255,255,.35), transparent 60%),
+    radial-gradient(1200px 700px at 80% 90%, rgba(255,255,255,.25), transparent 60%),
+    linear-gradient(135deg, var(--gold-1) 0%, var(--gold-2) 45%, var(--rose-1) 100%);
+  background-attachment: fixed;
+}
+section.bg-white, .bg-white.section, .section.bg-paper, section.bg-paper{
+  background: transparent !important;
+}
+.header-logo{height:48px;width:auto;display:block}
+.site-nav a{font-weight:700}
+.card-img{width:100%;display:block;object-fit:cover;aspect-ratio:16/9}
+.cta-card{
+  max-width:56rem;margin:0 auto;padding:2rem 1.5rem;
+  background:rgba(255,255,255,.82);border-radius:1rem;
+  box-shadow:0 10px 30px rgba(0,0,0,.10);
+}
+.footer-contact a{font-weight:700;text-underline-offset:3px}
+/* ROSE-GOLD-SOFT v3 */
+:root{
+  --gold-1:#d8b46a;   /* soft gold */
+  --gold-2:#e8cf95;   /* light champagne */
+  --rose-1:#dba8aa;   /* soft rose */
+}
+html,body{min-height:100%}
+body{
+  background:
+    radial-gradient(1200px 700px at 20% 10%, rgba(255,255,255,.35), transparent 60%),
+    radial-gradient(1200px 700px at 80% 90%, rgba(255,255,255,.25), transparent 60%),
+    linear-gradient(135deg, var(--gold-1) 0%, var(--gold-2) 45%, var(--rose-1) 100%);
+  background-attachment: fixed;
+}
+section.bg-white, .bg-white.section, .section.bg-paper, section.bg-paper{
+  background: transparent !important;
+}
+.header-logo{height:48px;width:auto;display:block}
+.site-nav a{font-weight:700}
+.card-img{width:100%;display:block;object-fit:cover;aspect-ratio:16/9}
+.cta-card{
+  max-width:56rem;margin:0 auto;padding:2rem 1.5rem;
+  background:rgba(255,255,255,.82);border-radius:1rem;
+  box-shadow:0 10px 30px rgba(0,0,0,.10);
+}
+.footer-contact a{font-weight:700;text-underline-offset:3px}
