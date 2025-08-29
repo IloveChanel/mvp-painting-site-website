@@ -1,43 +1,45 @@
-/* === Global tweaks === */
 :root{--ink:#0f172a;--paper:#f8fafc;--accent:#f59e0b;--gold:#d4af37}
-body{font-family:Montserrat,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto; background:var(--paper); color:#111}
+body{font-family:Montserrat,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto;background:var(--paper);color:#111}
+
+/* Header / Nav */
 .header-logo{height:48px;width:auto;display:block}
-.site-nav a{font-weight:700; text-decoration:none; color:#111}
+.site-nav a{font-weight:700;text-decoration:none;color:#111}
 .site-nav a:hover{opacity:.8}
 
-/* Buttons */
-.btn{display:inline-block;padding:.75rem 1.25rem;border-radius:.75rem;background:#111;color:#fff;font-weight:700}
-.btn:hover{opacity:.9}
+/* Fix: nav anchor color was overriding the button text */
+.site-nav a.btn{color:#fff !important}
 
-/* === HERO (parallax + rotator) === */
+/* Buttons */
+.btn{display:inline-block;padding:.75rem 1.25rem;border-radius:.75rem;background:#111;color:#fff;font-weight:800}
+.btn:hover{opacity:.92}
+
+/* HERO (rotator; no background box) */
 .parallax-hero{position:relative;min-height:520px;overflow:hidden}
 @media (max-width:640px){.parallax-hero{min-height:380px}}
 .parallax-hero .slides{position:absolute;inset:0}
 .parallax-hero .slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity .8s ease}
 .parallax-hero .slide.active{opacity:1}
-.parallax-hero .overlay{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,.20) 50%, rgba(0,0,0,.35));pointer-events:none}
-.parallax-hero .caption{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;min-height:520px;padding:2rem}
+.parallax-hero .overlay{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,.18) 50%, rgba(0,0,0,.35))}
+.parallax-hero .caption{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;min-height:520px;padding:2rem;text-align:center}
 @media (max-width:640px){.parallax-hero .caption{min-height:380px}}
-.parallax-hero .caption .card{max-width:900px;margin:auto;text-align:center;background:transparent;box-shadow:none;border:0}
-.parallax-hero .caption h1{font-size:clamp(1.75rem,3.5vw,2.75rem);line-height:1.15;margin:.25rem 0 .75rem 0;color:#fff;text-shadow:0 3px 10px rgba(0,0,0,.45)}
+.parallax-hero .caption .card{max-width:900px;margin:auto;background:transparent;border:0;box-shadow:none}
+.parallax-hero .caption h1{font-size:clamp(1.9rem,3.6vw,2.9rem);line-height:1.15;margin:.25rem 0 .75rem 0;color:#fff;text-shadow:0 3px 10px rgba(0,0,0,.5)}
 .parallax-hero .caption p{font-size:clamp(1rem,2vw,1.125rem);color:#f1f5f9;text-shadow:0 2px 8px rgba(0,0,0,.45)}
 .parallax-hero .caption .cta{display:inline-block;margin-top:1rem;padding:.9rem 1.25rem;border-radius:.85rem;background:var(--gold);color:#111;font-weight:800}
 
-/* === Sections === */
+/* Sections / grids */
 .section{padding:4rem 1rem}
 .container{max-width:72rem;margin:0 auto}
 .center{text-align:center}
 .h2{font-size:1.875rem;font-weight:800;margin-bottom:2rem;color:var(--ink)}
 
-/* Why Us (uses your existing tailwind-ish classes too) */
 .badge-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2.25rem}
 @media (max-width:900px){.badge-grid{grid-template-columns:1fr}}
 .badge-card{background:#fff;border:1px solid #e5e7eb;border-radius:1.25rem;box-shadow:0 6px 20px rgba(15,23,42,.06);padding:2rem;text-align:center}
-.badge-emoji{font-size:1.9rem;color:var(--accent);margin-bottom:.5rem}
 .badge-title{font-weight:800;font-size:1.15rem;margin:.25rem 0 .4rem 0}
 .badge-text{color:#475569}
 
-/* Our Work grid */
+/* Our Work */
 .work-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2rem}
 @media (max-width:1000px){.work-grid{grid-template-columns:1fr 1fr}}
 @media (max-width:640px){.work-grid{grid-template-columns:1fr}}

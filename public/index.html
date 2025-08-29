@@ -16,8 +16,12 @@
   <!-- Header -->
   <header class="bg-white/95" style="position:sticky;top:0;z-index:50;border-bottom:1px solid #eee">
     <div class="container" style="display:flex;align-items:center;justify-content:space-between;padding:.9rem 1rem">
-      <a href="/index.html" class="flex items-center gap-3" style="display:flex;align-items:center;gap:.75rem;text-decoration:none">
-        <img src="/assets/images/logos/logo-black.png" alt="MVP Painting Logo" class="header-logo">
+      <a href="/index.html" style="display:flex;align-items:center;gap:.75rem;text-decoration:none">
+        <!-- If black logo fails, fall back to white -->
+        <img src="/assets/images/logos/logo-black.png"
+             alt="MVP Painting Logo"
+             class="header-logo"
+             onerror="this.onerror=null;this.src='/assets/images/logos/logo-white.png'">
         <span class="sr-only">MVP Painting</span>
       </a>
       <nav class="site-nav" style="display:flex;gap:1rem;align-items:center">
@@ -32,7 +36,7 @@
     </div>
   </header>
 
-  <!-- HERO: auto-rotating, no box behind text -->
+  <!-- HERO -->
   <section class="parallax-hero" id="hero-index" aria-label="Homepage hero">
     <div class="slides">
       <div class="slide" style="background-image:url('/assets/images/hero-index/hero-index-1.jpeg')"></div>
@@ -52,22 +56,28 @@
     </div>
   </section>
 
-  <!-- Why Choose Us -->
+  <!-- Why Choose Us (SVG icons = no more question marks) -->
   <section class="section">
     <div class="container">
       <div class="badge-grid">
         <div class="badge-card">
-          <div class="badge-emoji">ÌøÜ</div>
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="#f59e0b" aria-hidden="true" class="badge-emoji">
+            <path d="M5 3h14v3a5 5 0 0 1-4 4.9V13h2v3H7v-3h2V10.9A5 5 0 0 1 5 6V3zm2 3a3 3 0 0 0 6 0H7zM8 18h8v2H8v-2z"/>
+          </svg>
           <div class="badge-title">15+ Years of Experience</div>
           <p class="badge-text">Expert crews delivering flawless results across Southeast Michigan.</p>
         </div>
         <div class="badge-card">
-          <div class="badge-emoji">Ìª°Ô∏è</div>
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="#f59e0b" aria-hidden="true" class="badge-emoji">
+            <path d="M12 2l7 3v5c0 5-3.5 9.7-7 12-3.5-2.3-7-7-7-12V5l7-3z"/>
+          </svg>
           <div class="badge-title">Licensed &amp; Insured</div>
           <p class="badge-text">Fully licensed, bonded, and insured for your peace of mind.</p>
         </div>
         <div class="badge-card">
-          <div class="badge-emoji">‚≠ê</div>
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="#f59e0b" aria-hidden="true" class="badge-emoji">
+            <path d="M12 2l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.8 6.2 20.9l1.1-6.5L2.6 8.8l6.5-.9L12 2z"/>
+          </svg>
           <div class="badge-title">5-Star Reputation</div>
           <p class="badge-text">We‚Äôre not done until you‚Äôre thrilled ‚Äî ask our clients.</p>
         </div>
@@ -75,7 +85,7 @@
     </div>
   </section>
 
-  <!-- Project Gallery Preview -->
+  <!-- Project Gallery Preview (uses your existing images; no new folders needed) -->
   <section class="section bg-paper" id="work">
     <div class="container">
       <h2 class="h2 center">Project Gallery</h2>
@@ -129,7 +139,11 @@
   <footer class="footer">
     <div class="container" style="display:flex;gap:1.5rem;align-items:center;justify-content:space-between;flex-wrap:wrap">
       <div style="display:flex;align-items:center;gap:.75rem">
-        <img src="/assets/images/logos/logo-white.png" alt="MVP Painting White Logo" style="height:40px;width:auto">
+        <!-- Fallback to black logo if white missing -->
+        <img src="/assets/images/logos/logo-white.png"
+             alt="MVP Painting White Logo"
+             style="height:40px;width:auto"
+             onerror="this.onerror=null;this.src='/assets/images/logos/logo-black.png'">
         <strong>MVP Painting</strong>
       </div>
       <div style="font-size:.95rem;line-height:1.6">
