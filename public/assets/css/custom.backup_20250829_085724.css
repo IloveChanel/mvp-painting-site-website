@@ -205,39 +205,3 @@ main, header, footer, section, .section,
   background:#0f172a;color:#fff;padding:.5rem .75rem;border-radius:.5rem;font-weight:700
 }
 .site-nav a[href^="tel:"]:hover{filter:brightness(1.1)}
-/* ROSE-GOLD-GLOBAL v3 */
-html,body{min-height:100%}
-body{
-  background:
-    repeating-linear-gradient(100deg, rgba(255,255,255,.05) 0 2px, rgba(0,0,0,.04) 2px 4px),
-    linear-gradient(135deg,#caa04a 0%, #e6c77b 40%, #d7a7a7 100%);
-  background-attachment: fixed;
-}
-
-/* Let the gradient show everywhere (keep cards readable) */
-section, .section, .bg-paper { background: transparent !important; }
-.bg-accent, .bg-primary { background: transparent !important; }
-
-/* Cards stay white for readability */
-.card, .value-card, .bg-white:not(section){ background:#fff !important; }
-
-/* Header/logo/nav + CTA */
-.header-logo{height:48px;width:auto;display:block}
-.site-nav a{font-weight:800; letter-spacing:.02em}
-.site-nav .cta{
-  padding:.5rem .9rem; border-radius:.6rem;
-  background:#0f172a; color:#fff; font-weight:800; display:inline-block
-}
-
-/* Hero caption: darker title (no blurry box), readable on photos */
-.parallax-hero .caption .card{background:transparent!important;box-shadow:none!important;border:0!important}
-.parallax-hero .caption h1{color:#0f172a; text-shadow:0 2px 8px rgba(255,255,255,.85),0 3px 12px rgba(0,0,0,.18)}
-.parallax-hero .caption p, .parallax-hero .caption .cta{ text-shadow:0 1px 3px rgba(0,0,0,.35) }
-
-/* Emoji fallback so no more ? boxes */
-.emoji, .emoji *{
-  font-family:"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji","Segoe UI Symbol",system-ui,sans-serif !important;
-}
-
-/* Consistent images */
-.card-img{width:100%;height:auto;display:block;object-fit:cover;aspect-ratio:16/9}
