@@ -1,0 +1,20 @@
+public/assets/images/gallery/commercial/commercial-masonic-temple-before-stclair-shores-macomb-county.jpg
+public/assets/images/gallery/exterior/exterior-brick-before-eastpointe-macomb-county.jpg
+public/assets/images/gallery/exterior/exterior-victorian-home-after-paint-mount-clemens-macomb-county (1).jpg
+public/assets/images/gallery/exterior/victoria-home-graywhite-mvp-painting.jpg
+public/assets/images/gallery/interior/bathroom-gray-beforeafter-mvp-painting.jpg
+public/assets/images/gallery/interior/fireplace-after-sterling-heights-macomb-county.jpg
+public/assets/images/gallery/interior/fireplace-before-sterling-heights-macomb-county.jpg
+public/assets/images/gallery/interior/grand-staircase-mansion-mvp-painting.jpg
+public/assets/images/gallery/interior/kitchen-before-sterling-heights-macomb-county.jpg
+public/assets/images/gallery/interior/kitchen-modern-mvp-painting.jpg
+public/assets/images/gallery/interior/living-room-builtins-after-mvp-painting.jpg
+public/assets/images/gallery/interior/living-room-builtins-before-mvp-painting.jpg
+public/assets/images/gallery/interior/staircase-after.jpg
+public/assets/images/gallery/interior/staircase-before.jpg
+public/assets/images/gallery/interior/victoria-home-graywhite-mvp-painting.jpg
+public/assets/images/home-cards/commercial-1.jpeg
+public/assets/images/home-cards/exterior-1.jpeg
+public/assets/images/home-cards/residential-1.jpeg
+public/assets/images/logo-black.png
+public/assets/images/logo-white.png
