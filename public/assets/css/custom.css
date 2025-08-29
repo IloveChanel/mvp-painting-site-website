@@ -109,3 +109,52 @@ section,.section,.bg-paper,.bg-white{ background:transparent !important; }
 .card{background:#fff;border-radius:1rem;overflow:hidden;box-shadow:0 10px 26px rgba(0,0,0,.10);border:1px solid rgba(15,23,42,.06)}
 .card-img{width:100%;display:block;object-fit:cover;aspect-ratio:16/9;object-position:center}
 footer .contact, footer .contact a{font-size:1.125rem;font-weight:700}
+/* === HOME PAGE FIX PACK (v3) === */
+
+/* Softer background + faint rose in bottom-right */
+:root{
+  --ink:#0f172a;
+  --gold-1:#faf8f2;   /* very light gold */
+  --gold-2:#f2ecdf;   /* soft brushed */
+  --rose-1:#f3dde2;   /* gentle rose */
+}
+html,body{min-height:100%}
+body{
+  color:var(--ink);
+  background:
+    radial-gradient(900px 700px at 100% 100%, rgba(243,221,226,.35), transparent 62%),
+    linear-gradient(135deg, #fff 0%, var(--gold-1) 40%, var(--gold-2) 68%, var(--rose-1) 100%);
+  background-attachment: fixed;
+}
+
+/* HERO overlay a touch lighter so background isn’t harsh */
+.parallax-hero .overlay{
+  background:linear-gradient(to bottom, rgba(0,0,0,.10), rgba(0,0,0,.20));
+}
+
+/* ===== HOME CARDS (fix “boxes are huge”) =====
+   Force a sane, responsive image height and tighter padding */
+#home-cards .card-img{
+  width:100%;
+  height:clamp(160px, 22vw, 230px); /* <- this is the fix */
+  object-fit:cover;
+  object-position:center;
+  aspect-ratio:auto; /* override any previous aspect-ratio */
+}
+#home-cards .card{ border:1px solid rgba(15,23,42,.06); border-radius:12px; box-shadow:0 10px 26px rgba(0,0,0,.10); overflow:hidden; }
+#home-cards .card .p-5{ padding:14px 16px; }
+
+/* Make sure any leftover Tailwind height classes don’t fight us */
+img.card-img.h-56, img.card-img.h-64, img.card-img.h-80 { height:auto !important; }
+/* HOMECARDS_THUMBS_FIX v1 */
+.card-img[src*="/assets/images/home-cards/"]{
+  width:100%;
+  height:220px;             /* tidy, not huge */
+  object-fit:cover;         /* crop nicely */
+  object-position:center;
+  aspect-ratio:auto !important; /* cancel the global 16:9 */
+  display:block;
+}
+@media (min-width:1024px){
+  .card-img[src*="/assets/images/home-cards/"]{ height:260px; }
+}
