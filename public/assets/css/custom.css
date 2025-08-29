@@ -115,3 +115,27 @@ body{
 /* image safety */
 img{max-width:100%;height:auto;display:block}
 /* === LUXE GOLD THEME END === */
+/* === ROSE-GOLD-EVERYWHERE (v2) === */
+html,body{min-height:100%}
+body{
+  background:
+    repeating-linear-gradient(100deg, rgba(255,255,255,.06) 0 2px, rgba(0,0,0,.05) 2px 4px),
+    linear-gradient(135deg,#caa04a 0%,#e5c77a 40%,#d9a0a5 100%);
+  background-attachment: fixed;
+}
+
+/* Let the gradient show through big bands */
+section.bg-paper,
+.section.bg-paper,
+section.bg-white{
+  background: transparent !important;
+}
+
+/* Keep cards/panels readable */
+.card,.value-card,.bg-white:not(section){
+  background:#fff !important;
+}
+
+/* Optional: testimonials body text stays dark */
+.parallax-hero .caption h1{color:#111827}
+/* === /ROSE-GOLD-EVERYWHERE === */
