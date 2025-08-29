@@ -27,3 +27,54 @@ section,.section,.bg-paper,.bg-white{ background: transparent !important; }
 .btn:hover{ opacity:.92 }
 /* Card images: consistent crop */
 .card-img{ width:100%; display:block; object-fit:cover; aspect-ratio:16/9 }
+
+/* === soft-gold-rose (v3) === */
+:root{
+  --ink:#0f172a;
+  --gold-1:#efe6cf; /* very light gold */
+  --gold-2:#e9d8b0; /* soft brushed highlight */
+  --rose-1:#e3c0c6; /* natural rose */
+}
+html,body{min-height:100%}
+body{
+  font-family: Montserrat, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color: var(--ink);
+  /* Softer overall: white -> very light gold -> soft gold -> rose bloom bottom-right */
+  background:
+    radial-gradient(900px 700px at 100% 100%, rgba(227,192,198,.45), transparent 60%),
+    linear-gradient(135deg, #fffef9 0%, var(--gold-1) 35%, var(--gold-2) 66%, var(--rose-1) 100%);
+  background-attachment: fixed;
+}
+
+/* Let gradient show through “light” sections */
+section,.section,.bg-paper,.bg-white{ background:transparent !important; }
+
+/* Header/nav polish */
+.header-logo{height:48px;width:auto;display:block}
+.site-nav a{font-weight:700}
+.call-now{
+  display:inline-block; padding:.5rem .9rem; border-radius:9999px;
+  background:var(--ink); color:#fff; text-decoration:none; font-weight:700;
+}
+
+/* Hero overlay slightly lighter so headline pops without a harsh box */
+.parallax-hero .overlay{
+  background: linear-gradient(to bottom, rgba(0,0,0,.14), rgba(0,0,0,.26)) !important;
+}
+.parallax-hero .caption h1{
+  color:#fff; font-weight:800; line-height:1.15;
+  text-shadow: 0 2px 8px rgba(0,0,0,.30);
+}
+
+/* Buttons + cards */
+.btn{
+  display:inline-block; padding:.9rem 1.25rem; border-radius:14px;
+  background:#fff; color:var(--ink); font-weight:800; text-decoration:none
+}
+.value-card{background:#fff;border-radius:1rem;box-shadow:0 12px 30px rgba(0,0,0,.10);padding:2rem;text-align:center}
+.card{background:#fff;border-radius:1rem;overflow:hidden;box-shadow:0 10px 26px rgba(0,0,0,.10);border:1px solid rgba(15,23,42,.06)}
+.card-img{width:100%;display:block;object-fit:cover;aspect-ratio:16/9;object-position:center}
+
+/* Footer emphasis + social */
+footer .contact, footer .contact a{font-size:1.125rem;font-weight:700}
+footer .social a{text-decoration:underline;opacity:.95}
