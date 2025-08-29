@@ -448,18 +448,3 @@ section.bg-white, .bg-white.section, .section.bg-paper, section.bg-paper{ backgr
   box-shadow:0 10px 30px rgba(0,0,0,.10);
 }
 .footer-contact a{font-weight:700;text-underline-offset:3px}
-/* GOLD-SOFT v5 */
-body{ position:relative; min-height:100%; }
-body::before{
-  content:"";
-  position:fixed; inset:0; z-index:-1;
-  background:
-    radial-gradient(900px 600px at 85% 90%, rgba(227,185,191,.22), rgba(227,185,191,0) 60%),
-    linear-gradient(135deg,#d8bd73 0%, #f6edd5 45%, #ffffff 90%);
-  background-attachment:fixed;
-}
-/* keep content readable on top */
-.card,.value-card,.bg-white:not(section){ background:#fff!important; }
-.header-logo{height:48px;width:auto;display:block}
-.site-nav a{font-weight:700}
-.card-img{width:100%;display:block;object-fit:cover;aspect-ratio:16/9}

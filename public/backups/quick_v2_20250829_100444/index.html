@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Premium Residential & Commercial Painting in Macomb & Oakland County. Trusted, professional, and beautiful results. Get your free estimate today!" />
+  <title>MVP Painting | Residential & Commercial Painting in Macomb & Oakland County</title>
+
+  <!-- Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+
+  <!-- Your compiled CSS bundle (keep as-is) -->
+  <link rel="stylesheet" href="/assets/index-Cp9mPwme.css">
+
+  <!-- Site overrides (soft gold/rose, nav weight, CTA card, etc.) -->
+  <style>
+    :root{
+      --ink:#0f172a;
+      --gold-1:#cba24e;   /* brushed gold */
+      --gold-2:#e7cf8b;   /* warm highlight */
+      --rose-1:#d9a0a5;   /* real rose gold */
+    }
+    html,body{min-height:100%}
+    body{
+      font-family: Montserrat, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      color:#0f172a;
+      /* Soft gradient, no stripes */
+      background: linear-gradient(135deg,var(--gold-1) 0%, var(--gold-2) 42%, var(--rose-1) 100%);
+      background-attachment: fixed;
+    }
+    /* Make all light sections transparent so the gradient shows through */
+    section, .section, .bg-paper, .bg-white { background: transparent !important; }
+
+    /* Header / nav polish */
+    .site-nav a{ font-weight:700; }
+    .call-now{
+      display:inline-block; padding:.5rem .9rem; border-radius:9999px;
+      background:var(--ink); color:#fff; font-weight:700; text-decoration:none;
+    }
+
+    /* Parallax hero */
+    .parallax-hero{ position:relative; min-height: 56vh; overflow:hidden; }
+    @media (max-width: 640px){ .parallax-hero{ min-height: 44vh; } }
+    .parallax-hero .slides{ position:absolute; inset:0; will-change:transform; }
+    .parallax-hero .slide{
+      position:absolute; inset:0; background-size:cover; background-position:center;
+      opacity:0; transition:opacity .8s ease;
+    }
+    .parallax-hero .slide.active{ opacity:1; }
+    .parallax-hero .overlay{ position:absolute; inset:0; background:linear-gradient(to bottom, rgba(0,0,0,.25), rgba(0,0,0,.35)); }
+    .parallax-hero .caption{
+      position:relative; z-index:3; display:grid; place-items:center;
+      padding: clamp(2rem, 3vw, 3rem) 1rem; text-align:center; min-height:inherit;
+    }
+    .parallax-hero .caption h1{
+      color:#fff; font-weight:800;
+      text-shadow: 0 2px 8px rgba(0,0,0,.35);
+      margin-bottom: .75rem;
+    }
+    .parallax-hero .caption p{ color:#fff; opacity:.95; margin-bottom:1.25rem; }
+
+    /* Cards / images */
+    .value-card{ background:#fff; border-radius:1rem; box-shadow:0 12px 30px rgba(0,0,0,.10); padding:2rem; text-align:center; }
+    .card{ background:#fff; border-radius:1rem; overflow:hidden; box-shadow:0 10px 26px rgba(0,0,0,.10); border: 1px solid rgba(15,23,42,.06); }
+    .card-img{ width:100%; display:block; object-fit:cover; aspect-ratio:16/9; }
+
+    /* CTA soft white panel */
+    .cta-band{
+      background:rgba(255,255,255,.92);
+      border-radius:20px;
+      padding:2rem 1.5rem;
+      box-shadow:0 12px 30px rgba(0,0,0,.12);
+      max-width:900px; margin:0 auto;
+    }
+    .cta-band, .cta-band *{ color:var(--ink)!important; }
+
+    /* Footer contact sizing */
+    footer .contact, footer .contact a{ font-size:1.125rem; font-weight:700; }
+  </style>
+
+  <!-- Your site scripts -->
+  <script src="assets/js/scripts.js" defer></script>
+  <script src="assets/js/hero-rotator.js" defer></script>
+</head>
+<body class="font-sans text-gray-900">
+
+  <!-- Header/Navbar -->
+  <header class="bg-white/95 backdrop-blur shadow-sm sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto flex items-center justify-between py-4 px-6">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="/assets/images/logos/logo-black.png" alt="MVP Painting Logo" class="header-logo" style="display:block">
+        <span class="sr-only">MVP Painting</span>
+      </a>
+      <nav class="site-nav hidden md:flex gap-6 items-center text-base">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="about.html">About</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <a href="tel:17343662493" class="call-now">Call Now</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO: parallax + rotation -->
+  <section class="parallax-hero" id="hero-index" aria-label="Homepage hero" data-hero="rotation">
+    <div class="slides">
+      <div class="slide" style="background-image:url('/assets/images/hero-index/hero-index-1.jpeg')"></div>
+      <div class="slide" style="background-image:url('/assets/images/hero-index/hero-index-2.jpeg')"></div>
+      <div class="slide" style="background-image:url('/assets/images/hero-index/hero-index-4.jpeg')"></div>
+      <div class="slide" style="background-image:url('/assets/images/hero-index/hero-index-5.jpeg')"></div>
+      <div class="slide" style="background-image:url('/assets/images/hero-index/hero-index-6.jpeg')"></div>
+      <div class="slide" style="background-image:url('/assets/images/hero-index/hero-index-7.jpeg')"></div>
+    </div>
+    <div class="overlay"></div>
+    <div class="caption">
+      <div>
+        <h1 class="text-4xl md:text-5xl leading-tight">Premium Painting for Homes &amp; Businesses in Macomb &amp; Oakland County</h1>
+        <p class="text-lg md:text-xl">Transform your space with Michigan’s most trusted painting team. Clean, professional, and always on time.</p>
+        <a href="contact.html#estimate-form" class="inline-block px-8 py-4 rounded-xl bg-white text-[var(--ink)] font-bold text-lg shadow hover:opacity-90 transition">Request Your Free Quote</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="max-w-6xl mx-auto py-16 px-4 grid md:grid-cols-3 gap-10">
+    <div class="value-card">
+      <div class="text-3xl mb-4">🏆</div>
+      <h2 class="font-bold text-xl mb-2">15+ Years of Experience</h2>
+      <p class="text-slate-600">Expert crews delivering flawless results across Southeast Michigan.</p>
+    </div>
+    <div class="value-card">
+      <div class="text-3xl mb-4">🛡️</div>
+      <h2 class="font-bold text-xl mb-2">Licensed &amp; Insured</h2>
+      <p class="text-slate-600">Fully licensed, bonded, and insured for your peace of mind.</p>
+    </div>
+    <div class="value-card">
+      <div class="text-3xl mb-4">⭐</div>
+      <h2 class="font-bold text-xl mb-2">5-Star Reputation</h2>
+      <p class="text-slate-600">We’re not done until you’re thrilled — ask our clients.</p>
+    </div>
+  </section>
+
+  <section class="max-w-7xl mx-auto py-16 px-4">
+  <h2 class="text-3xl font-bold text-center mb-10">Project Gallery Preview</h2>
+  <div class="grid md:grid-cols-3 gap-8">
+    <a class="bg-white rounded-2xl shadow overflow-hidden border border-slate-200 block hover:shadow-lg transition" href="gallery.html#interior">
+      <img class="card-img" src="/assets/images/home-cards/residential-1.jpg" alt="Residential Interior Painting">
+      <div class="p-5">
+        <h3 class="font-semibold text-lg mb-2">Residential Interior</h3>
+        <p class="text-slate-600">Clean lines, modern colors, flawless finishes.</p>
+      </div>
+    </a>
+
+    <a class="bg-white rounded-2xl shadow overflow-hidden border border-slate-200 block hover:shadow-lg transition" href="gallery.html#commercial">
+      <img class="card-img" src="/assets/images/home-cards/commercial-1.jpg" alt="Commercial Painting">
+      <div class="p-5">
+        <h3 class="font-semibold text-lg mb-2">Commercial Projects</h3>
+        <p class="text-slate-600">Professional results for offices, retail, and more.</p>
+      </div>
+    </a>
+
+    <a class="bg-white rounded-2xl shadow overflow-hidden border border-slate-200 block hover:shadow-lg transition" href="gallery.html#exterior">
+      <img class="card-img" src="/assets/images/home-cards/exterior-1.jpg" alt="Exterior Painting">
+      <div class="p-5">
+        <h3 class="font-semibold text-lg mb-2">Exterior Painting</h3>
+        <p class="text-slate-600">Weather-resistant coatings that boost curb appeal.</p>
+      </div>
+    </a>
+  </div>
+  <div class="text-center mt-10">
+    <a href="gallery.html" class="inline-block px-8 py-3 rounded-xl bg-primary text-white font-semibold shadow hover:bg-slate-800 transition">
+      View Full Gallery
+    </a>
+  </div>
+</section>
+
+
+  <!-- Testimonials -->
+  <section class="py-16 px-4">
+    <div class="max-w-4xl mx-auto">
+      `cat `
+
+`cat `
+
+`cat `
+
+`cat `
+
+`cat `
+
+<h2 class="text-3xl font-bold text-center mb-10">What Our Clients Say</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <blockquote class="bg-white rounded-lg shadow p-6">
+          <p class="text-lg italic mb-2">“MVP Painting exceeded our expectations. The crew was professional, clean, and the results are stunning!”</p>
+          <footer class="text-sm text-gray-600">— Sarah M., Macomb</footer>
+        </blockquote>
+        <blockquote class="bg-white rounded-lg shadow p-6">
+          <p class="text-lg italic mb-2">“We love our new office look! Fast, friendly, and top quality. Highly recommend.”</p>
+          <footer class="text-sm text-gray-600">— John D., Troy</footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner (soft white panel) -->
+  <section class="py-12 px-4 text-center">
+    <div class="cta-band">
+      <h2 class="text-3xl font-bold mb-4">Ready to Transform Your Space?</h2>
+      <p class="mb-6 text-lg">Book your free, no-obligation estimate and see why Michigan trusts MVP Painting.</p>
+      <a href="contact.html#estimate-form" class="inline-block px-8 py-4 rounded-xl bg-[var(--ink)] text-white font-bold text-lg shadow hover:opacity-90 transition">
+        Get Your Free Estimate
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-white py-10 mt-12" style="background:rgba(15,23,42,.95)">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 px-6">
+      <div class="flex items-center gap-3">
+        <img src="/assets/images/logos/logo-white.png" alt="MVP Painting White Logo" class="h-10 w-auto">
+        <span class="font-bold text-lg">MVP Painting</span>
+      </div>
+      <div class="contact leading-7">
+        <p>Email: <a href="mailto:elvirpurovic@mvpdecor.com" class="underline">elvirpurovic@mvpdecor.com</a></p>
+        <p>Phone: <a href="tel:17343662493" class="underline">(734) 366-2493</a></p>
+        <p><a href="https://www.sherwin-williams.com/" target="_blank" class="underline">We proudly use Sherwin-Williams Paint</a></p>
+      </div>
+      <div class="flex gap-4 text-sm">
+        <a href="privacy-policy.html" class="hover:underline">Privacy Policy</a>
+        <a href="terms.html" class="hover:underline">Terms &amp; Conditions</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
