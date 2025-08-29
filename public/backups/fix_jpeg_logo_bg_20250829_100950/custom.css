@@ -491,17 +491,3 @@ body::before{
 .header-logo{height:48px;width:auto;display:block}
 .site-nav a{font-weight:700}
 .card-img{width:100%;display:block;object-fit:cover;aspect-ratio:16/9}
-/* GOLD-SOFT v6 */
-body{ position:relative; min-height:100%; }
-body::before{
-  content:"";
-  position:fixed; inset:0; z-index:-1;
-  background:
-    radial-gradient(900px 600px at 85% 90%, rgba(227,185,191,.20), rgba(227,185,191,0) 60%),
-    linear-gradient(135deg,#d8bd73 0%, #f7f0da 45%, #ffffff 92%);
-  background-attachment:fixed;
-}
-.card,.value-card,.bg-white:not(section){ background:#fff!important; }
-.header-logo{height:48px;width:auto;display:block}
-.site-nav a{font-weight:700}
-.card-img{width:100%;display:block;object-fit:cover;aspect-ratio:16/9}
