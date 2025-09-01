@@ -4,24 +4,24 @@
   <meta name="description" content="Premium Residential & Commercial Painting in Macomb & Oakland County. Trusted, professional, and beautiful results. Get your free estimate today!" />
   <title>MVP Painting | Residential &amp; Commercial Painting in Macomb &amp; Oakland County</title>
 
-  <!-- Tailwind (fallback since the compiled CSS is not present) -->
+  <!-- Tailwind (utility classes) -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Fonts -->
+  <!-- Fonts: Montserrat (same family as before) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
 
-  <!-- Your custom overrides (lives at /public/assets/css/custom.css) -->
+  <!-- Your site CSS -->
   <link rel="stylesheet" href="/assets/css/custom.css">
 
-  <!-- Inline theme + small fixes (keep this inside <head>) -->
+  <!-- Inline theme + small fixes -->
   <style>
     :root{
       --ink:#0f172a;
-      --gold-1:#efe6cf; /* very light gold */
-      --gold-2:#e9d8b0; /* soft brushed highlight */
-      --rose-1:#e3c0c6; /* natural rose */
+      --gold-1:#efe6cf;
+      --gold-2:#e9d8b0;
+      --rose-1:#e3c0c6;
     }
     html,body{min-height:100%}
     body{
@@ -32,61 +32,35 @@
         linear-gradient(135deg, #fffef9 0%, var(--gold-1) 35%, var(--gold-2) 66%, var(--rose-1) 100%);
       background-attachment: fixed;
     }
-    /* Keep paper sections transparent without clobbering Tailwind's .bg-white utility */
     section,.section,.bg-paper{ background:transparent !important; }
-
     .bg-primary{ background: var(--ink); }
-
     .header-logo{height:48px;width:auto;display:block}
     .site-nav a{font-weight:700}
-    .call-now{
-      display:inline-block;padding:.5rem .9rem;border-radius:9999px;
-      background:var(--ink);color:#fff;text-decoration:none;font-weight:700
-    }
-    .call-now:focus-visible,.btn:focus-visible{outline:2px solid #fff; outline-offset:2px}
-
+    .call-now{display:inline-block;padding:.5rem .9rem;border-radius:9999px;background:var(--ink);color:#fff;text-decoration:none;font-weight:700}
+    .call-now:focus-visible,.btn:focus-visible{outline:2px solid #fff;outline-offset:2px}
     .parallax-hero{position:relative;min-height:56vh;overflow:hidden}
     @media (max-width:640px){.parallax-hero{min-height:44vh}}
     .parallax-hero .slides{position:absolute;inset:0;will-change:transform}
-    .parallax-hero .slide{
-      position:absolute;inset:0;background-size:cover;background-position:center;
-      opacity:0;transition:opacity .8s ease
-    }
+    .parallax-hero .slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity .8s ease}
     .parallax-hero .slide.active{opacity:1}
     .parallax-hero .overlay{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,.18), rgba(0,0,0,.32))}
-    .parallax-hero .caption{
-      position:relative;z-index:3;display:grid;place-items:center;text-align:center;min-height:inherit;
-      padding:clamp(2rem,3vw,3rem) 1rem
-    }
+    .parallax-hero .caption{position:relative;z-index:3;display:grid;place-items:center;text-align:center;min-height:inherit;padding:clamp(2rem,3vw,3rem) 1rem}
     .parallax-hero .caption h1{color:#fff;font-weight:800;line-height:1.15;text-shadow:0 2px 8px rgba(0,0,0,.35);margin-bottom:.75rem}
     .parallax-hero .caption p{color:#fff;opacity:.95;margin-bottom:1.25rem}
-    .btn{
-      display:inline-block;padding:.9rem 1.25rem;border-radius:14px;
-      background:#fff;color:var(--ink);font-weight:800;text-decoration:none
-    }
+    .btn{display:inline-block;padding:.9rem 1.25rem;border-radius:14px;background:#fff;color:var(--ink);font-weight:800;text-decoration:none}
     .value-card{background:#fff;border-radius:1rem;box-shadow:0 12px 30px rgba(0,0,0,.1);padding:2rem;text-align:center}
-    .card{
-      background:#fff;
-      border-radius:1rem;
-      overflow:hidden;
-      box-shadow:0 10px 26px rgba(0,0,0,.1);
-      border:1px solid rgba(15,23,42,.06);
-      max-width:100%;
-      margin-left:auto;
-      margin-right:auto;
-      text-decoration:none;
-      color:inherit;
-    }
-    .cta-band{
-      background:rgba(255,255,255,.92);border-radius:20px;padding:2rem 1.5rem;
-      box-shadow:0 12px 30px rgba(0,0,0,.12);max-width:900px;margin:0 auto
-    }
+    .card{background:#fff;border-radius:1rem;overflow:hidden;box-shadow:0 10px 26px rgba(0,0,0,.1);border:1px solid rgba(15,23,42,.06);max-width:100%;margin-left:auto;margin-right:auto;text-decoration:none;color:inherit}
+    .cta-band{background:rgba(255,255,255,.92);border-radius:20px;padding:2rem 1.5rem;box-shadow:0 12px 30px rgba(0,0,0,.12);max-width:900px;margin:0 auto}
     footer .contact, footer .contact a{font-size:1.125rem;font-weight:700}
     footer .social a{opacity:.9;text-decoration:underline}
-    @media (prefers-reduced-motion: reduce){
-      .parallax-hero .slide{transition:none}
-    }
+    @media (prefers-reduced-motion: reduce){.parallax-hero .slide{transition:none}}
   </style>
+
+  <!-- Site JS -->
+  <script src="/assets/js/scripts.js" defer></script>
+  <script src="/assets/js/hero-rotator.js" defer></script>
+</head>
+
 
   <!-- JS (load both once) -->
   <script src="/assets/js/scripts.js" defer></script>
@@ -127,61 +101,66 @@
     <div class="overlay" aria-hidden="true"></div>
     <div class="caption">
       <div>
-        <h1 class="text-4xl md:text-5xl">Premium Painting for Homes &amp; Businesses in Macomb &amp; Oakland County</h1>
-        <p class="text-lg md:text-xl">Transform your space with Michigan’s most trusted painting team. Clean, professional, and always on time.</p>
+       <h1 class="text-4xl md:text-5xl leading-tight">
+  <span class="block">Premium Painting for Homes &amp; Businesses</span>
+  <span class="block">in Macomb &amp; Oakland County</span>
+</h1>
+
         <a href="contact.html#estimate-form" class="btn">Request Your Free Quote</a>
       </div>
     </div>
   </section>
 
-     <!-- Why choose us -->
-  <section class="max-w-7xl mx-auto py-10 px-4" id="why">
-    <!-- Single white rectangle wrapper -->
-    <div class="rounded-2xl bg-white/95 shadow-lg ring-1 ring-black/5 px-6 py-6 sm:py-8">
-      <ul class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-        <!-- Item 1 -->
-        <li class="text-center">
-          <div class="text-xl mb-1" aria-hidden="true">🏆</div>
-          <p class="text-base font-extrabold leading-tight">15+ Years of Experience</p>
-          <p class="text-slate-600 text-sm mt-1">Expert crews delivering flawless results across Southeast Michigan.</p>
-        </li>
-        <!-- Item 2 -->
-        <li class="text-center">
-          <div class="text-xl mb-1" aria-hidden="true">🛡️</div>
-          <p class="text-base font-extrabold leading-tight">Licensed &amp; Insured</p>
-          <p class="text-slate-600 text-sm mt-1">Fully licensed, bonded, and insured for your peace of mind.</p>
-        </li>
-        <!-- Item 3 -->
-        <li class="text-center">
-          <div class="text-xl mb-1" aria-hidden="true">⭐</div>
-          <p class="text-base font-extrabold leading-tight">5-Star Reputation</p>
-          <p class="text-slate-600 text-sm mt-1">We’re not done until you’re thrilled.</p>
-        </li>
-      </ul>
+<!-- Why choose us -->
+<section id="why" class="max-w-7xl mx-auto py-10 px-4">
+  <!-- center items and force uniform size -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 place-items-center">
+    <div class="value-card w-full sm:w-[22rem] min-h-[12rem] p-6 md:p-7 text-center flex flex-col items-center justify-center">
+      <div class="text-2xl mb-2" aria-hidden="true">🏆</div>
+      <p class="text-base font-extrabold leading-tight">15+ Years of Experience</p>
+      <p class="text-slate-700 text-sm font-medium mt-1">
+        Expert crews delivering flawless results across Southeast Michigan.
+      </p>
     </div>
-  </section>
 
+    <div class="value-card w-full sm:w-[22rem] min-h-[12rem] p-6 md:p-7 text-center flex flex-col items-center justify-center">
+      <div class="text-2xl mb-2" aria-hidden="true">🛡️</div>
+      <p class="text-base font-extrabold leading-tight">Licensed &amp; Insured</p>
+      <p class="text-slate-700 text-sm font-medium mt-1">
+        Fully licensed, bonded, and insured for your peace of mind.
+      </p>
+    </div>
+
+    <div class="value-card w-full sm:w-[22rem] min-h-[12rem] p-6 md:p-7 text-center flex flex-col items-center justify-center">
+      <div class="text-2xl mb-2" aria-hidden="true">⭐</div>
+      <p class="text-base font-extrabold leading-tight">5-Star Reputation</p>
+      <p class="text-slate-700 text-sm font-medium mt-1">
+        We’re not done until you’re thrilled.
+      </p>
+    </div>
+  </div>
+</section>
 
   <!-- Project Gallery Preview -->
   <section class="max-w-7xl mx-auto py-16 px-4" id="home-cards">
     <h2 class="text-3xl font-bold text-center mb-10">Project Gallery Preview</h2>
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
       <a class="card block hover:shadow-lg transition no-underline" href="gallery.html#interior">
-        <img class="card-img" src="/assets/images/home-cards/residential-1.png" alt="Residential Interior Painting" loading="lazy" decoding="async">
+        <img class="card-img" src="/assets/images/home-cards/residential-1.jpeg" alt="Residential Interior Painting" loading="lazy" decoding="async">
         <div class="p-4">
           <h3 class="font-semibold text-base mb-1">Residential Interior</h3>
           <p class="text-slate-600 text-sm">Clean lines, modern colors, flawless finishes.</p>
         </div>
       </a>
       <a class="card block hover:shadow-lg transition no-underline" href="gallery.html#commercial">
-        <img class="card-img" src="/assets/images/home-cards/commercial-1.png" alt="Commercial Painting" loading="lazy" decoding="async">
+        <img class="card-img" src="/assets/images/home-cards/commercial-1.jpeg" alt="Commercial Painting" loading="lazy" decoding="async">
         <div class="p-4">
           <h3 class="font-semibold text-base mb-1">Commercial Projects</h3>
           <p class="text-slate-600 text-sm">Professional results for offices, retail, and more.</p>
         </div>
       </a>
       <a class="card block hover:shadow-lg transition no-underline" href="gallery.html#exterior">
-        <img class="card-img" src="/assets/images/home-cards/exterior-1.png" alt="Exterior Painting" loading="lazy" decoding="async">
+        <img class="card-img" src="/assets/images/home-cards/exterior-1.jpeg" alt="Exterior Painting" loading="lazy" decoding="async">
         <div class="p-4">
           <h3 class="font-semibold text-base mb-1">Exterior Painting</h3>
           <p class="text-slate-600 text-sm">Weather-resistant coatings that boost curb appeal.</p>
