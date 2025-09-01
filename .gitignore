@@ -1,8 +1,5 @@
-# Local Netlify folder
-.netlify
-node_modules/
-rescue_public_*/
-node_modules/
-rescue_public_*/
-node_modules/
-rescue_public_*/
+# build/backup noise
+dist/
+backup_duplicate/
+.quarantine_duplicates/
+*.tmp

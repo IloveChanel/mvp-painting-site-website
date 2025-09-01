@@ -1,17 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const hero = document.querySelector('#hero-index');
-  if (!hero) return;
-  const slides = [...hero.querySelectorAll('.slide')];
-  if (!slides.length) return;
+  const root = document.querySelector('[data-hero="rotation"] .slides');
+  if (!root) return;
+  const slides = Array.from(root.children);
   let i = 0;
-  slides[i].classList.add('active');
-  setInterval(() => {
-    slides[i].classList.remove('active');
-    i = (i + 1) % slides.length;
-    slides[i].classList.add('active');
-  }, 6000);
-  window.addEventListener('scroll', () => {
-    const y = window.scrollY * 0.25;
-    slides.forEach(s => s.style.transform = `translateY(${y}px)`);
-  }, { passive: true });
+  const show = n => slides.forEach((s, idx) => s.classList.toggle('active', idx === n));
+  show(0);
+  setInterval(() => { i = (i + 1) % slides.length; show(i); }, 4000);
 });

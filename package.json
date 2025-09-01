@@ -7,7 +7,7 @@
     "build:css": "npx tailwindcss -i ./src/input.css -o ./public/assets/css/style.css --minify",
     "build": "npm run build:css && vite build",
     "preview": "vite preview --port 8888",
-    "sanitize": "powershell -ExecutionPolicy Bypass -File scripts/sanitize.ps1"
+   
   },
   "devDependencies": {
     "autoprefixer": "^10.4.21",
