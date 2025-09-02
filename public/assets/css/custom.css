@@ -26,11 +26,15 @@
 /* Works with your current markup (3 separate value-card boxes).
    If you ALSO add id="why" to that section, you'll get a single white rounded panel too. */
 
-/* Smaller, tighter badges */
 .value-card {
   padding: 0.9rem 1rem !important;          /* tighter box */
   border-radius: 14px !important;
   box-shadow: 0 10px 26px rgba(0, 0, 0, 0.08) !important;
+  min-height: 12rem;                        /* uniform height */
+  display: flex;                            /* center content */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 /* First child in each value-card is the emoji icon */
@@ -41,8 +45,9 @@
 }
 
 /* Headline under the icon */
-.value-card h2 {
-  font-size: 1rem !important;               /* smaller headline */
+.value-card h2,
+.value-card p:first-of-type {                /* if you used <p> for the headline */
+  font-size: 1rem !important;
   line-height: 1.25 !important;
   margin-bottom: 0.25rem !important;
   font-weight: 800 !important;
@@ -50,8 +55,9 @@
 
 /* Supporting copy */
 .value-card p {
-  font-size: 0.9rem !important;             /* smaller copy */
+  font-size: 0.95rem !important;
   color: #475569 !important;                /* slate-600 */
+  font-weight: 600 !important;              /* a touch bolder */
 }
 
 /* OPTIONAL: If you add id="why" to the section, it becomes one white rounded rectangle */
@@ -78,21 +84,24 @@
   object-position: center;
 }
 
-/* Make card content a touch tighter to appear more compact */
-#home-cards .card .p-4,
-#home-cards .card .p-5 {
+/* Center text inside card content and make spacing tighter */
+#home-cards .card > .p-4,
+#home-cards .card > .p-5 {
   padding: 0.9rem !important;
+  text-align: center;
 }
 
-/* Smaller headings and text inside gallery cards */
 #home-cards h3 {
-  font-size: 1rem !important;
+  font-size: 1.05rem !important;
   margin-bottom: 0.25rem !important;
   line-height: 1.25 !important;
+  font-weight: 800 !important;              /* thicker title */
 }
+
 #home-cards p {
-  font-size: 0.9rem !important;
-  color: #475569 !important; /* slate-600 */
+  font-size: 0.95rem !important;
+  color: #334155 !important;                /* slate-700 (darker) */
+  font-weight: 600 !important;
 }
 
 /* Optional: slightly reduce the grid gap so 3 cards feel tighter together */
@@ -102,7 +111,7 @@
   }
 }
 
-/* ---------- CTA panel tweaks (if you use the improved CTA) ---------- */
+/* ---------- CTA panel tweaks ---------- */
 #cta .btn {
   font-weight: 800;
   border-radius: 14px;
@@ -110,11 +119,36 @@
 }
 
 /* ---------- Header/Footer small polish ---------- */
-.call-now {
-  font-weight: 800 !important;
+/* Header "Call Now" — larger & easier to tap */
+.call-now{
+  display:inline-block;
+  padding:.85rem 1.35rem;           /* bigger */
+  font-size:1.0625rem;              /* ~17px */
+  line-height:1;                    /* keeps it compact */
+  border-radius:9999px;
+  background:var(--ink);
+  color:#fff;
+  text-decoration:none;
+  font-weight:800;                  /* a bit bolder */
+  box-shadow:0 6px 14px rgba(0,0,0,.12);
 }
+@media (min-width:768px){
+  .call-now{
+    padding:.95rem 1.6rem;          /* a touch bigger on desktop */
+    font-size:1.125rem;             /* ~18px */
+  }
+}
+.call-now:hover{ transform:translateY(-1px); }
+.call-now:focus-visible{ outline:2px solid #fff; outline-offset:2px; }
+@media (prefers-reduced-motion: reduce){
+  .call-now, .call-now:hover{ transform:none; }
+}
+
+/* Footer text & social */
 footer .contact,
 footer .contact a {
   font-weight: 700;
   font-size: 1.05rem;
 }
+footer .social a { color: #fff; }
+footer .social a:hover { color: #f1f5f9; } /* slightly brighter on hover */

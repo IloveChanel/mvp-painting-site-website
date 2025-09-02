@@ -61,12 +61,6 @@
   <script src="/assets/js/hero-rotator.js" defer></script>
 </head>
 
-
-  <!-- JS (load both once) -->
-  <script src="/assets/js/scripts.js" defer></script>
-  <script src="/assets/js/hero-rotator.js" defer></script>
-</head>
-
 <body class="font-sans">
 
   <!-- Header -->
@@ -83,33 +77,37 @@
         <a href="about.html">About</a>
         <a href="blog.html">Blog</a>
         <a href="contact.html">Contact</a>
-        <a href="tel:+17343662493" class="call-now">Call Now</a>
+       <!-- ...existing code... -->
+        <a href="tel:+17343662493" class="call-now px-8 py-4 text-2xl" style="font-size:3rem;">
+  Call Now
+</a>
+<!-- ...existing code... -->
       </nav>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="parallax-hero" id="hero-index" data-hero="rotation" aria-label="Homepage hero">
-    <div class="slides">
-      <div class="slide" style="background-image:url('/assets/images/hero-index/hero-index-1.jpeg')"></div>
-      <div class="slide" style="background-image:url('/assets/images/hero-index/hero-index-2.jpeg')"></div>
-      <div class="slide" style="background-image:url('/assets/images/hero-index/hero-index-4.jpeg')"></div>
-      <div class="slide" style="background-image:url('/assets/images/hero-index/hero-index-5.jpeg')"></div>
-      <div class="slide" style="background-image:url('/assets/images/hero-index/hero-index-6.jpeg')"></div>
-      <div class="slide" style="background-image:url('/assets/images/hero-index/hero-index-7.jpeg')"></div>
+<!-- HERO -->
+<section class="parallax-hero" id="hero-index" data-hero="rotation" aria-label="Homepage hero">
+  <div class="slides">
+    <div class="slide" style="background-image:url('/assets/images/hero-index/hero-index-1.jpeg')"></div>
+    <div class="slide" style="background-image:url('/assets/images/hero-index/hero-index-2.jpeg')"></div>
+    <div class="slide" style="background-image:url('/assets/images/hero-index/hero-index-3.jpeg')"></div>
+    <div class="slide" style="background-image:url('/assets/images/hero-index/hero-index-4.jpeg')"></div>
+    <div class="slide" style="background-image:url('/assets/images/hero-index/hero-index-5.jpeg')"></div>
+    <div class="slide" style="background-image:url('/assets/images/hero-index/hero-index-6.jpeg')"></div>
+    <div class="slide" style="background-image:url('/assets/images/hero-index/hero-index-7.jpeg')"></div>
+  </div>
+  <div class="overlay" aria-hidden="true"></div>
+  <div class="caption">
+    <div>
+      <h1 class="text-4xl md:text-5xl leading-tight">
+        <span class="block">Premium Painting for Homes &amp; Businesses</span>
+        <span class="block">in Macomb &amp; Oakland County</span>
+      </h1>
+      <a href="contact.html#estimate-form" class="btn">Request Your Free Quote</a>
     </div>
-    <div class="overlay" aria-hidden="true"></div>
-    <div class="caption">
-      <div>
-       <h1 class="text-4xl md:text-5xl leading-tight">
-  <span class="block">Premium Painting for Homes &amp; Businesses</span>
-  <span class="block">in Macomb &amp; Oakland County</span>
-</h1>
-
-        <a href="contact.html#estimate-form" class="btn">Request Your Free Quote</a>
-      </div>
-    </div>
-  </section>
+  </div>
+</section>
 
 <!-- Why choose us -->
 <section id="why" class="max-w-7xl mx-auto py-10 px-4">
@@ -142,37 +140,61 @@
 </section>
 
   <!-- Project Gallery Preview -->
-  <section class="max-w-7xl mx-auto py-16 px-4" id="home-cards">
-    <h2 class="text-3xl font-bold text-center mb-10">Project Gallery Preview</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-      <a class="card block hover:shadow-lg transition no-underline" href="gallery.html#interior">
-        <img class="card-img" src="/assets/images/home-cards/residential-1.jpeg" alt="Residential Interior Painting" loading="lazy" decoding="async">
-        <div class="p-4">
-          <h3 class="font-semibold text-base mb-1">Residential Interior</h3>
-          <p class="text-slate-600 text-sm">Clean lines, modern colors, flawless finishes.</p>
-        </div>
-      </a>
-      <a class="card block hover:shadow-lg transition no-underline" href="gallery.html#commercial">
-        <img class="card-img" src="/assets/images/home-cards/commercial-1.jpeg" alt="Commercial Painting" loading="lazy" decoding="async">
-        <div class="p-4">
-          <h3 class="font-semibold text-base mb-1">Commercial Projects</h3>
-          <p class="text-slate-600 text-sm">Professional results for offices, retail, and more.</p>
-        </div>
-      </a>
-      <a class="card block hover:shadow-lg transition no-underline" href="gallery.html#exterior">
-        <img class="card-img" src="/assets/images/home-cards/exterior-1.jpeg" alt="Exterior Painting" loading="lazy" decoding="async">
-        <div class="p-4">
-          <h3 class="font-semibold text-base mb-1">Exterior Painting</h3>
-          <p class="text-slate-600 text-sm">Weather-resistant coatings that boost curb appeal.</p>
-        </div>
-      </a>
-    </div>
-    <div class="text-center mt-8">
-      <a href="gallery.html" class="btn">View Full Gallery</a>
-    </div>
-  </section>
+<section class="max-w-7xl mx-auto py-16 px-4" id="home-cards">
+  <h2 class="text-3xl font-bold text-center mb-10">Project Gallery Preview</h2>
 
-  
+  <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+    <!-- Residential -->
+    <a class="card block hover:shadow-lg transition no-underline" href="gallery.html#interior">
+      <img class="card-img"
+           src="/assets/images/home-cards/residential-1.jpg"
+           alt="Residential Interior Painting"
+           width="1200" height="675"
+           loading="lazy" decoding="async">
+      <div class="p-5 text-center">
+        <h3 class="text-lg font-bold mb-1">Residential Interior</h3>
+        <p class="text-slate-700 text-sm font-medium">
+          Clean lines, modern colors, flawless finishes.
+        </p>
+      </div>
+    </a>
+
+    <!-- Commercial -->
+    <a class="card block hover:shadow-lg transition no-underline" href="gallery.html#commercial">
+      <img class="card-img"
+           src="/assets/images/home-cards/commercial-1.jpg"
+           alt="Commercial Painting"
+           width="1200" height="675"
+           loading="lazy" decoding="async">
+      <div class="p-5 text-center">
+        <h3 class="text-lg font-bold mb-1">Commercial Projects</h3>
+        <p class="text-slate-700 text-sm font-medium">
+          Professional results for offices, retail, and more.
+        </p>
+      </div>
+    </a>
+
+    <!-- Exterior -->
+    <a class="card block hover:shadow-lg transition no-underline" href="gallery.html#exterior">
+      <img class="card-img"
+           src="/assets/images/home-cards/exterior-1.jpg"
+           alt="Exterior Painting"
+           width="1200" height="675"
+           loading="lazy" decoding="async">
+      <div class="p-5 text-center">
+        <h3 class="text-lg font-bold mb-1">Exterior Painting</h3>
+        <p class="text-slate-700 text-sm font-medium">
+          Weather-resistant coatings that boost curb appeal.
+        </p>
+      </div>
+    </a>
+  </div>
+
+  <div class="text-center mt-8">
+    <a href="gallery.html" class="btn">View Full Gallery</a>
+  </div>
+</section>
+
 
   <!-- Testimonials -->
   <section class="py-16 px-4" aria-label="Testimonials">
@@ -208,24 +230,65 @@
   </section>
 
 
-  <!-- Footer -->
-  <footer class="bg-primary text-white py-10 mt-12">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 px-6">
-      <div class="flex items-center gap-3">
-        <img src="/assets/images/logos/logo-white.png" alt="MVP Painting White Logo" class="h-10 w-auto" loading="lazy" decoding="async">
-        <span class="font-bold text-lg">MVP Painting</span>
-      </div>
-      <div class="contact text-slate-200">
-        <p><strong>Email:</strong> <a href="mailto:elvirpurovic@mvpdecor.com" class="underline">elvirpurovic@mvpdecor.com</a></p>
-        <p><strong>Phone:</strong> <a href="tel:+17343662493" class="underline">(734) 366-2493</a></p>
-        <p><a href="https://www.sherwin-williams.com/" target="_blank" rel="noopener noreferrer" class="underline">We proudly use Sherwin-Williams Paint</a></p>
-      </div>
-      <div class="social flex gap-4 text-sm" aria-label="Social links">
-        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a>
-        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
-        <a href="https://www.google.com/search?q=MVP+Painting+Michigan+reviews" target="_blank" rel="noopener noreferrer">Google</a>
-      </div>
+<!-- Footer -->
+<footer class="bg-primary text-white mt-12">
+  <div class="max-w-7xl mx-auto px-6 py-10 grid gap-8 md:grid-cols-[auto,1fr,auto] items-center">
+    <!-- Brand -->
+    <div class="flex items-center gap-3">
+      <img
+        src="/assets/images/logos/logo-white.png"
+        alt="MVP Painting White Logo"
+        class="h-10 w-auto"
+        width="160"
+        height="40"
+        loading="lazy"
+        decoding="async"
+      >
+      <span class="font-bold text-lg">MVP Painting</span>
     </div>
-  </footer>
-</body>
-</html>
+
+    <!-- Contact -->
+    <div class="contact text-slate-200 text-sm md:text-base">
+      <p>
+        <strong>Email:</strong>
+        <a href="mailto:elvirpurovic@mvpdecor.com" class="underline hover:text-white/90">
+          elvirpurovic@mvpdecor.com
+        </a>
+      </p>
+      <p>
+        <strong>Phone:</strong>
+        <a href="tel:+17343662493" class="underline hover:text-white/90">
+          (734) 366-2493
+        </a>
+      </p>
+      <p>
+        <a href="https://www.sherwin-williams.com/" target="_blank" rel="noopener noreferrer" class="underline hover:text-white/90">
+          We proudly use Sherwin-Williams Paint
+        </a>
+      </p>
+    </div>
+
+    <!-- Social -->
+    <nav class="social flex items-center gap-3 justify-start md:justify-end" aria-label="Social links">
+      <!-- Facebook -->
+      <a href="https://www.facebook.com/yourpage"
+         class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition"
+         target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <span class="sr-only">Facebook</span>
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="currentColor">
+          <path d="M22.675 0H1.325C.593 0 0 .593 0 1.326v21.348C0 23.407.593 24 1.325 24h11.495v-9.294H9.691V11.01h3.129V8.41c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.796.143v3.242l-1.918.001c-1.504 0-1.796.715-1.796 1.765v2.314h3.59l-.467 3.696h-3.123V24h6.116C23.407 24 24 23.407 24 22.674V1.326C24 .593 23.407 0 22.675 0z"/>
+        </svg>
+      </a>
+
+      <!-- Instagram -->
+      <a href="https://www.instagram.com/yourprofile"
+         class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition"
+         target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <span class="sr-only">Instagram</span>
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="currentColor">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.35 3.608 1.325.975.975 1.264 2.242 1.326 3.608.058 1.266.069 1.645.069 4.85s-.012 3.584-.07 4.85c-.062 1.366-.35 2.633-1.325 3.608-.975.975-2.242 1.264-3.608 1.326-1.266.058-1.645.069-4.85.069s-3.584-.012-4.85-.07c-1.366-.062-2.633-.35-3.608-1.325-.975-.975-1.264-2.242-1.326-3.608C2.175 15.584 2.163 15.205 2.163 12s.012-3.584.07-4.85c.062-1.366.35-2.633 1.325-3.608.975-.975 2.242-1.264 3.608-1.326C8.416 2.175 8.795 2.163 12 2.163zm0 1.838c-3.17 0-3.548.012-4.796.069-1.039.048-1.606.222-1.98.37-.498.193-.855.425-1.23.8-.375.375-.607.732-.8 1.23-.148.374-.322.941-.37 1.98-.057 1.248-.069 1.626-.069 4.796s.012 3.548.069 4.796c.048 1.039.222 1.606.37 1.98.193.498.425.855.8 1.23.375.375.732.607 1.23.8.374.148.941.322 1.98.37 1.248.057 1.626.069 4.796.069s3.548-.012 4.796-.069c1.039-.048 1.606-.222 1.98-.37.498-.193.855-.425 1.23-.8.375-.375.607-.732.8-1.23.148-.374.322-.941.37-1.98.057-1.248.069-1.626.069-4.796s-.012-3.548-.069-4.796c-.048-1.039-.222-1.606-.37-1.98-.193-.498-.425-.855-.8-1.23-.375-.375-.732-.607-1.23-.8-.374-.148-.941-.322-1.98-.37-1.248-.057-1.626-.069-4.796-.069zm0 3.89a5.947 5.947 0 110 11.895 5.947 5.947 0 010-11.895zm0 1.838a4.11 4.11 0 100 8.22 4.11 4.11 0 000-8.22zm5.842-2.703a1.386 1.386 0 11-2.772 0 1.386 1.386 0 012.772 0z"/>
+        </svg>
+      </a>
+    </nav>
+  </div>
+</footer>
