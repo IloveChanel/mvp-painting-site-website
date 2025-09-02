@@ -1,6 +1,4 @@
-// scripts.js
 // Add your JavaScript code here for interactivity, animations, or form handling.
-// Example: Simple call-to-action button click event
 
 document.addEventListener('DOMContentLoaded', function() {
   var ctaButtons = document.querySelectorAll('.btn-primary, .cta-button a');

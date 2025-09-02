@@ -5,7 +5,16 @@
    ================================ */
 
 /* ---------- Global niceties ---------- */
+<head>
+  <!-- ...other meta tags... -->
 
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- fonts… -->
+  <link rel="stylesheet" href="/assets/index-Cp9mPwme.css">
+  <link rel="stylesheet" href="/assets/css/custom.css">
+
+  <!-- ...other head content... -->
+</head>
 /* Make any link with .no-underline actually remove the underline */
 .no-underline,
 .no-underline:link,
