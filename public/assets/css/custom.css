@@ -1,20 +1,3 @@
-/* custom overrides */
-/* ================================
-   MVP Painting – custom.css
-   Purpose: small layout/size tweaks
-   ================================ */
-
-/* ---------- Global niceties ---------- */
-<head>
-  <!-- ...other meta tags... -->
-
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- fonts… -->
-  <link rel="stylesheet" href="/assets/index-Cp9mPwme.css">
-  <link rel="stylesheet" href="/assets/css/custom.css">
-
-  <!-- ...other head content... -->
-</head>
 /* Make any link with .no-underline actually remove the underline */
 .no-underline,
 .no-underline:link,
@@ -23,141 +6,306 @@
   color: inherit;
 }
 
-/* Card anchors should not look like links */
-.card,
-.card:link,
-.card:visited {
-  text-decoration: none !important;
-  color: inherit;
+/* ===================== VARIABLES ===================== */
+:root {
+  /* Hero */
+  --hero-title-color: #ece8e8;
+  --hero-title-font: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --hero-title-size-m: 26px;
+  --hero-title-size-d: 42px;
+  --hero-title-weight: 800;
+  --hero-title-line: 1.15;
+  --hero-title-track: normal;
+  --hero-title-shadow-color: #000000af;
+
+  /* Header/Nav */
+  --header-bg: #c2c0b8cc;
+  --nav-link-color: #0f172a;
+  --nav-link-size: 1.05rem;
+  --callnow-bg: #0f172a;
+  --callnow-text: #ffffff;
+  --callnow-size: 1.25rem;
+  --callnow-pad-y: .85rem;
+  --callnow-pad-x: 1.10rem;
+
+  /* Footer */
+  --footer-bg: #92897e9c;
+  --footer-font-family: 'Montserrat', Arial, sans-serif;
+  --footer-text: #0c0c0c;
+  --footer-link: #0c0c0c;
+  --footer-link-hover: #e4a9b6;
+  --footer-font-size: 1rem;
+  --footer-font-weight: 700;
+  --footer-link-underline: underline;
+  --footer-link-offset: 2px;
+
+  /* Hero Height + Caption */
+  --hero-height-desktop: 70vh;
+  --hero-height-mobile: 48vh;
+  --hero-overlay-top: rgba(0,0,0,.18);
+  --hero-overlay-bottom: rgba(0,0,0,.32);
+  --hero-heading-color: #ffffff;
+  --hero-h1-mobile: 32px;
+  --hero-h1-desktop: 48px;
+  --hero-bg-position: center;
+
+  /* Logo sizes */
+  --logo-header-h-mobile: 48px;
+  --logo-header-h-desktop: 52px;
+  --logo-footer-h-mobile: 40px;
+  --logo-footer-h-desktop: 54px;
 }
 
-/* ---------- WHY CHOOSE US (badges) ---------- */
-/* Works with your current markup (3 separate value-card boxes).
-   If you ALSO add id="why" to that section, you'll get a single white rounded panel too. */
+/* ===================== HERO ===================== */
+.parallax-hero { position: relative; min-height: var(--hero-height-desktop) !important; overflow: hidden; }
+@media (max-width:640px){ .parallax-hero { min-height: var(--hero-height-mobile) !important; } }
 
+.parallax-hero .hero-slides,
+.parallax-hero .slides {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+}
+
+.parallax-hero .hero-slide,
+.parallax-hero .slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: var(--hero-bg-position) !important;
+  opacity: 0;
+  transition: opacity .8s ease;
+  display: block;
+}
+
+.parallax-hero .hero-slide.active,
+.parallax-hero .slide.active { opacity: 1; }
+
+/* Fallback: show first slide even if JS fails */
+.parallax-hero .hero-slide:first-child,
+.parallax-hero .slide:first-child { opacity: 1; }
+
+.parallax-hero .overlay {
+  background: linear-gradient(to bottom, var(--hero-overlay-top), var(--hero-overlay-bottom));
+}
+
+.parallax-hero .caption h1 {
+  color: var(--hero-heading-color) !important;
+  font-size: var(--hero-h1-mobile) !important;
+  line-height: 1.15;
+  font-weight: 800;
+}
+@media (min-width: 768px){
+  .parallax-hero .caption h1{
+    font-size: var(--hero-h1-desktop) !important;
+  }
+}
+
+/* ===================== VALUE CARDS ===================== */
 .value-card {
-  padding: 0.9rem 1rem !important;          /* tighter box */
+  padding: 0.9rem 1rem !important;
   border-radius: 14px !important;
   box-shadow: 0 10px 26px rgba(0, 0, 0, 0.08) !important;
-  min-height: 12rem;                        /* uniform height */
-  display: flex;                            /* center content */
+  min-height: 12rem;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-
-/* First child in each value-card is the emoji icon */
 .value-card > div:first-child {
-  font-size: 1.25rem !important;            /* smaller icon */
+  font-size: 1.25rem !important;
   margin-bottom: 0.25rem !important;
   line-height: 1;
 }
-
-/* Headline under the icon */
 .value-card h2,
-.value-card p:first-of-type {                /* if you used <p> for the headline */
+.value-card p:first-of-type {
   font-size: 1rem !important;
   line-height: 1.25 !important;
   margin-bottom: 0.25rem !important;
   font-weight: 800 !important;
 }
-
-/* Supporting copy */
 .value-card p {
   font-size: 0.95rem !important;
-  color: #475569 !important;                /* slate-600 */
-  font-weight: 600 !important;              /* a touch bolder */
+  color: #475569 !important;
+  font-weight: 600 !important;
 }
-
-/* OPTIONAL: If you add id="why" to the section, it becomes one white rounded rectangle */
 #why {
   background: rgba(255, 255, 255, 0.95);
   border-radius: 16px;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
-  /* Inner spacing so the grid doesn't touch edges */
   padding: 1.25rem;
 }
 @media (min-width: 640px) {
   #why { padding: 1.75rem; }
 }
 
-/* ---------- PROJECT GALLERY PREVIEW (home cards) ---------- */
-
-/* Ensure images are consistent and cover nicely */
+/* ===================== PROJECT GALLERY PREVIEW ===================== */
 .card-img {
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 16 / 9;     /* keeps the same visible height across cards */
+  aspect-ratio: 16 / 9;
   object-fit: cover;
   object-position: center;
 }
-
-/* Center text inside card content and make spacing tighter */
 #home-cards .card > .p-4,
 #home-cards .card > .p-5 {
   padding: 0.9rem !important;
   text-align: center;
 }
-
 #home-cards h3 {
   font-size: 1.05rem !important;
   margin-bottom: 0.25rem !important;
   line-height: 1.25 !important;
-  font-weight: 800 !important;              /* thicker title */
+  font-weight: 800 !important;
 }
-
 #home-cards p {
   font-size: 0.95rem !important;
-  color: #334155 !important;                /* slate-700 (darker) */
+  color: #334155 !important;
   font-weight: 600 !important;
 }
-
-/* Optional: slightly reduce the grid gap so 3 cards feel tighter together */
 @media (min-width: 640px) {
   #home-cards .grid {
-    gap: 1.25rem !important;   /* ~20px */
+    gap: 1.25rem !important;
   }
 }
 
-/* ---------- CTA panel tweaks ---------- */
+/* ===================== CTA PANEL ===================== */
 #cta .btn {
   font-weight: 800;
   border-radius: 14px;
   padding: 0.85rem 1.25rem;
 }
 
-/* ---------- Header/Footer small polish ---------- */
-/* Header "Call Now" — larger & easier to tap */
-.call-now{
-  display:inline-block;
-  padding:.85rem 1.35rem;           /* bigger */
-  font-size:1.0625rem;              /* ~17px */
-  line-height:1;                    /* keeps it compact */
-  border-radius:9999px;
-  background:var(--ink);
-  color:#fff;
-  text-decoration:none;
-  font-weight:800;                  /* a bit bolder */
-  box-shadow:0 6px 14px rgba(0,0,0,.12);
+/* ===================== HEADER & NAV ===================== */
+header.sticky { background: var(--header-bg) !important; }
+header .site-nav a:not(.call-now){
+  color: var(--nav-link-color) !important;
+  font-size: var(--nav-link-size) !important;
+  font-weight: 700;
+  text-decoration: none;
 }
-@media (min-width:768px){
-  .call-now{
-    padding:.95rem 1.6rem;          /* a touch bigger on desktop */
-    font-size:1.125rem;             /* ~18px */
-  }
+header .site-nav .call-now{
+  background: var(--callnow-bg) !important;
+  color: var(--callnow-text) !important;
+  font-size: var(--callnow-size) !important;
+  padding: var(--callnow-pad-y) var(--callnow-pad-x) !important;
+  border-radius: 9999px;
+  box-shadow: 0 6px 14px rgba(0,0,0,.12);
+  border: 0;
 }
-.call-now:hover{ transform:translateY(-1px); }
-.call-now:focus-visible{ outline:2px solid #fff; outline-offset:2px; }
-@media (prefers-reduced-motion: reduce){
-  .call-now, .call-now:hover{ transform:none; }
+header .site-nav .call-now:focus-visible{
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
 }
 
-/* Footer text & social */
-footer .contact,
-footer .contact a {
-  font-weight: 700;
-  font-size: 1.05rem;
+/* ===================== MASONRY GALLERY ===================== */
+.masonry-columns {
+  columns: 1 300px;
+  column-gap: 1.5rem;
 }
-footer .social a { color: #fff; }
-footer .social a:hover { color: #f1f5f9; } /* slightly brighter on hover */
+@media (min-width: 640px) {
+  .masonry-columns { columns: 2 300px; }
+}
+@media (min-width: 1024px) {
+  .masonry-columns { columns: 3 300px; }
+}
+.masonry-columns img {
+  width: 100%;
+  display: block;
+  margin-bottom: 1.5rem;
+  border-radius: 12px;
+  break-inside: avoid;
+  object-fit: cover;
+}
+
+/* ===================== FOOTER ===================== */
+footer.bg-primary {
+  background: var(--footer-bg) !important;
+  color: var(--footer-text) !important;
+  font-family: var(--footer-font-family), sans-serif !important;
+  font-size: var(--footer-font-size) !important;
+  font-weight: var(--footer-font-weight) !important;
+}
+footer.bg-primary .contact,
+footer.bg-primary .contact p,
+footer.bg-primary .contact strong,
+footer.bg-primary .contact span {
+  font-size: var(--footer-font-size) !important;
+  font-weight: var(--footer-font-weight) !important;
+  color: var(--footer-text) !important;
+  font-family: var(--footer-font-family), sans-serif !important;
+}
+footer.bg-primary .contact a,
+footer.bg-primary .social a {
+  color: var(--footer-link) !important;
+  text-decoration: var(--footer-link-underline);
+  text-underline-offset: var(--footer-link-offset);
+  font-family: var(--footer-font-family), sans-serif !important;
+  font-size: var(--footer-font-size) !important;
+  font-weight: var(--footer-font-weight) !important;
+  transition: color .2s ease, text-shadow .2s ease;
+}
+footer.bg-primary .contact a:hover,
+footer.bg-primary .social a:hover {
+  color: var(--footer-link-hover) !important;
+  text-shadow: 0 0 8px rgba(120, 123, 128, 0.4);
+}
+footer .footer-logo{
+  height: var(--logo-footer-h-mobile) !important;
+  width: auto !important;
+  display: block;
+}
+@media (min-width:768px){
+  footer .footer-logo{ height: var(--logo-footer-h-desktop) !important; }
+}
+footer .social {
+  margin-bottom: 4.5rem;
+}
+@media (min-width: 768px){
+  footer .social{
+    margin-right: 6rem !important;
+  }
+}
+
+/* ===================== LOGO SIZES ===================== */
+.header-logo{
+  height: var(--logo-header-h-mobile) !important;
+  width: auto !important;
+  display: block;
+}
+@media (min-width:768px){
+  .header-logo{ height: var(--logo-header-h-desktop) !important; }
+}
+
+/* ===================== FIXED APPOINTMENT FORM ===================== */
+.fixed-appointment-form {
+  position: fixed;
+  bottom: 6rem;
+  right: 3.5rem;
+  z-index: 1000;
+  width: 350px;
+  max-width: 90vw;
+  background: #ffffff5b;
+  border-radius: 1rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.13);
+  padding: 1.5rem 1.25rem;
+  transition: box-shadow 0.2s;
+}
+@media (max-width: 500px) {
+  .fixed-appointment-form {
+    right: 0.5rem;
+    left: 0.5rem;
+    width: auto;
+    padding: 1rem 0.5rem;
+    bottom: 7rem;
+  }
+}
+
+/* ===================== CARD ANCHORS ===================== */
+.card,
+.card:link,
+.card:visited {
+  text-decoration: none !important;
+  color: inherit;
+}

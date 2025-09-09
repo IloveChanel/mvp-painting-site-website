@@ -1,23 +1,36 @@
+// /assets/js/hero-rotator.js
 (() => {
-  // find the slides container by id or data-attribute
-  const slidesRoot =
-    document.querySelector('#hero-index .slides') ||
-    document.querySelector('[data-hero="rotation"] .slides');
+  function initHeroRotation(section, intervalMs = 5000) {
+    const slidesWrap = section.querySelector('.slides');
+    if (!slidesWrap) return;
+    const slides = Array.from(slidesWrap.querySelectorAll('.slide'));
+    if (!slides.length) return;
 
-  if (!slidesRoot) return;
+    // Ensure one slide is visible on load
+    let idx = slides.findIndex(s => s.classList.contains('active'));
+    if (idx === -1) { idx = 0; slides[0].classList.add('active'); }
 
-  const slides = Array.from(slidesRoot.children);
-  if (!slides.length) return;
+    let timerId = null;
+    const next = () => {
+      slides[idx].classList.remove('active');
+      idx = (idx + 1) % slides.length;
+      slides[idx].classList.add('active');
+    };
 
-  let i = 0;
-  const show = n => {
-    slides.forEach((s, idx) => s.classList.toggle('active', idx === n));
-  };
+    const start = () => { if (!timerId) timerId = setInterval(next, intervalMs); };
+    const stop  = () => { if (timerId) { clearInterval(timerId); timerId = null; } };
 
-  show(0);                      // show first
-  const INTERVAL_MS = 5000;     // change speed here (5000 = 5s)
-  setInterval(() => {
-    i = (i + 1) % slides.length;
-    show(i);
-  }, INTERVAL_MS);
+    start();
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) stop(); else start();
+    });
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('[data-hero="rotation"]').forEach(section => {
+      const speedAttr = section.getAttribute('data-speed');
+      const speed = Number.parseInt(speedAttr, 10);
+      initHeroRotation(section, Number.isFinite(speed) ? speed : 5000);
+    });
+  });
 })();
