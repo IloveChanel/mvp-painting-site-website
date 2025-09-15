@@ -1,9 +1,11 @@
 ﻿/** @type {import("tailwindcss").Config} */
 module.exports = {
-  content: [
-    "./public/**/*.html",
-    "./src/**/*.{js,ts,jsx,tsx,vue}"
-  ],
+  content: ["./public/**/*.html"],
+    content: [
+      "./public/**/*.html",
+      "./public/assets/js/**/*.js", // scan your real JS
+      "./src/**/*.{js,ts,jsx,tsx,vue}" // keep only if you actually use src
+    ],
   theme: {
     extend: {
       colors: {
@@ -24,9 +26,5 @@ module.exports = {
         ]
       }
     }
-  },
-  plugins: [
-    require('@tailwindcss/forms'),
-    require('@tailwindcss/typography')
-  ]
+  }
 }
