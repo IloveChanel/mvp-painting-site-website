@@ -1,9 +1,0 @@
-﻿/* filepath: src/input.css */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* helpers */
-.bg-brand-gradient { @apply bg-gradient-to-br from-accent to-gold; }
-/* Optionally import your custom CSS here */
-@import './custom.css';
