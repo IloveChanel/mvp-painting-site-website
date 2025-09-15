@@ -1,3 +1,29 @@
+/* === Fix: ensure header nav shows on mobile === */
+@media (max-width: 767.98px) {
+  header .site-nav {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    height: auto !important;
+  }
+  header .site-nav a {
+    color: var(--ink) !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+  /* protect header from being overlapped */
+  header { position: sticky; top: 0; z-index: 9999; }
+}
+/* Force the mobile nav to show and be clickable */
+@media (max-width: 767.98px) {
+  header .site-nav { display: flex !important; flex-direction: column !important; gap: 1rem !important; }
+  header .site-nav a { color: var(--ink) !important; opacity: 1 !important; pointer-events: auto !important; }
+}
+
+/* Ensure nothing overlays the header on mobile */
+header { position: sticky; top: 0; z-index: 9999; }
 /* Make any link with .no-underline actually remove the underline */
 .no-underline,
 .no-underline:link,
@@ -5,6 +31,8 @@
   text-decoration: none !important;
   color: inherit;
 }
+/* Keep layout predictable across browsers */
+*, *::before, *::after { box-sizing: border-box; }
 
 /* ===================== VARIABLES ===================== */
 :root {
@@ -308,4 +336,36 @@ footer .social {
 .card:visited {
   text-decoration: none !important;
   color: inherit;
+}
+/* === Mobile safety net (does not change content) === */
+img, video { max-width: 100%; height: auto; display: block; }
+
+/* prevent sideways scroll */
+html, body { overflow-x: hidden; }
+
+/* buttons & nav on small screens */
+@media (max-width: 640px) {
+  .call-now { font-size: 1rem !important; padding: 0.75rem 1rem !important; }
+  .site-nav { gap: 0.75rem; }
+}
+
+
+/* ===================== FIXED APPOINTMENT FORM: MOBILE OVERRIDE ===================== */
+/* Place at the VERY BOTTOM of /assets/css/custom.css */
+@media (max-width: 767.98px) {
+  .fixed-appointment-form {
+    position: static !important;      /* out of overlay layer */
+    z-index: auto !important;         /* no stacking over hero */
+    top: auto !important; right: auto !important; bottom: auto !important; left: auto !important;
+
+    width: 100% !important;
+    max-width: 100% !important;
+
+    /* give the form breathing room on phone screens */
+    margin: 20px 12px !important;     /* top/bottom 20px, left/right 12px */
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08) !important;
+  }
+
+  /* optional: a touch more space for hero caption on phones */
+  .parallax-hero .caption { padding-top: 2rem; }
 }

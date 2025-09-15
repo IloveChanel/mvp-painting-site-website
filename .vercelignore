@@ -2,7 +2,6 @@ node_modules
 src
 *.config.js
 *.config.cjs
-*.config.mjs
 package.json
 package-lock.json
 pnpm-lock.yaml
