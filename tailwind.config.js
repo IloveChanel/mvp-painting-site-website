@@ -1,11 +1,10 @@
 ﻿/** @type {import("tailwindcss").Config} */
 module.exports = {
-  content: ["./public/**/*.html"],
-    content: [
-      "./public/**/*.html",
-      "./public/assets/js/**/*.js", // scan your real JS
-      "./src/**/*.{js,ts,jsx,tsx,vue}" // keep only if you actually use src
-    ],
+  content: [
+    "./public/**/*.html",
+    "./public/assets/js/**/*.js", // scan your real JS
+    "./src/**/*.{js,ts,jsx,tsx,vue}" // keep only if you actually use src
+  ],
   theme: {
     extend: {
       colors: {
