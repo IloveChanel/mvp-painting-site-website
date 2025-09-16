@@ -2,9 +2,11 @@ import { defineConfig } from 'vite'
 import { resolve } from 'path'
 
 export default defineConfig({
-  root: 'public',             // your source .html live in /public
+  // HTML lives in /public
+  root: 'public',
   build: {
-    outDir: '../dist',        // Vercel will serve from /dist
+    // Output to /dist (one level up from /public)
+    outDir: '../dist',
     emptyOutDir: true,
     rollupOptions: {
       input: {
