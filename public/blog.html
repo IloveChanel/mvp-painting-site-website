@@ -1,43 +1,93 @@
-﻿<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
+﻿<head>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MVP Painting | Blog</title>
+  <title>Blog | MVP Painting & HomeDecor</title>
   <meta name="description" content="Painting tips, project stories, and advice from MVP Painting serving Macomb & Oakland County." />
+  <link rel="canonical" href="https://www.mvpdecor.com/blog.html" />
 
+  <!-- Open Graph -->
+  <meta property="og:title" content="Blog | MVP Painting & HomeDecor" />
+  <meta property="og:description" content="Painting tips, project stories, and advice from MVP Painting serving Macomb & Oakland County." />
+  <meta property="og:url" content="https://www.mvpdecor.com/blog.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://www.mvpdecor.com/assets/og-cover.jpg" />
 
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
 
-<!-- Fonts & Icons -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<!-- Tailwind (compiled; no CDN) -->
-<link rel="stylesheet" href="/assets/css/tailwind.css">
+  <!-- Your compiled site CSS -->
+  <link rel="stylesheet" href="/assets/css/tailwind.css">
+  <link rel="stylesheet" href="/assets/css/custom.css">
 
-<!-- Your compiled site CSS -->
-<link rel="stylesheet" href="/assets/css/index-Cp9mPwme.css">
+  <!-- Site scripts (module so Vite can bundle) -->
+  <script type="module" src="/assets/js/scripts.js" defer></script>
+  <script type="module" src="/assets/js/hero-rotator.js" defer></script>
 
-<!-- Your overrides LAST -->
-<link rel="stylesheet" href="/assets/css/custom.css">
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "PaintingContractor",
+    "name": "MVP Painting & HomeDecor",
+    "url": "https://www.mvpdecor.com/blog.html",
+    "image": "https://www.mvpdecor.com/assets/og-cover.jpg",
+    "telephone": "+1-734-366-2493",
+    "email": "elvirpurovic@mvpdecor.com",
+    "areaServed": [
+      "Macomb County, MI","Oakland County, MI","Clinton Township, MI",
+      "Sterling Heights, MI","Shelby Township, MI","Macomb Township, MI",
+      "Rochester Hills, MI","Troy, MI","Royal Oak, MI","Bloomfield Hills, MI"
+    ],
+    "description": "Residential and light commercial painting, cabinet refinishing, exterior protection, custom finishes, and wood repair.",
+    "sameAs": [
+      "https://www.facebook.com/share/19Vxythfws/",
+      "https://www.instagram.com/m.v.p.homedecor?igsh=MTBpNjAwcmYzcmh0YQ==",
+      "https://maps.app.goo.gl/LxwxHhzqmVP67nQN7"
+    ]
+  }
+  </script>
 
-<!-- Scripts -->
-<script src="/assets/js/scripts.js" defer></script>
-<script src="/assets/js/hero-rotator.js" defer></script>
-
-
-  <!-- Inline theme + small fixes (same as other pages) -->
+  <!-- Theme tokens + page background only (no component rules here) -->
   <style>
-    /* ...keep your CSS from gallery.html... */
+    :root{ --ink:#0f172a; --gold-1:#efe6cf; --gold-2:#e9d8b0; --rose-1:#e3c0c6; }
+    html,body{min-height:100%}
+    body{
+      font-family: Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(900px 700px at 100% 100%, rgba(227,192,198,.55), transparent 60%),
+        linear-gradient(135deg,#fffef9 0%, var(--gold-1) 35%, var(--gold-2) 66%, var(--rose-1) 100%);
+      background-attachment: fixed;
+    }
+    section,.section,.bg-paper{ background:transparent !important; }
+    .bg-primary{ background: var(--ink); }
+    .header-logo{height:48px;width:auto;display:block}
+    .site-nav a{font-weight:700}
+    .call-now{display:inline-block;padding:.5rem .9rem;border-radius:9999px;background:var(--ink);color:#fff;text-decoration:none;font-weight:700}
+    .call-now:focus-visible,.btn:focus-visible{outline:2px solid #fff;outline-offset:2px}
+    .parallax-hero{position:relative;min-height:56vh;overflow:hidden}
+    @media (max-width:640px){.parallax-hero{min-height:44vh}}
+    .parallax-hero .slides{position:absolute;inset:0;will-change:transform}
+    .parallax-hero .slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity .8s ease}
+    .parallax-hero .slide.active{opacity:1}
+    .parallax-hero .overlay{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,.18), rgba(0,0,0,.32))}
+    .parallax-hero .caption{position:relative;z-index:3;display:grid;place-items:center;text-align:center;min-height:inherit;padding:clamp(2rem,3vw,3rem) 1rem}
+    .parallax-hero .caption h1{color:#fff;font-weight:800;line-height:1.15;text-shadow:0 2px 8px rgba(0,0,0,.35);margin-bottom:.75rem}
+    .parallax-hero .caption p{color:#fff;opacity:.95;margin-bottom:1.25rem}
+    .btn{display:inline-block;padding:.9rem 1.25rem;border-radius:14px;background:#fff;color:var(--ink);font-weight:800;text-decoration:none}
+    .value-card{background:#fff;border-radius:1rem;box-shadow:0 12px 30px rgba(0,0,0,.1);padding:2rem;text-align:center}
+    .card{background:#fff;border-radius:1rem;overflow:hidden;box-shadow:0 10px 26px rgba(0,0,0,.1);border:1px solid rgba(15,23,42,.06);max-width:100%;margin-left:auto;margin-right:auto;text-decoration:none;color:inherit}
+    .cta-band{background:rgba(255,255,255,.92);border-radius:20px;padding:2rem 1.5rem;box-shadow:0 12px 30px rgba(0,0,0,.12);max-width:900px;margin:0 auto}
+    footer .contact, footer .contact a{font-size:1.125rem;font-weight:700}
+    footer .social a{opacity:.9;text-decoration:underline}
+    @media (prefers-reduced-motion: reduce){.parallax-hero .slide{transition:none}}
   </style>
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-
-
-<body class="font-sans page-blog pb-16 md:pb-0">
-  <!-- Header (copy from gallery.html) -->
-  <!-- ... -->
+</head>
 
   <!-- HERO -->
   <section class="parallax-hero" id="hero-blog" data-hero="rotation" aria-label="Blog hero">
