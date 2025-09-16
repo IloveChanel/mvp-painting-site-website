@@ -61,21 +61,32 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!-- 1. Favicon: use the hashed file -->
+<link rel="icon" type="image/x-icon" href="/assets/favicon-II9yTh74.ico">
 
-<!-- Tailwind (compiled; no CDN) -->
-<link rel="stylesheet" href="/assets/css/tailwind.css">
+<!-- 2. Logo in header and footer: use the hashed file -->
+<img src="/assets/logo-black-uKbwBgYq.png" alt="MVP Painting Logo" class="header-logo" loading="lazy" decoding="async">
+<!-- ... -->
+<img src="/assets/logo-black-uKbwBgYq.png" class="footer-logo h-16 w-auto mb-2" alt="MVP Painting logo" loading="lazy">
 
-<!-- Your compiled site CSS -->
-<link rel="stylesheet" href="/assets/css/index-Cp9mPwme.css">
+<!-- 3. Hero images: use the hashed files -->
+<!-- Preload -->
+<link rel="preload" as="image" href="/assets/images/hero-contact/hero-contact-1.jpg">
+<!-- Slides -->
+<div class="slide" style="background-image:
+  url('/assets/images/hero-contact/hero-contact-1.jpg'),
+  linear-gradient(135deg,#fffef9 0%, #efe6cf 35%, #e9d8b0 66%, #e3c0c6 100%)"></div>
+<div class="slide" style="background-image:
+  url('/assets/images/hero-contact/hero-contact-2.jpg'),
+  linear-gradient(135deg,#fffef9 0%, #efe6cf 35%, #e9d8b0 66%, #e3c0c6 100%)"></div>
 
-<!-- Your overrides LAST -->
-<link rel="stylesheet" href="/assets/css/custom.css">
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<!-- 4. JS scripts: use type="module" -->
+<script type="module" src="/assets/js/scripts.js" defer></script>
+<script type="module" src="/assets/js/hero-rotator.js" defer></script>
 
-<!-- Scripts -->
-<script src="/assets/js/scripts.js" defer></script>
-<script src="/assets/js/hero-rotator.js" defer></script>
-
+<!-- 5. Remove any reference to index-Cp9mPwme.css -->
+<!-- Delete this line if present: -->
+<!-- <link rel="stylesheet" href="/assets/css/index-Cp9mPwme.css"> -->
 
   <!-- Inline theme + small fixes (uniform across pages) -->
   <style>
