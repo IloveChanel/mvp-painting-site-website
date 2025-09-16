@@ -1,11 +1,8 @@
-node_modules
-src
-*.config.js
-*.config.cjs
-package.json
-package-lock.json
-pnpm-lock.yaml
-yarn.lock
-.vscode
+# OS/editor junk
 .DS_Store
 Thumbs.db
+.vscode/
+
+# Git metadata
+.git/
+.gitignore
