@@ -1,9 +1,19 @@
-/* filepath: src/input.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* helpers */
+/* Theme variables */
+:root {
+  --color-ink:   #0f172a;
+  --color-gold-1:#efe6cf;
+  --color-gold-2:#e9d8b0;
+  --color-rose-1:#e3c0c6;
+  --font-sans: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Your helper */
 .bg-brand-gradient { @apply bg-gradient-to-br from-accent to-gold; }
-/* Optionally import your custom CSS here */
-@import '../public/assets/css/custom.css';
+
+/* Custom overrides */
+@import "./custom.css";
+

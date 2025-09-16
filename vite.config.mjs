@@ -1,11 +1,10 @@
+// filepath: c:\Users\selli\mvp-painting-site-website\vite.config.mjs
 import { defineConfig } from 'vite'
 import { resolve } from 'path'
 
 export default defineConfig({
-  // HTML lives in /public
   root: 'public',
   build: {
-    // Output to /dist (one level up from /public)
     outDir: '../dist',
     emptyOutDir: true,
     rollupOptions: {

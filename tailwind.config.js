@@ -3,7 +3,7 @@ module.exports = {
   content: [
     "./public/**/*.html",
     "./public/assets/js/**/*.js",     // your real JS files
-    "./src/**/*.{js,ts,jsx,tsx,vue}" // keep only if you actually use /src
+  
   ],
   theme: {
     extend: {
