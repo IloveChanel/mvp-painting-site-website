@@ -1,4 +1,6 @@
-/* === Fix: ensure header nav shows on mobile === */
+/* ===================== GLOBAL SAFEGUARDS ===================== */
+
+/* Mobile header nav: visible, clickable, not overlapped */
 @media (max-width: 767.98px) {
   header .site-nav {
     display: flex !important;
@@ -13,359 +15,241 @@
     opacity: 1 !important;
     pointer-events: auto !important;
   }
-  /* protect header from being overlapped */
-  header { position: sticky; top: 0; z-index: 9999; }
 }
-/* Force the mobile nav to show and be clickable */
-@media (max-width: 767.98px) {
-  header .site-nav { display: flex !important; flex-direction: column !important; gap: 1rem !important; }
-  header .site-nav a { color: var(--ink) !important; opacity: 1 !important; pointer-events: auto !important; }
-}
-
-/* Ensure nothing overlays the header on mobile */
 header { position: sticky; top: 0; z-index: 9999; }
-/* Make any link with .no-underline actually remove the underline */
+
+/* Links that should have no underline */
 .no-underline,
 .no-underline:link,
-.no-underline:visited {
-  text-decoration: none !important;
-  color: inherit;
-}
-/* Keep layout predictable across browsers */
+.no-underline:visited { text-decoration: none !important; color: inherit; }
+
+/* Predictable layout across browsers */
 *, *::before, *::after { box-sizing: border-box; }
 
-/* ===================== VARIABLES ===================== */
-:root {
-  /* Hero */
-  --hero-title-color: #ece8e8;
-  --hero-title-font: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --hero-title-size-m: 26px;
-  --hero-title-size-d: 42px;
-  --hero-title-weight: 800;
-  --hero-title-line: 1.15;
-  --hero-title-track: normal;
-  --hero-title-shadow-color: #000000af;
-
-  /* Header/Nav */
-  --header-bg: #c2c0b8cc;
-  --nav-link-color: #0f172a;
-  --nav-link-size: 1.05rem;
-  --callnow-bg: #0f172a;
-  --callnow-text: #ffffff;
-  --callnow-size: 1.25rem;
-  --callnow-pad-y: .85rem;
-  --callnow-pad-x: 1.10rem;
-
-  /* Footer */
-  --footer-bg: #92897e9c;
-  --footer-font-family: 'Montserrat', Arial, sans-serif;
-  --footer-text: #0c0c0c;
-  --footer-link: #0c0c0c;
-  --footer-link-hover: #e4a9b6;
-  --footer-font-size: 1rem;
-  --footer-font-weight: 700;
-  --footer-link-underline: underline;
-  --footer-link-offset: 2px;
-
-  /* Hero Height + Caption */
-  --hero-height-desktop: 70vh;
-  --hero-height-mobile: 48vh;
-  --hero-overlay-top: rgba(0,0,0,.18);
-  --hero-overlay-bottom: rgba(0,0,0,.32);
-  --hero-heading-color: #ffffff;
-  --hero-h1-mobile: 32px;
-  --hero-h1-desktop: 48px;
-  --hero-bg-position: center;
-
-  /* Logo sizes */
-  --logo-header-h-mobile: 48px;
-  --logo-header-h-desktop: 52px;
-  --logo-footer-h-mobile: 40px;
-  --logo-footer-h-desktop: 54px;
-}
-
-/* ===================== HERO ===================== */
-.parallax-hero { position: relative; min-height: var(--hero-height-desktop) !important; overflow: hidden; }
-@media (max-width:640px){ .parallax-hero { min-height: var(--hero-height-mobile) !important; } }
-
-.parallax-hero .hero-slides,
-.parallax-hero .slides {
-  position: absolute;
-  inset: 0;
-  will-change: transform;
-}
-
-.parallax-hero .hero-slide,
-.parallax-hero .slide {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: var(--hero-bg-position) !important;
-  opacity: 0;
-  transition: opacity .8s ease;
-  display: block;
-}
-
-.parallax-hero .hero-slide.active,
-.parallax-hero .slide.active { opacity: 1; }
-
-/* Fallback: show first slide even if JS fails */
-.parallax-hero .hero-slide:first-child,
-.parallax-hero .slide:first-child { opacity: 1; }
-
-.parallax-hero .overlay {
-  background: linear-gradient(to bottom, var(--hero-overlay-top), var(--hero-overlay-bottom));
-}
-
-.parallax-hero .caption h1 {
-  color: var(--hero-heading-color) !important;
-  font-size: var(--hero-h1-mobile) !important;
-  line-height: 1.15;
-  font-weight: 800;
-}
-@media (min-width: 768px){
-  .parallax-hero .caption h1{
-    font-size: var(--hero-h1-desktop) !important;
-  }
-}
-
-/* ===================== VALUE CARDS ===================== */
-.value-card {
-  padding: 0.9rem 1rem !important;
-  border-radius: 14px !important;
-  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.08) !important;
-  min-height: 12rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.value-card > div:first-child {
-  font-size: 1.25rem !important;
-  margin-bottom: 0.25rem !important;
-  line-height: 1;
-}
-.value-card h2,
-.value-card p:first-of-type {
-  font-size: 1rem !important;
-  line-height: 1.25 !important;
-  margin-bottom: 0.25rem !important;
-  font-weight: 800 !important;
-}
-.value-card p {
-  font-size: 0.95rem !important;
-  color: #475569 !important;
-  font-weight: 600 !important;
-}
-#why {
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 16px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
-  padding: 1.25rem;
-}
-@media (min-width: 640px) {
-  #why { padding: 1.75rem; }
-}
-
-/* ===================== PROJECT GALLERY PREVIEW ===================== */
-.card-img {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  object-position: center;
-}
-#home-cards .card > .p-4,
-#home-cards .card > .p-5 {
-  padding: 0.9rem !important;
-  text-align: center;
-}
-#home-cards h3 {
-  font-size: 1.05rem !important;
-  margin-bottom: 0.25rem !important;
-  line-height: 1.25 !important;
-  font-weight: 800 !important;
-}
-#home-cards p {
-  font-size: 0.95rem !important;
-  color: #334155 !important;
-  font-weight: 600 !important;
-}
-@media (min-width: 640px) {
-  #home-cards .grid {
-    gap: 1.25rem !important;
-  }
-}
-
-/* ===================== CTA PANEL ===================== */
-#cta .btn {
-  font-weight: 800;
-  border-radius: 14px;
-  padding: 0.85rem 1.25rem;
-}
-
-/* ===================== HEADER & NAV ===================== */
-header.sticky { background: var(--header-bg) !important; }
-header .site-nav a:not(.call-now){
-  color: var(--nav-link-color) !important;
-  font-size: var(--nav-link-size) !important;
-  font-weight: 700;
-  text-decoration: none;
-}
-header .site-nav .call-now{
-  background: var(--callnow-bg) !important;
-  color: var(--callnow-text) !important;
-  font-size: var(--callnow-size) !important;
-  padding: var(--callnow-pad-y) var(--callnow-pad-x) !important;
-  border-radius: 9999px;
-  box-shadow: 0 6px 14px rgba(0,0,0,.12);
-  border: 0;
-}
-header .site-nav .call-now:focus-visible{
-  outline: 2px solid #ffffff;
-  outline-offset: 2px;
-}
-
-/* ===================== MASONRY GALLERY ===================== */
-.masonry-columns {
-  columns: 1 300px;
-  column-gap: 1.5rem;
-}
-@media (min-width: 640px) {
-  .masonry-columns { columns: 2 300px; }
-}
-@media (min-width: 1024px) {
-  .masonry-columns { columns: 3 300px; }
-}
-.masonry-columns img {
-  width: 100%;
-  display: block;
-  margin-bottom: 1.5rem;
-  border-radius: 12px;
-  break-inside: avoid;
-  object-fit: cover;
-}
-
-/* ===================== FOOTER ===================== */
-footer.bg-primary {
-  background: var(--footer-bg) !important;
-  color: var(--footer-text) !important;
-  font-family: var(--footer-font-family), sans-serif !important;
-  font-size: var(--footer-font-size) !important;
-  font-weight: var(--footer-font-weight) !important;
-}
-footer.bg-primary .contact,
-footer.bg-primary .contact p,
-footer.bg-primary .contact strong,
-footer.bg-primary .contact span {
-  font-size: var(--footer-font-size) !important;
-  font-weight: var(--footer-font-weight) !important;
-  color: var(--footer-text) !important;
-  font-family: var(--footer-font-family), sans-serif !important;
-}
-footer.bg-primary .contact a,
-footer.bg-primary .social a {
-  color: var(--footer-link) !important;
-  text-decoration: var(--footer-link-underline);
-  text-underline-offset: var(--footer-link-offset);
-  font-family: var(--footer-font-family), sans-serif !important;
-  font-size: var(--footer-font-size) !important;
-  font-weight: var(--footer-font-weight) !important;
-  transition: color .2s ease, text-shadow .2s ease;
-}
-footer.bg-primary .contact a:hover,
-footer.bg-primary .social a:hover {
-  color: var(--footer-link-hover) !important;
-  text-shadow: 0 0 8px rgba(120, 123, 128, 0.4);
-}
-footer .footer-logo{
-  height: var(--logo-footer-h-mobile) !important;
-  width: auto !important;
-  display: block;
-}
-@media (min-width:768px){
-  footer .footer-logo{ height: var(--logo-footer-h-desktop) !important; }
-}
-footer .social {
-  margin-bottom: 4.5rem;
-}
-@media (min-width: 768px){
-  footer .social{
-    margin-right: 6rem !important;
-  }
-}
-
-/* ===================== LOGO SIZES ===================== */
-.header-logo{
-  height: var(--logo-header-h-mobile) !important;
-  width: auto !important;
-  display: block;
-}
-@media (min-width:768px){
-  .header-logo{ height: var(--logo-header-h-desktop) !important; }
-}
-
-/* ===================== FIXED APPOINTMENT FORM ===================== */
-.fixed-appointment-form {
-  position: fixed;
-  bottom: 6rem;
-  right: 3.5rem;
-  z-index: 1000;
-  width: 350px;
-  max-width: 90vw;
-  background: #ffffff5b;
-  border-radius: 1rem;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.13);
-  padding: 1.5rem 1.25rem;
-  transition: box-shadow 0.2s;
-}
-@media (max-width: 500px) {
-  .fixed-appointment-form {
-    right: 0.5rem;
-    left: 0.5rem;
-    width: auto;
-    padding: 1rem 0.5rem;
-    bottom: 7rem;
-  }
-}
-
-/* ===================== CARD ANCHORS ===================== */
-.card,
-.card:link,
-.card:visited {
-  text-decoration: none !important;
-  color: inherit;
-}
-/* === Mobile safety net (does not change content) === */
+/* Mobile images/videos never overflow */
 img, video { max-width: 100%; height: auto; display: block; }
 
-/* prevent sideways scroll */
+/* Prevent sideways scroll */
 html, body { overflow-x: hidden; }
 
-/* buttons & nav on small screens */
+/* Small-screen button + nav comfort */
 @media (max-width: 640px) {
   .call-now { font-size: 1rem !important; padding: 0.75rem 1rem !important; }
   .site-nav { gap: 0.75rem; }
 }
 
+/* ===================== THEME TOKENS ===================== */
+:root{
+  --ink:#0f172a;
 
-/* ===================== FIXED APPOINTMENT FORM: MOBILE OVERRIDE ===================== */
-/* Place at the VERY BOTTOM of /assets/css/custom.css */
-@media (max-width: 767.98px) {
-  .fixed-appointment-form {
-    position: static !important;      /* out of overlay layer */
-    z-index: auto !important;         /* no stacking over hero */
-    top: auto !important; right: auto !important; bottom: auto !important; left: auto !important;
+  /* Accents */
+  --gold-1:#efe6cf;
+  --gold-2:#e9d8b0;
+  --rose-1:#e3c0c6;
 
-    width: 100% !important;
-    max-width: 100% !important;
+  /* Hero */
+  --hero-title-color:#ece8e8;
+  --hero-title-font:"Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --hero-title-size-m:26px;
+  --hero-title-size-d:42px;
+  --hero-title-weight:800;
+  --hero-title-line:1.15;
+  --hero-title-shadow-color:#000000af;
+  --hero-height-desktop:70vh;
+  --hero-height-mobile:48vh;
+  --hero-overlay-top:rgba(0,0,0,.18);
+  --hero-overlay-bottom:rgba(0,0,0,.32);
+  --hero-heading-color:#ffffff;
+  --hero-h1-mobile:32px;
+  --hero-h1-desktop:48px;
+  --hero-bg-position:center;
 
-    /* give the form breathing room on phone screens */
-    margin: 20px 12px !important;     /* top/bottom 20px, left/right 12px */
-    box-shadow: 0 4px 16px rgba(0,0,0,0.08) !important;
-  }
+  /* Header/Nav */
+  --header-bg:#c2c0b8cc;
+  --nav-link-color:#0f172a;
+  --nav-link-size:1.05rem;
+  --callnow-bg:#0f172a;
+  --callnow-text:#ffffff;
+  --callnow-size:1.25rem;
+  --callnow-pad-y:.85rem;
+  --callnow-pad-x:1.10rem;
 
-  /* optional: a touch more space for hero caption on phones */
-  .parallax-hero .caption { padding-top: 2rem; }
+  /* Footer */
+  --footer-bg:#92897e9c;
+  --footer-font-family:'Montserrat', Arial, sans-serif;
+  --footer-text:#0c0c0c;
+  --footer-link:#0c0c0c;
+  --footer-link-hover:#e4a9b6;
+  --footer-font-size:1rem;
+  --footer-font-weight:700;
+  --footer-link-underline:underline;
+  --footer-link-offset:2px;
+
+  /* Logos */
+  --logo-header-h-mobile:48px;
+  --logo-header-h-desktop:52px;
+  --logo-footer-h-mobile:40px;
+  --logo-footer-h-desktop:54px;
 }
+
+/* ===================== HERO ===================== */
+.parallax-hero{ position:relative; min-height:var(--hero-height-desktop) !important; overflow:hidden; }
+@media (max-width:640px){ .parallax-hero{ min-height:var(--hero-height-mobile) !important; } }
+
+.parallax-hero .hero-slides,.parallax-hero .slides{ position:absolute; inset:0; will-change:transform; }
+.parallax-hero .hero-slide,.parallax-hero .slide{
+  position:absolute; inset:0; background-size:cover; background-position:var(--hero-bg-position) !important;
+  opacity:0; transition:opacity .8s ease; display:block;
+}
+.parallax-hero .hero-slide.active,.parallax-hero .slide.active{ opacity:1; }
+/* Fallback if JS fails */
+.parallax-hero .hero-slide:first-child,.parallax-hero .slide:first-child{ opacity:1; }
+
+.parallax-hero .overlay{ background:linear-gradient(to bottom, var(--hero-overlay-top), var(--hero-overlay-bottom)); }
+.parallax-hero .caption h1{
+  color:var(--hero-heading-color) !important; font-size:var(--hero-h1-mobile) !important;
+  line-height:1.15; font-weight:800;
+}
+@media (min-width:768px){ .parallax-hero .caption h1{ font-size:var(--hero-h1-desktop) !important; } }
+
+/* ===================== HEADER & NAV ===================== */
+header.sticky{ background:var(--header-bg) !important; }
+header .site-nav a:not(.call-now){
+  color:var(--nav-link-color) !important; font-size:var(--nav-link-size) !important; font-weight:700; text-decoration:none;
+}
+header .site-nav .call-now{
+  background:var(--callnow-bg) !important; color:var(--callnow-text) !important;
+  font-size:var(--callnow-size) !important; padding:var(--callnow-pad-y) var(--callnow-pad-x) !important;
+  border-radius:9999px; box-shadow:0 6px 14px rgba(0,0,0,.12); border:0;
+}
+header .site-nav .call-now:focus-visible{ outline:2px solid #fff; outline-offset:2px; }
+
+/* ===================== VALUE CARDS ===================== */
+.value-card{
+  padding:.9rem 1rem !important; border-radius:14px !important;
+  box-shadow:0 10px 26px rgba(0,0,0,.08) !important; min-height:12rem;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+}
+.value-card > div:first-child{ font-size:1.25rem !important; margin-bottom:.25rem !important; line-height:1; }
+.value-card h2, .value-card p:first-of-type{
+  font-size:1rem !important; line-height:1.25 !important; margin-bottom:.25rem !important; font-weight:800 !important;
+}
+.value-card p{ font-size:.95rem !important; color:#475569 !important; font-weight:600 !important; }
+#why{ background:rgba(255,255,255,.95); border-radius:16px; box-shadow:0 12px 30px rgba(0,0,0,.12); padding:1.25rem; }
+@media (min-width:640px){ #why{ padding:1.75rem; } }
+
+/* ===================== PROJECT GALLERY PREVIEW ===================== */
+.card-img{ display:block; width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; object-position:center; }
+#home-cards .card > .p-4, #home-cards .card > .p-5{ padding:.9rem !important; text-align:center; }
+#home-cards h3{ font-size:1.05rem !important; margin-bottom:.25rem !important; line-height:1.25 !important; font-weight:800 !important; }
+#home-cards p{ font-size:.95rem !important; color:#334155 !important; font-weight:600 !important; }
+@media (min-width:640px){ #home-cards .grid{ gap:1.25rem !important; } }
+
+/* ===================== CTA PANEL ===================== */
+#cta .btn{ font-weight:800; border-radius:14px; padding:.85rem 1.25rem; }
+
+/* ===================== MASONRY GALLERY (gallery page) ===================== */
+.masonry-columns{ columns:1 300px; column-gap:1.5rem; }
+@media (min-width:640px){ .masonry-columns{ columns:2 300px; } }
+@media (min-width:1024px){ .masonry-columns{ columns:3 300px; } }
+.masonry-columns img{
+  width:100%; display:block; margin-bottom:1.5rem; border-radius:12px; break-inside:avoid; object-fit:cover;
+}
+
+/* ===================== FOOTER ===================== */
+footer.bg-primary{
+  background:var(--footer-bg) !important; color:var(--footer-text) !important;
+  font-family:var(--footer-font-family), sans-serif !important;
+  font-size:var(--footer-font-size) !important; font-weight:var(--footer-font-weight) !important;
+}
+footer.bg-primary .contact,
+footer.bg-primary .contact p,
+footer.bg-primary .contact strong,
+footer.bg-primary .contact span{
+  font-size:var(--footer-font-size) !important; font-weight:var(--footer-font-weight) !important;
+  color:var(--footer-text) !important; font-family:var(--footer-font-family), sans-serif !important;
+}
+footer.bg-primary .contact a, footer.bg-primary .social a{
+  color:var(--footer-link) !important; text-decoration:var(--footer-link-underline);
+  text-underline-offset:var(--footer-link-offset);
+  font-family:var(--footer-font-family), sans-serif !important;
+  font-size:var(--footer-font-size) !important; font-weight:var(--footer-font-weight) !important;
+  transition:color .2s ease, text-shadow .2s ease;
+}
+footer.bg-primary .contact a:hover, footer.bg-primary .social a:hover{
+  color:var(--footer-link-hover) !important; text-shadow:0 0 8px rgba(120,123,128,.4);
+}
+footer .footer-logo{ height:var(--logo-footer-h-mobile) !important; width:auto !important; display:block; }
+@media (min-width:768px){ footer .footer-logo{ height:var(--logo-footer-h-desktop) !important; } }
+footer .social{ margin-bottom:4.5rem; }
+@media (min-width:768px){ footer .social{ margin-right:6rem !important; } }
+
+/* ===================== LOGOS ===================== */
+.header-logo{ height:var(--logo-header-h-mobile) !important; width:auto !important; display:block; }
+@media (min-width:768px){ .header-logo{ height:var(--logo-header-h-desktop) !important; } }
+
+/* ===================== FIXED APPOINTMENT FORM ===================== */
+.fixed-appointment-form{
+  position:fixed; bottom:6rem; right:3.5rem; z-index:1000; width:350px; max-width:90vw;
+  background:#ffffff5b; border-radius:1rem; box-shadow:0 8px 32px rgba(0,0,0,.18), 0 2px 8px rgba(0,0,0,.13);
+  padding:1.5rem 1.25rem; transition:box-shadow .2s;
+}
+@media (max-width:500px){
+  .fixed-appointment-form{ right:.5rem; left:.5rem; width:auto; padding:1rem .5rem; bottom:7rem; }
+}
+@media (max-width:767.98px){
+  .fixed-appointment-form{
+    position:static !important; z-index:auto !important;
+    top:auto !important; right:auto !important; bottom:auto !important; left:auto !important;
+    width:100% !important; max-width:100% !important;
+    margin:20px 12px !important; box-shadow:0 4px 16px rgba(0,0,0,.08) !important;
+  }
+  .parallax-hero .caption{ padding-top:2rem; }
+}
+
+/* ===================== GENERIC CARD ANCHORS ===================== */
+.card, .card:link, .card:visited{ text-decoration:none !important; color:inherit; }
+
+/* ===================== SERVICES (HTML AS-IS): equal card sizes ===================== */
+/* Target your existing structure: <section aria-labelledby="services-heading"> <ul class="grid ..."> <li class="card"> */
+[aria-labelledby="services-heading"] .grid{ align-items:stretch; }
+[aria-labelledby="services-heading"] .grid > li.card{
+  display:flex; flex-direction:column; height:100%; overflow:hidden;
+}
+[aria-labelledby="services-heading"] .grid > li.card > img{
+  /* Match your Tailwind h-44 (11rem = 176px) so every image window is identical */
+  height:176px; width:100%; object-fit:cover; display:block;
+}
+[aria-labelledby="services-heading"] .grid > li.card > .p-4{
+  flex:1; display:flex; flex-direction:column;
+}
+/* Keep titles from getting too tall */
+[aria-labelledby="services-heading"] .grid h3{
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
+}
+
+/* ===================== BLOG: grid + equal-height cards ===================== */
+.page-blog .blog-grid{
+  display:grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 1.5rem !important;
+
+  /* neutralize rogue multi-column rules */
+  columns: initial !important;
+  column-count: initial !important;
+  column-width: auto !important;
+  writing-mode: horizontal-tb !important;
+
+  width:100% !important;
+}
+@media (min-width:640px){ .page-blog .blog-grid{ grid-template-columns:repeat(2, minmax(0,1fr)) !important; } }
+@media (min-width:768px){ .page-blog .blog-grid{ grid-template-columns:repeat(3, minmax(0,1fr)) !important; } }
+
+.page-blog .card{
+  background:#fff; border-radius:1rem; box-shadow:0 10px 26px rgba(0,0,0,.1);
+  border:1px solid rgba(15,23,42,.06);
+  display:flex; flex-direction:column; height:100%; width:100%; min-width:0; /* prevent squeeze */
+}
+.page-blog .card-body{ padding:1.25rem; display:flex; flex-direction:column; flex:1; min-width:0; }
+.page-blog .card .btn{ background:var(--ink); color:#fff; margin-top:auto; display:inline-block; }
+.page-blog h3{ overflow-wrap:anywhere; hyphens:auto; }

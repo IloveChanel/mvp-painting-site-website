@@ -3,3 +3,5 @@ dist/
 backup_duplicate/
 .quarantine_duplicates/
 *.tmp
+
+.vercel

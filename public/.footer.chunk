@@ -1,0 +1,19 @@
+  <!-- Footer -->
+  <footer class="bg-primary text-white mt-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-10 grid gap-8 grid-cols-1 md:grid-cols-[auto,1fr,auto,auto] items-center">
+      <div class="flex flex-col items-start mb-4 md:mb-0">
+        <img src="/assets/images/logos/logo-black.png" class="footer-logo h-12 sm:h-16 w-auto mb-2" alt="MVP Painting logo" loading="lazy">
+      </div>
+      <address class="not-italic contact text-slate-200 text-sm md:text-base flex flex-col items-start mb-4 md:mb-0">
+        <p><strong>Email:</strong> <a href="mailto:elvirpurovic@mvpdecor.com" class="underline hover:text-white/90">elvirpurovic@mvpdecor.com</a></p>
+        <p><strong>Phone:</strong> <a href="tel:+17343662493" class="underline hover:text-white/90">+1 (734) 366-2493</a></p>
+        <p><a href="https://www.sherwin-williams.com/" target="_blank" rel="noopener noreferrer" class="underline hover:text-white/90">We proudly use Sherwin-Williams Paint</a></p>
+      </address>
+      <div class="social flex gap-4 sm:gap-5 justify-end w-full text-xl sm:text-2xl md:text-3xl">
+        <a href="https://www.facebook.com/share/19Vxythfws/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="hover:scale-110 transition-transform"><i class="fab fa-facebook-square" style="color:#1877f3"></i></a>
+        <a href="https://www.instagram.com/m.v.p.homedecor?igsh=MTBpNjAwcmYzcmh0YQ==" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="hover:scale-110 transition-transform"><i class="fab fa-instagram" style="color:#e4405f"></i></a>
+        <a href="https://maps.app.goo.gl/LxwxHhzqmVP67nQN7" target="_blank" rel="noopener noreferrer" aria-label="Google Maps" class="hover:scale-110 transition-transform"><i class="fas fa-map-marker-alt" style="color:#34a853"></i></a>
+        <a href="https://share.google/a83ethP6CyCebEQOS" target="_blank" rel="nofollow noopener noreferrer" aria-label="BBB" class="hover:scale-110 transition-transform underline text-white/90">BBB Accredited Business</a>
+      </div>
+    </div>
+  </footer>

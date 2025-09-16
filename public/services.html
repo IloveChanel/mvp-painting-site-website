@@ -6,34 +6,25 @@
   <meta name="description" content="Premium Residential & Commercial Painting in Macomb & Oakland County. Trusted, professional, and beautiful results. Get your free estimate today!" />
   <title>MVP Painting & HomeDecor | Services</title>
 
-<!-- Tailwind (compiled; no CDN) -->
-<link rel="stylesheet" href="/assets/css/tailwind.css">
+  <!-- Tailwind (compiled; no CDN) -->
+  <link rel="stylesheet" href="/assets/css/tailwind.css?v=202509161734" />
+  <!-- Your overrides LAST -->
+  <link rel="stylesheet" href="/assets/css/custom.css?v=202509161734" />
 
-
-<!-- Your overrides LAST -->
-<link rel="stylesheet" href="/assets/css/custom.css">
-
-<!-- Scripts -->
-<script src="/assets/js/scripts.js" defer></script>
-<script src="/assets/js/hero-rotator.js" defer></script>
-
+  <!-- Scripts -->
+  <script type="module" src="/assets/js/scripts.js?v=202509161734" defer></script>
+  <script type="module" src="/assets/js/hero-rotator.js?v=202509161734" defer></script>
 
   <!-- Fonts & Icons -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="icon" type="image/x-icon" href="/assets/favicon-II9yTh74.ico" />
 
   <!-- Theme + utilities (restores background and shared styles) -->
   <style>
-    :root{
-      --ink:#0f172a;
-      --gold-1:#efe6cf;
-      --gold-2:#e9d8b0;
-      --rose-1:#e3c0c6;
-    }
+    :root{ --ink:#0f172a; --gold-1:#efe6cf; --gold-2:#e9d8b0; --rose-1:#e3c0c6; }
     html,body{min-height:100%}
     body{
       font-family: Montserrat, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
@@ -66,8 +57,7 @@
     footer .social a{opacity:.9;text-decoration:underline}
     @media (prefers-reduced-motion: reduce){.parallax-hero .slide{transition:none}}
   </style>
-
-
+</head>
 
 <body class="font-sans pb-16 md:pb-0">
 
@@ -97,7 +87,7 @@
         url('/assets/images/hero-services/hero-services-1.jpg'),
         linear-gradient(135deg,#fffef9 0%, #efe6cf 35%, #e9d8b0 66%, #e3c0c6 100%)"></div>
       <div class="slide" style="background-image:
-        url('/assets/images/hero-services/hero-service-2.jpg'),
+        url('/assets/images/hero-services/hero-services-2.jpg'),
         linear-gradient(135deg,#fffef9 0%, #efe6cf 35%, #e9d8b0 66%, #e3c0c6 100%)"></div>
       <div class="slide" style="background-image:
         url('/assets/images/hero-services/hero-services-3.jpg'),
@@ -108,7 +98,7 @@
       <div>
         <h1 class="text-2xl sm:text-3xl md:text-5xl leading-tight">Professional Painting Services</h1>
         <p class="text-white/95 max-w-2xl mx-auto mb-5">
-          Interior, exterior, cabinets, wood repair &amp; moreâ€”done right the first time.
+          Interior, exterior, cabinets, wood repair &amp; more—done right the first time.
         </p>
         <a href="contact.html#estimate-form" class="btn mt-4">Get Your Free Estimate</a>
       </div>
@@ -118,9 +108,82 @@
   <!-- Services grid -->
   <section aria-labelledby="services-heading" class="max-w-7xl mx-auto px-2 sm:px-6 py-12">
     <h2 id="services-heading" class="text-2xl sm:text-3xl font-bold mb-4">What We Offer</h2>
-    <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-slate-700">
-      <!-- ...service cards unchanged... -->
-      <!-- (keep all your service cards as they are) -->
+
+    <!-- Use your equal-height rules from custom.css (.services-grid + .service-card) -->
+    <ul class="services-grid grid items-stretch grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-slate-700">
+
+      <li class="card service-card overflow-hidden flex flex-col">
+        <img src="/assets/images/service-cards/cabinet-refinishing-kitchen-1-gross-pointe-city.jpg" alt="Cabinet refinishing in Grosse Pointe City" class="w-full object-cover" loading="lazy" decoding="async" />
+        <div class="p-4 flex-1 flex flex-col">
+          <h3 class="font-bold mb-1 text-lg">Cabinet Refinishing — Grosse Pointe City</h3>
+          <p class="text-sm text-slate-700">Professional results, on time.</p>
+        </div>
+      </li>
+
+      <li class="card service-card overflow-hidden flex flex-col">
+        <img src="/assets/images/service-cards/commercial-office-painting-oakland-county.jpg" alt="Commercial office painting in Oakland County" class="w-full object-cover" loading="lazy" decoding="async" />
+        <div class="p-4 flex-1 flex flex-col">
+          <h3 class="font-bold mb-1 text-lg">Commercial Office Painting — Oakland County</h3>
+          <p class="text-sm text-slate-700">Professional results, on time.</p>
+        </div>
+      </li>
+
+      <li class="card service-card overflow-hidden flex flex-col">
+        <img src="/assets/images/service-cards/custom-texture-wall-rochester.jpg" alt="Custom texture wall in Rochester" class="w-full object-cover" loading="lazy" decoding="async" />
+        <div class="p-4 flex-1 flex flex-col">
+          <h3 class="font-bold mb-1 text-lg">Custom Texture Wall — Rochester</h3>
+          <p class="text-sm text-slate-700">Professional results, on time.</p>
+        </div>
+      </li>
+
+      <li class="card service-card overflow-hidden flex flex-col">
+        <img src="/assets/images/service-cards/deck-staining-sterling-heights-1.jpg" alt="Deck staining in Sterling Heights" class="w-full object-cover" loading="lazy" decoding="async" />
+        <div class="p-4 flex-1 flex flex-col">
+          <h3 class="font-bold mb-1 text-lg">Deck Staining — Sterling Heights</h3>
+          <p class="text-sm text-slate-700">Professional results, on time.</p>
+        </div>
+      </li>
+
+      <li class="card service-card overflow-hidden flex flex-col">
+        <img src="/assets/images/service-cards/exterior-house-painting-macomb-county.jpg" alt="Exterior house painting in Macomb County" class="w-full object-cover" loading="lazy" decoding="async" />
+        <div class="p-4 flex-1 flex flex-col">
+          <h3 class="font-bold mb-1 text-lg">Exterior House Painting — Macomb County</h3>
+          <p class="text-sm text-slate-700">Professional results, on time.</p>
+        </div>
+      </li>
+
+      <li class="card service-card overflow-hidden flex flex-col">
+        <img src="/assets/images/service-cards/interior-painting-shelby-township.jpg" alt="Interior painting in Shelby Township" class="w-full object-cover" loading="lazy" decoding="async" />
+        <div class="p-4 flex-1 flex flex-col">
+          <h3 class="font-bold mb-1 text-lg">Interior Painting — Shelby Township</h3>
+          <p class="text-sm text-slate-700">Professional results, on time.</p>
+        </div>
+      </li>
+
+      <li class="card service-card overflow-hidden flex flex-col">
+        <img src="/assets/images/service-cards/trim-siding-repair-harrison-township.jpg" alt="Trim and siding repair in Harrison Township" class="w-full object-cover" loading="lazy" decoding="async" />
+        <div class="p-4 flex-1 flex flex-col">
+          <h3 class="font-bold mb-1 text-lg">Trim &amp; Siding Repair — Harrison Township</h3>
+          <p class="text-sm text-slate-700">Professional results, on time.</p>
+        </div>
+      </li>
+
+      <li class="card service-card overflow-hidden flex flex-col">
+        <img src="/assets/images/service-cards/trim-siding-troy.jpg" alt="Trim and siding painting in Troy" class="w-full object-cover" loading="lazy" decoding="async" />
+        <div class="p-4 flex-1 flex flex-col">
+          <h3 class="font-bold mb-1 text-lg">Trim &amp; Siding — Troy</h3>
+          <p class="text-sm text-slate-700">Professional results, on time.</p>
+        </div>
+      </li>
+
+      <li class="card service-card overflow-hidden flex flex-col">
+        <img src="/assets/images/service-cards/wood-staining-birmingham.jpg" alt="Wood staining in Birmingham" class="w-full object-cover" loading="lazy" decoding="async" />
+        <div class="p-4 flex-1 flex flex-col">
+          <h3 class="font-bold mb-1 text-lg">Wood Staining — Birmingham</h3>
+          <p class="text-sm text-slate-700">Professional results, on time.</p>
+        </div>
+      </li>
+
     </ul>
   </section>
 
@@ -129,7 +192,7 @@
     <div class="max-w-5xl mx-auto rounded-2xl bg-white/95 shadow-lg ring-1 ring-black/5 px-4 sm:px-6 py-8">
       <h2 class="text-2xl sm:text-3xl font-bold text-center mb-3">Still comparing options?</h2>
       <p class="text-center text-base sm:text-lg text-slate-700 mb-6">
-        Weâ€™ll beat the stress, not just the price. Get a fast, clear estimate.
+        We'll beat the stress, not just the price. Get a fast, clear estimate.
       </p>
       <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
         <a href="contact.html#estimate-form" class="btn" style="background:var(--ink);color:#fff">Start the Form</a>
@@ -186,7 +249,7 @@
     <div class="bg-white rounded-xl shadow-xl max-w-lg w-full mx-4 p-6 relative">
       <button id="closeModalBtn" class="absolute top-3 right-3 text-2xl text-slate-400 hover:text-slate-700" aria-label="Close">&times;</button>
       <h2 class="text-2xl font-bold mb-4 text-center">Book an Appointment Now</h2>
-    <form action="mailto:elvirpurovic@mvpdecor.com" method="POST" enctype="text/plain" class="space-y-4">
+      <form action="mailto:elvirpurovic@mvpdecor.com" method="POST" enctype="text/plain" class="space-y-4">
         <div>
           <label for="name" class="block font-semibold mb-1">Name</label>
           <input type="text" id="name" name="name" required class="w-full border rounded px-3 py-2" />
@@ -207,6 +270,7 @@
       </form>
     </div>
   </div>
+
   <script>
     // Modal open/close logic
     document.addEventListener('DOMContentLoaded', function() {

@@ -1,53 +1,4 @@
-﻿</footer>
-
-<!-- Floating Book Now Button and Modal Form -->
-<button id="bookNowBtn" class="fixed z-50 bottom-6 right-6 bg-primary text-white font-bold rounded-full shadow-lg px-6 py-3 text-lg hover:bg-blue-800 transition focus:outline-none focus:ring-2 focus:ring-white">
-  Book Now
-</button>
-
-<div id="appointmentModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden">
-  <div class="bg-white rounded-xl shadow-xl max-w-lg w-full mx-4 p-6 relative">
-    <button id="closeModalBtn" class="absolute top-3 right-3 text-2xl text-slate-400 hover:text-slate-700" aria-label="Close">&times;</button>
-    <h2 class="text-2xl font-bold mb-4 text-center">Book an Appointment Now</h2>
-  <form action="mailto:elvirpurovic@mvpdecor.com" method="POST" enctype="text/plain" class="space-y-4">
-      <div>
-        <label for="name" class="block font-semibold mb-1">Name</label>
-        <input type="text" id="name" name="name" required class="w-full border rounded px-3 py-2" />
-      </div>
-      <div>
-        <label for="email" class="block font-semibold mb-1">Email</label>
-        <input type="email" id="email" name="email" required class="w-full border rounded px-3 py-2" />
-      </div>
-      <div>
-        <label for="date" class="block font-semibold mb-1">Preferred Date</label>
-        <input type="date" id="date" name="date" class="w-full border rounded px-3 py-2" />
-      </div>
-      <div>
-        <label for="message" class="block font-semibold mb-1">Details</label>
-        <textarea id="message" name="message" rows="3" class="w-full border rounded px-3 py-2"></textarea>
-      </div>
-      <button type="submit" class="btn bg-primary text-white w-full py-2 rounded font-bold hover:bg-blue-800 transition">Book Now</button>
-    </form>
-  </div>
-</div>
-<script>
-  // Modal open/close logic
-  document.addEventListener('DOMContentLoaded', function() {
-    var bookBtn = document.getElementById('bookNowBtn');
-    var modal = document.getElementById('appointmentModal');
-    var closeBtn = document.getElementById('closeModalBtn');
-    bookBtn.addEventListener('click', function() {
-      modal.classList.remove('hidden');
-    });
-    closeBtn.addEventListener('click', function() {
-      modal.classList.add('hidden');
-    });
-    modal.addEventListener('click', function(e) {
-      if (e.target === modal) modal.classList.add('hidden');
-    });
-  });
-</script>
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -55,47 +6,29 @@
   <title>MVP Painting | Contact</title>
   <meta name="description" content="Premium Residential & Commercial Painting in Macomb & Oakland County. Trusted, professional, and beautiful results. Get your free estimate today!" />
 
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<!-- Fonts & Icons -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<!-- 1. Favicon: use the hashed file -->
-<link rel="icon" type="image/x-icon" href="/assets/favicon-II9yTh74.ico">
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/assets/favicon-II9yTh74.ico">
 
-<!-- 2. Logo in header and footer: use the hashed file -->
-<img src="/assets/logo-black-uKbwBgYq.png" alt="MVP Painting Logo" class="header-logo" loading="lazy" decoding="async">
-<!-- ... -->
-<img src="/assets/logo-black-uKbwBgYq.png" class="footer-logo h-16 w-auto mb-2" alt="MVP Painting logo" loading="lazy">
+  <!-- CSS (Tailwind first, your overrides last) -->
+  <link rel="stylesheet" href="/assets/css/tailwind.css?v=2">
+  <link rel="stylesheet" href="/assets/css/custom.css?v=2">
 
-<!-- 3. Hero images: use the hashed files -->
-<!-- Preload -->
-<link rel="preload" as="image" href="/assets/images/hero-contact/hero-contact-1.jpg">
-<!-- Slides -->
-<div class="slide" style="background-image:
-  url('/assets/images/hero-contact/hero-contact-1.jpg'),
-  linear-gradient(135deg,#fffef9 0%, #efe6cf 35%, #e9d8b0 66%, #e3c0c6 100%)"></div>
-<div class="slide" style="background-image:
-  url('/assets/images/hero-contact/hero-contact-2.jpg'),
-  linear-gradient(135deg,#fffef9 0%, #efe6cf 35%, #e9d8b0 66%, #e3c0c6 100%)"></div>
+  <!-- Preload first hero image -->
+  <link rel="preload" as="image" href="/assets/images/hero-contact/hero-contact-1.jpg">
 
-<!-- 4. JS scripts: use type="module" -->
-<script type="module" src="/assets/js/scripts.js" defer></script>
-<script type="module" src="/assets/js/hero-rotator.js" defer></script>
+  <!-- Scripts -->
+  <script type="module" src="/assets/js/scripts.js?v=2" defer></script>
+  <script type="module" src="/assets/js/hero-rotator.js?v=2" defer></script>
 
-<!-- 5. Remove any reference to index-Cp9mPwme.css -->
-<!-- Delete this line if present: -->
-<!-- <link rel="stylesheet" href="/assets/css/index-Cp9mPwme.css"> -->
-
-  <!-- Inline theme + small fixes (uniform across pages) -->
+  <!-- Page theme (same as other pages) -->
   <style>
-    :root{
-      --ink:#0f172a;
-      --gold-1:#efe6cf;
-      --gold-2:#e9d8b0;
-      --rose-1:#e3c0c6;
-    }
+    :root{ --ink:#0f172a; --gold-1:#efe6cf; --gold-2:#e9d8b0; --rose-1:#e3c0c6; }
     html,body{min-height:100%}
     body{
       font-family: Montserrat, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
@@ -126,44 +59,39 @@
     footer .social a{opacity:.9;text-decoration:underline}
     @media (prefers-reduced-motion: reduce){.parallax-hero .slide{transition:none}}
   </style>
-
-
-
-  <!-- Preload the first hero image (match the slide extension) -->
-  <link rel="preload" as="image" href="/assets/images/hero-contact/hero-contact-1.jpg">
 </head>
 
 <body class="font-sans page-contact pb-16 md:pb-0">
 
-  <!-- Header (uniform) -->
+  <!-- Header -->
   <header class="bg-white/95 backdrop-blur shadow-sm sticky top-0 z-50">
     <div class="max-w-7xl mx-auto flex items-center justify-between py-4 px-6">
       <a href="index.html" class="flex items-center gap-3">
         <img src="/assets/images/logos/logo-black.png" alt="MVP Painting Logo" class="header-logo" loading="lazy" decoding="async">
         <span class="sr-only">MVP Painting</span>
       </a>
-  <nav class="site-nav flex flex-col md:flex-row gap-4 md:gap-6 items-center text-base w-full md:w-auto" aria-label="Primary">
+      <nav class="site-nav flex flex-col md:flex-row gap-4 md:gap-6 items-center text-base w-full md:w-auto" aria-label="Primary">
         <a href="index.html">Home</a>
         <a href="services.html">Services</a>
         <a href="gallery.html">Gallery</a>
         <a href="about.html">About</a>
         <a href="blog.html">Blog</a>
         <a href="contact.html" aria-current="page">Contact</a>
-        <a href="tel:+17343662493" class="call-now px-8 py-4" style="font-size:3rem;">Call Now</a>
+        <!-- smaller, non-overlapping Call Now -->
+        <a href="tel:+17343662493" class="call-now px-6 py-3 md:px-8 md:py-4 text-xl md:text-2xl">Call Now</a>
       </nav>
     </div>
   </header>
 
-  <!-- HERO (rotating) -->
+  <!-- HERO -->
   <section class="parallax-hero" id="hero-contact" data-hero="rotation" aria-label="Contact hero">
     <div class="slides">
-      <div class="slide" style="background-image:
+      <div class="slide active" style="background-image:
         url('/assets/images/hero-contact/hero-contact-1.jpg'),
         linear-gradient(135deg,#fffef9 0%, #efe6cf 35%, #e9d8b0 66%, #e3c0c6 100%)"></div>
       <div class="slide" style="background-image:
         url('/assets/images/hero-contact/hero-contact-2.jpg'),
         linear-gradient(135deg,#fffef9 0%, #efe6cf 35%, #e9d8b0 66%, #e3c0c6 100%)"></div>
-      
     </div>
     <div class="overlay" aria-hidden="true"></div>
     <div class="caption">
@@ -177,17 +105,15 @@
   <!-- Contact Info + Form -->
   <main class="max-w-7xl mx-auto px-6 py-12">
     <div class="grid gap-10 md:grid-cols-2">
-      <!-- Contact details (left) -->
       <div>
         <h2 class="text-3xl font-bold mb-4">Get in touch</h2>
-        <p class="text-slate-700 mb-6">Tell us about your project and weâ€™ll get back within 1 business day.</p>
+        <p class="text-slate-700 mb-6">Tell us about your project and we'll get back within 1 business day.</p>
         <ul class="space-y-3">
           <li><strong>Email:</strong> <a class="underline" href="mailto:elvirpurovic@mvpdecor.com">elvirpurovic@mvpdecor.com</a></li>
           <li><strong>Phone:</strong> <a class="underline" href="tel:+17343662493">(734) 366-2493</a></li>
         </ul>
       </div>
 
-      <!-- Form (right) -->
       <div>
         <form id="estimate-form" action="mailto:elvirpurovic@mvpdecor.com" method="POST" enctype="text/plain" class="space-y-4">
           <div>
@@ -222,10 +148,7 @@
             <label for="details" class="block font-semibold mb-1">Project Details</label>
             <textarea id="details" name="Details" rows="4" class="w-full border rounded px-3 py-2"></textarea>
           </div>
-          <button type="submit" class="btn bg-primary text-white w-full py-2 rounded font-bold hover:bg-blue-800 transition">
-            Send Request
-          </button>
-          <!-- NOTE: for a real backend later we can swap mailto: for Formspree/Netlify/Serverless -->
+          <button type="submit" class="btn bg-primary text-white w-full py-2 rounded font-bold hover:bg-blue-800 transition">Send Request</button>
         </form>
       </div>
     </div>
@@ -236,7 +159,7 @@
     <div class="max-w-5xl mx-auto rounded-2xl bg-white/95 shadow-lg ring-1 ring-black/5 px-6 py-8">
       <h2 class="text-3xl font-bold text-center mb-3">Still comparing options?</h2>
       <p class="text-center text-lg text-slate-700 mb-6">
-        Weâ€™ll beat the stress, not just the price. Get a fast, clear estimate.
+        We'll beat the stress, not just the price. Get a fast, clear estimate.
       </p>
       <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
         <a href="#estimate-form" class="btn" style="background:var(--ink);color:#fff">Start the Form</a>
@@ -245,66 +168,78 @@
     </div>
   </section>
 
+  <!-- Footer (full content) -->
   <footer class="bg-primary text-white mt-12">
-  <div class="max-w-7xl mx-auto px-6 py-10 grid gap-8 md:grid-cols-[auto,1fr,auto,auto] items-center">
-    <!-- Brand (left) -->
-    <div class="flex flex-col items-start">
-      <img
-        src="/assets/images/logos/logo-black.png"
-        class="footer-logo h-16 w-auto mb-2"
-        alt="MVP Painting logo"
-        loading="lazy"
-      >
+    <div class="max-w-7xl mx-auto px-6 py-10 grid gap-8 md:grid-cols-[auto,1fr,auto,auto] items-center">
+      <div class="flex flex-col items-start">
+        <img src="/assets/images/logos/logo-black.png" class="footer-logo h-16 w-auto mb-2" alt="MVP Painting logo" loading="lazy">
+      </div>
+      <address class="not-italic contact text-slate-200 text-sm md:text-base flex flex-col items-start">
+        <p><strong>Email:</strong> <a href="mailto:elvirpurovic@mvpdecor.com" class="underline hover:text-white/90">elvirpurovic@mvpdecor.com</a></p>
+        <p><strong>Phone:</strong> <a href="tel:+17343662493" class="underline hover:text-white/90">+1 (734) 366-2493</a></p>
+        <p>
+          <a href="https://www.sherwin-williams.com/" target="_blank" rel="noopener noreferrer" class="underline hover:text-white/90">
+            We proudly use Sherwin-Williams Paint
+          </a>
+        </p>
+      </address>
+      <div class="social flex gap-5 justify-end w-full text-2xl">
+        <a href="https://www.facebook.com/share/19Vxythfws/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="hover:scale-110 transition-transform">
+          <i class="fab fa-facebook-square" style="color:#1877f3"></i>
+        </a>
+        <a href="https://www.instagram.com/m.v.p.homedecor?igsh=MTBpNjAwcmYzcmh0YQ==" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="hover:scale-110 transition-transform">
+          <i class="fab fa-instagram" style="color:#e4405f"></i>
+        </a>
+        <a href="https://maps.app.goo.gl/LxwxHhzqmVP67nQN7" target="_blank" rel="noopener noreferrer" aria-label="Google Maps" class="hover:scale-110 transition-transform">
+          <i class="fas fa-map-marker-alt" style="color:#34a853"></i>
+        </a>
+        <a href="https://share.google/a83ethP6CyCebEQOS" target="_blank" rel="nofollow noopener noreferrer" aria-label="BBB" class="hover:scale-110 transition-transform underline text-white/90">
+          BBB Accredited Business
+        </a>
+      </div>
     </div>
+  </footer>
 
-    <!-- Contact (center) -->
-    <address class="not-italic contact text-slate-200 text-sm md:text-base flex flex-col items-start">
-      <p>
-        <strong>Email:</strong>
-        <a href="mailto:elvirpurovic@mvpdecor.com" class="underline hover:text-white/90">
-          elvirpurovic@mvpdecor.com
-        </a>
-      </p>
-      <p>
-        <strong>Phone:</strong>
-        <a href="tel:+17343662493" class="underline hover:text-white/90">
-          +1 (734) 366-2493
-        </a>
-      </p>
-      <p>
-        <a
-          href="https://www.sherwin-williams.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="underline hover:text-white/90"
-        >
-          We proudly use Sherwin-Williams Paint
-        </a>
-      </p>
-    </address>
+  <!-- Floating Book Now + Modal -->
+  <button id="bookNowBtn" class="fixed z-50 bottom-6 right-6 bg-primary text-white font-bold rounded-full shadow-lg px-6 py-3 text-lg hover:bg-blue-800 transition focus:outline-none focus:ring-2 focus:ring-white">
+    Book Now
+  </button>
 
-    <!-- Social Media (colored icons) -->
-    <div class="social flex gap-5 justify-end w-full text-2xl">
-      <a href="https://www.facebook.com/share/19Vxythfws/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="hover:scale-110 transition-transform">
-        <i class="fab fa-facebook-square" style="color:#1877f3"></i>
-      </a>
-      <a href="https://www.instagram.com/m.v.p.homedecor?igsh=MTBpNjAwcmYzcmh0YQ==" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="hover:scale-110 transition-transform">
-        <i class="fab fa-instagram" style="color:#e4405f"></i>
-      </a>
-      <a href="https://maps.app.goo.gl/LxwxHhzqmVP67nQN7" target="_blank" rel="noopener noreferrer" aria-label="Google Maps" class="hover:scale-110 transition-transform">
-        <i class="fas fa-map-marker-alt" style="color:#34a853"></i>
-      </a>
-  <a href="https://share.google/a83ethP6CyCebEQOS"
-   target="_blank"
-   rel="nofollow noopener noreferrer"
-   aria-label="BBB"
-   class="hover:scale-110 transition-transform underline text-white/90">
-  BBB Accredited Business
-      </a>
+  <div id="appointmentModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden">
+    <div class="bg-white rounded-xl shadow-xl max-w-lg w-full mx-4 p-6 relative">
+      <button id="closeModalBtn" class="absolute top-3 right-3 text-2xl text-slate-400 hover:text-slate-700" aria-label="Close">&times;</button>
+      <h2 class="text-2xl font-bold mb-4 text-center">Book an Appointment Now</h2>
+      <form action="mailto:elvirpurovic@mvpdecor.com" method="POST" enctype="text/plain" class="space-y-4">
+        <div>
+          <label for="modal-name" class="block font-semibold mb-1">Name</label>
+          <input type="text" id="modal-name" name="name" required class="w-full border rounded px-3 py-2" />
+        </div>
+        <div>
+          <label for="modal-email" class="block font-semibold mb-1">Email</label>
+          <input type="email" id="modal-email" name="email" required class="w-full border rounded px-3 py-2" />
+        </div>
+        <div>
+          <label for="modal-date" class="block font-semibold mb-1">Preferred Date</label>
+          <input type="date" id="modal-date" name="date" class="w-full border rounded px-3 py-2" />
+        </div>
+        <div>
+          <label for="modal-message" class="block font-semibold mb-1">Details</label>
+          <textarea id="modal-message" name="message" rows="3" class="w-full border rounded px-3 py-2"></textarea>
+        </div>
+        <button type="submit" class="btn bg-primary text-white w-full py-2 rounded font-bold hover:bg-blue-800 transition">Book Now</button>
+      </form>
     </div>
   </div>
-</footer>
 
-
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const bookBtn = document.getElementById('bookNowBtn');
+      const modal = document.getElementById('appointmentModal');
+      const closeBtn = document.getElementById('closeModalBtn');
+      bookBtn.addEventListener('click', () => modal.classList.remove('hidden'));
+      closeBtn.addEventListener('click', () => modal.classList.add('hidden'));
+      modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.add('hidden'); });
+    });
+  </script>
 </body>
 </html>
