@@ -1,0 +1,360 @@
+﻿<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MVP Painting & HomeDecor | House & Commercial Painters in Macomb & Oakland County</title>
+  <meta name="description" content="Premium interior, exterior, and cabinet painting in Macomb & Oakland Counties. Free estimates. Call (734) 366-2493." />
+  <link rel="canonical" href="https://www.mvpdecor.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="MVP Painting & HomeDecor" />
+  <meta property="og:description" content="Premium interior, exterior, and cabinet painting. Free estimates." />
+  <meta property="og:url" content="https://www.mvpdecor.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://www.mvpdecor.com/assets/og-cover.jpg" />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Your CSS -->
+  <link rel="stylesheet" href="/assets/css/tailwind.css?v=202509161734">
+  <link rel="stylesheet" href="/assets/css/custom.css?v=202509161734">
+
+  <!-- Tiny mobile helpers (load AFTER your CSS so they can override if needed) -->
+  <link rel="stylesheet" href="/assets/fix-mobile.css">
+  <script src="/assets/mobile-menu.js" defer></script>
+
+  <link rel="icon" type="image/x-icon" href="/assets/favicon-II9yTh74.ico">
+
+  <!-- Your JS -->
+  <script type="module" src="/assets/js/scripts.js?v=202509161734" defer></script>
+  <script type="module" src="/assets/js/hero-rotator.js?v=202509161734" defer></script>
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "PaintingContractor",
+    "name": "MVP Painting & HomeDecor",
+    "url": "https://www.mvpdecor.com/",
+    "image": "https://www.mvpdecor.com/assets/og-cover.jpg",
+    "telephone": "+1-734-366-2493",
+    "email": "elvirpurovic@mvpdecor.com",
+    "areaServed": [
+      "Macomb County, MI","Oakland County, MI","Clinton Township, MI",
+      "Sterling Heights, MI","Shelby Township, MI","Macomb Township, MI",
+      "Rochester Hills, MI","Troy, MI","Royal Oak, MI","Bloomfield Hills, MI"
+    ],
+    "description": "Residential and light commercial painting, cabinet refinishing, exterior protection, custom finishes, and wood repair.",
+    "sameAs": [
+      "https://www.facebook.com/share/19Vxythfws/",
+      "https://www.instagram.com/m.v.p.homedecor?igsh=MTBpNjAwcmYzcmh0YQ==",
+      "https://maps.app.goo.gl/LxwxHhzqmVP67nQN7"
+    ]
+  }
+  </script>
+
+  <!-- Theme tokens + page background only (no component rules here) -->
+  <style>
+    :root{ --ink:#0f172a; --gold-1:#efe6cf; --gold-2:#e9d8b0; --rose-1:#e3c0c6; }
+    html,body{min-height:100%}
+    body{
+      font-family: Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(900px 700px at 100% 100%, rgba(227,192,198,.55), transparent 60%),
+        linear-gradient(135deg,#fffef9 0%, var(--gold-1) 35%, var(--gold-2) 66%, var(--rose-1) 100%);
+      background-attachment: fixed;
+    }
+    section,.section,.bg-paper{ background:transparent !important; }
+    .bg-primary{ background: var(--ink); }
+    .header-logo{height:48px;width:auto;display:block}
+    .site-nav a{font-weight:700}
+    .call-now{display:inline-block;padding:.5rem .9rem;border-radius:9999px;background:var(--ink);color:#fff;text-decoration:none;font-weight:700}
+    .call-now:focus-visible,.btn:focus-visible{outline:2px solid #fff;outline-offset:2px}
+    .parallax-hero{position:relative;min-height:56vh;overflow:hidden}
+    @media (max-width:640px){.parallax-hero{min-height:44vh}}
+    .parallax-hero .slides{position:absolute;inset:0;will-change:transform}
+    .parallax-hero .slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity .8s ease}
+    .parallax-hero .slide.active{opacity:1}
+    .parallax-hero .overlay{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,.18), rgba(0,0,0,.32))}
+    .parallax-hero .caption{position:relative;z-index:3;display:grid;place-items:center;text-align:center;min-height:inherit;padding:clamp(2rem,3vw,3rem) 1rem}
+    .parallax-hero .caption h1{color:#fff;font-weight:800;line-height:1.15;text-shadow:0 2px 8px rgba(0,0,0,.35);margin-bottom:.75rem}
+    .parallax-hero .caption p{color:#fff;opacity:.95;margin-bottom:1.25rem}
+    .btn{display:inline-block;padding:.9rem 1.25rem;border-radius:14px;background:#fff;color:var(--ink);font-weight:800;text-decoration:none}
+    .value-card{background:#fff;border-radius:1rem;box-shadow:0 12px 30px rgba(0,0,0,.1);padding:2rem;text-align:center}
+    .card{background:#fff;border-radius:1rem;overflow:hidden;box-shadow:0 10px 26px rgba(0,0,0,.1);border:1px solid rgba(15,23,42,.06);max-width:100%;margin-left:auto;margin-right:auto;text-decoration:none;color:inherit}
+    .cta-band{background:rgba(255,255,255,.92);border-radius:20px;padding:2rem 1.5rem;box-shadow:0 12px 30px rgba(0,0,0,.12);max-width:900px;margin:0 auto}
+    footer .contact, footer .contact a{font-size:1.125rem;font-weight:700}
+    footer .social a{opacity:.9;text-decoration:underline}
+    @media (prefers-reduced-motion: reduce){.parallax-hero .slide{transition:none}}
+  </style>
+</head>
+
+
+<body class="font-sans">
+ <!-- Header -->
+<header class="bg-white/95 backdrop-blur shadow-sm sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between py-4 px-4 sm:px-6">
+    <a href="index.html" class="flex items-center gap-3 mb-4 md:mb-0">
+      <img src="/assets/images/logos/logo-black.png" alt="MVP Painting Logo" class="header-logo" loading="lazy" decoding="async">
+      <span class="sr-only">MVP Painting</span>
+    </a>
+
+    <!-- Hamburger: OUTSIDE the nav so it stays visible on phones -->
+    <button class="menu-btn" aria-label="Toggle menu" data-mobile-menu-btn>
+      <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M3 6h18M3 12h18M3 18h18" stroke="#111" stroke-width="2" fill="none" stroke-linecap="round"/>
+      </svg>
+    </button>
+
+    <!-- Desktop nav (will be hidden on phones by fix-mobile.css) -->
+    <nav class="site-nav flex flex-col md:flex-row gap-4 md:gap-6 items-center text-base w-full md:w-auto" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="about.html">About</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+      <a href="tel:+17343662493" class="call-now px-6 py-3 md:px-8 md:py-4 text-xl md:text-2xl">Call Now</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Mobile drawer (shows only on phones) -->
+<div class="mobile-nav" data-mobile-menu>
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="about.html">About</a>
+  <a href="blog.html">Blog</a>
+  <a href="contact.html">Contact</a>
+  <div class="cta-row">
+    <a href="tel:+17343662493">Call Now</a>
+    <a href="contact.html">Book Now</a>
+  </div>
+</div>
+
+
+  <!-- HERO -->
+  <section class="parallax-hero" id="hero-index" data-hero="rotation" aria-label="Homepage hero">
+    <div class="slides">
+      <div class="slide active" style="background-image:url('/assets/images/hero-index/hero-index-1.jpg')" aria-hidden="true"></div>
+      <div class="slide" style="background-image:url('/assets/images/hero-index/hero-index-2.jpg')" aria-hidden="true"></div>
+      <div class="slide" style="background-image:url('/assets/images/hero-index/hero-index-3.jpg')" aria-hidden="true"></div>
+      <div class="slide" style="background-image:url('/assets/images/hero-index/hero-index-4.jpg')" aria-hidden="true"></div>
+      <div class="slide" style="background-image:url('/assets/images/hero-index/hero-index-5.jpg')" aria-hidden="true"></div>
+    </div>
+    <div class="overlay" aria-hidden="true"></div>
+    <div class="caption">
+      <div>
+        <h1 class="text-2xl sm:text-3xl md:text-5xl leading-tight">
+          <span class="block">Premium Painting for Homes &amp; Businesses</span>
+          <span class="block">in Macomb &amp; Oakland County</span>
+        </h1>
+        <a href="contact.html#estimate-form" class="btn mt-4">Request Your Free Quote</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Guaranteed Rotation: inline, isolated, and guarded -->
+  <script>
+  (function(){
+    const hero = document.getElementById('hero-index');
+    if(!hero || hero.dataset.rotatorInit === '1') return;
+    hero.dataset.rotatorInit = '1';
+
+    // Respect reduced-motion
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(reduce) return;
+
+    const slides = hero.querySelectorAll('.slide');
+    if(!slides.length) return;
+
+    let i = Array.from(slides).findIndex(s => s.classList.contains('active'));
+    if(i < 0){ slides[0].classList.add('active'); i = 0; }
+
+    if(slides.length < 2) return;
+
+    const intervalMs = 4500;
+    setInterval(() => {
+      slides[i].classList.remove('active');
+      i = (i + 1) % slides.length;
+      slides[i].classList.add('active');
+    }, intervalMs);
+  })();
+  </script>
+
+<!-- Fixed Appointment Form: floats right on desktop, block at bottom on mobile -->
+<div
+  id="appt-form"
+  class="fixed-appointment-form
+         w-full max-w-lg mx-auto my-8 px-2
+         md:fixed md:top-28 md:right-8 md:w-96 md:mx-0 md:my-0 md:z-50"
+>
+  <h2 class="text-2xl font-bold mb-4 text-center">Book an Appointment Now</h2>
+  <form action="mailto:elvirpurovic@mvpdecor.com" method="POST" enctype="text/plain" class="space-y-4">
+    <div>
+      <label for="name" class="block font-semibold mb-1">Name</label>
+      <input type="text" id="name" name="name" required class="w-full border rounded px-3 py-2" />
+    </div>
+    <div>
+      <label for="email" class="block font-semibold mb-1">Email</label>
+      <input type="email" id="email" name="email" required class="w-full border rounded px-3 py-2" />
+    </div>
+    <div>
+      <label for="date" class="block font-semibold mb-1">Preferred Date</label>
+      <input type="date" id="date" name="date" class="w-full border rounded px-3 py-2" />
+    </div>
+    <div>
+      <label for="message" class="block font-semibold mb-1">Details</label>
+      <textarea id="message" name="message" rows="3" class="w-full border rounded px-3 py-2"></textarea>
+    </div>
+    <button type="submit" class="btn bg-primary text-white w-full py-2 rounded font-bold hover:bg-blue-800 transition">Book Now</button>
+  </form>
+</div>
+
+<!-- Mobile "Book Now" button (shows/hides the form) -->
+<button id="book-fab" class="fab-book bg-primary text-white" aria-expanded="false" style="display:none;">
+  Book Now
+</button>
+<script>
+  (function(){
+    const btn = document.getElementById('book-fab');
+    const form = document.getElementById('appt-form');
+    if (!btn || !form) return;
+
+    function toggleFab() {
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        btn.style.display = 'block';
+        form.setAttribute('hidden','');
+      } else {
+        btn.style.display = 'none';
+        form.removeAttribute('hidden');
+      }
+    }
+    toggleFab();
+    window.addEventListener('resize', toggleFab);
+
+    btn.addEventListener('click', () => {
+      const hidden = form.hasAttribute('hidden');
+      if (hidden) {
+        form.removeAttribute('hidden');
+        btn.setAttribute('aria-expanded','true');
+      } else {
+        form.setAttribute('hidden','');
+        btn.setAttribute('aria-expanded','false');
+      }
+    });
+  })();
+</script>
+
+
+  <!-- Why choose us -->
+  <section id="why" class="max-w-7xl mx-auto py-10 px-2 sm:px-4">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 place-items-center">
+      <!-- ...value cards... -->
+    </div>
+  </section>
+
+<!-- Project Gallery Preview -->
+<section class="max-w-7xl mx-auto py-16 px-2 sm:px-4" id="home-cards">
+  <h2 class="text-2xl sm:text-3xl font-bold text-center mb-10">Project Gallery Preview</h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    <div class="card">
+      <img src="/assets/images/gallery-page/gallery-image-1.jpg" alt="Living room repaint" class="w-full h-48 object-cover rounded-t" />
+      <div class="p-4">
+        <h3 class="font-bold mb-2">Living Room Refresh</h3>
+        <p>Modern colors and crisp lines for a cozy space.</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="/assets/images/gallery-page/gallery-image-2.jpg" alt="Kitchen cabinets" class="w-full h-48 object-cover rounded-t" />
+      <div class="p-4">
+        <h3 class="font-bold mb-2">Cabinet Makeover</h3>
+        <p>Cabinet refinishing for a bright, updated kitchen.</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="/assets/images/gallery-page/gallery-image-3.jpg" alt="Exterior painting" class="w-full h-48 object-cover rounded-t" />
+      <div class="p-4">
+        <h3 class="font-bold mb-2">Exterior Transformation</h3>
+        <p>Boosted curb appeal with durable exterior paint.</p>
+      </div>
+    </div>
+  </div>
+  <div class="text-center mt-8">
+    <a href="gallery.html" class="btn">View Full Gallery</a>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="py-16 px-2 sm:px-4" aria-label="Testimonials">
+  <div class="max-w-5xl mx-auto">
+    <h2 class="text-2xl sm:text-3xl font-bold text-center mb-10">What Our Clients Say</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="card p-6">
+        <p class="italic">"MVP Painting did an amazing job on our home. Highly recommend!"</p>
+        <div class="mt-4 font-bold">&ndash; Jane D.</div>
+      </div>
+      <div class="card p-6">
+        <p class="italic">"Professional, on time, and the results were beautiful."</p>
+        <div class="mt-4 font-bold">&ndash; Mike S.</div>
+      </div>
+      <div class="card p-6">
+        <p class="italic">"We love our new colors. The team was friendly and fast!"</p>
+        <div class="mt-4 font-bold">&ndash; Sara K.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- CTA band -->
+  <section id="cta" class="py-12 px-2 sm:px-4" aria-label="Call to action">
+    <div class="max-w-5xl mx-auto rounded-2xl bg-white/95 shadow-lg ring-1 ring-black/5 px-4 sm:px-6 py-8">
+      <h2 class="text-2xl sm:text-3xl font-bold text-center mb-3">Ready to Transform Your Space?</h2>
+      <p class="text-center text-base sm:text-lg text-slate-700 mb-6">Book your free, no-obligation estimate and see why Michigan trusts MVP Painting.</p>
+     
+        <a href="contact.html#estimate-form" class="btn" style="background:var(--ink);color:#fff">Get Your Free Estimate</a>
+        <a href="tel:+17343662493" class="btn">Call (734) 366-2493</a>
+      </div>
+    </div>
+  </section>
+
+  
+
+  <!-- Footer -->
+  <footer class="bg-primary text-white mt-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-10 grid gap-8 grid-cols-1 md:grid-cols-[auto,1fr,auto,auto] items-center">
+      <!-- Brand (left) -->
+      <div class="flex flex-col items-start mb-4 md:mb-0">
+        <img src="/assets/images/logos/logo-black.png" class="footer-logo h-12 sm:h-16 w-auto mb-2" alt="MVP Painting logo" loading="lazy">
+      </div>
+      <!-- Contact (center) -->
+      <address class="not-italic contact text-slate-200 text-sm md:text-base flex flex-col items-start mb-4 md:mb-0">
+        <p><strong>Email:</strong> <a href="mailto:elvirpurovic@mvpdecor.com" class="underline hover:text-white/90">elvirpurovic@mvpdecor.com</a></p>
+        <p><strong>Phone:</strong> <a href="tel:+17343662493" class="underline hover:text-white/90">+1 (734) 366-2493</a></p>
+        <p>
+          <a href="https://www.sherwin-williams.com/" target="_blank" rel="noopener noreferrer" class="underline hover:text-white/90">We proudly use Sherwin-Williams Paint</a>
+        </p>
+      </address>
+      <!-- Social Media (colored icons) -->
+      <div class="social flex gap-4 sm:gap-5 justify-end w-full text-xl sm:text-2xl md:text-3xl">
+        <a href="https://www.facebook.com/share/19Vxythfws/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="hover:scale-110 transition-transform">
+          <i class="fab fa-facebook-square" style="color:#1877f3"></i>
+        </a>
+        <a href="https://www.instagram.com/m.v.p.homedecor?igsh=MTBpNjAwcmYzcmh0YQ==" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="hover:scale-110 transition-transform">
+          <i class="fab fa-instagram" style="color:#e4405f"></i>
+        </a>
+        <a href="https://maps.app.goo.gl/LxwxHhzqmVP67nQN7" target="_blank" rel="noopener noreferrer" aria-label="Google Maps" class="hover:scale-110 transition-transform">
+          <i class="fas fa-map-marker-alt" style="color:#34a853"></i>
+        </a>
+        <a href="https://share.google/a83ethP6CyCebEQOS" target="_blank" rel="nofollow noopener noreferrer" aria-label="BBB" class="hover:scale-110 transition-transform underline text-white/90">BBB Accredited Business</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

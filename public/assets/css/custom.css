@@ -253,3 +253,15 @@ footer .social{ margin-bottom:4.5rem; }
 .page-blog .card-body{ padding:1.25rem; display:flex; flex-direction:column; flex:1; min-width:0; }
 .page-blog .card .btn{ background:var(--ink); color:#fff; margin-top:auto; display:inline-block; }
 .page-blog h3{ overflow-wrap:anywhere; hyphens:auto; }
+
+@media (max-width: 767px) {
+  .site-nav { display: none !important; }
+  .menu-btn { display: inline-flex !important; }
+  .mobile-nav { display: none; }
+  .mobile-nav.open { display: block; }
+}
+@media (min-width: 768px) {
+  .site-nav { display: flex !important; }
+  .menu-btn { display: none !important; }
+  .mobile-nav { display: none !important; }
+}

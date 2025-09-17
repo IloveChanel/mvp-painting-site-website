@@ -1,0 +1,9 @@
+{
+  "ci": {
+    "collect": {
+      "url": ["http://localhost:3000"],
+      "settings": { "preset": "mobile" }
+    },
+    "assert": { "preset": "lighthouse:recommended" }
+  }
+}

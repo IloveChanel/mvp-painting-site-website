@@ -1,4 +1,6 @@
-﻿<head>
+﻿<!doctype html>
+<html lang="en">
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>MVP Painting & HomeDecor | House & Commercial Painters in Macomb & Oakland County</title>
@@ -12,20 +14,17 @@
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://www.mvpdecor.com/assets/og-cover.jpg" />
 
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- CSS (order matters) -->
+  <link rel="stylesheet" href="/assets/css/tailwind.css?v=202509161734">
+  <link rel="stylesheet" href="/assets/css/custom.css?v=202509161734">
+  <link rel="stylesheet" href="/assets/css/fix-mobile.css?v=2"><!-- bump v to bust cache -->
 
-<!-- Tailwind (compiled; no CDN) -->
-<link rel="stylesheet" href="/assets/css/tailwind.css?v=202509161734">
-
-<link rel="stylesheet" href="/assets/css/custom.css?v=202509161734">
-<link rel="icon" type="image/x-icon" href="/assets/favicon-II9yTh74.ico">
-
-<script type="module" src="/assets/js/scripts.js?v=202509161734" defer></script>
-<script type="module" src="/assets/js/hero-rotator.js?v=202509161734" defer></script>
   <!-- JSON-LD -->
   <script type="application/ld+json">
   {
@@ -50,7 +49,40 @@
   }
   </script>
 
-  <!-- Theme tokens + page background only (no component rules here) -->
+  <!-- Drawer toggler (single include) -->
+  <script src="/assets/js/mobile-menu.js?v=3" defer></script>
+
+  <!-- NAV HOTFIX: strongest, correct placement (at end of HEAD) -->
+  <style id="nav-hotfix">
+    /* Default: drawer hidden */
+    body .mobile-nav { display: none !important; }
+
+    /* Phones: hide desktop nav; show hamburger; show drawer when open */
+    @media (max-width: 767px) {
+      header .site-nav, .site-nav { display: none !important; }
+      .menu-btn {
+        display: inline-flex !important;
+        align-items: center; justify-content: center;
+        padding: .5rem; border: 0; background: none;
+      }
+      body .mobile-nav.open { display: block !important; }
+      body.menu-open { overflow: hidden !important; } /* lock background scroll */
+    }
+
+    /* Desktop: show desktop nav; hide hamburger & drawer */
+    @media (min-width: 768px) {
+      header .site-nav, .site-nav { display: flex !important; }
+      .menu-btn { display: none !important; }
+      body .mobile-nav { display: none !important; }
+    }
+
+    /* iOS smoothness if you use background-attachment: fixed */
+    @supports (-webkit-overflow-scrolling: touch) {
+      body { background-attachment: scroll !important; }
+    }
+  </style>
+
+  <!-- Theme tokens + page background only -->
   <style>
     :root{ --ink:#0f172a; --gold-1:#efe6cf; --gold-2:#e9d8b0; --rose-1:#e3c0c6; }
     html,body{min-height:100%}
@@ -90,12 +122,25 @@
 <body class="font-sans">
   <!-- Header -->
   <header class="bg-white/95 backdrop-blur shadow-sm sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between py-4 px-4 sm:px-6">
-      <a href="index.html" class="flex items-center gap-3 mb-4 md:mb-0">
-        <img src="/assets/logo-black-uKbwBgYq.png" alt="MVP Painting Logo" class="header-logo" loading="lazy" decoding="async">
+    <div class="max-w-7xl mx-auto flex items-center justify-between py-4 px-4 sm:px-6">
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="/assets/images/logos/logo-black.png" alt="MVP Painting Logo" class="header-logo" loading="lazy" decoding="async">
         <span class="sr-only">MVP Painting</span>
       </a>
-      <nav class="site-nav flex flex-col md:flex-row gap-4 md:gap-6 items-center text-base w-full md:w-auto" aria-label="Primary">
+
+      <!-- Hamburger (mobile only) -->
+      <button class="menu-btn md:hidden" aria-label="Toggle menu"
+              aria-controls="mobile-menu" aria-expanded="false"
+              data-mobile-menu-btn>
+        <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18"
+                stroke="#111" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </svg>
+      </button>
+
+      <!-- Desktop nav (hidden on mobile) -->
+      <nav class="site-nav hidden md:flex flex-row gap-6 items-center text-base" aria-label="Primary">
         <a href="index.html">Home</a>
         <a href="services.html">Services</a>
         <a href="gallery.html">Gallery</a>
@@ -106,9 +151,58 @@
       </nav>
     </div>
   </header>
-  <!-- Header ... unchanged ... -->
 
-  <!-- HERO -->
+  <!-- Mobile drawer (closed by default; opens via JS) -->
+  <div class="mobile-nav" data-mobile-menu id="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="about.html">About</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+    <div class="cta-row">
+      <a href="tel:+17343662493">Call Now</a>
+      <a href="contact.html">Book Now</a>
+    </div>
+  </div>
+  <!-- …continue with the rest of your page… -->
+<script>
+(function () {
+  const btn = document.querySelector('[data-mobile-menu-btn]');
+  const drawer = document.querySelector('[data-mobile-menu]');
+  if (!btn || !drawer || btn.dataset.mmInit === '1') return;
+  btn.dataset.mmInit = '1';
+
+  btn.addEventListener('click', () => {
+    const open = drawer.classList.toggle('open');
+    document.body.classList.toggle('menu-open', open);
+    btn.setAttribute('aria-expanded', String(open));
+  });
+
+  drawer.addEventListener('click', (e) => {
+    if (e.target.matches('a')) {
+      drawer.classList.remove('open');
+      document.body.classList.remove('menu-open');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      drawer.classList.remove('open');
+      document.body.classList.remove('menu-open');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+  });
+})();
+</script>
+</body>
+</html>
+
+
+
+
+
   <section class="parallax-hero" id="hero-index" data-hero="rotation" aria-label="Homepage hero">
     <div class="slides">
       <div class="slide active" style="background-image:url('/assets/images/hero-index/hero-index-1.jpg')" aria-hidden="true"></div>
@@ -197,7 +291,6 @@
     const form = document.getElementById('appt-form');
     if (!btn || !form) return;
 
-    // Show button only on mobile
     function toggleFab() {
       if (window.matchMedia('(max-width: 768px)').matches) {
         btn.style.display = 'block';
@@ -220,8 +313,9 @@
         btn.setAttribute('aria-expanded','false');
       }
     });
-  });
+  })();
 </script>
+
 
   <!-- Why choose us -->
   <section id="why" class="max-w-7xl mx-auto py-10 px-2 sm:px-4">
@@ -235,21 +329,21 @@
   <h2 class="text-2xl sm:text-3xl font-bold text-center mb-10">Project Gallery Preview</h2>
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
     <div class="card">
-      <img src="/assets/gallery-image-1-BWxykvE_.jpg" alt="Living room repaint" class="w-full h-48 object-cover rounded-t" />
+      <img src="/assets/images/gallery-page/gallery-image-1.jpg" alt="Living room repaint" class="w-full h-48 object-cover rounded-t" />
       <div class="p-4">
         <h3 class="font-bold mb-2">Living Room Refresh</h3>
         <p>Modern colors and crisp lines for a cozy space.</p>
       </div>
     </div>
     <div class="card">
-      <img src="/assets/gallery-image-2-CWL6G17Z.jpg" alt="Kitchen cabinets" class="w-full h-48 object-cover rounded-t" />
+      <img src="/assets/images/gallery-page/gallery-image-2.jpg" alt="Kitchen cabinets" class="w-full h-48 object-cover rounded-t" />
       <div class="p-4">
         <h3 class="font-bold mb-2">Cabinet Makeover</h3>
         <p>Cabinet refinishing for a bright, updated kitchen.</p>
       </div>
     </div>
     <div class="card">
-      <img src="/assets/gallery-image-3-DHJ8Vmrf.jpg" alt="Exterior painting" class="w-full h-48 object-cover rounded-t" />
+      <img src="/assets/images/gallery-page/gallery-image-3.jpg" alt="Exterior painting" class="w-full h-48 object-cover rounded-t" />
       <div class="p-4">
         <h3 class="font-bold mb-2">Exterior Transformation</h3>
         <p>Boosted curb appeal with durable exterior paint.</p>
@@ -301,7 +395,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 py-10 grid gap-8 grid-cols-1 md:grid-cols-[auto,1fr,auto,auto] items-center">
       <!-- Brand (left) -->
       <div class="flex flex-col items-start mb-4 md:mb-0">
-        <img src="/assets/logo-black-uKbwBgYq.png" class="footer-logo h-12 sm:h-16 w-auto mb-2" alt="MVP Painting logo" loading="lazy">
+        <img src="/assets/images/logos/logo-black.png" class="footer-logo h-12 sm:h-16 w-auto mb-2" alt="MVP Painting logo" loading="lazy">
       </div>
       <!-- Contact (center) -->
       <address class="not-italic contact text-slate-200 text-sm md:text-base flex flex-col items-start mb-4 md:mb-0">

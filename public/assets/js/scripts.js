@@ -24,3 +24,18 @@ document.addEventListener('DOMContentLoaded', function () {
     }, 4000); // 4 seconds per slide
   }
 });
+// ...existing code...
+
+// Mobile menu toggle
+document.addEventListener('DOMContentLoaded', function () {
+  const menuBtn = document.querySelector('[data-mobile-menu-btn]');
+  const mobileMenu = document.querySelector('[data-mobile-menu]');
+  const body = document.body;
+
+  if (menuBtn && mobileMenu) {
+    menuBtn.addEventListener('click', function () {
+      mobileMenu.classList.toggle('open');
+      body.classList.toggle('menu-open');
+    });
+  }
+});

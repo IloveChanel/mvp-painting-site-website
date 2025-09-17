@@ -1,12 +1,14 @@
-// /assets/js/hero-rotator.js
+// /assets/js/hero-rotator.js  (add the reduce-motion guard if you like)
 (() => {
   function initHeroRotation(section, intervalMs = 5000) {
+    // Optional accessibility guard:
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
     const slidesWrap = section.querySelector('.slides');
     if (!slidesWrap) return;
     const slides = Array.from(slidesWrap.querySelectorAll('.slide'));
     if (!slides.length) return;
 
-    // Ensure one slide is visible on load
     let idx = slides.findIndex(s => s.classList.contains('active'));
     if (idx === -1) { idx = 0; slides[0].classList.add('active'); }
 

@@ -6,23 +6,27 @@
   <meta name="description" content="Premium Residential & Commercial Painting in Macomb & Oakland County. Trusted, professional, and beautiful results. Get your free estimate today!" />
   <title>MVP Painting & HomeDecor | Services</title>
 
-  <!-- Tailwind (compiled; no CDN) -->
-  <link rel="stylesheet" href="/assets/css/tailwind.css?v=202509161734" />
-  <!-- Your overrides LAST -->
-  <link rel="stylesheet" href="/assets/css/custom.css?v=202509161734" />
-
-  <!-- Scripts -->
-  <script type="module" src="/assets/js/scripts.js?v=202509161734" defer></script>
-  <script type="module" src="/assets/js/hero-rotator.js?v=202509161734" defer></script>
-
   <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- Your CSS (Tailwind first, then custom) -->
+  <link rel="stylesheet" href="/assets/css/tailwind.css?v=202509161734" />
+  <link rel="stylesheet" href="/assets/css/custom.css?v=202509161734" />
+
+  <!-- Tiny mobile helpers (needed for hamburger + drawer) -->
+  <link rel="stylesheet" href="/assets/fix-mobile.css">
+  <script src="/assets/mobile-menu.js" defer></script>
+
   <link rel="icon" type="image/x-icon" href="/assets/favicon-II9yTh74.ico" />
 
-  <!-- Theme + utilities (restores background and shared styles) -->
+  <!-- Your scripts -->
+  <script type="module" src="/assets/js/scripts.js?v=202509161734" defer></script>
+  <script type="module" src="/assets/js/hero-rotator.js?v=202509161734" defer></script>
+
+  <!-- Theme + utilities -->
   <style>
     :root{ --ink:#0f172a; --gold-1:#efe6cf; --gold-2:#e9d8b0; --rose-1:#e3c0c6; }
     html,body{min-height:100%}
@@ -61,13 +65,22 @@
 
 <body class="font-sans pb-16 md:pb-0">
 
-  <!-- Header -->
+  <!-- ===================== Header ===================== -->
   <header class="bg-white/95 backdrop-blur shadow-sm sticky top-0 z-50">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between py-4 px-4 sm:px-6">
       <a href="index.html" class="flex items-center gap-3 mb-4 md:mb-0">
         <img src="/assets/images/logos/logo-black.png" alt="MVP Painting Logo" class="header-logo" loading="lazy" decoding="async">
         <span class="sr-only">MVP Painting</span>
       </a>
+
+      <!-- Hamburger: OUTSIDE the nav so it stays visible on phones -->
+      <button class="menu-btn" aria-label="Toggle menu" data-mobile-menu-btn>
+        
+          <path d="M3 6h18M3 12h18M3 18h18" stroke="#111" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </svg>
+      </button>
+
+      <!-- Desktop nav (hidden on phones by /fix-mobile.css) -->
       <nav class="site-nav flex flex-col md:flex-row gap-4 md:gap-6 items-center text-base w-full md:w-auto" aria-label="Primary">
         <a href="index.html">Home</a>
         <a href="services.html" aria-current="page">Services</a>
@@ -80,14 +93,15 @@
     </div>
   </header>
 
-  <!-- Hero rotation (Services) -->
+
+  <!-- =================== /Header + Drawer =================== -->
+
+  <!-- ================ Services Hero (no missing #2) ================ -->
   <section class="parallax-hero" id="hero-services" data-hero="rotation" aria-label="Services hero">
     <div class="slides">
+      <!-- Use only images that exist (1 and 3). Remove 2 to avoid 404. -->
       <div class="slide active" style="background-image:
         url('/assets/images/hero-services/hero-services-1.jpg'),
-        linear-gradient(135deg,#fffef9 0%, #efe6cf 35%, #e9d8b0 66%, #e3c0c6 100%)"></div>
-      <div class="slide" style="background-image:
-        url('/assets/images/hero-services/hero-services-2.jpg'),
         linear-gradient(135deg,#fffef9 0%, #efe6cf 35%, #e9d8b0 66%, #e3c0c6 100%)"></div>
       <div class="slide" style="background-image:
         url('/assets/images/hero-services/hero-services-3.jpg'),
@@ -105,11 +119,10 @@
     </div>
   </section>
 
-  <!-- Services grid -->
+  <!-- Services grid (unchanged content) -->
   <section aria-labelledby="services-heading" class="max-w-7xl mx-auto px-2 sm:px-6 py-12">
     <h2 id="services-heading" class="text-2xl sm:text-3xl font-bold mb-4">What We Offer</h2>
 
-    <!-- Use your equal-height rules from custom.css (.services-grid + .service-card) -->
     <ul class="services-grid grid items-stretch grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-slate-700">
 
       <li class="card service-card overflow-hidden flex flex-col">
@@ -204,11 +217,9 @@
   <!-- Footer -->
   <footer class="bg-primary text-white mt-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 py-10 grid gap-8 grid-cols-1 md:grid-cols-[auto,1fr,auto,auto] items-center">
-      <!-- Brand -->
       <div class="flex flex-col items-start mb-4 md:mb-0">
         <img src="/assets/images/logos/logo-black.png" class="footer-logo h-12 sm:h-16 w-auto mb-2" alt="MVP Painting logo" loading="lazy">
       </div>
-      <!-- Contact -->
       <address class="not-italic contact text-slate-200 text-sm md:text-base flex flex-col items-start mb-4 md:mb-0">
         <p><strong>Email:</strong>
           <a href="mailto:elvirpurovic@mvpdecor.com" class="underline hover:text-white/90">elvirpurovic@mvpdecor.com</a>
@@ -222,7 +233,6 @@
           </a>
         </p>
       </address>
-      <!-- Social -->
       <div class="social flex gap-4 sm:gap-5 justify-end w-full text-xl sm:text-2xl md:text-3xl">
         <a href="https://www.facebook.com/share/19Vxythfws/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="hover:scale-110 transition-transform">
           <i class="fab fa-facebook-square" style="color:#1877f3"></i>
@@ -240,7 +250,7 @@
     </div>
   </footer>
 
-  <!-- Floating Book Now Button and Modal Form -->
+  <!-- Floating Book Now Modal (your version kept as-is) -->
   <button id="bookNowBtn" class="fixed z-50 bottom-6 right-6 bg-primary text-white font-bold rounded-full shadow-lg px-6 py-3 text-lg hover:bg-blue-800 transition focus:outline-none focus:ring-2 focus:ring-white">
     Book Now
   </button>
@@ -272,21 +282,15 @@
   </div>
 
   <script>
-    // Modal open/close logic
     document.addEventListener('DOMContentLoaded', function() {
       var bookBtn = document.getElementById('bookNowBtn');
       var modal = document.getElementById('appointmentModal');
       var closeBtn = document.getElementById('closeModalBtn');
-      bookBtn.addEventListener('click', function() {
-        modal.classList.remove('hidden');
-      });
-      closeBtn.addEventListener('click', function() {
-        modal.classList.add('hidden');
-      });
-      modal.addEventListener('click', function(e) {
-        if (e.target === modal) modal.classList.add('hidden');
-      });
+      bookBtn.addEventListener('click', function() { modal.classList.remove('hidden'); });
+      closeBtn.addEventListener('click', function() { modal.classList.add('hidden'); });
+      modal.addEventListener('click', function(e) { if (e.target === modal) modal.classList.add('hidden'); });
     });
   </script>
 </body>
 </html>
+

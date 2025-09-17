@@ -5,3 +5,4 @@ backup_duplicate/
 *.tmp
 
 .vercel
+node_modules

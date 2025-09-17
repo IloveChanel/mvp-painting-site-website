@@ -19,6 +19,10 @@
   <link rel="stylesheet" href="/assets/css/tailwind.css?v=2">
   <link rel="stylesheet" href="/assets/css/custom.css?v=2">
 
+  <!-- ✅ Tiny mobile helpers (added) -->
+  <link rel="stylesheet" href="/assets/fix-mobile.css">
+  <script src="/assets/mobile-menu.js" defer></script>
+
   <!-- Preload first hero image -->
   <link rel="preload" as="image" href="/assets/images/hero-contact/hero-contact-1.jpg">
 
@@ -70,18 +74,15 @@
         <img src="/assets/images/logos/logo-black.png" alt="MVP Painting Logo" class="header-logo" loading="lazy" decoding="async">
         <span class="sr-only">MVP Painting</span>
       </a>
-      <nav class="site-nav flex flex-col md:flex-row gap-4 md:gap-6 items-center text-base w-full md:w-auto" aria-label="Primary">
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="about.html">About</a>
-        <a href="blog.html">Blog</a>
-        <a href="contact.html" aria-current="page">Contact</a>
-        <!-- smaller, non-overlapping Call Now -->
-        <a href="tel:+17343662493" class="call-now px-6 py-3 md:px-8 md:py-4 text-xl md:text-2xl">Call Now</a>
-      </nav>
-    </div>
-  </header>
+
+      <!-- ✅ Hamburger button (added, outside nav) -->
+      <button class="menu-btn" aria-label="Toggle menu" data-mobile-menu-btn>
+        
+          <path d="M3 6h18M3 12h18M3 18h18" stroke="#111" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </svg>
+      </button>
+
+
 
   <!-- HERO -->
   <section class="parallax-hero" id="hero-contact" data-hero="rotation" aria-label="Contact hero">

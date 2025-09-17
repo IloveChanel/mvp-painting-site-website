@@ -1,42 +1,42 @@
-﻿<!doctype html>
+﻿<!doctype html> 
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>MVP Painting | Blog</title>
   <meta name="description" content="Painting tips, project stories, and advice from MVP Painting serving Macomb & Oakland County." />
-<link rel="canonical" href="https://www.mvpdecor.com/blog.html" />
+  <link rel="canonical" href="https://www.mvpdecor.com/blog.html" />
 
-<!-- Open Graph -->
-<meta property="og:title" content="Blog | MVP Painting & HomeDecor" />
-<meta property="og:description" content="Painting tips, project stories, and advice from MVP Painting serving Macomb & Oakland County." />
-<meta property="og:url" content="https://www.mvpdecor.com/blog.html" />
-<meta property="og:type" content="website" />
-<meta property="og:image" content="https://www.mvpdecor.com/assets/og-cover.jpg" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Blog | MVP Painting & HomeDecor" />
+  <meta property="og:description" content="Painting tips, project stories, and advice from MVP Painting serving Macomb & Oakland County." />
+  <meta property="og:url" content="https://www.mvpdecor.com/blog.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://www.mvpdecor.com/assets/og-cover.jpg" />
 
-<!-- JSON-LD -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "PaintingContractor",
-  "name": "MVP Painting & HomeDecor",
-  "url": "https://www.mvpdecor.com/blog.html",
-  "image": "https://www.mvpdecor.com/assets/og-cover.jpg",
-  "telephone": "+1-734-366-2493",
-  "email": "elvirpurovic@mvpdecor.com",
-  "areaServed": [
-    "Macomb County, MI","Oakland County, MI","Clinton Township, MI",
-    "Sterling Heights, MI","Shelby Township, MI","Macomb Township, MI",
-    "Rochester Hills, MI","Troy, MI","Royal Oak, MI","Bloomfield Hills, MI"
-  ],
-  "description": "Residential and light commercial painting, cabinet refinishing, exterior protection, custom finishes, and wood repair.",
-  "sameAs": [
-    "https://www.facebook.com/share/19Vxythfws/",
-    "https://www.instagram.com/m.v.p.homedecor?igsh=MTBpNjAwcmYzcmh0YQ==",
-    "https://maps.app.goo.gl/LxwxHhzqmVP67nQN7"
-  ]
-}
-</script>
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "PaintingContractor",
+    "name": "MVP Painting & HomeDecor",
+    "url": "https://www.mvpdecor.com/blog.html",
+    "image": "https://www.mvpdecor.com/assets/og-cover.jpg",
+    "telephone": "+1-734-366-2493",
+    "email": "elvirpurovic@mvpdecor.com",
+    "areaServed": [
+      "Macomb County, MI","Oakland County, MI","Clinton Township, MI",
+      "Sterling Heights, MI","Shelby Township, MI","Macomb Township, MI",
+      "Rochester Hills, MI","Troy, MI","Royal Oak, MI","Bloomfield Hills, MI"
+    ],
+    "description": "Residential and light commercial painting, cabinet refinishing, exterior protection, custom finishes, and wood repair.",
+    "sameAs": [
+      "https://www.facebook.com/share/19Vxythfws/",
+      "https://www.instagram.com/m.v.p.homedecor?igsh=MTBpNjAwcmYzcmh0YQ==",
+      "https://maps.app.goo.gl/LxwxHhzqmVP67nQN7"
+    ]
+  }
+  </script>
 
   <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,6 +48,10 @@
   <!-- CSS -->
   <link rel="stylesheet" href="/assets/css/tailwind.css?v=202509161734">
   <link rel="stylesheet" href="/assets/css/custom.css?v=202509161734">
+
+  <!-- ✅ Tiny mobile helpers (added) -->
+  <link rel="stylesheet" href="/assets/fix-mobile.css">
+  <script src="/assets/mobile-menu.js" defer></script>
 
   <!-- Preload the first hero image -->
   <link rel="preload" as="image" href="/assets/images/hero-blog/hero-blog-1.jpg">
@@ -105,6 +109,14 @@
         <img src="/assets/images/logos/logo-black.png" alt="MVP Painting Logo" class="header-logo" loading="lazy" decoding="async">
         <span class="sr-only">MVP Painting</span>
       </a>
+
+      <!-- ✅ Hamburger button (added) -->
+      <button class="menu-btn" aria-label="Toggle menu" data-mobile-menu-btn>
+        
+          <path d="M3 6h18M3 12h18M3 18h18" stroke="#111" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </svg>
+      </button>
+
       <nav class="site-nav flex flex-col md:flex-row gap-4 md:gap-6 items-center text-base w-full md:w-auto" aria-label="Primary">
         <a href="index.html">Home</a>
         <a href="services.html">Services</a>
@@ -116,6 +128,7 @@
       </nav>
     </div>
   </header>
+
 
   <!-- HERO (blog) -->
   <section class="parallax-hero" id="hero-blog" data-hero="rotation" aria-label="Blog hero">
@@ -133,77 +146,75 @@
     </div>
   </section>
 
-<main class="max-w-7xl mx-auto px-2 sm:px-6 py-12">
-  <h2 class="text-2xl sm:text-3xl font-bold mb-4">Latest Blog Posts</h2>
+  <main class="max-w-7xl mx-auto px-2 sm:px-6 py-12">
+    <h2 class="text-2xl sm:text-3xl font-bold mb-4">Latest Blog Posts</h2>
 
-  <!-- real grid + blog-specific hook -->
-  <div class="blog-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    <!-- real grid + blog-specific hook -->
+    <div class="blog-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
 
-    <!-- Benjamin Moore — official -->
-    <article class="card p-0 h-full flex flex-col">
-      <div class="card-body p-5 flex-1 flex flex-col">
-        <h3 class="text-xl font-semibold mb-2">Benjamin Moore: Color of the Year 2025 — Cinnamon Slate</h3>
-        <p class="text-sm text-slate-700 mb-3">BM’s 2025 pick: a versatile “in-between” plum-brown that anchors rooms without overpowering.</p>
-        <a href="https://www.benjaminmoore.com/en-us/color-overview/color-palettes/2025-color-trends"
-           class="btn mt-auto" target="_blank" rel="noopener noreferrer nofollow">Read on Benjamin Moore</a>
-      </div>
-    </article>
+      <!-- Benjamin Moore — official -->
+      <article class="card p-0 h-full flex flex-col">
+        <div class="card-body p-5 flex-1 flex flex-col">
+          <h3 class="text-xl font-semibold mb-2">Benjamin Moore: Color of the Year 2025 — Cinnamon Slate</h3>
+          <p class="text-sm text-slate-700 mb-3">BM’s 2025 pick: a versatile “in-between” plum-brown that anchors rooms without overpowering.</p>
+          <a href="https://www.benjaminmoore.com/en-us/color-overview/color-palettes/2025-color-trends"
+            class="btn mt-auto" target="_blank" rel="noopener noreferrer nofollow">Read on Benjamin Moore</a>
+        </div>
+      </article>
 
-    <!-- Sherwin-Williams — official -->
-    <article class="card p-0 h-full flex flex-col">
-      <div class="card-body p-5 flex-1 flex flex-col">
-        <h3 class="text-xl font-semibold mb-2">Sherwin-Williams: 2025 Color Capsule of the Year</h3>
-        <p class="text-sm text-slate-700 mb-3">Instead of one color, SW released a 9-shade capsule inspired by vintage palettes—made for real homes.</p>
-        <a href="https://www.sherwin-williams.com/homeowners/color/color-collections/color-of-the-year/2025"
-           class="btn mt-auto" target="_blank" rel="noopener noreferrer nofollow">Explore the Capsule</a>
-      </div>
-    </article>
+      <!-- Sherwin-Williams — official -->
+      <article class="card p-0 h-full flex flex-col">
+        <div class="card-body p-5 flex-1 flex flex-col">
+          <h3 class="text-xl font-semibold mb-2">Sherwin-Williams: 2025 Color Capsule of the Year</h3>
+          <p class="text-sm text-slate-700 mb-3">Instead of one color, SW released a 9-shade capsule inspired by vintage palettes—made for real homes.</p>
+          <a href="https://www.sherwin-williams.com/homeowners/color/color-collections/color-of-the-year/2025"
+            class="btn mt-auto" target="_blank" rel="noopener noreferrer nofollow">Explore the Capsule</a>
+        </div>
+      </article>
 
-    <!-- Behr — official -->
-    <article class="card p-0 h-full flex flex-col">
-      <div class="card-body p-5 flex-1 flex flex-col">
-        <h3 class="text-xl font-semibold mb-2">Behr: Color of the Year 2025 — Rumors</h3>
-        <p class="text-sm text-slate-700 mb-3">A sophisticated ruby red that brings warmth and depth—great for accents or full rooms.</p>
-        <a href="https://www.behr.com/consumer/inspiration/color-of-the-year/"
-           class="btn mt-auto" target="_blank" rel="noopener noreferrer nofollow">See Behr’s COTY</a>
-      </div>
-    </article>
+      <!-- Behr — official -->
+      <article class="card p-0 h-full flex flex-col">
+        <div class="card-body p-5 flex-1 flex flex-col">
+          <h3 class="text-xl font-semibold mb-2">Behr: Color of the Year 2025 — Rumors</h3>
+          <p class="text-sm text-slate-700 mb-3">A sophisticated ruby red that brings warmth and depth—great for accents or full rooms.</p>
+          <a href="https://www.behr.com/consumer/inspiration/color-of-the-year/"
+            class="btn mt-auto" target="_blank" rel="noopener noreferrer nofollow">See Behr’s COTY</a>
+        </div>
+      </article>
 
-    <!-- Valspar — official -->
-    <article class="card p-0 h-full flex flex-col">
-      <div class="card-body p-5 flex-1 flex flex-col">
-        <h3 class="text-xl font-semibold mb-2">Valspar: Color of the Year 2025 — Encore</h3>
-        <p class="text-sm text-slate-700 mb-3">A rich, timeless navy designed to make spaces feel welcoming and restful.</p>
-        <a href="https://lowes.valspar.com/inspiration/color-of-the-year/2025/"
-           class="btn mt-auto" target="_blank" rel="noopener noreferrer nofollow">Read on Valspar</a>
-      </div>
-    </article>
+      <!-- Valspar — official -->
+      <article class="card p-0 h-full flex flex-col">
+        <div class="card-body p-5 flex-1 flex flex-col">
+          <h3 class="text-xl font-semibold mb-2">Valspar: Color of the Year 2025 — Encore</h3>
+          <p class="text-sm text-slate-700 mb-3">A rich, timeless navy designed to make spaces feel welcoming and restful.</p>
+          <a href="https://lowes.valspar.com/inspiration/color-of-the-year/2025/"
+            class="btn mt-auto" target="_blank" rel="noopener noreferrer nofollow">Read on Valspar</a>
+        </div>
+      </article>
 
-    <!-- Homes & Gardens — roundup -->
-    <article class="card p-0 h-full flex flex-col">
-      <div class="card-body p-5 flex-1 flex flex-col">
-        <h3 class="text-xl font-semibold mb-2">Every 2025 Color of the Year (Roundup)</h3>
-        <p class="text-sm text-slate-700 mb-3">A clean roundup of the year’s big shades across major brands—great for inspiration.</p>
-        <a href="https://www.homesandgardens.com/interior-design/paint/color-of-the-year"
-           class="btn mt-auto" target="_blank" rel="noopener noreferrer nofollow">Read the Roundup</a>
-      </div>
-    </article>
+      <!-- Homes & Gardens — roundup -->
+      <article class="card p-0 h-full flex flex-col">
+        <div class="card-body p-5 flex-1 flex flex-col">
+          <h3 class="text-xl font-semibold mb-2">Every 2025 Color of the Year (Roundup)</h3>
+          <p class="text-sm text-slate-700 mb-3">A clean roundup of the year’s big shades across major brands—great for inspiration.</p>
+          <a href="https://www.homesandgardens.com/interior-design/paint/color-of-the-year"
+            class="btn mt-auto" target="_blank" rel="noopener noreferrer nofollow">Read the Roundup</a>
+        </div>
+      </article>
 
-    <!-- Better Homes & Gardens — roundup -->
-    <article class="card p-0 h-full flex flex-col">
-      <div class="card-body p-5 flex-1 flex flex-col">
-        <h3 class="text-xl font-semibold mb-2">2025 Paint Colors of the Year: The Full List</h3>
-        <p class="text-sm text-slate-700 mb-3">BHG covers BM Cinnamon Slate, SW’s capsule, Valspar Encore, Behr Rumors, and more.</p>
-        <a href="https://www.bhg.com/2025-paint-colors-of-the-year-8363524"
-           class="btn mt-auto" target="_blank" rel="noopener noreferrer nofollow">See All Picks</a>
-      </div>
-    </article>
+      <!-- Better Homes & Gardens — roundup -->
+      <article class="card p-0 h-full flex flex-col">
+        <div class="card-body p-5 flex-1 flex flex-col">
+          <h3 class="text-xl font-semibold mb-2">2025 Paint Colors of the Year: The Full List</h3>
+          <p class="text-sm text-slate-700 mb-3">BHG covers BM Cinnamon Slate, SW’s capsule, Valspar Encore, Behr Rumors, and more.</p>
+          <a href="https://www.bhg.com/2025-paint-colors-of-the-year-8363524"
+            class="btn mt-auto" target="_blank" rel="noopener noreferrer nofollow">See All Picks</a>
+        </div>
+      </article>
 
-  </div>
-</main>
+    </div>
+  </main>
 
-
-  
   <!-- CTA -->
   <section id="cta" class="py-12 px-4" aria-label="Call to action">
     <div class="max-w-5xl mx-auto rounded-2xl bg-white/95 shadow-lg ring-1 ring-black/5 px-6 py-8">

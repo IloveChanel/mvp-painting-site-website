@@ -1,27 +1,67 @@
-html,body{width:100%;margin:0;padding:0;overflow-x:hidden}
-img{max-width:100%;height:auto;display:block}
-.container,.site-wrap,.wrap,.inner{max-width:1280px;margin:0 auto;padding:0 1rem}
-.header{width:100%;border-bottom:1px solid #eaeaea;background:#fff}
-.header .bar{display:flex;align-items:center;justify-content:space-between;height:64px}
-.header .brand{display:inline-flex;align-items:center;gap:.75rem;text-decoration:none;color:inherit}
-.header .brand img{height:40px;width:auto}
-.header .nav{display:none;align-items:center;gap:1rem}
-.header .nav a{text-decoration:none;color:#111;font-weight:500}
-.header .cta{display:none;gap:.5rem}
-.header .cta a{text-decoration:none;padding:.5rem .75rem;border-radius:.75rem;border:1px solid #111;color:#111}
-.header .menu-btn{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;background:transparent;border:none}
-.mobile-nav{display:none;border-top:1px solid #eaeaea;background:#fff}
-.mobile-nav.open{display:block}
-.mobile-nav a{display:block;padding:.75rem 1rem;text-decoration:none;color:#111;border-bottom:1px solid #f2f2f2}
-.mobile-nav .cta-row{display:flex;gap:.5rem;padding:.75rem 1rem}
-.mobile-nav .cta-row a{flex:1;text-align:center;padding:.6rem .75rem;border-radius:.75rem;border:1px solid #111;color:#111;text-decoration:none}
-@media(min-width:768px){.header .nav{display:inline-flex}.header .cta{display:inline-flex}.header .menu-btn{display:none}.mobile-nav{display:none !important}}
-.grid-3{display:grid;grid-template-columns:1fr;gap:1rem}
-@media(min-width:640px){.grid-3{grid-template-columns:repeat(2,1fr)}}
-@media(min-width:1024px){.grid-3{grid-template-columns:repeat(3,1fr)}}
-.aspect-square{position:relative;width:100%;padding-top:100%}
-.fit-cover>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.card{border-radius:1rem;overflow:hidden;box-shadow:0 12px 24px rgba(0,0,0,.08);background:#fff}
-.card .body{padding:1rem}
-footer{border-top:1px solid #eaeaea;background:#fafafa}
-footer .inner{padding:2rem 0}
+/* ---------- Base safety ---------- */
+img { max-width: 100%; height: auto; display: block; }
+body.menu-open { overflow: hidden; }          /* lock scroll when drawer open */
+@supports (-webkit-overflow-scrolling: touch) { body { background-attachment: scroll !important; }}
+
+/* ---------- Desktop vs Mobile visibility for the header ---------- */
+/* Default: hide desktop nav; it will be shown again >=768px */
+header .site-nav,
+.site-nav { display: none !important; }
+
+/* Phones (<768px): show hamburger; drawer is hidden unless .open */
+@media (max-width: 767.98px) {
+  .menu-btn {
+    display: inline-flex !important;
+    align-items: center; justify-content: center;
+    padding: .5rem; border: 0; background: none;
+  }
+}
+
+/* Desktop (>=768px): show desktop nav; hide hamburger & drawer */
+@media (min-width: 768px) {
+  header .site-nav,
+  .site-nav { display: flex !important; }
+  .menu-btn { display: none !important; }
+  .mobile-nav { display: none !important; }
+}
+
+/* ---------- Mobile drawer ---------- */
+.mobile-nav {
+  display: none;                /* hidden until opened */
+  position: fixed;
+  inset: 0;
+  background: #fff;
+  z-index: 1000;
+  overflow-y: auto;
+  padding: calc(env(safe-area-inset-top,0px) + 64px) 1rem 1rem;
+}
+.mobile-nav.open { display: block !important; }
+.mobile-nav a {
+  display: block;
+  padding: .75rem 0;
+  border-bottom: 1px solid #f3f3f3;
+  text-decoration: none;
+  color: #111;
+}
+.mobile-nav .cta-row { display: flex; gap: .5rem; padding: .75rem 0; }
+.mobile-nav .cta-row a {
+  flex: 1; text-align: center; padding: .6rem .75rem;
+  border: 1px solid #111; border-radius: .75rem; color: #111; text-decoration: none;
+}
+
+/* ---------- “Book Now” FAB (mobile only) ---------- */
+/* Supports either id used across pages */
+#book-fab, #bookNowBtn {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 1100;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: .75rem 1rem;
+  border-radius: 9999px;
+}
+@media (min-width: 768px) {
+  #book-fab, #bookNowBtn { display: none !important; }  /* no FAB on desktop */
+}
