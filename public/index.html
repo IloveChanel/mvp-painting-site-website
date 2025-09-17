@@ -1,6 +1,4 @@
-﻿<!doctype html>
-<html lang="en">
-<head>
+﻿<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>MVP Painting & HomeDecor | House & Commercial Painters in Macomb & Oakland County</title>
@@ -23,50 +21,19 @@
   <!-- CSS (order matters) -->
   <link rel="stylesheet" href="/assets/css/tailwind.css?v=202509161734">
   <link rel="stylesheet" href="/assets/css/custom.css?v=202509161734">
-  <link rel="stylesheet" href="/assets/css/fix-mobile.css?v=2"><!-- bump v to bust cache -->
+  <link rel="stylesheet" href="/assets/css/fix-mobile.css?v=7"><!-- bump to bust cache -->
 
-  <!-- JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "PaintingContractor",
-    "name": "MVP Painting & HomeDecor",
-    "url": "https://www.mvpdecor.com/",
-    "image": "https://www.mvpdecor.com/assets/og-cover.jpg",
-    "telephone": "+1-734-366-2493",
-    "email": "elvirpurovic@mvpdecor.com",
-    "areaServed": [
-      "Macomb County, MI","Oakland County, MI","Clinton Township, MI",
-      "Sterling Heights, MI","Shelby Township, MI","Macomb Township, MI",
-      "Rochester Hills, MI","Troy, MI","Royal Oak, MI","Bloomfield Hills, MI"
-    ],
-    "description": "Residential and light commercial painting, cabinet refinishing, exterior protection, custom finishes, and wood repair.",
-    "sameAs": [
-      "https://www.facebook.com/share/19Vxythfws/",
-      "https://www.instagram.com/m.v.p.homedecor?igsh=MTBpNjAwcmYzcmh0YQ==",
-      "https://maps.app.goo.gl/LxwxHhzqmVP67nQN7"
-    ]
-  }
-  </script>
-
-  <!-- Drawer toggler (single include) -->
-  <script src="/assets/js/mobile-menu.js?v=3" defer></script>
-
-  <!-- NAV HOTFIX: strongest, correct placement (at end of HEAD) -->
-  <style id="nav-hotfix">
+  <!-- NAV + FAB HOTFIX (single style block; keep just before </head>) -->
+  <style id="force-mobile-nav">
     /* Default: drawer hidden */
     body .mobile-nav { display: none !important; }
 
     /* Phones: hide desktop nav; show hamburger; show drawer when open */
     @media (max-width: 767px) {
-      header .site-nav, .site-nav { display: none !important; }
-      .menu-btn {
-        display: inline-flex !important;
-        align-items: center; justify-content: center;
-        padding: .5rem; border: 0; background: none;
-      }
-      body .mobile-nav.open { display: block !important; }
-      body.menu-open { overflow: hidden !important; } /* lock background scroll */
+      header .site-nav, .site-nav { display: none !important; }   /* hide desktop nav */
+      .menu-btn { display: inline-flex !important; }              /* show hamburger */
+      body .mobile-nav.open { display: block !important; }        /* drawer visible when opened */
+      body.menu-open { overflow: hidden !important; }             /* lock page scroll */
     }
 
     /* Desktop: show desktop nav; hide hamburger & drawer */
@@ -76,14 +43,24 @@
       body .mobile-nav { display: none !important; }
     }
 
-    /* iOS smoothness if you use background-attachment: fixed */
+    /* FAB: force it to bottom-right on mobile */
+    #book-fab, #bookNowBtn {
+      position: fixed !important;
+      right: 1rem !important;
+      bottom: 1rem !important;
+      z-index: 1000 !important;
+      display: none; /* default hidden; shown on mobile below */
+    }
+    @media (max-width: 767px) {
+      #book-fab, #bookNowBtn { display: inline-flex !important; }
+    }
+
+    /* iOS smoothness when using fixed backgrounds */
     @supports (-webkit-overflow-scrolling: touch) {
       body { background-attachment: scroll !important; }
     }
-  </style>
 
-  <!-- Theme tokens + page background only -->
-  <style>
+    /* Theme basics that were already in your page */
     :root{ --ink:#0f172a; --gold-1:#efe6cf; --gold-2:#e9d8b0; --rose-1:#e3c0c6; }
     html,body{min-height:100%}
     body{
@@ -116,135 +93,15 @@
     footer .contact, footer .contact a{font-size:1.125rem;font-weight:700}
     footer .social a{opacity:.9;text-decoration:underline}
     @media (prefers-reduced-motion: reduce){.parallax-hero .slide{transition:none}}
-    <!-- NAV + FAB HOTFIX (place just before </head>) -->
-<style id="force-mobile-nav">
-  /* Default: drawer hidden */
-  body .mobile-nav { display: none !important; }
-
-  /* Phones: hide desktop nav; show hamburger; show drawer when open */
-  @media (max-width: 767px) {
-    header .site-nav, .site-nav { display: none !important; }   /* <-- hides the desktop nav */
-    .menu-btn { display: inline-flex !important; }               /* <-- shows hamburger */
-    body .mobile-nav.open { display: block !important; }         /* <-- drawer visible when opened */
-    body.menu-open { overflow: hidden !important; }              /* lock page scroll */
-  }
-
-  /* Desktop: show desktop nav; hide hamburger & drawer */
-  @media (min-width: 768px) {
-    header .site-nav, .site-nav { display: flex !important; }
-    .menu-btn { display: none !important; }
-    body .mobile-nav { display: none !important; }
-  }
-
-  /* FAB: force it to bottom-right on mobile */
-  #book-fab, #bookNowBtn {
-    position: fixed !important;
-    right: 1rem !important;
-    bottom: 1rem !important;
-    z-index: 1000 !important;
-    display: none;                 /* default hidden; shown on mobile below */
-  }
-  @media (max-width: 767px) {
-    #book-fab, #bookNowBtn { display: inline-flex !important; }
-  }
-
-  /* iOS smoothness when using fixed backgrounds */
-  @supports (-webkit-overflow-scrolling: touch) {
-    body { background-attachment: scroll !important; }
-  }
-</style>
-
-<!-- One (and only one) toggler include; bump v to bust cache -->
-<script src="/assets/js/mobile-menu.js?v=7" defer></script>
-
   </style>
+
+  <!-- Mobile menu toggler (single include; versioned to bust cache) -->
+  <script type="module" src="/assets/js/mobile-menu.js?v=7"></script>
 </head>
 
-<body class="font-sans">
-  <!-- Header -->
-  <header class="bg-white/95 backdrop-blur shadow-sm sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto flex items-center justify-between py-4 px-4 sm:px-6">
-      <!-- Logo -->
-      <a href="index.html" class="flex items-center gap-3">
-        <img src="/assets/images/logos/logo-black.png" alt="MVP Painting Logo" class="header-logo" loading="lazy" decoding="async">
-        <span class="sr-only">MVP Painting</span>
-      </a>
-
-      <!-- Hamburger (mobile only) -->
-      <button class="menu-btn md:hidden" aria-label="Toggle menu"
-              aria-controls="mobile-menu" aria-expanded="false"
-              data-mobile-menu-btn>
-        <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M3 6h18M3 12h18M3 18h18"
-                stroke="#111" stroke-width="2" fill="none" stroke-linecap="round"/>
-        </svg>
-      </button>
-
-      <!-- Desktop nav (hidden on mobile) -->
-      <nav class="site-nav hidden md:flex flex-row gap-6 items-center text-base" aria-label="Primary">
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="about.html">About</a>
-        <a href="blog.html">Blog</a>
-        <a href="contact.html">Contact</a>
-        <a href="tel:+17343662493" class="call-now px-6 py-3 md:px-8 md:py-4 text-xl md:text-2xl">Call Now</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Mobile drawer (closed by default; opens via JS) -->
-  <div class="mobile-nav" data-mobile-menu id="mobile-menu">
-    <a href="index.html">Home</a>
-    <a href="services.html">Services</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="about.html">About</a>
-    <a href="blog.html">Blog</a>
-    <a href="contact.html">Contact</a>
-    <div class="cta-row">
-      <a href="tel:+17343662493">Call Now</a>
-      <a href="contact.html">Book Now</a>
-    </div>
-  </div>
-  <!-- …continue with the rest of your page… -->
-<script>
-(function () {
-  const btn = document.querySelector('[data-mobile-menu-btn]');
-  const drawer = document.querySelector('[data-mobile-menu]');
-  if (!btn || !drawer || btn.dataset.mmInit === '1') return;
-  btn.dataset.mmInit = '1';
-
-  btn.addEventListener('click', () => {
-    const open = drawer.classList.toggle('open');
-    document.body.classList.toggle('menu-open', open);
-    btn.setAttribute('aria-expanded', String(open));
-  });
-
-  drawer.addEventListener('click', (e) => {
-    if (e.target.matches('a')) {
-      drawer.classList.remove('open');
-      document.body.classList.remove('menu-open');
-      btn.setAttribute('aria-expanded', 'false');
-    }
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      drawer.classList.remove('open');
-      document.body.classList.remove('menu-open');
-      btn.setAttribute('aria-expanded', 'false');
-    }
-  });
-})();
-</script>
-</body>
-</html>
 
 
-
-
-
-  <section class="parallax-hero" id="hero-index" data-hero="rotation" aria-label="Homepage hero">
+<section class="parallax-hero" id="hero-index" data-hero="rotation" aria-label="Homepage hero">
     <div class="slides">
       <div class="slide active" style="background-image:url('/assets/images/hero-index/hero-index-1.jpg')" aria-hidden="true"></div>
       <div class="slide" style="background-image:url('/assets/images/hero-index/hero-index-2.jpg')" aria-hidden="true"></div>
