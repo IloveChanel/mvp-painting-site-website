@@ -116,6 +116,47 @@
     footer .contact, footer .contact a{font-size:1.125rem;font-weight:700}
     footer .social a{opacity:.9;text-decoration:underline}
     @media (prefers-reduced-motion: reduce){.parallax-hero .slide{transition:none}}
+    <!-- NAV + FAB HOTFIX (place just before </head>) -->
+<style id="force-mobile-nav">
+  /* Default: drawer hidden */
+  body .mobile-nav { display: none !important; }
+
+  /* Phones: hide desktop nav; show hamburger; show drawer when open */
+  @media (max-width: 767px) {
+    header .site-nav, .site-nav { display: none !important; }   /* <-- hides the desktop nav */
+    .menu-btn { display: inline-flex !important; }               /* <-- shows hamburger */
+    body .mobile-nav.open { display: block !important; }         /* <-- drawer visible when opened */
+    body.menu-open { overflow: hidden !important; }              /* lock page scroll */
+  }
+
+  /* Desktop: show desktop nav; hide hamburger & drawer */
+  @media (min-width: 768px) {
+    header .site-nav, .site-nav { display: flex !important; }
+    .menu-btn { display: none !important; }
+    body .mobile-nav { display: none !important; }
+  }
+
+  /* FAB: force it to bottom-right on mobile */
+  #book-fab, #bookNowBtn {
+    position: fixed !important;
+    right: 1rem !important;
+    bottom: 1rem !important;
+    z-index: 1000 !important;
+    display: none;                 /* default hidden; shown on mobile below */
+  }
+  @media (max-width: 767px) {
+    #book-fab, #bookNowBtn { display: inline-flex !important; }
+  }
+
+  /* iOS smoothness when using fixed backgrounds */
+  @supports (-webkit-overflow-scrolling: touch) {
+    body { background-attachment: scroll !important; }
+  }
+</style>
+
+<!-- One (and only one) toggler include; bump v to bust cache -->
+<script src="/assets/js/mobile-menu.js?v=7" defer></script>
+
   </style>
 </head>
 

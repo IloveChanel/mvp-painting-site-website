@@ -65,3 +65,27 @@ header .site-nav,
 @media (min-width: 768px) {
   #book-fab, #bookNowBtn { display: none !important; }  /* no FAB on desktop */
 }
+/* Hide desktop nav on mobile */
+@media (max-width: 767px) {
+  header .site-nav, .site-nav {
+    display: none !important;
+  }
+  .menu-btn {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Show desktop nav on desktop */
+@media (min-width: 768px) {
+  header .site-nav, .site-nav {
+    display: flex !important;
+  }
+  .menu-btn {
+    display: none !important;
+  }
+  .mobile-nav {
+    display: none !important;
+  }
+}
