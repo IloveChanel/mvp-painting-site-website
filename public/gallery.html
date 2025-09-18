@@ -1,10 +1,10 @@
 ﻿<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MVP Painting | Gallery</title>
-  <meta name="description" content="Recent residential, commercial, and exterior painting projects by MVP Painting in Macomb & Oakland County." />
+  <meta name="description" content="Project gallery from MVP Painting & HomeDecor — interiors, exteriors, cabinets, wood repair and more across Macomb & Oakland County." />
+  <title>MVP Painting & HomeDecor | Gallery</title>
 
   <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,20 +12,51 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <!-- Your CSS -->
+  <!-- CSS (order matters) -->
   <link rel="stylesheet" href="/assets/css/tailwind.css?v=202509161734">
   <link rel="stylesheet" href="/assets/css/custom.css?v=202509161734">
+  <link rel="stylesheet" href="/assets/css/fix-mobile.css?v=8">
 
-  <!-- Tiny mobile helpers (required for hamburger/drawer) -->
-  <link rel="stylesheet" href="/assets/fix-mobile.css">
-  <script src="/assets/mobile-menu.js" defer></script>
+  <link rel="icon" type="image/x-icon" href="/assets/favicon-II9yTh74.ico" />
 
-  <!-- Your scripts -->
-  <script type="module" src="/assets/js/scripts.js?v=202509161734" defer></script>
-  <script type="module" src="/assets/js/hero-rotator.js?v=202509161734" defer></script>
+  <!-- NAV + FAB HOTFIX (same as index/services) -->
+  <style id="force-mobile-nav">
+    /* Drawer hidden unless opened (and we also use [hidden]) */
+    .mobile-nav[hidden]{display:none!important}
 
-  <!-- Inline theme + small fixes -->
-  <style>
+    /* Phones: hide desktop nav; show hamburger; lock scroll when open */
+    @media (max-width: 767px){
+      header .site-nav, .site-nav { display:none!important; }
+      .menu-btn{ display:inline-flex!important; align-items:center; justify-content:center; }
+      body.menu-open{ overflow:hidden!important; }
+    }
+
+    /* Desktop: show desktop nav; hide hamburger & drawer */
+    @media (min-width: 768px){
+      header .site-nav, .site-nav { display:flex!important; }
+      .menu-btn{ display:none!important; }
+      .mobile-nav{ display:none!important; }
+    }
+
+    /* FAB/button placement */
+    #book-fab{
+      position:fixed; right:1rem; bottom:1rem; z-index:1000;
+      display:inline-flex; align-items:center; justify-content:center;
+      border-radius:9999px; padding:.75rem 1rem; font-weight:800;
+      background:var(--ink); color:#fff; box-shadow:0 8px 24px rgba(0,0,0,.18);
+    }
+    #bookNowBtn{
+      position:fixed; right:1.25rem; bottom:1.25rem; z-index:1000;
+      border-radius:9999px; padding:.85rem 1.25rem; font-weight:800;
+      background:var(--ink); color:#fff; box-shadow:0 10px 28px rgba(0,0,0,.2);
+    }
+    @media (max-width:767px){ #bookNowBtn{display:none} }
+    @media (min-width:768px){ #book-fab{display:none} }
+
+    /* iOS smoothness for fixed backgrounds */
+    @supports (-webkit-overflow-scrolling: touch){ body{ background-attachment:scroll!important; } }
+
+    /* Theme bits used on every page */
     :root{ --ink:#0f172a; --gold-1:#efe6cf; --gold-2:#e9d8b0; --rose-1:#e3c0c6; }
     html,body{min-height:100%}
     body{
@@ -36,52 +67,44 @@
         linear-gradient(135deg,#fffef9 0%, var(--gold-1) 35%, var(--gold-2) 66%, var(--rose-1) 100%);
       background-attachment: fixed;
     }
-    section,.section,.bg-paper{background:transparent !important}
-    .bg-primary{background:var(--ink)}
-    .header-logo{height:48px;width:auto;display:block}
-    .site-nav a{font-weight:700}
-    .call-now{display:inline-block;padding:.5rem .9rem;border-radius:9999px;background:var(--ink);color:#fff;text-decoration:none;font-weight:700}
-    .call-now:focus-visible,.btn:focus-visible{outline:2px solid #fff;outline-offset:2px}
-    .parallax-hero{position:relative;min-height:56vh;overflow:hidden}
-    @media (max-width:640px){.parallax-hero{min-height:44vh}}
-    .parallax-hero .slides{position:absolute;inset:0;will-change:transform}
-    .parallax-hero .slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity .8s ease}
-    .parallax-hero .slide.active{opacity:1}
-    .parallax-hero .overlay{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,.18), rgba(0,0,0,.32))}
-    .parallax-hero .caption{position:relative;z-index:3;display:grid;place-items:center;text-align:center;min-height:inherit;padding:clamp(2rem,3vw,3rem) 1rem}
-    .parallax-hero .caption h1{color:#fff;font-weight:800;line-height:1.15;text-shadow:0 2px 8px rgba(0,0,0,.35);margin-bottom:.75rem}
-    .parallax-hero .caption p{color:#fff;opacity:.95;margin-bottom:1.25rem}
-    .btn{display:inline-block;padding:.9rem 1.25rem;border-radius:14px;background:#fff;color:var(--ink);font-weight:800;text-decoration:none}
-    .card{background:#fff;border-radius:1rem;overflow:hidden;box-shadow:0 10px 26px rgba(0,0,0,.1);border:1px solid rgba(15,23,42,.06);max-width:100%;margin-left:auto;margin-right:auto;text-decoration:none;color:inherit}
-    .cta-band{background:rgba(255,255,255,.92);border-radius:20px;padding:2rem 1.5rem;box-shadow:0 12px 30px rgba(0,0,0,.12);max-width:900px;margin:0 auto}
-    footer .contact, footer .contact a{font-size:1.125rem;font-weight:700}
-    footer .social a{opacity:.9;text-decoration:underline}
-    @media (prefers-reduced-motion: reduce){.parallax-hero .slide{transition:none}}
+    section,.section,.bg-paper{ background:transparent!important; }
+    .bg-primary{ background:var(--ink); }
+    .header-logo{ height:48px; width:auto; display:block; }
+    .site-nav a{ font-weight:700; }
+    .call-now{ display:inline-block; padding:.5rem .9rem; border-radius:9999px; background:var(--ink); color:#fff; text-decoration:none; font-weight:700; }
+    .call-now:focus-visible,.btn:focus-visible{ outline:2px solid #fff; outline-offset:2px; }
+    .parallax-hero{ position:relative; min-height:44vh; overflow:hidden; }
+    .parallax-hero .slides{ position:absolute; inset:0; will-change:transform; }
+    .parallax-hero .slide{ position:absolute; inset:0; background-size:cover; background-position:center; opacity:0; transition:opacity .8s ease; }
+    .parallax-hero .slide.active{ opacity:1; }
+    .parallax-hero .overlay{ position:absolute; inset:0; background:linear-gradient(to bottom, rgba(0,0,0,.18), rgba(0,0,0,.32)); }
+    .parallax-hero .caption{ position:relative; z-index:3; display:grid; place-items:center; text-align:center; min-height:inherit; padding:clamp(2rem,3vw,3rem) 1rem; }
+    .parallax-hero .caption h1{ color:#fff; font-weight:800; line-height:1.15; text-shadow:0 2px 8px rgba(0,0,0,.35); margin-bottom:.5rem; }
+    .btn{ display:inline-block; padding:.9rem 1.25rem; border-radius:14px; background:#fff; color:var(--ink); font-weight:800; text-decoration:none; }
+    .card{ background:#fff; border-radius:1rem; overflow:hidden; box-shadow:0 10px 26px rgba(0,0,0,.1); border:1px solid rgba(15,23,42,.06); }
+    @media (prefers-reduced-motion:reduce){ .parallax-hero .slide{ transition:none } }
   </style>
-
-  <!-- Optional: Preload first hero image -->
-  <link rel="preload" as="image" href="/assets/images/hero-gallery/hero-gallery-1.jpg">
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
 </head>
 
-<body class="font-sans page-gallery pb-16 md:pb-0">
-  <!-- ===================== Header ===================== -->
+<body class="font-sans pb-16 md:pb-0">
+  <!-- Header -->
   <header class="bg-white/95 backdrop-blur shadow-sm sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between py-4 px-4 sm:px-6">
-      <a href="index.html" class="flex items-center gap-3 mb-4 md:mb-0">
+    <div class="max-w-7xl mx-auto flex items-center justify-between py-4 px-4 sm:px-6">
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-3">
         <img src="/assets/images/logos/logo-black.png" alt="MVP Painting Logo" class="header-logo" loading="lazy" decoding="async">
         <span class="sr-only">MVP Painting</span>
       </a>
 
-      <!-- Hamburger (outside nav so it stays visible on phones) -->
-      <button class="menu-btn" aria-label="Toggle menu" data-mobile-menu-btn>
-      
+      <!-- Hamburger (mobile only) -->
+      <button class="menu-btn md:hidden" aria-label="Toggle menu" aria-controls="mobile-menu" aria-expanded="false" data-mobile-menu-btn>
+        <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M3 6h18M3 12h18M3 18h18" stroke="#111" stroke-width="2" fill="none" stroke-linecap="round"/>
         </svg>
       </button>
 
-      <!-- Desktop nav (hidden on phones by /fix-mobile.css) -->
-      <nav class="site-nav flex flex-col md:flex-row gap-4 md:gap-6 items-center text-base w-full md:w-auto" aria-label="Primary">
+      <!-- Desktop nav -->
+      <nav class="site-nav hidden md:flex flex-row gap-6 items-center text-base" aria-label="Primary">
         <a href="index.html">Home</a>
         <a href="services.html">Services</a>
         <a href="gallery.html" aria-current="page">Gallery</a>
@@ -93,53 +116,80 @@
     </div>
   </header>
 
+  <!-- Mobile drawer -->
+  <div class="mobile-nav" data-mobile-menu id="mobile-menu" hidden>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="about.html">About</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+    <div class="cta-row">
+      <a href="tel:+17343662493">Call Now</a>
+      <a href="contact.html">Book Now</a>
+    </div>
+  </div>
 
-
-  <!-- HERO -->
-  <section class="parallax-hero" id="hero-gallery" data-hero="rotation" aria-label="Gallery hero">
+  <!-- Gallery Hero (static image) -->
+  <section class="parallax-hero" id="hero-gallery" aria-label="Gallery hero">
     <div class="slides">
-      <div class="slide active" style="background-image:
-        url('/assets/images/hero-gallery/hero-gallery-1.jpg'),
-        linear-gradient(135deg,#fffef9 0%, #efe6cf 35%, #e9d8b0 66%, #e3c0c6 100%)"></div>
-      <div class="slide" style="background-image:
-        url('/assets/images/hero-gallery/hero-gallery-2.jpg'),
-        linear-gradient(135deg,#fffef9 0%, #efe6cf 35%, #e9d8b0 66%, #e3c0c6 100%)"></div>
-      <div class="slide" style="background-image:
-        url('/assets/images/hero-gallery/hero-gallery-3.jpg'),
-        linear-gradient(135deg,#fffef9 0%, #efe6cf 35%, #e9d8b0 66%, #e3c0c6 100%)"></div>
+      <div class="slide active" style="background-image:url('/assets/images/gallery-page/gallery-hero.jpg')"></div>
     </div>
     <div class="overlay" aria-hidden="true"></div>
     <div class="caption">
       <div>
-        <h1 class="text-2xl sm:text-3xl md:text-5xl leading-tight">Project Gallery</h1>
-        <a href="contact.html#estimate-form" class="btn mt-4">Free Quote</a>
+        <h1 class="text-2xl sm:text-3xl md:text-5xl leading-tight">Recent Projects</h1>
+        <a href="contact.html#estimate-form" class="btn mt-3">Request Your Free Quote</a>
       </div>
     </div>
   </section>
 
-  <!-- Main -->
-  <main class="max-w-7xl mx-auto px-2 sm:px-6 py-12">
-    <h2 class="text-2xl sm:text-3xl font-bold mb-4">Project Gallery</h2>
-    <p class="text-slate-700 mb-8">Recent residential, commercial, and exterior highlights.</p>
+  <!-- Gallery Grid -->
+  <section class="max-w-7xl mx-auto px-2 sm:px-6 py-12" aria-labelledby="gallery-heading">
+    <h2 id="gallery-heading" class="text-2xl sm:text-3xl font-bold mb-6">Project Gallery</h2>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-      <img src="/assets/images/gallery-page/gallery-image-1.jpg" alt="Gallery image 1" class="rounded shadow w-full h-auto" loading="lazy" decoding="async">
-      <img src="/assets/images/gallery-page/gallery-image-2.jpg" alt="Gallery image 2" class="rounded shadow w-full h-auto" loading="lazy" decoding="async">
-      <img src="/assets/images/gallery-page/gallery-image-3.jpg" alt="Gallery image 3" class="rounded shadow w-full h-auto" loading="lazy" decoding="async">
-      <img src="/assets/images/gallery-page/gallery-image-4.jpg" alt="Gallery image 4" class="rounded shadow w-full h-auto" loading="lazy" decoding="async">
-      <img src="/assets/images/gallery-page/gallery-image-5.jpg" alt="Gallery image 5" class="rounded shadow w-full h-auto" loading="lazy" decoding="async">
-      <img src="/assets/images/gallery-page/gallery-image-6.jpg" alt="Gallery image 6" class="rounded shadow w-full h-auto" loading="lazy" decoding="async">
-      <img src="/assets/images/gallery-page/gallery-image-7.jpg" alt="Gallery image 7" class="rounded shadow w-full h-auto" loading="lazy" decoding="async">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Use images you already have; add more blocks as needed -->
+      <figure class="card">
+        <img src="/assets/images/gallery-page/gallery-image-1.jpg" alt="Living room repaint" class="w-full h-56 object-cover" loading="lazy" decoding="async">
+        <figcaption class="p-4 font-semibold">Living Room Refresh</figcaption>
+      </figure>
+
+      <figure class="card">
+        <img src="/assets/images/gallery-page/gallery-image-2.jpg" alt="Kitchen cabinet refinishing" class="w-full h-56 object-cover" loading="lazy" decoding="async">
+        <figcaption class="p-4 font-semibold">Cabinet Makeover</figcaption>
+      </figure>
+
+      <figure class="card">
+        <img src="/assets/images/gallery-page/gallery-image-3.jpg" alt="Exterior repaint" class="w-full h-56 object-cover" loading="lazy" decoding="async">
+        <figcaption class="p-4 font-semibold">Exterior Transformation</figcaption>
+      </figure>
+
+      <!-- Duplicate these blocks if you have more images available -->
+      <figure class="card">
+        <img src="/assets/images/gallery-page/gallery-image-4.jpg" alt="Project photo" class="w-full h-56 object-cover" loading="lazy" decoding="async">
+        <figcaption class="p-4 font-semibold">Project Detail</figcaption>
+      </figure>
+
+      <figure class="card">
+        <img src="/assets/images/gallery-page/gallery-image-5.jpg" alt="Project photo" class="w-full h-56 object-cover" loading="lazy" decoding="async">
+        <figcaption class="p-4 font-semibold">Project Detail</figcaption>
+      </figure>
+
+      <figure class="card">
+        <img src="/assets/images/gallery-page/gallery-image-6.jpg" alt="Project photo" class="w-full h-56 object-cover" loading="lazy" decoding="async">
+        <figcaption class="p-4 font-semibold">Project Detail</figcaption>
+      </figure>
     </div>
-  </main>
+  </section>
 
   <!-- CTA -->
   <section id="cta" class="py-12 px-2 sm:px-4" aria-label="Call to action">
     <div class="max-w-5xl mx-auto rounded-2xl bg-white/95 shadow-lg ring-1 ring-black/5 px-4 sm:px-6 py-8">
-      <h2 class="text-2xl sm:text-3xl font-bold text-center mb-3">Want your space here next?</h2>
-      <p class="text-center text-base sm:text-lg text-slate-700 mb-6">Book a quick walk-through and estimate.</p>
+      <h2 class="text-2xl sm:text-3xl font-bold text-center mb-3">Like what you see?</h2>
+      <p class="text-center text-base sm:text-lg text-slate-700 mb-6">Tell us about your project and we’ll send a fast, clear estimate.</p>
       <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
-        <a href="contact.html#estimate-form" class="btn" style="background:var(--ink);color:#fff">Book Now</a>
+        <a href="contact.html#estimate-form" class="btn" style="background:var(--ink);color:#fff">Start the Form</a>
         <a href="tel:+17343662493" class="btn">Call (734) 366-2493</a>
       </div>
     </div>
@@ -152,17 +202,9 @@
         <img src="/assets/images/logos/logo-black.png" class="footer-logo h-12 sm:h-16 w-auto mb-2" alt="MVP Painting logo" loading="lazy">
       </div>
       <address class="not-italic contact text-slate-200 text-sm md:text-base flex flex-col items-start mb-4 md:mb-0">
-        <p><strong>Email:</strong>
-          <a href="mailto:elvirpurovic@mvpdecor.com" class="underline hover:text-white/90">elvirpurovic@mvpdecor.com</a>
-        </p>
-        <p><strong>Phone:</strong>
-          <a href="tel:+17343662493" class="underline hover:text-white/90">+1 (734) 366-2493</a>
-        </p>
-        <p>
-          <a href="https://www.sherwin-williams.com/" target="_blank" rel="noopener noreferrer" class="underline hover:text-white/90">
-            We proudly use Sherwin-Williams Paint
-          </a>
-        </p>
+        <p><strong>Email:</strong> <a href="mailto:elvirpurovic@mvpdecor.com" class="underline hover:text-white/90">elvirpurovic@mvpdecor.com</a></p>
+        <p><strong>Phone:</strong> <a href="tel:+17343662493" class="underline hover:text-white/90">+1 (734) 366-2493</a></p>
+        <p><a href="https://www.sherwin-williams.com/" target="_blank" rel="noopener noreferrer" class="underline hover:text-white/90">We proudly use Sherwin-Williams Paint</a></p>
       </address>
       <div class="social flex gap-4 sm:gap-5 justify-end w-full text-xl sm:text-2xl md:text-3xl">
         <a href="https://www.facebook.com/share/19Vxythfws/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="hover:scale-110 transition-transform">
@@ -174,18 +216,16 @@
         <a href="https://maps.app.goo.gl/LxwxHhzqmVP67nQN7" target="_blank" rel="noopener noreferrer" aria-label="Google Maps" class="hover:scale-110 transition-transform">
           <i class="fas fa-map-marker-alt" style="color:#34a853"></i>
         </a>
-        <a href="https://share.google/a83ethP6CyCebEQOS" target="_blank" rel="nofollow noopener noreferrer" aria-label="BBB" class="hover:scale-110 transition-transform underline text-white/90">
-          BBB Accredited Business
-        </a>
+        <a href="https://share.google/a83ethP6CyCebEQOS" target="_blank" rel="nofollow noopener noreferrer" aria-label="BBB" class="hover:scale-110 transition-transform underline text-white/90">BBB Accredited Business</a>
       </div>
     </div>
   </footer>
 
-  <!-- Floating Book Now Button and Modal Form -->
-  <button id="bookNowBtn" class="fixed z-50 bottom-6 right-6 bg-primary text-white font-bold rounded-full shadow-lg px-6 py-3 text-lg hover:bg-blue-800 transition focus:outline-none focus:ring-2 focus:ring-white">
-    Book Now
-  </button>
+  <!-- Floating actions -->
+  <button id="book-fab" class="bg-primary text-white">Book Now</button>
+  <button id="bookNowBtn" class="bg-primary text-white font-bold">Book Now</button>
 
+  <!-- Modal used by both buttons -->
   <div id="appointmentModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden">
     <div class="bg-white rounded-xl shadow-xl max-w-lg w-full mx-4 p-6 relative">
       <button id="closeModalBtn" class="absolute top-3 right-3 text-2xl text-slate-400 hover:text-slate-700" aria-label="Close">&times;</button>
@@ -212,16 +252,47 @@
     </div>
   </div>
 
+  <!-- Minimal page JS -->
   <script>
-    // Modal open/close logic
-    document.addEventListener('DOMContentLoaded', function() {
-      var bookBtn = document.getElementById('bookNowBtn');
-      var modal = document.getElementById('appointmentModal');
-      var closeBtn = document.getElementById('closeModalBtn');
-      bookBtn.addEventListener('click', function() { modal.classList.remove('hidden'); });
-      closeBtn.addEventListener('click', function() { modal.classList.add('hidden'); });
-      modal.addEventListener('click', function(e) { if (e.target === modal) modal.classList.add('hidden'); });
-    });
+    // Mobile drawer
+    (function () {
+      const btn = document.querySelector('[data-mobile-menu-btn]');
+      const drawer = document.querySelector('[data-mobile-menu]');
+      if (!btn || !drawer || btn.dataset.mmInit === '1') return;
+      btn.dataset.mmInit = '1';
+
+      const open = () => {
+        drawer.removeAttribute('hidden');
+        drawer.classList.add('open');
+        document.body.classList.add('menu-open');
+        btn.setAttribute('aria-expanded','true');
+      };
+      const close = () => {
+        drawer.classList.remove('open');
+        drawer.setAttribute('hidden','');
+        document.body.classList.remove('menu-open');
+        btn.setAttribute('aria-expanded','false');
+      };
+
+      btn.addEventListener('click', () => {
+        drawer.classList.contains('open') ? close() : open();
+      });
+      drawer.addEventListener('click', (e) => { if (e.target.matches('a')) close(); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+    })();
+
+    // Modal for both buttons
+    (function(){
+      const modal = document.getElementById('appointmentModal');
+      const closeBtn = document.getElementById('closeModalBtn');
+      const openBtns = [document.getElementById('book-fab'), document.getElementById('bookNowBtn')].filter(Boolean);
+      const open = () => modal.classList.remove('hidden');
+      const close = () => modal.classList.add('hidden');
+      openBtns.forEach(b => b && b.addEventListener('click', open));
+      closeBtn && closeBtn.addEventListener('click', close);
+      modal && modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+    })();
   </script>
 </body>
 </html>
