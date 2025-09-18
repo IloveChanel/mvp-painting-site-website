@@ -11,27 +11,51 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="/assets/favicon-II9yTh74.ico">
 
-  <!-- CSS (Tailwind first, your overrides last) -->
-  <link rel="stylesheet" href="/assets/css/tailwind.css?v=2">
-  <link rel="stylesheet" href="/assets/css/custom.css?v=2">
+  <!-- CSS (order matters) -->
+  <link rel="stylesheet" href="/assets/css/tailwind.css?v=202509161734">
+  <link rel="stylesheet" href="/assets/css/custom.css?v=202509161734">
+  <link rel="stylesheet" href="/assets/css/fix-mobile.css?v=8">
 
-  <!-- ✅ Tiny mobile helpers (added) -->
-  <link rel="stylesheet" href="/assets/fix-mobile.css">
-  <script src="/assets/mobile-menu.js" defer></script>
+  <!-- Inline theme + nav/FAB hotfix -->
+  <style id="force-mobile-nav">
+    /* Drawer hidden unless opened */
+    .mobile-nav[hidden]{display:none!important}
 
-  <!-- Preload first hero image -->
-  <link rel="preload" as="image" href="/assets/images/hero-contact/hero-contact-1.jpg">
+    /* Phones: hide desktop nav; show hamburger; lock scroll when open */
+    @media (max-width: 767px){
+      header .site-nav, .site-nav { display:none!important; }
+      .menu-btn{ display:inline-flex!important; align-items:center; justify-content:center; }
+      body.menu-open{ overflow:hidden!important; }
+    }
 
-  <!-- Scripts -->
-  <script type="module" src="/assets/js/scripts.js?v=2" defer></script>
-  <script type="module" src="/assets/js/hero-rotator.js?v=2" defer></script>
+    /* Desktop: show desktop nav; hide hamburger & drawer */
+    @media (min-width: 768px){
+      header .site-nav, .site-nav { display:flex!important; }
+      .menu-btn{ display:none!important; }
+      .mobile-nav{ display:none!important; }
+    }
 
-  <!-- Page theme (same as other pages) -->
-  <style>
+    /* FABs: desktop button vs mobile FAB */
+    #book-fab{
+      position:fixed; right:1rem; bottom:1rem; z-index:1000;
+      display:inline-flex; align-items:center; justify-content:center;
+      border-radius:9999px; padding:.75rem 1rem; font-weight:800;
+      background:#0f172a; color:#fff; box-shadow:0 8px 24px rgba(0,0,0,.18);
+    }
+    #bookNowBtn{
+      position:fixed; right:1.25rem; bottom:1.25rem; z-index:1000;
+      border-radius:9999px; padding:.85rem 1.25rem; font-weight:800;
+      background:#0f172a; color:#fff; box-shadow:0 10px 28px rgba(0,0,0,.2);
+    }
+    @media (max-width:767px){ #bookNowBtn{display:none} }
+    @media (min-width:768px){ #book-fab{display:none} }
+
+    /* iOS smoothness for fixed backgrounds */
+    @supports (-webkit-overflow-scrolling: touch){ body{ background-attachment:scroll!important; } }
+
+    /* Theme bits */
     :root{ --ink:#0f172a; --gold-1:#efe6cf; --gold-2:#e9d8b0; --rose-1:#e3c0c6; }
     html,body{min-height:100%}
     body{
@@ -42,50 +66,74 @@
         linear-gradient(135deg, #fffef9 0%, var(--gold-1) 35%, var(--gold-2) 66%, var(--rose-1) 100%);
       background-attachment: fixed;
     }
-    section,.section,.bg-paper{ background:transparent !important; }
+    section,.section,.bg-paper{ background:transparent!important; }
     .bg-primary{ background: var(--ink); }
     .header-logo{height:48px;width:auto;display:block}
     .site-nav a{font-weight:700}
     .call-now{display:inline-block;padding:.5rem .9rem;border-radius:9999px;background:var(--ink);color:#fff;text-decoration:none;font-weight:700}
     .call-now:focus-visible,.btn:focus-visible{outline:2px solid #fff;outline-offset:2px}
-    .parallax-hero{position:relative;min-height:56vh;overflow:hidden}
-    @media (max-width:640px){.parallax-hero{min-height:44vh}}
+    .parallax-hero{position:relative;min-height:44vh;overflow:hidden}
     .parallax-hero .slides{position:absolute;inset:0;will-change:transform}
     .parallax-hero .slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity .8s ease}
     .parallax-hero .slide.active{opacity:1}
     .parallax-hero .overlay{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,.18), rgba(0,0,0,.32))}
     .parallax-hero .caption{position:relative;z-index:3;display:grid;place-items:center;text-align:center;min-height:inherit;padding:clamp(2rem,3vw,3rem) 1rem}
-    .parallax-hero .caption h1{color:#fff;font-weight:800;line-height:1.15;text-shadow:0 2px 8px rgba(0,0,0,.35);margin-bottom:.75rem}
-    .parallax-hero .caption p{color:#fff;opacity:.95;margin-bottom:1.25rem}
+    .parallax-hero .caption h1{color:#fff;font-weight:800;line-height:1.15;text-shadow:0 2px 8px rgba(0,0,0,.35);margin-bottom:.5rem}
     .btn{display:inline-block;padding:.9rem 1.25rem;border-radius:14px;background:#fff;color:var(--ink);font-weight:800;text-decoration:none}
-    .cta-band{background:rgba(255,255,255,.92);border-radius:20px;padding:2rem 1.5rem;box-shadow:0 12px 30px rgba(0,0,0,.12);max-width:900px;margin:0 auto}
-    footer .contact, footer .contact a{font-size:1.125rem;font-weight:700}
-    footer .social a{opacity:.9;text-decoration:underline}
+    .card{background:#fff;border-radius:1rem;overflow:hidden;box-shadow:0 10px 26px rgba(0,0,0,.1);border:1px solid rgba(15,23,42,.06)}
     @media (prefers-reduced-motion: reduce){.parallax-hero .slide{transition:none}}
   </style>
+
+  <!-- Preload first hero image -->
+  <link rel="preload" as="image" href="/assets/images/hero-contact/hero-contact-1.jpg">
 </head>
 
 <body class="font-sans page-contact pb-16 md:pb-0">
 
   <!-- Header -->
   <header class="bg-white/95 backdrop-blur shadow-sm sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto flex items-center justify-between py-4 px-6">
+    <div class="max-w-7xl mx-auto flex items-center justify-between py-4 px-4 sm:px-6">
       <a href="index.html" class="flex items-center gap-3">
         <img src="/assets/images/logos/logo-black.png" alt="MVP Painting Logo" class="header-logo" loading="lazy" decoding="async">
         <span class="sr-only">MVP Painting</span>
       </a>
 
-      <!-- ✅ Hamburger button (added, outside nav) -->
-      <button class="menu-btn" aria-label="Toggle menu" data-mobile-menu-btn>
-        
+      <!-- Hamburger (mobile only) -->
+      <button class="menu-btn md:hidden" aria-label="Toggle menu" aria-controls="mobile-menu" aria-expanded="false" data-mobile-menu-btn>
+        <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M3 6h18M3 12h18M3 18h18" stroke="#111" stroke-width="2" fill="none" stroke-linecap="round"/>
         </svg>
       </button>
 
+      <!-- Desktop nav -->
+      <nav class="site-nav hidden md:flex flex-row gap-6 items-center text-base" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="about.html">About</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html" aria-current="page">Contact</a>
+        <a href="tel:+17343662493" class="call-now px-6 py-3 md:px-8 md:py-4 text-xl md:text-2xl">Call Now</a>
+      </nav>
+    </div>
+  </header>
 
+  <!-- Mobile drawer -->
+  <div class="mobile-nav" data-mobile-menu id="mobile-menu" hidden>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="about.html">About</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html" aria-current="page">Contact</a>
+    <div class="cta-row">
+      <a href="tel:+17343662493">Call Now</a>
+      <a href="#estimate-form">Book Now</a>
+    </div>
+  </div>
 
   <!-- HERO -->
-  <section class="parallax-hero" id="hero-contact" data-hero="rotation" aria-label="Contact hero">
+  <section class="parallax-hero" id="hero-contact" aria-label="Contact hero">
     <div class="slides">
       <div class="slide active" style="background-image:
         url('/assets/images/hero-contact/hero-contact-1.jpg'),
@@ -97,14 +145,14 @@
     <div class="overlay" aria-hidden="true"></div>
     <div class="caption">
       <div>
-        <h1 class="text-4xl md:text-5xl leading-tight">Request Your Free Estimate</h1>
-        <a href="#estimate-form" class="btn">Start the Form</a>
+        <h1 class="text-2xl sm:text-3xl md:text-5xl leading-tight">Request Your Free Estimate</h1>
+        <a href="#estimate-form" class="btn mt-4">Start the Form</a>
       </div>
     </div>
   </section>
 
   <!-- Contact Info + Form -->
-  <main class="max-w-7xl mx-auto px-6 py-12">
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 py-12">
     <div class="grid gap-10 md:grid-cols-2">
       <div>
         <h2 class="text-3xl font-bold mb-4">Get in touch</h2>
@@ -112,11 +160,12 @@
         <ul class="space-y-3">
           <li><strong>Email:</strong> <a class="underline" href="mailto:elvirpurovic@mvpdecor.com">elvirpurovic@mvpdecor.com</a></li>
           <li><strong>Phone:</strong> <a class="underline" href="tel:+17343662493">(734) 366-2493</a></li>
+          <li><a href="https://www.sherwin-williams.com/" target="_blank" rel="noopener noreferrer" class="underline">We proudly use Sherwin-Williams Paint</a></li>
         </ul>
       </div>
 
       <div>
-        <form id="estimate-form" action="mailto:elvirpurovic@mvpdecor.com" method="POST" enctype="text/plain" class="space-y-4">
+        <form id="estimate-form" action="mailto:elvirpurovic@mvpdecor.com" method="POST" enctype="text/plain" class="space-y-4 card p-6">
           <div>
             <label for="name" class="block font-semibold mb-1">Name</label>
             <input id="name" name="Name" type="text" required class="w-full border rounded px-3 py-2">
@@ -169,7 +218,7 @@
     </div>
   </section>
 
-  <!-- Footer (full content) -->
+  <!-- Footer -->
   <footer class="bg-primary text-white mt-12">
     <div class="max-w-7xl mx-auto px-6 py-10 grid gap-8 md:grid-cols-[auto,1fr,auto,auto] items-center">
       <div class="flex flex-col items-start">
@@ -178,34 +227,22 @@
       <address class="not-italic contact text-slate-200 text-sm md:text-base flex flex-col items-start">
         <p><strong>Email:</strong> <a href="mailto:elvirpurovic@mvpdecor.com" class="underline hover:text-white/90">elvirpurovic@mvpdecor.com</a></p>
         <p><strong>Phone:</strong> <a href="tel:+17343662493" class="underline hover:text-white/90">+1 (734) 366-2493</a></p>
-        <p>
-          <a href="https://www.sherwin-williams.com/" target="_blank" rel="noopener noreferrer" class="underline hover:text-white/90">
-            We proudly use Sherwin-Williams Paint
-          </a>
-        </p>
+        <p><a href="https://www.sherwin-williams.com/" target="_blank" rel="noopener noreferrer" class="underline hover:text-white/90">We proudly use Sherwin-Williams Paint</a></p>
       </address>
       <div class="social flex gap-5 justify-end w-full text-2xl">
-        <a href="https://www.facebook.com/share/19Vxythfws/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="hover:scale-110 transition-transform">
-          <i class="fab fa-facebook-square" style="color:#1877f3"></i>
-        </a>
-        <a href="https://www.instagram.com/m.v.p.homedecor?igsh=MTBpNjAwcmYzcmh0YQ==" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="hover:scale-110 transition-transform">
-          <i class="fab fa-instagram" style="color:#e4405f"></i>
-        </a>
-        <a href="https://maps.app.goo.gl/LxwxHhzqmVP67nQN7" target="_blank" rel="noopener noreferrer" aria-label="Google Maps" class="hover:scale-110 transition-transform">
-          <i class="fas fa-map-marker-alt" style="color:#34a853"></i>
-        </a>
-        <a href="https://share.google/a83ethP6CyCebEQOS" target="_blank" rel="nofollow noopener noreferrer" aria-label="BBB" class="hover:scale-110 transition-transform underline text-white/90">
-          BBB Accredited Business
-        </a>
+        <a href="https://www.facebook.com/share/19Vxythfws/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="hover:scale-110 transition-transform"><i class="fab fa-facebook-square" style="color:#1877f3"></i></a>
+        <a href="https://www.instagram.com/m.v.p.homedecor?igsh=MTBpNjAwcmYzcmh0YQ==" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="hover:scale-110 transition-transform"><i class="fab fa-instagram" style="color:#e4405f"></i></a>
+        <a href="https://maps.app.goo.gl/LxwxHhzqmVP67nQN7" target="_blank" rel="noopener noreferrer" aria-label="Google Maps" class="hover:scale-110 transition-transform"><i class="fas fa-map-marker-alt" style="color:#34a853"></i></a>
+        <a href="https://share.google/a83ethP6CyCebEQOS" target="_blank" rel="nofollow noopener noreferrer" aria-label="BBB" class="hover:scale-110 transition-transform underline text-white/90">BBB Accredited Business</a>
       </div>
     </div>
   </footer>
 
-  <!-- Floating Book Now + Modal -->
-  <button id="bookNowBtn" class="fixed z-50 bottom-6 right-6 bg-primary text-white font-bold rounded-full shadow-lg px-6 py-3 text-lg hover:bg-blue-800 transition focus:outline-none focus:ring-2 focus:ring-white">
-    Book Now
-  </button>
+  <!-- Floating actions -->
+  <button id="book-fab" class="bg-primary text-white">Book Now</button>
+  <button id="bookNowBtn" class="bg-primary text-white font-bold">Book Now</button>
 
+  <!-- Modal -->
   <div id="appointmentModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden">
     <div class="bg-white rounded-xl shadow-xl max-w-lg w-full mx-4 p-6 relative">
       <button id="closeModalBtn" class="absolute top-3 right-3 text-2xl text-slate-400 hover:text-slate-700" aria-label="Close">&times;</button>
@@ -232,15 +269,47 @@
     </div>
   </div>
 
+  <!-- Minimal inline JS (drawer + modal) -->
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const bookBtn = document.getElementById('bookNowBtn');
+    // Mobile drawer
+    (function () {
+      const btn = document.querySelector('[data-mobile-menu-btn]');
+      const drawer = document.querySelector('[data-mobile-menu]');
+      if (!btn || !drawer || btn.dataset.mmInit === '1') return;
+      btn.dataset.mmInit = '1';
+
+      const open = () => {
+        drawer.removeAttribute('hidden');
+        drawer.classList.add('open');
+        document.body.classList.add('menu-open');
+        btn.setAttribute('aria-expanded','true');
+      };
+      const close = () => {
+        drawer.classList.remove('open');
+        drawer.setAttribute('hidden','');
+        document.body.classList.remove('menu-open');
+        btn.setAttribute('aria-expanded','false');
+      };
+
+      btn.addEventListener('click', () => {
+        drawer.classList.contains('open') ? close() : open();
+      });
+      drawer.addEventListener('click', (e) => { if (e.target.matches('a')) close(); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+    })();
+
+    // Modal for both buttons
+    (function(){
       const modal = document.getElementById('appointmentModal');
       const closeBtn = document.getElementById('closeModalBtn');
-      bookBtn.addEventListener('click', () => modal.classList.remove('hidden'));
-      closeBtn.addEventListener('click', () => modal.classList.add('hidden'));
-      modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.add('hidden'); });
-    });
+      const buttons = [document.getElementById('book-fab'), document.getElementById('bookNowBtn')].filter(Boolean);
+      const open = () => modal.classList.remove('hidden');
+      const close = () => modal.classList.add('hidden');
+      buttons.forEach(b => b && b.addEventListener('click', open));
+      closeBtn && closeBtn.addEventListener('click', close);
+      modal && modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+    })();
   </script>
 </body>
 </html>
