@@ -1,4 +1,6 @@
-﻿<head>
+﻿<!doctype html>
+<html lang="en">
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>MVP Painting & HomeDecor | House & Commercial Painters in Macomb & Oakland County</title>
@@ -21,46 +23,46 @@
   <!-- CSS (order matters) -->
   <link rel="stylesheet" href="/assets/css/tailwind.css?v=202509161734">
   <link rel="stylesheet" href="/assets/css/custom.css?v=202509161734">
-  <link rel="stylesheet" href="/assets/css/fix-mobile.css?v=7"><!-- bump to bust cache -->
+  <link rel="stylesheet" href="/assets/css/fix-mobile.css?v=8"><!-- bump to bust cache -->
 
-  <!-- NAV + FAB HOTFIX (single style block; keep just before </head>) -->
+  <!-- NAV + FAB HOTFIX (keep just before </head>) -->
   <style id="force-mobile-nav">
-    /* Default: drawer hidden */
-    body .mobile-nav { display: none !important; }
+    /* Drawer starts hidden */
+    .mobile-nav[hidden] { display: none !important; }
 
-    /* Phones: hide desktop nav; show hamburger; show drawer when open */
+    /* Phones: hide desktop nav; show hamburger; allow drawer when opened */
     @media (max-width: 767px) {
-      header .site-nav, .site-nav { display: none !important; }   /* hide desktop nav */
-      .menu-btn { display: inline-flex !important; }              /* show hamburger */
-      body .mobile-nav.open { display: block !important; }        /* drawer visible when opened */
-      body.menu-open { overflow: hidden !important; }             /* lock page scroll */
+      header .site-nav, .site-nav { display: none !important; }
+      .menu-btn { display: inline-flex !important; align-items: center; justify-content: center; }
+      body.menu-open { overflow: hidden !important; } /* lock background scroll */
     }
 
     /* Desktop: show desktop nav; hide hamburger & drawer */
     @media (min-width: 768px) {
       header .site-nav, .site-nav { display: flex !important; }
       .menu-btn { display: none !important; }
-      body .mobile-nav { display: none !important; }
+      .mobile-nav { display: none !important; }
     }
 
-    /* FAB: force it to bottom-right on mobile */
+    /* Book Now FAB bottom-right on mobile */
     #book-fab, #bookNowBtn {
       position: fixed !important;
       right: 1rem !important;
       bottom: 1rem !important;
       z-index: 1000 !important;
-      display: none; /* default hidden; shown on mobile below */
-    }
-    @media (max-width: 767px) {
-      #book-fab, #bookNowBtn { display: inline-flex !important; }
     }
 
-    /* iOS smoothness when using fixed backgrounds */
+    /* Safety: if a stray drawer ever renders as a normal block, hide it */
+    body > div:has(> a[href*="index.html"]):has(> a[href*="services.html"]) {
+      display: none !important;
+    }
+
+    /* iOS smoothness with fixed backgrounds */
     @supports (-webkit-overflow-scrolling: touch) {
       body { background-attachment: scroll !important; }
     }
 
-    /* Theme basics that were already in your page */
+    /* Theme basics (yours) */
     :root{ --ink:#0f172a; --gold-1:#efe6cf; --gold-2:#e9d8b0; --rose-1:#e3c0c6; }
     html,body{min-height:100%}
     body{
@@ -95,13 +97,58 @@
     @media (prefers-reduced-motion: reduce){.parallax-hero .slide{transition:none}}
   </style>
 
-  <!-- Mobile menu toggler (single include; versioned to bust cache) -->
-  <script type="module" src="/assets/js/mobile-menu.js?v=7"></script>
+  <!-- If you keep a separate JS file, load it as module so Vite bundles it -->
+  <!-- <script type="module" src="/assets/js/mobile-menu.js?v=8"></script> -->
 </head>
 
+<body class="font-sans">
+  <!-- Header -->
+  <header class="bg-white/95 backdrop-blur shadow-sm sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto flex items-center justify-between py-4 px-4 sm:px-6">
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="/assets/images/logos/logo-black.png" alt="MVP Painting Logo" class="header-logo" loading="lazy" decoding="async">
+        <span class="sr-only">MVP Painting</span>
+      </a>
 
+      <!-- Hamburger (mobile only) -->
+      <button class="menu-btn md:hidden" aria-label="Toggle menu"
+              aria-controls="mobile-menu" aria-expanded="false"
+              data-mobile-menu-btn>
+        <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18" stroke="#111" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </svg>
+      </button>
 
-<section class="parallax-hero" id="hero-index" data-hero="rotation" aria-label="Homepage hero">
+      <!-- Desktop nav (hidden on mobile) -->
+      <nav class="site-nav hidden md:flex flex-row gap-6 items-center text-base" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="about.html">About</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <a href="tel:+17343662493" class="call-now px-6 py-3 md:px-8 md:py-4 text-xl md:text-2xl">Call Now</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile drawer (closed by default; note the hidden attribute) -->
+  <div class="mobile-nav" data-mobile-menu id="mobile-menu" hidden>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="about.html">About</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+    <div class="cta-row">
+      <a href="tel:+17343662493">Call Now</a>
+      <a href="contact.html">Book Now</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="parallax-hero" id="hero-index" data-hero="rotation" aria-label="Homepage hero">
     <div class="slides">
       <div class="slide active" style="background-image:url('/assets/images/hero-index/hero-index-1.jpg')" aria-hidden="true"></div>
       <div class="slide" style="background-image:url('/assets/images/hero-index/hero-index-2.jpg')" aria-hidden="true"></div>
@@ -121,7 +168,6 @@
     </div>
   </section>
 
-
   <!-- Guaranteed Rotation: inline, isolated, and guarded -->
   <script>
   (function(){
@@ -129,7 +175,6 @@
     if(!hero || hero.dataset.rotatorInit === '1') return;
     hero.dataset.rotatorInit = '1';
 
-    // Respect reduced-motion
     const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if(reduce) return;
 
@@ -138,7 +183,6 @@
 
     let i = Array.from(slides).findIndex(s => s.classList.contains('active'));
     if(i < 0){ slides[0].classList.add('active'); i = 0; }
-
     if(slides.length < 2) return;
 
     const intervalMs = 4500;
@@ -150,143 +194,176 @@
   })();
   </script>
 
-<!-- Fixed Appointment Form: floats right on desktop, block at bottom on mobile -->
-<div
-  id="appt-form"
-  class="fixed-appointment-form
-         w-full max-w-lg mx-auto my-8 px-2
-         md:fixed md:top-28 md:right-8 md:w-96 md:mx-0 md:my-0 md:z-50"
->
-  <h2 class="text-2xl font-bold mb-4 text-center">Book an Appointment Now</h2>
-  <form action="mailto:elvirpurovic@mvpdecor.com" method="POST" enctype="text/plain" class="space-y-4">
-    <div>
-      <label for="name" class="block font-semibold mb-1">Name</label>
-      <input type="text" id="name" name="name" required class="w-full border rounded px-3 py-2" />
-    </div>
-    <div>
-      <label for="email" class="block font-semibold mb-1">Email</label>
-      <input type="email" id="email" name="email" required class="w-full border rounded px-3 py-2" />
-    </div>
-    <div>
-      <label for="date" class="block font-semibold mb-1">Preferred Date</label>
-      <input type="date" id="date" name="date" class="w-full border rounded px-3 py-2" />
-    </div>
-    <div>
-      <label for="message" class="block font-semibold mb-1">Details</label>
-      <textarea id="message" name="message" rows="3" class="w-full border rounded px-3 py-2"></textarea>
-    </div>
-    <button type="submit" class="btn bg-primary text-white w-full py-2 rounded font-bold hover:bg-blue-800 transition">Book Now</button>
-  </form>
-</div>
+  <!-- Fixed Appointment Form -->
+  <div
+    id="appt-form"
+    class="fixed-appointment-form
+           w-full max-w-lg mx-auto my-8 px-2
+           md:fixed md:top-28 md:right-8 md:w-96 md:mx-0 md:my-0 md:z-50">
+    <h2 class="text-2xl font-bold mb-4 text-center">Book an Appointment Now</h2>
+    <form action="mailto:elvirpurovic@mvpdecor.com" method="POST" enctype="text/plain" class="space-y-4">
+      <div>
+        <label for="name" class="block font-semibold mb-1">Name</label>
+        <input type="text" id="name" name="name" required class="w-full border rounded px-3 py-2" />
+      </div>
+      <div>
+        <label for="email" class="block font-semibold mb-1">Email</label>
+        <input type="email" id="email" name="email" required class="w-full border rounded px-3 py-2" />
+      </div>
+      <div>
+        <label for="date" class="block font-semibold mb-1">Preferred Date</label>
+        <input type="date" id="date" name="date" class="w-full border rounded px-3 py-2" />
+      </div>
+      <div>
+        <label for="message" class="block font-semibold mb-1">Details</label>
+        <textarea id="message" name="message" rows="3" class="w-full border rounded px-3 py-2"></textarea>
+      </div>
+      <button type="submit" class="btn bg-primary text-white w-full py-2 rounded font-bold hover:bg-blue-800 transition">Book Now</button>
+    </form>
+  </div>
 
-<!-- Mobile "Book Now" button (shows/hides the form) -->
-<button id="book-fab" class="fab-book bg-primary text-white" aria-expanded="false" style="display:none;">
-  Book Now
-</button>
-<script>
-  (function(){
-    const btn = document.getElementById('book-fab');
-    const form = document.getElementById('appt-form');
-    if (!btn || !form) return;
+  <!-- Mobile "Book Now" FAB -->
+  <button id="book-fab" class="fab-book bg-primary text-white" aria-expanded="false" style="display:none;">
+    Book Now
+  </button>
 
-    function toggleFab() {
-      if (window.matchMedia('(max-width: 768px)').matches) {
-        btn.style.display = 'block';
-        form.setAttribute('hidden','');
-      } else {
-        btn.style.display = 'none';
-        form.removeAttribute('hidden');
+  <script>
+    // FAB visibility + toggling the form
+    (function(){
+      const btn = document.getElementById('book-fab');
+      const form = document.getElementById('appt-form');
+      if (!btn || !form) return;
+
+      function toggleFab() {
+        if (window.matchMedia('(max-width: 767px)').matches) {
+          btn.style.display = 'inline-flex';
+          form.setAttribute('hidden','');
+        } else {
+          btn.style.display = 'none';
+          form.removeAttribute('hidden');
+        }
       }
-    }
-    toggleFab();
-    window.addEventListener('resize', toggleFab);
+      toggleFab();
+      window.addEventListener('resize', toggleFab);
 
-    btn.addEventListener('click', () => {
-      const hidden = form.hasAttribute('hidden');
-      if (hidden) {
-        form.removeAttribute('hidden');
-        btn.setAttribute('aria-expanded','true');
-      } else {
-        form.setAttribute('hidden','');
-        btn.setAttribute('aria-expanded','false');
-      }
-    });
-  })();
-</script>
+      btn.addEventListener('click', () => {
+        const hidden = form.hasAttribute('hidden');
+        if (hidden) {
+          form.removeAttribute('hidden');
+          btn.setAttribute('aria-expanded','true');
+        } else {
+          form.setAttribute('hidden','');
+          btn.setAttribute('aria-expanded','false');
+        }
+      });
+    })();
 
+    // Mobile menu toggler (inline so it always runs)
+    (function () {
+      const btn = document.querySelector('[data-mobile-menu-btn]');
+      const drawer = document.querySelector('[data-mobile-menu]');
+      if (!btn || !drawer || btn.dataset.mmInit === '1') return;
+      btn.dataset.mmInit = '1';
+
+      const open = () => {
+        drawer.removeAttribute('hidden');
+        drawer.classList.add('open');
+        document.body.classList.add('menu-open');
+        btn.setAttribute('aria-expanded', 'true');
+      };
+
+      const close = () => {
+        drawer.classList.remove('open');
+        drawer.setAttribute('hidden', '');
+        document.body.classList.remove('menu-open');
+        btn.setAttribute('aria-expanded', 'false');
+      };
+
+      btn.addEventListener('click', () => {
+        const isOpen = drawer.classList.contains('open');
+        isOpen ? close() : open();
+      });
+
+      drawer.addEventListener('click', (e) => {
+        if (e.target.matches('a')) close();
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') close();
+      });
+    })();
+  </script>
 
   <!-- Why choose us -->
   <section id="why" class="max-w-7xl mx-auto py-10 px-2 sm:px-4">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 place-items-center">
-      <!-- ...value cards... -->
+      <!-- …value cards… -->
     </div>
   </section>
 
-<!-- Project Gallery Preview -->
-<section class="max-w-7xl mx-auto py-16 px-2 sm:px-4" id="home-cards">
-  <h2 class="text-2xl sm:text-3xl font-bold text-center mb-10">Project Gallery Preview</h2>
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-    <div class="card">
-      <img src="/assets/images/gallery-page/gallery-image-1.jpg" alt="Living room repaint" class="w-full h-48 object-cover rounded-t" />
-      <div class="p-4">
-        <h3 class="font-bold mb-2">Living Room Refresh</h3>
-        <p>Modern colors and crisp lines for a cozy space.</p>
+  <!-- Project Gallery Preview -->
+  <section class="max-w-7xl mx-auto py-16 px-2 sm:px-4" id="home-cards">
+    <h2 class="text-2xl sm:text-3xl font-bold text-center mb-10">Project Gallery Preview</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div class="card">
+        <img src="/assets/images/gallery-page/gallery-image-1.jpg" alt="Living room repaint" class="w-full h-48 object-cover rounded-t" />
+        <div class="p-4">
+          <h3 class="font-bold mb-2">Living Room Refresh</h3>
+          <p>Modern colors and crisp lines for a cozy space.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="/assets/images/gallery-page/gallery-image-2.jpg" alt="Kitchen cabinets" class="w-full h-48 object-cover rounded-t" />
+        <div class="p-4">
+          <h3 class="font-bold mb-2">Cabinet Makeover</h3>
+          <p>Cabinet refinishing for a bright, updated kitchen.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="/assets/images/gallery-page/gallery-image-3.jpg" alt="Exterior painting" class="w-full h-48 object-cover rounded-t" />
+        <div class="p-4">
+          <h3 class="font-bold mb-2">Exterior Transformation</h3>
+          <p>Boosted curb appeal with durable exterior paint.</p>
+        </div>
       </div>
     </div>
-    <div class="card">
-      <img src="/assets/images/gallery-page/gallery-image-2.jpg" alt="Kitchen cabinets" class="w-full h-48 object-cover rounded-t" />
-      <div class="p-4">
-        <h3 class="font-bold mb-2">Cabinet Makeover</h3>
-        <p>Cabinet refinishing for a bright, updated kitchen.</p>
-      </div>
+    <div class="text-center mt-8">
+      <a href="gallery.html" class="btn">View Full Gallery</a>
     </div>
-    <div class="card">
-      <img src="/assets/images/gallery-page/gallery-image-3.jpg" alt="Exterior painting" class="w-full h-48 object-cover rounded-t" />
-      <div class="p-4">
-        <h3 class="font-bold mb-2">Exterior Transformation</h3>
-        <p>Boosted curb appeal with durable exterior paint.</p>
-      </div>
-    </div>
-  </div>
-  <div class="text-center mt-8">
-    <a href="gallery.html" class="btn">View Full Gallery</a>
-  </div>
-</section>
+  </section>
 
-<!-- Testimonials -->
-<section class="py-16 px-2 sm:px-4" aria-label="Testimonials">
-  <div class="max-w-5xl mx-auto">
-    <h2 class="text-2xl sm:text-3xl font-bold text-center mb-10">What Our Clients Say</h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div class="card p-6">
-        <p class="italic">"MVP Painting did an amazing job on our home. Highly recommend!"</p>
-        <div class="mt-4 font-bold">&ndash; Jane D.</div>
-      </div>
-      <div class="card p-6">
-        <p class="italic">"Professional, on time, and the results were beautiful."</p>
-        <div class="mt-4 font-bold">&ndash; Mike S.</div>
-      </div>
-      <div class="card p-6">
-        <p class="italic">"We love our new colors. The team was friendly and fast!"</p>
-        <div class="mt-4 font-bold">&ndash; Sara K.</div>
+  <!-- Testimonials -->
+  <section class="py-16 px-2 sm:px-4" aria-label="Testimonials">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-2xl sm:text-3xl font-bold text-center mb-10">What Our Clients Say</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="card p-6">
+          <p class="italic">"MVP Painting did an amazing job on our home. Highly recommend!"</p>
+          <div class="mt-4 font-bold">&ndash; Jane D.</div>
+        </div>
+        <div class="card p-6">
+          <p class="italic">"Professional, on time, and the results were beautiful."</p>
+          <div class="mt-4 font-bold">&ndash; Mike S.</div>
+        </div>
+        <div class="card p-6">
+          <p class="italic">"We love our new colors. The team was friendly and fast!"</p>
+          <div class="mt-4 font-bold">&ndash; Sara K.</div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
   <!-- CTA band -->
   <section id="cta" class="py-12 px-2 sm:px-4" aria-label="Call to action">
     <div class="max-w-5xl mx-auto rounded-2xl bg-white/95 shadow-lg ring-1 ring-black/5 px-4 sm:px-6 py-8">
       <h2 class="text-2xl sm:text-3xl font-bold text-center mb-3">Ready to Transform Your Space?</h2>
       <p class="text-center text-base sm:text-lg text-slate-700 mb-6">Book your free, no-obligation estimate and see why Michigan trusts MVP Painting.</p>
-     
+      <div class="flex items-center justify-center gap-3">
         <a href="contact.html#estimate-form" class="btn" style="background:var(--ink);color:#fff">Get Your Free Estimate</a>
         <a href="tel:+17343662493" class="btn">Call (734) 366-2493</a>
       </div>
     </div>
   </section>
-
-  
 
   <!-- Footer -->
   <footer class="bg-primary text-white mt-12">
