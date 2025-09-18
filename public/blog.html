@@ -1,4 +1,4 @@
-﻿<!doctype html> 
+﻿<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -45,29 +45,53 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="icon" type="image/x-icon" href="/assets/favicon-II9yTh74.ico">
 
-  <!-- CSS -->
+  <!-- CSS (order matters) -->
   <link rel="stylesheet" href="/assets/css/tailwind.css?v=202509161734">
   <link rel="stylesheet" href="/assets/css/custom.css?v=202509161734">
-
-  <!-- ✅ Tiny mobile helpers (added) -->
-  <link rel="stylesheet" href="/assets/fix-mobile.css">
-  <script src="/assets/mobile-menu.js" defer></script>
+  <link rel="stylesheet" href="/assets/css/fix-mobile.css?v=8">
 
   <!-- Preload the first hero image -->
   <link rel="preload" as="image" href="/assets/images/hero-blog/hero-blog-1.jpg">
 
-  <!-- Scripts -->
-  <script type="module" src="/assets/js/scripts.js?v=202509161734" defer></script>
-  <script type="module" src="/assets/js/hero-rotator.js?v=202509161734" defer></script>
+  <!-- Inline theme + nav/FAB hotfix (uniform across pages) -->
+  <style id="force-mobile-nav">
+    /* Drawer hidden unless opened (and we also use [hidden]) */
+    .mobile-nav[hidden]{display:none!important}
 
-  <!-- Inline theme + small fixes (uniform across pages) -->
-  <style>
-    :root{
-      --ink:#0f172a;
-      --gold-1:#efe6cf;
-      --gold-2:#e9d8b0;
-      --rose-1:#e3c0c6;
+    /* Phones: hide desktop nav; show hamburger; lock scroll when open */
+    @media (max-width: 767px){
+      header .site-nav, .site-nav { display:none!important; }
+      .menu-btn{ display:inline-flex!important; align-items:center; justify-content:center; }
+      body.menu-open{ overflow:hidden!important; }
     }
+
+    /* Desktop: show desktop nav; hide hamburger & drawer */
+    @media (min-width: 768px){
+      header .site-nav, .site-nav { display:flex!important; }
+      .menu-btn{ display:none!important; }
+      .mobile-nav{ display:none!important; }
+    }
+
+    /* FABs: show mobile FAB on phones, desktop button on desktop */
+    #book-fab{
+      position:fixed; right:1rem; bottom:1rem; z-index:1000;
+      display:inline-flex; align-items:center; justify-content:center;
+      border-radius:9999px; padding:.75rem 1rem; font-weight:800;
+      background:var(--ink); color:#fff; box-shadow:0 8px 24px rgba(0,0,0,.18);
+    }
+    #bookNowBtn{
+      position:fixed; right:1.25rem; bottom:1.25rem; z-index:1000;
+      border-radius:9999px; padding:.85rem 1.25rem; font-weight:800;
+      background:var(--ink); color:#fff; box-shadow:0 10px 28px rgba(0,0,0,.2);
+    }
+    @media (max-width:767px){ #bookNowBtn{display:none} }
+    @media (min-width:768px){ #book-fab{display:none} }
+
+    /* iOS smoothness for fixed backgrounds */
+    @supports (-webkit-overflow-scrolling: touch){ body{ background-attachment:scroll!important; } }
+
+    /* Theme bits */
+    :root{ --ink:#0f172a; --gold-1:#efe6cf; --gold-2:#e9d8b0; --rose-1:#e3c0c6; }
     html,body{min-height:100%}
     body{
       font-family: Montserrat, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
@@ -77,31 +101,26 @@
         linear-gradient(135deg, #fffef9 0%, var(--gold-1) 35%, var(--gold-2) 66%, var(--rose-1) 100%);
       background-attachment: fixed;
     }
-    section,.section,.bg-paper{ background:transparent !important; }
+    section,.section,.bg-paper{ background:transparent!important; }
     .bg-primary{ background: var(--ink); }
     .header-logo{height:48px;width:auto;display:block}
     .site-nav a{font-weight:700}
     .call-now{display:inline-block;padding:.5rem .9rem;border-radius:9999px;background:var(--ink);color:#fff;text-decoration:none;font-weight:700}
     .call-now:focus-visible,.btn:focus-visible{outline:2px solid #fff;outline-offset:2px}
-    .parallax-hero{position:relative;min-height:56vh;overflow:hidden}
-    @media (max-width:640px){.parallax-hero{min-height:44vh}}
+    .parallax-hero{position:relative;min-height:44vh;overflow:hidden}
     .parallax-hero .slides{position:absolute;inset:0;will-change:transform}
     .parallax-hero .slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity .8s ease}
     .parallax-hero .slide.active{opacity:1}
     .parallax-hero .overlay{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,.18), rgba(0,0,0,.32))}
     .parallax-hero .caption{position:relative;z-index:3;display:grid;place-items:center;text-align:center;min-height:inherit;padding:clamp(2rem,3vw,3rem) 1rem}
-    .parallax-hero .caption h1{color:#fff;font-weight:800;line-height:1.15;text-shadow:0 2px 8px rgba(0,0,0,.35);margin-bottom:.75rem}
-    .parallax-hero .caption p{color:#fff;opacity:.95;margin-bottom:1.25rem}
+    .parallax-hero .caption h1{color:#fff;font-weight:800;line-height:1.15;text-shadow:0 2px 8px rgba(0,0,0,.35);margin-bottom:.5rem}
     .btn{display:inline-block;padding:.9rem 1.25rem;border-radius:14px;background:#fff;color:var(--ink);font-weight:800;text-decoration:none}
-    .cta-band{background:rgba(255,255,255,.92);border-radius:20px;padding:2rem 1.5rem;box-shadow:0 12px 30px rgba(0,0,0,.12);max-width:900px;margin:0 auto}
-    footer .contact, footer .contact a{font-size:1.125rem;font-weight:700}
-    footer .social a{opacity:.9;text-decoration:underline}
+    .card{background:#fff;border-radius:1rem;overflow:hidden;box-shadow:0 10px 26px rgba(0,0,0,.1);border:1px solid rgba(15,23,42,.06)}
     @media (prefers-reduced-motion: reduce){.parallax-hero .slide{transition:none}}
   </style>
 </head>
 
 <body class="font-sans page-blog pb-16 md:pb-0">
-
   <!-- Header -->
   <header class="bg-white/95 backdrop-blur shadow-sm sticky top-0 z-50">
     <div class="max-w-7xl mx-auto flex items-center justify-between py-4 px-6">
@@ -110,28 +129,42 @@
         <span class="sr-only">MVP Painting</span>
       </a>
 
-      <!-- ✅ Hamburger button (added) -->
-      <button class="menu-btn" aria-label="Toggle menu" data-mobile-menu-btn>
-        
+      <!-- Hamburger (mobile only) -->
+      <button class="menu-btn md:hidden" aria-label="Toggle menu" aria-controls="mobile-menu" aria-expanded="false" data-mobile-menu-btn>
+        <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M3 6h18M3 12h18M3 18h18" stroke="#111" stroke-width="2" fill="none" stroke-linecap="round"/>
         </svg>
       </button>
 
-      <nav class="site-nav flex flex-col md:flex-row gap-4 md:gap-6 items-center text-base w-full md:w-auto" aria-label="Primary">
+      <!-- Desktop nav -->
+      <nav class="site-nav hidden md:flex flex-row gap-6 items-center text-base" aria-label="Primary">
         <a href="index.html">Home</a>
         <a href="services.html">Services</a>
         <a href="gallery.html">Gallery</a>
         <a href="about.html">About</a>
         <a href="blog.html" aria-current="page">Blog</a>
         <a href="contact.html">Contact</a>
-        <a href="tel:+17343662493" class="call-now px-8 py-4" style="font-size:3rem;">Call Now</a>
+        <a href="tel:+17343662493" class="call-now px-6 py-3 md:px-8 md:py-4 text-xl md:text-2xl">Call Now</a>
       </nav>
     </div>
   </header>
 
+  <!-- Mobile drawer -->
+  <div class="mobile-nav" data-mobile-menu id="mobile-menu" hidden>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="about.html">About</a>
+    <a href="blog.html" aria-current="page">Blog</a>
+    <a href="contact.html">Contact</a>
+    <div class="cta-row">
+      <a href="tel:+17343662493">Call Now</a>
+      <a href="contact.html">Book Now</a>
+    </div>
+  </div>
 
-  <!-- HERO (blog) -->
-  <section class="parallax-hero" id="hero-blog" data-hero="rotation" aria-label="Blog hero">
+  <!-- HERO -->
+  <section class="parallax-hero" id="hero-blog" aria-label="Blog hero">
     <div class="slides">
       <div class="slide active" style="background-image:
         url('/assets/images/hero-blog/hero-blog-1.jpg'),
@@ -140,7 +173,7 @@
     <div class="overlay" aria-hidden="true"></div>
     <div class="caption">
       <div>
-        <h1 class="text-2xl sm:text-3xl md:text-5xl leading-tight">Painting Tips & Stories</h1>
+        <h1 class="text-2xl sm:text-3xl md:text-5xl leading-tight">Painting Tips &amp; Stories</h1>
         <a href="contact.html#estimate-form" class="btn mt-4">Get a Free Estimate</a>
       </div>
     </div>
@@ -149,66 +182,59 @@
   <main class="max-w-7xl mx-auto px-2 sm:px-6 py-12">
     <h2 class="text-2xl sm:text-3xl font-bold mb-4">Latest Blog Posts</h2>
 
-    <!-- real grid + blog-specific hook -->
     <div class="blog-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
 
-      <!-- Benjamin Moore — official -->
       <article class="card p-0 h-full flex flex-col">
         <div class="card-body p-5 flex-1 flex flex-col">
           <h3 class="text-xl font-semibold mb-2">Benjamin Moore: Color of the Year 2025 — Cinnamon Slate</h3>
           <p class="text-sm text-slate-700 mb-3">BM’s 2025 pick: a versatile “in-between” plum-brown that anchors rooms without overpowering.</p>
           <a href="https://www.benjaminmoore.com/en-us/color-overview/color-palettes/2025-color-trends"
-            class="btn mt-auto" target="_blank" rel="noopener noreferrer nofollow">Read on Benjamin Moore</a>
+             class="btn mt-auto" target="_blank" rel="noopener noreferrer nofollow">Read on Benjamin Moore</a>
         </div>
       </article>
 
-      <!-- Sherwin-Williams — official -->
       <article class="card p-0 h-full flex flex-col">
         <div class="card-body p-5 flex-1 flex flex-col">
           <h3 class="text-xl font-semibold mb-2">Sherwin-Williams: 2025 Color Capsule of the Year</h3>
           <p class="text-sm text-slate-700 mb-3">Instead of one color, SW released a 9-shade capsule inspired by vintage palettes—made for real homes.</p>
           <a href="https://www.sherwin-williams.com/homeowners/color/color-collections/color-of-the-year/2025"
-            class="btn mt-auto" target="_blank" rel="noopener noreferrer nofollow">Explore the Capsule</a>
+             class="btn mt-auto" target="_blank" rel="noopener noreferrer nofollow">Explore the Capsule</a>
         </div>
       </article>
 
-      <!-- Behr — official -->
       <article class="card p-0 h-full flex flex-col">
         <div class="card-body p-5 flex-1 flex flex-col">
           <h3 class="text-xl font-semibold mb-2">Behr: Color of the Year 2025 — Rumors</h3>
           <p class="text-sm text-slate-700 mb-3">A sophisticated ruby red that brings warmth and depth—great for accents or full rooms.</p>
           <a href="https://www.behr.com/consumer/inspiration/color-of-the-year/"
-            class="btn mt-auto" target="_blank" rel="noopener noreferrer nofollow">See Behr’s COTY</a>
+             class="btn mt-auto" target="_blank" rel="noopener noreferrer nofollow">See Behr’s COTY</a>
         </div>
       </article>
 
-      <!-- Valspar — official -->
       <article class="card p-0 h-full flex flex-col">
         <div class="card-body p-5 flex-1 flex flex-col">
           <h3 class="text-xl font-semibold mb-2">Valspar: Color of the Year 2025 — Encore</h3>
           <p class="text-sm text-slate-700 mb-3">A rich, timeless navy designed to make spaces feel welcoming and restful.</p>
           <a href="https://lowes.valspar.com/inspiration/color-of-the-year/2025/"
-            class="btn mt-auto" target="_blank" rel="noopener noreferrer nofollow">Read on Valspar</a>
+             class="btn mt-auto" target="_blank" rel="noopener noreferrer nofollow">Read on Valspar</a>
         </div>
       </article>
 
-      <!-- Homes & Gardens — roundup -->
       <article class="card p-0 h-full flex flex-col">
         <div class="card-body p-5 flex-1 flex flex-col">
           <h3 class="text-xl font-semibold mb-2">Every 2025 Color of the Year (Roundup)</h3>
           <p class="text-sm text-slate-700 mb-3">A clean roundup of the year’s big shades across major brands—great for inspiration.</p>
           <a href="https://www.homesandgardens.com/interior-design/paint/color-of-the-year"
-            class="btn mt-auto" target="_blank" rel="noopener noreferrer nofollow">Read the Roundup</a>
+             class="btn mt-auto" target="_blank" rel="noopener noreferrer nofollow">Read the Roundup</a>
         </div>
       </article>
 
-      <!-- Better Homes & Gardens — roundup -->
       <article class="card p-0 h-full flex flex-col">
         <div class="card-body p-5 flex-1 flex flex-col">
           <h3 class="text-xl font-semibold mb-2">2025 Paint Colors of the Year: The Full List</h3>
           <p class="text-sm text-slate-700 mb-3">BHG covers BM Cinnamon Slate, SW’s capsule, Valspar Encore, Behr Rumors, and more.</p>
           <a href="https://www.bhg.com/2025-paint-colors-of-the-year-8363524"
-            class="btn mt-auto" target="_blank" rel="noopener noreferrer nofollow">See All Picks</a>
+             class="btn mt-auto" target="_blank" rel="noopener noreferrer nofollow">See All Picks</a>
         </div>
       </article>
 
@@ -232,67 +258,28 @@
   <!-- Footer -->
   <footer class="bg-primary text-white mt-12">
     <div class="max-w-7xl mx-auto px-6 py-10 grid gap-8 md:grid-cols-[auto,1fr,auto,auto] items-center">
-      <!-- Brand (left) -->
       <div class="flex flex-col items-start">
-        <img
-          src="/assets/images/logos/logo-black.png"
-          class="footer-logo h-16 w-auto mb-2"
-          alt="MVP Painting logo"
-          loading="lazy"
-        >
+        <img src="/assets/images/logos/logo-black.png" class="footer-logo h-16 w-auto mb-2" alt="MVP Painting logo" loading="lazy">
       </div>
-      <!-- Contact (center) -->
       <address class="not-italic contact text-slate-200 text-sm md:text-base flex flex-col items-start">
-        <p>
-          <strong>Email:</strong>
-          <a href="mailto:elvirpurovic@mvpdecor.com" class="underline hover:text-white/90">
-            elvirpurovic@mvpdecor.com
-          </a>
-        </p>
-        <p>
-          <strong>Phone:</strong>
-          <a href="tel:+17343662493" class="underline hover:text-white/90">
-            +1 (734) 366-2493
-          </a>
-        </p>
-        <p>
-          <a
-            href="https://www.sherwin-williams.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="underline hover:text-white/90"
-          >
-            We proudly use Sherwin-Williams Paint
-          </a>
-        </p>
+        <p><strong>Email:</strong> <a href="mailto:elvirpurovic@mvpdecor.com" class="underline hover:text-white/90">elvirpurovic@mvpdecor.com</a></p>
+        <p><strong>Phone:</strong> <a href="tel:+17343662493" class="underline hover:text-white/90">+1 (734) 366-2493</a></p>
+        <p><a href="https://www.sherwin-williams.com/" target="_blank" rel="noopener noreferrer" class="underline hover:text-white/90">We proudly use Sherwin-Williams Paint</a></p>
       </address>
-      <!-- Social Media (colored icons) -->
       <div class="social flex gap-5 justify-end w-full text-2xl">
-        <a href="https://www.facebook.com/share/19Vxythfws/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="hover:scale-110 transition-transform">
-          <i class="fab fa-facebook-square" style="color:#1877f3"></i>
-        </a>
-        <a href="https://www.instagram.com/m.v.p.homedecor?igsh=MTBpNjAwcmYzcmh0YQ==" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="hover:scale-110 transition-transform">
-          <i class="fab fa-instagram" style="color:#e4405f"></i>
-        </a>
-        <a href="https://maps.app.goo.gl/LxwxHhzqmVP67nQN7" target="_blank" rel="noopener noreferrer" aria-label="Google Maps" class="hover:scale-110 transition-transform">
-          <i class="fas fa-map-marker-alt" style="color:#34a853"></i>
-        </a>
-        <a href="https://share.google/a83ethP6CyCebEQOS"
-          target="_blank"
-          rel="nofollow noopener noreferrer"
-          aria-label="BBB"
-          class="hover:scale-110 transition-transform underline text-white/90">
-          BBB Accredited Business
-        </a>
+        <a href="https://www.facebook.com/share/19Vxythfws/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="hover:scale-110 transition-transform"><i class="fab fa-facebook-square" style="color:#1877f3"></i></a>
+        <a href="https://www.instagram.com/m.v.p.homedecor?igsh=MTBpNjAwcmYzcmh0YQ==" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="hover:scale-110 transition-transform"><i class="fab fa-instagram" style="color:#e4405f"></i></a>
+        <a href="https://maps.app.goo.gl/LxwxHhzqmVP67nQN7" target="_blank" rel="noopener noreferrer" aria-label="Google Maps" class="hover:scale-110 transition-transform"><i class="fas fa-map-marker-alt" style="color:#34a853"></i></a>
+        <a href="https://share.google/a83ethP6CyCebEQOS" target="_blank" rel="nofollow noopener noreferrer" aria-label="BBB" class="hover:scale-110 transition-transform underline text-white/90">BBB Accredited Business</a>
       </div>
     </div>
   </footer>
 
-  <!-- Floating Book Now Button and Modal Form -->
-  <button id="bookNowBtn" class="fixed z-50 bottom-6 right-6 bg-primary text-white font-bold rounded-full shadow-lg px-6 py-3 text-lg hover:bg-blue-800 transition focus:outline-none focus:ring-2 focus:ring-white">
-    Book Now
-  </button>
+  <!-- Floating actions -->
+  <button id="book-fab" class="bg-primary text-white">Book Now</button>
+  <button id="bookNowBtn" class="bg-primary text-white font-bold">Book Now</button>
 
+  <!-- Modal (shared) -->
   <div id="appointmentModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden">
     <div class="bg-white rounded-xl shadow-xl max-w-lg w-full mx-4 p-6 relative">
       <button id="closeModalBtn" class="absolute top-3 right-3 text-2xl text-slate-400 hover:text-slate-700" aria-label="Close">&times;</button>
@@ -318,22 +305,48 @@
       </form>
     </div>
   </div>
+
+  <!-- Minimal inline JS (drawer + modal) -->
   <script>
-    // Modal open/close logic
-    document.addEventListener('DOMContentLoaded', function() {
-      var bookBtn = document.getElementById('bookNowBtn');
-      var modal = document.getElementById('appointmentModal');
-      var closeBtn = document.getElementById('closeModalBtn');
-      bookBtn.addEventListener('click', function() {
-        modal.classList.remove('hidden');
+    // Mobile drawer
+    (function () {
+      const btn = document.querySelector('[data-mobile-menu-btn]');
+      const drawer = document.querySelector('[data-mobile-menu]');
+      if (!btn || !drawer || btn.dataset.mmInit === '1') return;
+      btn.dataset.mmInit = '1';
+
+      const open = () => {
+        drawer.removeAttribute('hidden');
+        drawer.classList.add('open');
+        document.body.classList.add('menu-open');
+        btn.setAttribute('aria-expanded','true');
+      };
+      const close = () => {
+        drawer.classList.remove('open');
+        drawer.setAttribute('hidden','');
+        document.body.classList.remove('menu-open');
+        btn.setAttribute('aria-expanded','false');
+      };
+
+      btn.addEventListener('click', () => {
+        drawer.classList.contains('open') ? close() : open();
       });
-      closeBtn.addEventListener('click', function() {
-        modal.classList.add('hidden');
-      });
-      modal.addEventListener('click', function(e) {
-        if (e.target === modal) modal.classList.add('hidden');
-      });
-    });
+      drawer.addEventListener('click', (e) => { if (e.target.matches('a')) close(); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+    })();
+
+    // Modal for both buttons
+    (function(){
+      const modal = document.getElementById('appointmentModal');
+      const closeBtn = document.getElementById('closeModalBtn');
+      const buttons = [document.getElementById('book-fab'), document.getElementById('bookNowBtn')].filter(Boolean);
+      const open = () => modal.classList.remove('hidden');
+      const close = () => modal.classList.add('hidden');
+      buttons.forEach(b => b && b.addEventListener('click', open));
+      closeBtn && closeBtn.addEventListener('click', close);
+      modal && modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+    })();
   </script>
 </body>
 </html>
