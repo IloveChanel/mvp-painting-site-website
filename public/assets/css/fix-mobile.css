@@ -88,4 +88,14 @@ header .site-nav,
   .mobile-nav {
     display: none !important;
   }
+}@media (max-width: 767px) {
+  header .site-nav,
+  .site-nav {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    overflow: hidden !important;
+    position: absolute !important;
+    left: -9999px !important;
+  }
 }
