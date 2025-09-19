@@ -87,6 +87,28 @@
     @media (max-width:767px){ #bookNowBtn{display:none} }
     @media (min-width:768px){ #book-fab{display:none} }
 
+    /* Mobile nav link styling */
+    .mobile-nav-link {
+      font-weight: 800 !important;
+      font-size: 0.9rem !important;
+      line-height: 1.3 !important;
+      padding: 0.75rem 0.5rem !important;
+      margin: 0 !important;
+      text-align: center !important;
+      display: block !important;
+      flex: 1 !important;
+    }
+    
+    /* Mobile nav container styling */
+    .mobile-nav {
+      display: flex !important;
+      flex-wrap: wrap !important;
+      justify-content: space-between !important;
+      gap: 0.5rem !important;
+      padding: 1rem !important;
+      text-align: center !important;
+    }
+
     /* iOS smoothness for fixed backgrounds */
     @supports (-webkit-overflow-scrolling: touch){ body{ background-attachment:scroll!important; } }
 
@@ -123,18 +145,24 @@
 <body class="font-sans page-blog pb-16 md:pb-0">
   <!-- Header -->
   <header class="bg-white/95 backdrop-blur shadow-sm sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto flex items-center justify-between py-4 px-6">
-      <a href="index.html" class="flex items-center gap-3">
-        <img src="/assets/images/logos/logo-black.png" alt="MVP Painting Logo" class="header-logo" loading="lazy" decoding="async">
-        <span class="sr-only">MVP Painting</span>
-      </a>
-
-      <!-- Hamburger (mobile only) -->
-      <button class="menu-btn md:hidden" aria-label="Toggle menu" aria-controls="mobile-menu" aria-expanded="false" data-mobile-menu-btn>
-        <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M3 6h18M3 12h18M3 18h18" stroke="#111" stroke-width="2" fill="none" stroke-linecap="round"/>
-        </svg>
-      </button>
+    <div class="max-w-7xl mx-auto flex items-center py-4 px-6">
+      <!-- Mobile layout: Logo + Call Now + Hamburger -->
+      <div class="flex items-center justify-between w-full md:justify-start md:gap-4 md:w-auto">
+        <a href="index.html" class="flex items-center gap-3">
+          <img src="/assets/images/logos/logo-black.png" alt="MVP Painting Logo" class="header-logo" loading="lazy" decoding="async">
+          <span class="sr-only">MVP Painting</span>
+        </a>
+        
+        <!-- Call Now centered between logo and hamburger (mobile only) -->
+        <a href="tel:+17343662493" id="mobileCallBtn" class="md:hidden bg-primary text-white px-4 py-2 rounded-full font-bold text-sm hover:bg-opacity-90 transition mx-auto">Call Now</a>
+        
+        <!-- Hamburger (mobile only) -->
+        <button class="menu-btn md:hidden" aria-label="Toggle menu" aria-controls="mobile-menu" aria-expanded="false" data-mobile-menu-btn>
+          <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M3 6h18M3 12h18M3 18h18" stroke="#111" stroke-width="2" fill="none" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
 
       <!-- Desktop nav -->
       <nav class="site-nav hidden md:flex flex-row gap-6 items-center text-base" aria-label="Primary">
@@ -151,16 +179,12 @@
 
   <!-- Mobile drawer -->
   <div class="mobile-nav" data-mobile-menu id="mobile-menu" hidden>
-    <a href="index.html">Home</a>
-    <a href="services.html">Services</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="about.html">About</a>
-    <a href="blog.html" aria-current="page">Blog</a>
-    <a href="contact.html">Contact</a>
-    <div class="cta-row">
-      <a href="tel:+17343662493">Call Now</a>
-      <a href="contact.html">Book Now</a>
-    </div>
+    <a href="index.html" class="mobile-nav-link">Home</a>
+    <a href="services.html" class="mobile-nav-link">Services</a>
+    <a href="gallery.html" class="mobile-nav-link">Gallery</a>
+    <a href="about.html" class="mobile-nav-link">About</a>
+    <a href="blog.html" class="mobile-nav-link" aria-current="page">Blog</a>
+    <a href="contact.html" class="mobile-nav-link">Contact</a>
   </div>
 
   <!-- HERO -->

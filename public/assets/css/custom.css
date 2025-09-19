@@ -201,8 +201,8 @@ footer .social{ margin-bottom:4.5rem; }
   .fixed-appointment-form{
     position:static !important; z-index:auto !important;
     top:auto !important; right:auto !important; bottom:auto !important; left:auto !important;
-    width:100% !important; max-width:100% !important;
-    margin:20px 12px !important; box-shadow:0 4px 16px rgba(0,0,0,.08) !important;
+    width:100% !important; max-width:calc(100% - 24px) !important;
+    margin:20px auto !important; box-shadow:0 4px 16px rgba(0,0,0,.08) !important;
   }
   .parallax-hero .caption{ padding-top:2rem; }
 }

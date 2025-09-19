@@ -1,76 +1,35 @@
-/* ---------- Base safety ---------- */
-img { max-width: 100%; height: auto; display: block; }
-body.menu-open { overflow: hidden !important; } /* lock scroll when drawer open */
-@supports (-webkit-overflow-scrolling: touch) {
-  body { background-attachment: scroll !important; }
-}
+/* Drawer hidden unless opened */
+.mobile-nav[hidden]{ display:none !important; }
 
-/* ---------- Header visibility (desktop vs mobile) ---------- */
-/* Default: desktop nav hidden; shown again >=768px */
-header .site-nav,
-.site-nav { display: none !important; }
+/* Phones */
+@media (max-width: 767px){
+  header .site-nav, .site-nav { display:none !important; }
+  .menu-btn{ display:inline-flex !important; align-items:center; justify-content:center; }
+  body.menu-open{ overflow:hidden !important; }
 
-/* Phones (<768px): show hamburger */
-@media (max-width: 767px) {
-  .menu-btn {
-    display: inline-flex !important;
-    align-items: center;
-    justify-content: center;
-    padding: .5rem; border: 0; background: none;
+  #book-fab{
+    position: fixed; right: 1rem; bottom: 1rem; z-index: 1000;
+    display: inline-flex; align-items: center; justify-content: center;
+    border-radius: 9999px; padding: .75rem 1rem; font-weight: 800;
   }
+  #bookNowBtn{ display: none !important; }
 }
 
-/* Desktop (>=768px): show desktop nav; hide hamburger & drawer */
-@media (min-width: 768px) {
-  header .site-nav, .site-nav { display: flex !important; }
-  .menu-btn { display: none !important; }
-  .mobile-nav { display: none !important; }
+/* ≥768px */
+@media (min-width: 768px){
+  header .site-nav, .site-nav { display:flex !important; }
+  .menu-btn{ display:none !important; }
+  .mobile-nav{ display:none !important; }
+
+  #bookNowBtn{
+    position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 1000;
+    display: inline-flex; align-items: center; justify-content: center;
+    border-radius: 9999px; padding: .85rem 1.25rem; font-weight: 800;
+  }
+  #book-fab{ display: none !important; }
 }
 
-/* ---------- Mobile drawer (hidden by attribute) ---------- */
-.mobile-nav[hidden] { display: none !important; }
-
-.mobile-nav {
-  position: fixed;
-  inset: 0;
-  background: rgba(255,255,255,.98);
-  backdrop-filter: blur(6px);
-  z-index: 1000;
-  overflow-y: auto;
-  padding: calc(env(safe-area-inset-top,0px) + 64px) 1rem 1.25rem;
-  display: grid;
-  align-content: start;
-  gap: 1rem;
-}
-
-.mobile-nav a {
-  display: block;
-  padding: .75rem 0;
-  border-bottom: 1px solid #f3f3f3;
-  text-decoration: none;
-  color: #111;
-}
-
-.mobile-nav .cta-row {
-  display: flex; gap: .5rem; padding: .75rem 0;
-}
-.mobile-nav .cta-row a {
-  flex: 1; text-align: center; padding: .6rem .75rem;
-  border: 1px solid #111; border-radius: .75rem; color: #111; text-decoration: none;
-}
-
-/* ---------- “Book Now” FAB (mobile only) ---------- */
-#book-fab, #bookNowBtn {
-  position: fixed;
-  right: 16px;
-  bottom: 16px;
-  z-index: 1100;
-  display: none;              /* hidden by default to avoid desktop flash */
-  align-items: center;
-  justify-content: center;
-  padding: .75rem 1rem;
-  border-radius: 9999px;
-}
-@media (max-width: 767px) {
-  #book-fab, #bookNowBtn { display: inline-flex; }
+/* iOS smoothness */
+@supports (-webkit-overflow-scrolling: touch){
+  body{ background-attachment:scroll !important; }
 }
