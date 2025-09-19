@@ -1,4 +1,5 @@
-FRESH_DEPLOYMENT_2025_09_19_MOBILE_UX_V2
-Timestamp: 2025-09-19T16:00:00Z
-Changes: Mobile UX improvements with centered Call Now buttons
-Force cache invalidation: true
+NUCLEAR_CACHE_BUST_2025_09_19_DESKTOP_SPACING_V3
+Timestamp: 2025-09-19T16:05:00Z
+Changes: Desktop navigation spacing gap-20 ml-16
+Force cache invalidation: MAXIMUM
+Cache bust level: NUCLEAR

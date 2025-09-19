@@ -8,8 +8,10 @@
     {
       "source": "/assets/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" },
-        { "key": "X-Deployment-Version", "value": "2025-09-19-mobile-ux-v2" }
+        { "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" },
+        { "key": "Pragma", "value": "no-cache" },
+        { "key": "Expires", "value": "0" },
+        { "key": "X-Deployment-Version", "value": "desktop-spacing-fix-v3-20250919-1600" }
       ]
     },
     {
@@ -18,7 +20,7 @@
         { "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" },
         { "key": "Pragma", "value": "no-cache" },
         { "key": "Expires", "value": "0" },
-        { "key": "X-Deployment-Version", "value": "2025-09-19-mobile-ux-v2" }
+        { "key": "X-Deployment-Version", "value": "desktop-spacing-fix-v3-20250919-1600" }
       ]
     }
   ]
