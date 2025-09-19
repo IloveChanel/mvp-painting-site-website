@@ -8,14 +8,21 @@
     {
       "source": "/assets/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" },
+        { "key": "X-Deployment-Version", "value": "2025-09-19-mobile-ux-v2" }
       ]
     },
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+        { "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" },
+        { "key": "Pragma", "value": "no-cache" },
+        { "key": "Expires", "value": "0" },
+        { "key": "X-Deployment-Version", "value": "2025-09-19-mobile-ux-v2" }
       ]
     }
-  ]
+  ],
+  "env": {
+    "DEPLOYMENT_ID": "mobile-ux-fresh-deploy-20250919"
+  }
 }
