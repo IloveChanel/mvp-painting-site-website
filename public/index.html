@@ -27,42 +27,30 @@
 
   <!-- NAV + FAB HOTFIX (keep just before </head>) -->
   <style id="force-mobile-nav">
-    /* Drawer starts hidden */
     .mobile-nav[hidden] { display: none !important; }
-
-    /* Phones: hide desktop nav; show hamburger; allow drawer when opened */
     @media (max-width: 767px) {
       header .site-nav, .site-nav { display: none !important; }
       .menu-btn { display: inline-flex !important; align-items: center; justify-content: center; }
-      body.menu-open { overflow: hidden !important; } /* lock background scroll */
+      body.menu-open { overflow: hidden !important; }
     }
-
-    /* Desktop: show desktop nav; hide hamburger & drawer */
     @media (min-width: 768px) {
       header .site-nav, .site-nav { display: flex !important; }
       .menu-btn { display: none !important; }
       .mobile-nav { display: none !important; }
     }
-
-    /* Book Now FAB bottom-right on mobile */
-    #book-fab, #bookNowBtn {
+    #book-fab {
       position: fixed !important;
       right: 1rem !important;
       bottom: 1rem !important;
       z-index: 1000 !important;
+      display: none;
     }
-
-
-    /* iOS smoothness with fixed backgrounds */
+    @media (max-width: 767px) {
+      #book-fab { display: inline-flex; }
+    }
     @supports (-webkit-overflow-scrolling: touch) {
       body { background-attachment: scroll !important; }
     }
-
-
-
-  /* keep the theme rules you already have BELOW this line */
-
-    /* Theme basics (yours) */
     :root{ --ink:#0f172a; --gold-1:#efe6cf; --gold-2:#e9d8b0; --rose-1:#e3c0c6; }
     html,body{min-height:100%}
     body{
@@ -96,9 +84,6 @@
     footer .social a{opacity:.9;text-decoration:underline}
     @media (prefers-reduced-motion: reduce){.parallax-hero .slide{transition:none}}
   </style>
-
-  <!-- If you keep a separate JS file, load it as module so Vite bundles it -->
-  <!-- <script type="module" src="/assets/js/mobile-menu.js?v=8"></script> -->
 </head>
 
 <body class="font-sans">
@@ -110,16 +95,16 @@
         <img src="/assets/images/logos/logo-black.png" alt="MVP Painting Logo" class="header-logo" loading="lazy" decoding="async">
         <span class="sr-only">MVP Painting</span>
       </a>
-
-      <!-- Hamburger (mobile only) -->
-      <button class="menu-btn md:hidden" aria-label="Toggle menu"
-              aria-controls="mobile-menu" aria-expanded="false"
-              data-mobile-menu-btn>
-        <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M3 6h18M3 12h18M3 18h18" stroke="#111" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <button class="menu-btn md:hidden"
+        aria-label="Toggle menu"
+        aria-controls="mobile-menu"
+        aria-expanded="false"
+        data-mobile-menu-btn>
+        <svg width="28" height="28" viewbox="0 0 24 24" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18" stroke="#111" stroke-width="2"
+            fill="none" stroke-linecap="round"/>
         </svg>
       </button>
-
       <!-- Desktop nav (hidden on mobile) -->
       <nav class="site-nav hidden md:flex flex-row gap-6 items-center text-base" aria-label="Primary">
         <a href="index.html">Home</a>
@@ -133,19 +118,19 @@
     </div>
   </header>
 
-  <!-- Mobile drawer (closed by default; note the hidden attribute) -->
-  <div class="mobile-nav" data-mobile-menu id="mobile-menu" hidden></div>
-    <a href="index.html">Home</a>
-    <a href="services.html">Services</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="about.html">About</a>
-    <a href="blog.html">Blog</a>
-    <a href="contact.html">Contact</a>
-    <div class="cta-row">
-      <a href="tel:+17343662493">Call Now</a>
-      <a href="contact.html">Book Now</a>
-    </div>
+<!-- Mobile drawer (closed by default; note the hidden attribute) -->
+<nav class="mobile-nav" data-mobile-menu id="mobile-menu" hidden>
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="about.html">About</a>
+  <a href="blog.html">Blog</a>
+  <a href="contact.html">Contact</a>
+  <div class="cta-row">
+    <a href="tel:+17343662493">Call Now</a>
+    <a href="contact.html">Book Now</a>
   </div>
+</nav>
 
   <!-- HERO -->
   <section class="parallax-hero" id="hero-index" data-hero="rotation" aria-label="Homepage hero">
@@ -168,9 +153,8 @@
     </div>
   </section>
 
-  <!-- Guaranteed Rotation: inline, isolated, and guarded -->
-  <script>
- (function () {
+ <script>
+(function () {
   const btn = document.querySelector('[data-mobile-menu-btn]');
   const drawer = document.querySelector('[data-mobile-menu]');
   if (!btn || !drawer || btn.dataset.mmInit === '1') return;
@@ -187,18 +171,23 @@
     btn.setAttribute('aria-expanded', 'false');
   };
 
-  btn.addEventListener('click', () => drawer.hasAttribute('hidden') ? open() : close());
+  btn.addEventListener('click', () =>
+    drawer.hasAttribute('hidden') ? open() : close()
+  );
+
   drawer.addEventListener('click', e => { if (e.target.matches('a')) close(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
 })();
-  </script>
+
+
+</script>
 
   <!-- Fixed Appointment Form -->
   <div
     id="appt-form"
     class="fixed-appointment-form
-           w-full max-w-lg mx-auto my-8 px-2
-           md:fixed md:top-28 md:right-8 md:w-96 md:mx-0 md:my-0 md:z-50">
+      w-full max-w-lg mx-auto my-8 px-2
+      md:fixed md:top-28 md:right-8 md:w-96 md:mx-0 md:my-0 md:z-50">
     <h2 class="text-2xl font-bold mb-4 text-center">Book an Appointment Now</h2>
     <form action="mailto:elvirpurovic@mvpdecor.com" method="POST" enctype="text/plain" class="space-y-4">
       <div>
@@ -222,73 +211,35 @@
   </div>
 
   <!-- Mobile "Book Now" FAB -->
-  <button id="book-fab" class="fab-book bg-primary text-white" aria-expanded="false" style="display:none;">
+  <button
+    id="book-fab"
+    class="fab-book bg-primary text-white font-bold rounded-full px-5 py-3 shadow-lg"
+    aria-expanded="false"
+    style="display:none;"
+  >
     Book Now
   </button>
 
+  <!-- FAB visibility + toggling the form -->
   <script>
-    // FAB visibility + toggling the form
     (function(){
       const btn = document.getElementById('book-fab');
       const form = document.getElementById('appt-form');
       if (!btn || !form) return;
 
-      function toggleFab() {
+      function sync() {
         if (window.matchMedia('(max-width: 767px)').matches) {
-          btn.style.display = 'inline-flex';
           form.setAttribute('hidden','');
         } else {
-          btn.style.display = 'none';
           form.removeAttribute('hidden');
         }
       }
-      toggleFab();
-      window.addEventListener('resize', toggleFab);
+      sync();
+      window.addEventListener('resize', sync);
 
       btn.addEventListener('click', () => {
-        const hidden = form.hasAttribute('hidden');
-        if (hidden) {
-          form.removeAttribute('hidden');
-          btn.setAttribute('aria-expanded','true');
-        } else {
-          form.setAttribute('hidden','');
-          btn.setAttribute('aria-expanded','false');
-        }
-      });
-    })();
-
-    // Mobile menu toggler (inline so it always runs)
-    (function () {
-      const btn = document.querySelector('[data-mobile-menu-btn]');
-      const drawer = document.querySelector('[data-mobile-menu]');
-      if (!btn || !drawer || btn.dataset.mmInit === '1') return;
-      btn.dataset.mmInit = '1';
-
-      const open = () => {
-        drawer.removeAttribute('hidden');
-        drawer.classList.add('open');
-        document.body.classList.add('menu-open');
-        btn.setAttribute('aria-expanded', 'true');
-      };
-
-      const close = () => {
-        drawer.classList.remove('open');
-        drawer.setAttribute('hidden', '');
-        document.body.classList.remove('menu-open');
-        btn.setAttribute('aria-expanded', 'false');
-      };
-
-      btn.addEventListener('click', () => {
-        const isOpen = drawer.classList.contains('open');
-        isOpen ? close() : open();
-      });
-
-      drawer.addEventListener('click', (e) => {
-        if (e.target.matches('a')) close();
-      });
-
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') close();
+        if (form.hasAttribute('hidden')) form.removeAttribute('hidden');
+        else form.setAttribute('hidden','');
       });
     })();
   </script>
@@ -394,3 +345,5 @@
       </div>
     </div>
   </footer>
+</body>
+</html>

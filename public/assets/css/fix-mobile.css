@@ -1,41 +1,48 @@
 /* ---------- Base safety ---------- */
 img { max-width: 100%; height: auto; display: block; }
-body.menu-open { overflow: hidden; }          /* lock scroll when drawer open */
-@supports (-webkit-overflow-scrolling: touch) { body { background-attachment: scroll !important; }}
+body.menu-open { overflow: hidden !important; } /* lock scroll when drawer open */
+@supports (-webkit-overflow-scrolling: touch) {
+  body { background-attachment: scroll !important; }
+}
 
-/* ---------- Desktop vs Mobile visibility for the header ---------- */
-/* Default: hide desktop nav; it will be shown again >=768px */
+/* ---------- Header visibility (desktop vs mobile) ---------- */
+/* Default: desktop nav hidden; shown again >=768px */
 header .site-nav,
 .site-nav { display: none !important; }
 
-/* Phones (<768px): show hamburger; drawer is hidden unless .open */
-@media (max-width: 767.98px) {
+/* Phones (<768px): show hamburger */
+@media (max-width: 767px) {
   .menu-btn {
     display: inline-flex !important;
-    align-items: center; justify-content: center;
+    align-items: center;
+    justify-content: center;
     padding: .5rem; border: 0; background: none;
   }
 }
 
 /* Desktop (>=768px): show desktop nav; hide hamburger & drawer */
 @media (min-width: 768px) {
-  header .site-nav,
-  .site-nav { display: flex !important; }
+  header .site-nav, .site-nav { display: flex !important; }
   .menu-btn { display: none !important; }
   .mobile-nav { display: none !important; }
 }
 
-/* ---------- Mobile drawer ---------- */
+/* ---------- Mobile drawer (hidden by attribute) ---------- */
+.mobile-nav[hidden] { display: none !important; }
+
 .mobile-nav {
-  display: none;                /* hidden until opened */
   position: fixed;
   inset: 0;
-  background: #fff;
+  background: rgba(255,255,255,.98);
+  backdrop-filter: blur(6px);
   z-index: 1000;
   overflow-y: auto;
-  padding: calc(env(safe-area-inset-top,0px) + 64px) 1rem 1rem;
+  padding: calc(env(safe-area-inset-top,0px) + 64px) 1rem 1.25rem;
+  display: grid;
+  align-content: start;
+  gap: 1rem;
 }
-.mobile-nav.open { display: block !important; }
+
 .mobile-nav a {
   display: block;
   padding: .75rem 0;
@@ -43,59 +50,27 @@ header .site-nav,
   text-decoration: none;
   color: #111;
 }
-.mobile-nav .cta-row { display: flex; gap: .5rem; padding: .75rem 0; }
+
+.mobile-nav .cta-row {
+  display: flex; gap: .5rem; padding: .75rem 0;
+}
 .mobile-nav .cta-row a {
   flex: 1; text-align: center; padding: .6rem .75rem;
   border: 1px solid #111; border-radius: .75rem; color: #111; text-decoration: none;
 }
 
 /* ---------- “Book Now” FAB (mobile only) ---------- */
-/* Supports either id used across pages */
 #book-fab, #bookNowBtn {
   position: fixed;
   right: 16px;
   bottom: 16px;
   z-index: 1100;
-  display: inline-flex;
+  display: none;              /* hidden by default to avoid desktop flash */
   align-items: center;
   justify-content: center;
   padding: .75rem 1rem;
   border-radius: 9999px;
 }
-@media (min-width: 768px) {
-  #book-fab, #bookNowBtn { display: none !important; }  /* no FAB on desktop */
-}
-/* Hide desktop nav on mobile */
 @media (max-width: 767px) {
-  header .site-nav, .site-nav {
-    display: none !important;
-  }
-  .menu-btn {
-    display: inline-flex !important;
-    align-items: center;
-    justify-content: center;
-  }
-}
-
-/* Show desktop nav on desktop */
-@media (min-width: 768px) {
-  header .site-nav, .site-nav {
-    display: flex !important;
-  }
-  .menu-btn {
-    display: none !important;
-  }
-  .mobile-nav {
-    display: none !important;
-  }
-}@media (max-width: 767px) {
-  header .site-nav,
-  .site-nav {
-    display: none !important;
-    visibility: hidden !important;
-    height: 0 !important;
-    overflow: hidden !important;
-    position: absolute !important;
-    left: -9999px !important;
-  }
+  #book-fab, #bookNowBtn { display: inline-flex; }
 }
