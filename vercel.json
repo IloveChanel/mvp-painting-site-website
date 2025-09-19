@@ -21,8 +21,5 @@
         { "key": "X-Deployment-Version", "value": "2025-09-19-mobile-ux-v2" }
       ]
     }
-  ],
-  "env": {
-    "DEPLOYMENT_ID": "mobile-ux-fresh-deploy-20250919"
-  }
+  ]
 }
