@@ -25,37 +25,38 @@
   <link rel="stylesheet" href="/assets/css/custom.css?v=202509161734">
   <link rel="stylesheet" href="/assets/css/fix-mobile.css?v=8"><!-- bump to bust cache -->
 
- <style id="force-mobile-nav">
-  /* Drawer: closed by default; opens when .open is added */
-  .mobile-nav { display: none; }
-  .mobile-nav.open { display: block; }
+  <!-- NAV + FAB HOTFIX (keep just before </head>) -->
+  <style id="force-mobile-nav">
+    /* Drawer starts hidden */
+    .mobile-nav[hidden] { display: none !important; }
 
-  /* Phones: hide desktop nav; show hamburger; lock scroll when open */
-  @media (max-width: 767px) {
-    header .site-nav, .site-nav { display: none !important; }
-    .menu-btn { display: inline-flex !important; align-items: center; justify-content: center; }
-    body.menu-open { overflow: hidden !important; }
-  }
+    /* Phones: hide desktop nav; show hamburger; allow drawer when opened */
+    @media (max-width: 767px) {
+      header .site-nav, .site-nav { display: none !important; }
+      .menu-btn { display: inline-flex !important; align-items: center; justify-content: center; }
+      body.menu-open { overflow: hidden !important; } /* lock background scroll */
+    }
 
-  /* Desktop: show desktop nav; hide hamburger & drawer */
-  @media (min-width: 768px) {
-    header .site-nav, .site-nav { display: flex !important; }
-    .menu-btn { display: none !important; }
-    .mobile-nav { display: none !important; }
-  }
+    /* Desktop: show desktop nav; hide hamburger & drawer */
+    @media (min-width: 768px) {
+      header .site-nav, .site-nav { display: flex !important; }
+      .menu-btn { display: none !important; }
+      .mobile-nav { display: none !important; }
+    }
 
-  /* FAB bottom-right */
-  #book-fab, #bookNowBtn {
-    position: fixed !important;
-    right: 1rem !important;
-    bottom: 1rem !important;
-    z-index: 1000 !important;
-  }
+    /* Book Now FAB bottom-right on mobile */
+    #book-fab, #bookNowBtn {
+      position: fixed !important;
+      right: 1rem !important;
+      bottom: 1rem !important;
+      z-index: 1000 !important;
+    }
 
-  /* iOS smoothness with fixed backgrounds */
-  @supports (-webkit-overflow-scrolling: touch) {
-    body { background-attachment: scroll !important; }
-  }
+
+    /* iOS smoothness with fixed backgrounds */
+    @supports (-webkit-overflow-scrolling: touch) {
+      body { background-attachment: scroll !important; }
+    }
 
 
 
@@ -133,7 +134,7 @@
   </header>
 
   <!-- Mobile drawer (closed by default; note the hidden attribute) -->
-  <div class="mobile-nav" data-mobile-menu id="mobile-menu" hidden>
+  <div class="mobile-nav" data-mobile-menu id="mobile-menu" hidden></div>
     <a href="index.html">Home</a>
     <a href="services.html">Services</a>
     <a href="gallery.html">Gallery</a>
@@ -169,28 +170,27 @@
 
   <!-- Guaranteed Rotation: inline, isolated, and guarded -->
   <script>
-  (function(){
-    const hero = document.getElementById('hero-index');
-    if(!hero || hero.dataset.rotatorInit === '1') return;
-    hero.dataset.rotatorInit = '1';
+ (function () {
+  const btn = document.querySelector('[data-mobile-menu-btn]');
+  const drawer = document.querySelector('[data-mobile-menu]');
+  if (!btn || !drawer || btn.dataset.mmInit === '1') return;
+  btn.dataset.mmInit = '1';
 
-    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if(reduce) return;
+  const open = () => {
+    drawer.removeAttribute('hidden');
+    document.body.classList.add('menu-open');
+    btn.setAttribute('aria-expanded', 'true');
+  };
+  const close = () => {
+    drawer.setAttribute('hidden', '');
+    document.body.classList.remove('menu-open');
+    btn.setAttribute('aria-expanded', 'false');
+  };
 
-    const slides = hero.querySelectorAll('.slide');
-    if(!slides.length) return;
-
-    let i = Array.from(slides).findIndex(s => s.classList.contains('active'));
-    if(i < 0){ slides[0].classList.add('active'); i = 0; }
-    if(slides.length < 2) return;
-
-    const intervalMs = 4500;
-    setInterval(() => {
-      slides[i].classList.remove('active');
-      i = (i + 1) % slides.length;
-      slides[i].classList.add('active');
-    }, intervalMs);
-  })();
+  btn.addEventListener('click', () => drawer.hasAttribute('hidden') ? open() : close());
+  drawer.addEventListener('click', e => { if (e.target.matches('a')) close(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+})();
   </script>
 
   <!-- Fixed Appointment Form -->
