@@ -25,42 +25,41 @@
   <link rel="stylesheet" href="/assets/css/custom.css?v=202509161734">
   <link rel="stylesheet" href="/assets/css/fix-mobile.css?v=8"><!-- bump to bust cache -->
 
-  <!-- NAV + FAB HOTFIX (keep just before </head>) -->
-  <style id="force-mobile-nav">
-    /* Drawer starts hidden */
-    .mobile-nav[hidden] { display: none !important; }
+ <style id="force-mobile-nav">
+  /* Drawer: closed by default; opens when .open is added */
+  .mobile-nav { display: none; }
+  .mobile-nav.open { display: block; }
 
-    /* Phones: hide desktop nav; show hamburger; allow drawer when opened */
-    @media (max-width: 767px) {
-      header .site-nav, .site-nav { display: none !important; }
-      .menu-btn { display: inline-flex !important; align-items: center; justify-content: center; }
-      body.menu-open { overflow: hidden !important; } /* lock background scroll */
-    }
+  /* Phones: hide desktop nav; show hamburger; lock scroll when open */
+  @media (max-width: 767px) {
+    header .site-nav, .site-nav { display: none !important; }
+    .menu-btn { display: inline-flex !important; align-items: center; justify-content: center; }
+    body.menu-open { overflow: hidden !important; }
+  }
 
-    /* Desktop: show desktop nav; hide hamburger & drawer */
-    @media (min-width: 768px) {
-      header .site-nav, .site-nav { display: flex !important; }
-      .menu-btn { display: none !important; }
-      .mobile-nav { display: none !important; }
-    }
+  /* Desktop: show desktop nav; hide hamburger & drawer */
+  @media (min-width: 768px) {
+    header .site-nav, .site-nav { display: flex !important; }
+    .menu-btn { display: none !important; }
+    .mobile-nav { display: none !important; }
+  }
 
-    /* Book Now FAB bottom-right on mobile */
-    #book-fab, #bookNowBtn {
-      position: fixed !important;
-      right: 1rem !important;
-      bottom: 1rem !important;
-      z-index: 1000 !important;
-    }
+  /* FAB bottom-right */
+  #book-fab, #bookNowBtn {
+    position: fixed !important;
+    right: 1rem !important;
+    bottom: 1rem !important;
+    z-index: 1000 !important;
+  }
 
-    /* Safety: if a stray drawer ever renders as a normal block, hide it */
-    body > div:has(> a[href*="index.html"]):has(> a[href*="services.html"]) {
-      display: none !important;
-    }
+  /* iOS smoothness with fixed backgrounds */
+  @supports (-webkit-overflow-scrolling: touch) {
+    body { background-attachment: scroll !important; }
+  }
 
-    /* iOS smoothness with fixed backgrounds */
-    @supports (-webkit-overflow-scrolling: touch) {
-      body { background-attachment: scroll !important; }
-    }
+
+
+  /* keep the theme rules you already have BELOW this line */
 
     /* Theme basics (yours) */
     :root{ --ink:#0f172a; --gold-1:#efe6cf; --gold-2:#e9d8b0; --rose-1:#e3c0c6; }
@@ -395,5 +394,3 @@
       </div>
     </div>
   </footer>
-</body>
-</html>
