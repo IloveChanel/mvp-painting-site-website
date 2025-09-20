@@ -135,8 +135,6 @@ header .site-nav .call-now:focus-visible{ outline:2px solid #fff; outline-offset
   font-size:1rem !important; line-height:1.25 !important; margin-bottom:.25rem !important; font-weight:800 !important;
 }
 .value-card p{ font-size:.95rem !important; color:#475569 !important; font-weight:600 !important; }
-#why{ background:rgba(255,255,255,.95); border-radius:16px; box-shadow:0 12px 30px rgba(0,0,0,.12); padding:1.25rem; }
-@media (min-width:640px){ #why{ padding:1.75rem; } }
 
 /* ===================== PROJECT GALLERY PREVIEW ===================== */
 .card-img{ display:block; width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; object-position:center; }
@@ -191,7 +189,7 @@ footer .social{ margin-bottom:4.5rem; }
 /* ===================== FIXED APPOINTMENT FORM ===================== */
 .fixed-appointment-form{
   position:fixed; bottom:6rem; right:3.5rem; z-index:1000; width:350px; max-width:90vw;
-  background:#ffffff5b; border-radius:1rem; box-shadow:0 8px 32px rgba(0,0,0,.18), 0 2px 8px rgba(0,0,0,.13);
+  background:#a3b1ce1a; border-radius:1rem; box-shadow:0 8px 32px rgba(0,0,0,.18), 0 2px 8px rgba(0,0,0,.13);
   padding:1.5rem 1.25rem; transition:box-shadow .2s;
 }
 @media (max-width:500px){
@@ -209,6 +207,26 @@ footer .social{ margin-bottom:4.5rem; }
 
 /* ===================== GENERIC CARD ANCHORS ===================== */
 .card, .card:link, .card:visited{ text-decoration:none !important; color:inherit; }
+
+/* ===================== WHY CHOOSE MVP TRANSPARENT CARDS ===================== */
+/* Force transparent backgrounds for Why Choose MVP cards */
+#why .grid > div {
+  background: none !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+/* Additional specificity override for any inline styles */
+section#why div[style*="background"] {
+  background: none !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
 
 /* ===================== SERVICES (HTML AS-IS): equal card sizes ===================== */
 /* Target your existing structure: <section aria-labelledby="services-heading"> <ul class="grid ..."> <li class="card"> */

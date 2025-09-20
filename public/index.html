@@ -26,9 +26,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <!-- CSS (order matters) -->
-  <link rel="stylesheet" href="/assets/css/tailwind.css?v=gap20-nuclear-bust">
-  <link rel="stylesheet" href="/assets/css/custom.css?v=gap20-nuclear-bust">
-  <link rel="stylesheet" href="/assets/css/fix-mobile.css?v=gap20-nuclear-bust">
+  <link rel="stylesheet" href="/assets/css/tailwind.css?v=gap20-nuclear-bust-final">
+  <link rel="stylesheet" href="/assets/css/custom.css?v=gap20-nuclear-bust-final">
+  <link rel="stylesheet" href="/assets/css/fix-mobile.css?v=gap20-nuclear-bust-final">
 
   <link rel="icon" type="image/x-icon" href="/assets/favicon-II9yTh74.ico" />
 
@@ -36,6 +36,41 @@
 
   <!-- NAV + FAB HOTFIX (same as index) -->
   <style id="force-mobile-nav">
+    /* NUCLEAR FEATURE CARD OVERRIDE - Target grid children directly */
+    #why .grid > div {
+      background: none !important;
+      background-color: transparent !important;
+      background-image: none !important;
+      box-shadow: none !important;
+      border: none !important;
+      backdrop-filter: none !important;
+      padding: 0 !important;
+    }
+    
+    /* Even more nuclear targeting */
+    section[id="why"] .grid > div {
+      background: rgba(0,0,0,0) !important;
+      background-color: rgba(0,0,0,0) !important;
+      background-image: none !important;
+      box-shadow: none !important;
+      border: none !important;
+    }
+    
+    /* Target any child divs too */
+    #why .grid > div > div {
+      background: none !important;
+      background-color: transparent !important;
+      box-shadow: none !important;
+    }
+    
+    /* Reset any pseudo elements */
+    #why .grid > div::before,
+    #why .grid > div::after {
+      display: none !important;
+      content: none !important;
+      background: none !important;
+    }
+    
     /* Drawer hidden unless opened (and we also use [hidden]) */
     .mobile-nav[hidden]{display:none!important}
 
@@ -90,7 +125,13 @@
     @supports (-webkit-overflow-scrolling: touch){ body{ background-attachment:scroll!important; } }
 
     /* Theme bits used on every page */
-    :root{ --ink:#0f172a; --gold-1:#efe6cf; --gold-2:#e9d8b0; --rose-1:#e3c0c6; }
+    :root{ 
+      --ink:#0f172a; 
+      --gold-1:#efe6cf; 
+      --gold-2:#e9d8b0; 
+      --rose-1:#e3c0c6;
+      --why-bg-color: #a3b1ce1a;
+    }
     html,body{min-height:100%}
     body{
       font-family: Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
@@ -103,7 +144,13 @@
 
   <style>
 
-    :root{ --ink:#0f172a; --gold-1:#efe6cf; --gold-2:#e9d8b0; --rose-1:#e3c0c6; }
+    :root{ 
+      --ink:#0f172a; 
+      --gold-1:#efe6cf; 
+      --gold-2:#e9d8b0; 
+      --rose-1:#e3c0c6;
+      --why-bg-color: #a3b1ce1a;
+    }
     html,body{min-height:100%}
     body{
       font-family: Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
@@ -113,7 +160,12 @@
         linear-gradient(135deg,#fffef9 0%, var(--gold-1) 35%, var(--gold-2) 66%, var(--rose-1) 100%);
       background-attachment: fixed;
     }
-    section,.section,.bg-paper{ background:transparent!important; }
+    section:not(#why),.section,.bg-paper{ background:transparent!important; }
+    #why > div{ background: var(--why-bg-color, #a3b1ce20) !important; }
+    section#why > div.backdrop-blur-sm{ background: #a3b1ce20 !important; }
+    section#why div{ background: #a3b1ce20 !important; }
+    #why{ background: transparent !important; }
+    section#why{ background: transparent !important; }
     .bg-primary{ background: var(--ink); }
     .header-logo{height:48px;width:auto;display:block}
     .site-nav a{font-weight:700}
@@ -137,17 +189,6 @@
     @media (prefers-reduced-motion: reduce){.parallax-hero .slide{transition:none}}
   </style>
 </head>
-
-<!-- One shared modal used by BOTH buttons -->
-<div id="appointmentModal" class="fixed inset-0 z-[1100] hidden items-center justify-center bg-black/50">
-  <div class="bg-white rounded-xl shadow-xl max-w-lg w-full mx-4 p-6 relative">
-    <button id="closeModalBtn" class="absolute top-3 right-3 text-2xl text-slate-400 hover:text-slate-700" aria-label="Close">&times;</button>
-    <h2 class="text-2xl font-bold mb-4 text-center">Book an Appointment Now</h2>
-    <form action="mailto:elvirpurovic@mvpdecor.com" method="POST" enctype="text/plain" class="space-y-4">
-      <!-- fields... -->
-    </form>
-  </div>
-</div>
 
 
 <body class="font-sans">
@@ -250,8 +291,118 @@
 
  <!-- Why choose us -->
   <section id="why" class="max-w-7xl mx-auto py-10 px-2 sm:px-4">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 place-items-center">
-      <!-- ...value cards... -->
+    <!-- Translucent container with custom property for easy color control -->
+    <div class="backdrop-blur-sm rounded-3xl shadow-lg p-6 sm:p-8" style="background: rgba(163, 177, 206, 0.25) !important;">
+      <h2 class="text-2xl sm:text-3xl font-bold text-center mb-8" style="color: var(--ink);">Why Choose MVP Painting?</h2>
+      
+      <!-- Use flexbox with media queries instead of grid -->
+      <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+        
+        <!-- Desktop: change to row layout -->
+        <style>
+          :root {
+            --transparent-bg: rgba(0,0,0,0);
+          }
+          
+          /* ULTIMATE NUCLEAR CSS RESET FOR WHY CARDS */
+          .why-card,
+          .why-card *,
+          .why-card::before,
+          .why-card::after {
+            background: var(--transparent-bg) !important;
+            background-color: var(--transparent-bg) !important;
+            background-image: none !important;
+            background-attachment: initial !important;
+            background-clip: initial !important;
+            background-origin: initial !important;
+            background-position: initial !important;
+            background-repeat: initial !important;
+            background-size: initial !important;
+            box-shadow: none !important;
+            border: none !important;
+            border-radius: 0 !important;
+            outline: none !important;
+            text-shadow: none !important;
+          }
+          
+          .why-card {
+            padding: 0 !important;
+            margin: 0 !important;
+            opacity: 1 !important;
+            filter: none !important;
+          }
+          
+          /* Force transparent using multiple methods */
+          .why-card {
+            background: transparent !important;
+          }
+          
+          .why-card[style] {
+            background: transparent !important;
+          }
+          
+          /* Override any possible utility classes */
+          .why-card.bg-white,
+          .why-card.bg-gray-50,
+          .why-card.bg-gray-100,
+          .why-card.bg-slate-50,
+          .why-card.bg-slate-100,
+          .why-card.shadow,
+          .why-card.shadow-sm,
+          .why-card.shadow-md,
+          .why-card.shadow-lg {
+            background: transparent !important;
+            background-color: transparent !important;
+            box-shadow: none !important;
+          }
+          
+          @media (min-width: 768px) {
+            .why-cards-container {
+              flex-direction: row !important;
+              gap: 2rem !important;
+            }
+            .why-card {
+              flex: 1 !important;
+            }
+          }
+        </style>
+        
+        <div class="why-cards-container" style="display: flex; flex-direction: column; gap: 1.5rem;">
+          <!-- Card 1: 15 Years of Experience -->
+          <div class="why-card" style="background: rgba(0,0,0,0) !important; background-color: rgba(0,0,0,0) !important;">
+            <div style="display: flex; gap: 0.75rem; align-items: flex-start; background: rgba(0,0,0,0) !important;">
+              <span style="font-size: 1.25rem; flex-shrink: 0;">⭐</span>
+              <div style="flex: 1; min-width: 0;">
+                <h3 style="font-size: 1.125rem; font-weight: 700; line-height: 1.5; color: #0f172a; margin: 0; padding: 0;">15 Years of Experience</h3>
+                <p style="margin-top: 0.5rem; font-size: 0.875rem; color: #475569; margin-bottom: 0; overflow-wrap: break-word;">Trusted results built on years of real projects and happy clients.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Award-Winning Quality -->
+          <div class="why-card" style="background: rgba(0,0,0,0) !important; background-color: rgba(0,0,0,0) !important;">
+            <div style="display: flex; gap: 0.75rem; align-items: flex-start; background: rgba(0,0,0,0) !important;">
+              <span style="font-size: 1.25rem; flex-shrink: 0;">🏆</span>
+              <div style="flex: 1; min-width: 0;">
+                <h3 style="font-size: 1.125rem; font-weight: 700; line-height: 1.5; color: #0f172a; margin: 0; padding: 0;">Award‑Winning Quality</h3>
+                <p style="margin-top: 0.5rem; font-size: 0.875rem; color: #475569; margin-bottom: 0; overflow-wrap: break-word;">Detail‑driven craftsmanship that stands out—and stands up—over time.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: 5‑Star Reviews -->
+          <div class="why-card" style="background: rgba(0,0,0,0) !important; background-color: rgba(0,0,0,0) !important;">
+            <div style="display: flex; gap: 0.75rem; align-items: flex-start; background: rgba(0,0,0,0) !important;">
+              <span style="font-size: 1.25rem; flex-shrink: 0;">🛡️</span>
+              <div style="flex: 1; min-width: 0;">
+                <h3 style="font-size: 1.125rem; font-weight: 700; line-height: 1.5; color: #0f172a; margin: 0; padding: 0;">5‑Star Reviews</h3>
+                <p style="margin-top: 0.5rem; font-size: 0.875rem; color: #475569; margin-bottom: 0; overflow-wrap: break-word;">We believe quality work speaks for itself—and so do our clients.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
     </div>
   </section>
 
@@ -387,22 +538,6 @@
       if (btn.style && btn.style.display === 'none') btn.style.display = '';
     })();
   </script>
-
-  <script>
-  (function(){
-    const modal = document.getElementById('appointmentModal');
-    if (!modal) return;
-    const openBtns = [document.getElementById('book-fab'), document.getElementById('headerBookBtn')].filter(Boolean);
-    const closeBtn = document.getElementById('closeModalBtn');
-    const open = () => modal.classList.remove('hidden');
-    const close = () => modal.classList.add('hidden');
-
-    openBtns.forEach(b => b && b.addEventListener('click', open));
-    closeBtn && closeBtn.addEventListener('click', close);
-    modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
-  })();
-</script>
 
 
   <!-- Floating action buttons -->

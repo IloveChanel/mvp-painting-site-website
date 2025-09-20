@@ -3,6 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Cache busting for fresh deployment -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta name="deployment-version" content="desktop-spacing-fix-v3-20250919-1600">
   <title>MVP Painting & HomeDecor | House & Commercial Painters in Macomb & Oakland County</title>
   <meta name="description" content="Premium interior, exterior, and cabinet painting in Macomb & Oakland Counties. Free estimates. Call (734) 366-2493." />
   <link rel="canonical" href="https://www.mvpdecor.com/" />
@@ -20,18 +25,110 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+<!-- CSS (order matters) -->
 
-
-<!-- Desktop floating button (tablets/desktop only) -->
-<button id="bookNowBtn" class="font-bold rounded-full px-5 py-3 shadow-lg bg-primary text-white">
-  Book Now
-</button>
+  <link rel="icon" type="image/x-icon" href="/assets/favicon-II9yTh74-II9yTh74.ico" />
 
 
 
-  <style>
+  <!-- NAV + FAB HOTFIX (same as index) -->
+  <style id="force-mobile-nav">
+    /* NUCLEAR FEATURE CARD OVERRIDE - Target grid children directly */
+    #why .grid > div {
+      background: none !important;
+      background-color: transparent !important;
+      background-image: none !important;
+      box-shadow: none !important;
+      border: none !important;
+      backdrop-filter: none !important;
+      padding: 0 !important;
+    }
+    
+    /* Even more nuclear targeting */
+    section[id="why"] .grid > div {
+      background: rgba(0,0,0,0) !important;
+      background-color: rgba(0,0,0,0) !important;
+      background-image: none !important;
+      box-shadow: none !important;
+      border: none !important;
+    }
+    
+    /* Target any child divs too */
+    #why .grid > div > div {
+      background: none !important;
+      background-color: transparent !important;
+      box-shadow: none !important;
+    }
+    
+    /* Reset any pseudo elements */
+    #why .grid > div::before,
+    #why .grid > div::after {
+      display: none !important;
+      content: none !important;
+      background: none !important;
+    }
+    
+    /* Drawer hidden unless opened (and we also use [hidden]) */
+    .mobile-nav[hidden]{display:none!important}
 
-    :root{ --ink:#0f172a; --gold-1:#efe6cf; --gold-2:#e9d8b0; --rose-1:#e3c0c6; }
+    /* Phones: hide desktop nav; show hamburger; lock scroll when open */
+    @media (max-width: 767px){
+      header .site-nav, .site-nav { display:none!important; }
+      .menu-btn{ display:inline-flex!important; align-items:center; justify-content:center; }
+      body.menu-open{ overflow:hidden!important; }
+    }
+
+    /* Desktop: show desktop nav; hide hamburger & drawer */
+    @media (min-width: 768px){
+      header .site-nav, .site-nav { display:flex!important; }
+      .menu-btn{ display:none!important; }
+      .mobile-nav{ display:none!important; }
+    }
+
+    /* FAB/button placement */
+    /* Mobile FAB */
+    #book-fab{
+      position:fixed; right:1rem; bottom:1rem; z-index:1000;
+      display:inline-flex; align-items:center; justify-content:center;
+      border-radius:9999px; padding:.75rem 1rem; font-weight:800;
+      background:var(--ink); color:#fff; box-shadow:0 8px 24px rgba(0,0,0,.18);
+    }
+    /* Show mobile FAB only on phones */
+    @media (min-width:768px){ #book-fab{display:none} }
+
+    /* Mobile nav link styling */
+    .mobile-nav-link {
+      font-weight: 800 !important;
+      font-size: 0.9rem !important;
+      line-height: 1.3 !important;
+      padding: 0.75rem 0.5rem !important;
+      margin: 0 !important;
+      text-align: center !important;
+      display: block !important;
+      flex: 1 !important;
+    }
+    
+    /* Mobile nav container styling */
+    .mobile-nav {
+      display: flex !important;
+      flex-wrap: wrap !important;
+      justify-content: space-between !important;
+      gap: 0.5rem !important;
+      padding: 1rem !important;
+      text-align: center !important;
+    }
+
+    /* iOS smoothness for fixed backgrounds */
+    @supports (-webkit-overflow-scrolling: touch){ body{ background-attachment:scroll!important; } }
+
+    /* Theme bits used on every page */
+    :root{ 
+      --ink:#0f172a; 
+      --gold-1:#efe6cf; 
+      --gold-2:#e9d8b0; 
+      --rose-1:#e3c0c6;
+      --why-bg-color: #a3b1ce1a;
+    }
     html,body{min-height:100%}
     body{
       font-family: Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
@@ -41,7 +138,31 @@
         linear-gradient(135deg,#fffef9 0%, var(--gold-1) 35%, var(--gold-2) 66%, var(--rose-1) 100%);
       background-attachment: fixed;
     }
-    section,.section,.bg-paper{ background:transparent!important; }
+
+  <style>
+
+    :root{ 
+      --ink:#0f172a; 
+      --gold-1:#efe6cf; 
+      --gold-2:#e9d8b0; 
+      --rose-1:#e3c0c6;
+      --why-bg-color: #a3b1ce1a;
+    }
+    html,body{min-height:100%}
+    body{
+      font-family: Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(900px 700px at 100% 100%, rgba(227,192,198,.55), transparent 60%),
+        linear-gradient(135deg,#fffef9 0%, var(--gold-1) 35%, var(--gold-2) 66%, var(--rose-1) 100%);
+      background-attachment: fixed;
+    }
+    section:not(#why),.section,.bg-paper{ background:transparent!important; }
+    #why > div{ background: var(--why-bg-color, #a3b1ce20) !important; }
+    section#why > div.backdrop-blur-sm{ background: #a3b1ce20 !important; }
+    section#why div{ background: #a3b1ce20 !important; }
+    #why{ background: transparent !important; }
+    section#why{ background: transparent !important; }
     .bg-primary{ background: var(--ink); }
     .header-logo{height:48px;width:auto;display:block}
     .site-nav a{font-weight:700}
@@ -64,71 +185,60 @@
     footer .social a{opacity:.9;text-decoration:underline}
     @media (prefers-reduced-motion: reduce){.parallax-hero .slide{transition:none}}
   </style>
-</head><!-- Mobile FAB (phones only) -->
-<button id="book-fab" class="font-bold rounded-full px-5 py-3 shadow-lg bg-primary text-white">
-  Book Now
-</button>
-
-<!-- Desktop floating button (tablets/desktop only) -->
-<button id="bookNowBtn" class="font-bold rounded-full px-5 py-3 shadow-lg bg-primary text-white">
-  Book Now
-</button>
-
-<!-- One shared modal used by BOTH buttons -->
-<div id="appointmentModal" class="fixed inset-0 z-[1100] hidden items-center justify-center bg-black/50">
-  <div class="bg-white rounded-xl shadow-xl max-w-lg w-full mx-4 p-6 relative">
-    <button id="closeModalBtn" class="absolute top-3 right-3 text-2xl text-slate-400 hover:text-slate-700" aria-label="Close">&times;</button>
-    <h2 class="text-2xl font-bold mb-4 text-center">Book an Appointment Now</h2>
-    <form action="mailto:elvirpurovic@mvpdecor.com" method="POST" enctype="text/plain" class="space-y-4">
-      <!-- fields... -->
-    </form>
-  </div>
-</div>
+  <link rel="stylesheet" crossorigin href="/assets/index-BG-SsB-n.css">
+</head>
 
 
 <body class="font-sans">
   <!-- Header -->
 <header class="bg-white/95 backdrop-blur shadow-sm sticky top-0 z-50">
   <div class="max-w-7xl mx-auto flex items-center justify-between py-4 px-4 sm:px-6">
-    <a href="index.html" class="flex items-center gap-3">
-      <img src="/assets/logo-black-uKbwBgYq.png" alt="MVP Painting Logo" class="header-logo" loading="lazy" decoding="async">
-      <span class="sr-only">MVP Painting</span>
-    </a>
+    <!-- Mobile layout: Logo + Call Now + Hamburger -->
+    <div class="flex items-center justify-between w-full md:justify-start md:gap-4 md:w-auto">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="/assets/logo-black-uKbwBgYq.png" alt="MVP Painting Logo" class="header-logo" loading="lazy" decoding="async">
+        <span class="sr-only">MVP Painting</span>
+      </a>
+      
+      <!-- Call Now centered between logo and hamburger (mobile only) -->
+      <a href="tel:+17343662493" id="mobileCallBtn" class="md:hidden bg-primary text-white px-4 py-2 rounded-full font-bold text-sm hover:bg-opacity-90 transition mx-auto">Call Now</a>
+      
+      <!-- Hamburger (mobile only) -->
+      <button class="menu-btn md:hidden"
+        aria-label="Toggle menu"
+        aria-controls="mobile-menu"
+        aria-expanded="false"
+        data-mobile-menu-btn>
+        <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18" stroke="#111" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </svg>
+      </button>
+      
+      <!-- Book Now next to logo (desktop only) -->
+      <button id="headerBookBtn" class="hidden md:inline-block bg-primary text-white px-4 py-2 rounded-full font-bold text-sm hover:bg-opacity-90 transition">Book Now</button>
+    </div>
 
-    <button class="menu-btn md:hidden"
-      aria-label="Toggle menu"
-      aria-controls="mobile-menu"
-      aria-expanded="false"
-      data-mobile-menu-btn>
-      <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M3 6h18M3 12h18M3 18h18" stroke="#111" stroke-width="2" fill="none" stroke-linecap="round"/>
-      </svg>
-    </button>
-
-    <nav class="site-nav hidden md:flex flex-row gap-6 items-center text-base" aria-label="Primary">
+    <!-- Desktop Navigation with PERFECT spacing -->
+    <nav class="site-nav hidden md:flex flex-row items-center text-base ml-auto" style="gap: 3rem;" aria-label="Primary">
       <a href="index.html" aria-current="page">Home</a>
       <a href="services.html">Services</a>
       <a href="gallery.html">Gallery</a>
       <a href="about.html">About</a>
       <a href="blog.html">Blog</a>
       <a href="contact.html">Contact</a>
-      <a href="tel:+17343662493" class="call-now px-6 py-3 md:px-8 md:py-4 text-xl md:text-2xl">Call Now</a>
+      <a href="tel:+17343662493" class="call-now px-6 py-3 md:px-8 md:py-4 text-xl md:text-2xl" style="margin-left: 2.5rem;">Call Now</a>
     </nav>
   </div>
 </header>
 
 <!-- Mobile drawer -->
 <nav class="mobile-nav" id="mobile-menu" data-mobile-menu hidden aria-label="Mobile">
-  <a href="index.html">Home</a>
-  <a href="services.html">Services</a>
-  <a href="gallery.html">Gallery</a>
-  <a href="about.html">About</a>
-  <a href="blog.html">Blog</a>
-  <a href="contact.html">Contact</a>
-  <div class="cta-row">
-    <a href="tel:+17343662493">Call Now</a>
-    <a href="contact.html">Book Now</a>
-  </div>
+  <a href="index.html" class="mobile-nav-link">Home</a>
+  <a href="services.html" class="mobile-nav-link">Services</a>
+  <a href="gallery.html" class="mobile-nav-link">Gallery</a>
+  <a href="about.html" class="mobile-nav-link">About</a>
+  <a href="blog.html" class="mobile-nav-link">Blog</a>
+  <a href="contact.html" class="mobile-nav-link">Contact</a>
 </nav>
 
 
@@ -177,13 +287,120 @@
     </form>
   </div>
 
-  <!-- Mobile FAB (no inline display:none to avoid override issues) -->
-  <button id="book-fab-desktop" class="fab-book bg-primary text-white font-bold rounded-full px-5 py-3 shadow-lg" aria-expanded="false">Book Now</button>
-
  <!-- Why choose us -->
   <section id="why" class="max-w-7xl mx-auto py-10 px-2 sm:px-4">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 place-items-center">
-      <!-- ...value cards... -->
+    <!-- Translucent container with custom property for easy color control -->
+    <div class="backdrop-blur-sm rounded-3xl shadow-lg p-6 sm:p-8" style="background: rgba(163, 177, 206, 0.25) !important;">
+      <h2 class="text-2xl sm:text-3xl font-bold text-center mb-8" style="color: var(--ink);">Why Choose MVP Painting?</h2>
+      
+      <!-- Use flexbox with media queries instead of grid -->
+      <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+        
+        <!-- Desktop: change to row layout -->
+        <style>
+          :root {
+            --transparent-bg: rgba(0,0,0,0);
+          }
+          
+          /* ULTIMATE NUCLEAR CSS RESET FOR WHY CARDS */
+          .why-card,
+          .why-card *,
+          .why-card::before,
+          .why-card::after {
+            background: var(--transparent-bg) !important;
+            background-color: var(--transparent-bg) !important;
+            background-image: none !important;
+            background-attachment: initial !important;
+            background-clip: initial !important;
+            background-origin: initial !important;
+            background-position: initial !important;
+            background-repeat: initial !important;
+            background-size: initial !important;
+            box-shadow: none !important;
+            border: none !important;
+            border-radius: 0 !important;
+            outline: none !important;
+            text-shadow: none !important;
+          }
+          
+          .why-card {
+            padding: 0 !important;
+            margin: 0 !important;
+            opacity: 1 !important;
+            filter: none !important;
+          }
+          
+          /* Force transparent using multiple methods */
+          .why-card {
+            background: transparent !important;
+          }
+          
+          .why-card[style] {
+            background: transparent !important;
+          }
+          
+          /* Override any possible utility classes */
+          .why-card.bg-white,
+          .why-card.bg-gray-50,
+          .why-card.bg-gray-100,
+          .why-card.bg-slate-50,
+          .why-card.bg-slate-100,
+          .why-card.shadow,
+          .why-card.shadow-sm,
+          .why-card.shadow-md,
+          .why-card.shadow-lg {
+            background: transparent !important;
+            background-color: transparent !important;
+            box-shadow: none !important;
+          }
+          
+          @media (min-width: 768px) {
+            .why-cards-container {
+              flex-direction: row !important;
+              gap: 2rem !important;
+            }
+            .why-card {
+              flex: 1 !important;
+            }
+          }
+        </style>
+        
+        <div class="why-cards-container" style="display: flex; flex-direction: column; gap: 1.5rem;">
+          <!-- Card 1: 15 Years of Experience -->
+          <div class="why-card" style="background: rgba(0,0,0,0) !important; background-color: rgba(0,0,0,0) !important;">
+            <div style="display: flex; gap: 0.75rem; align-items: flex-start; background: rgba(0,0,0,0) !important;">
+              <span style="font-size: 1.25rem; flex-shrink: 0;">⭐</span>
+              <div style="flex: 1; min-width: 0;">
+                <h3 style="font-size: 1.125rem; font-weight: 700; line-height: 1.5; color: #0f172a; margin: 0; padding: 0;">15 Years of Experience</h3>
+                <p style="margin-top: 0.5rem; font-size: 0.875rem; color: #475569; margin-bottom: 0; overflow-wrap: break-word;">Trusted results built on years of real projects and happy clients.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Award-Winning Quality -->
+          <div class="why-card" style="background: rgba(0,0,0,0) !important; background-color: rgba(0,0,0,0) !important;">
+            <div style="display: flex; gap: 0.75rem; align-items: flex-start; background: rgba(0,0,0,0) !important;">
+              <span style="font-size: 1.25rem; flex-shrink: 0;">🏆</span>
+              <div style="flex: 1; min-width: 0;">
+                <h3 style="font-size: 1.125rem; font-weight: 700; line-height: 1.5; color: #0f172a; margin: 0; padding: 0;">Award‑Winning Quality</h3>
+                <p style="margin-top: 0.5rem; font-size: 0.875rem; color: #475569; margin-bottom: 0; overflow-wrap: break-word;">Detail‑driven craftsmanship that stands out—and stands up—over time.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: 5‑Star Reviews -->
+          <div class="why-card" style="background: rgba(0,0,0,0) !important; background-color: rgba(0,0,0,0) !important;">
+            <div style="display: flex; gap: 0.75rem; align-items: flex-start; background: rgba(0,0,0,0) !important;">
+              <span style="font-size: 1.25rem; flex-shrink: 0;">🛡️</span>
+              <div style="flex: 1; min-width: 0;">
+                <h3 style="font-size: 1.125rem; font-weight: 700; line-height: 1.5; color: #0f172a; margin: 0; padding: 0;">5‑Star Reviews</h3>
+                <p style="margin-top: 0.5rem; font-size: 0.875rem; color: #475569; margin-bottom: 0; overflow-wrap: break-word;">We believe quality work speaks for itself—and so do our clients.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
     </div>
   </section>
 
@@ -320,22 +537,10 @@
     })();
   </script>
 
-  <script>
-  (function(){
-    const modal = document.getElementById('appointmentModal');
-    if (!modal) return;
-    const openBtns = [document.getElementById('book-fab'), document.getElementById('bookNowBtn')].filter(Boolean);
-    const closeBtn = document.getElementById('closeModalBtn');
-    const open = () => modal.classList.remove('hidden');
-    const close = () => modal.classList.add('hidden');
 
-    openBtns.forEach(b => b && b.addEventListener('click', open));
-    closeBtn && closeBtn.addEventListener('click', close);
-    modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
-  })();
-</script>
-
+  <!-- Floating action buttons -->
+  <!-- Mobile FAB (phones only) -->
+  <button id="book-fab" class="bg-primary text-white">Book Now</button>
 
   <!-- Site-wide JS: mobile menu toggler (place LAST, just before </body>) -->
   <script src="/assets/js/mobile-menu.js"></script>
