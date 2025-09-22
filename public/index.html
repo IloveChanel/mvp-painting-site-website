@@ -303,32 +303,27 @@
   <!-- Header -->
 <header class="bg-white/95 backdrop-blur shadow-sm sticky top-0 z-50">
   <div class="max-w-7xl mx-auto flex items-center justify-between py-4 px-4 sm:px-6">
-    <!-- Mobile layout: Logo + Call Now + Hamburger -->
-    <div class="flex items-center justify-between w-full md:justify-start md:gap-4 md:w-auto">
-      <a href="index.html" class="flex items-center gap-3">
-        <img src="/assets/images/logos/logo-black.png" alt="MVP Painting - Troy Sterling Heights House Painters & Painting Contractor" class="header-logo" loading="lazy" decoding="async">
-        <span class="sr-only">MVP Painting</span>
-      </a>
-      
-      <!-- Call Now centered between logo and hamburger (mobile only) -->
-      <a href="tel:+17343662493" id="mobileCallBtn" class="md:hidden bg-primary text-white px-4 py-2 rounded-full font-bold text-sm hover:bg-opacity-90 transition mx-auto">Call Now</a>
-      
-      <!-- Hamburger (mobile only) -->
-      <button class="menu-btn md:hidden"
-        aria-label="Toggle menu"
-        aria-controls="mobile-menu"
-        aria-expanded="false"
-        data-mobile-menu-btn>
-        <svg width="28" height="28" viewbox="0 0 24 24" aria-hidden="true">
-          <path d="M3 6h18M3 12h18M3 18h18" stroke="#111" stroke-width="2" fill="none" stroke-linecap="round"/>
-        </svg>
-      </button>
-      
-      <!-- Book Now next to logo (desktop only) -->
-      <button id="headerBookBtn" class="hidden md:inline-block bg-primary text-white px-4 py-2 rounded-full font-bold text-sm hover:bg-opacity-90 transition">Book Now</button>
-    </div>
-
-    <!-- Desktop Navigation with PERFECT spacing -->
+      <!-- Mobile layout: Logo + Call Now + Hamburger -->
+      <div class="flex items-center justify-between w-full md:justify-start md:gap-4 md:w-auto">
+        <a href="index.html" class="flex items-center gap-3">
+          <img src="/assets/images/logos/logo-black.png" alt="MVP Painting - Troy Sterling Heights House Painters & Painting Contractor" class="header-logo" loading="lazy" decoding="async">
+          <span class="sr-only">MVP Painting</span>
+        </a>
+        
+        <!-- Call Now centered between logo and hamburger (mobile only) -->
+        <a href="tel:+17343662493" id="mobileCallBtn" class="md:hidden bg-primary text-white px-4 py-2 rounded-full font-bold text-sm hover:bg-opacity-90 transition mx-auto">Call Now</a>
+        
+        <!-- Hamburger (mobile only) -->
+        <button class="menu-btn md:hidden"
+          aria-label="Toggle menu"
+          aria-controls="mobile-menu"
+          aria-expanded="false"
+          data-mobile-menu-btn>
+          <svg width="28" height="28" viewbox="0 0 24 24" aria-hidden="true">
+            <path d="M3 6h18M3 12h18M3 18h18" stroke="#111" stroke-width="2" fill="none" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>    <!-- Desktop Navigation with PERFECT spacing -->
     <nav class="site-nav hidden md:flex flex-row items-center text-base ml-auto" style="gap: 3rem;" aria-label="Primary">
       <a href="index.html" aria-current="page">Home</a>
       <a href="services.html">Services</a>
@@ -365,7 +360,7 @@
     <div class="caption">
       <div>
         <h1 class="text-2xl sm:text-3xl md:text-5xl leading-tight">
-          <span class="block">Troy's #1 House Painters & Painting Contractor</span>
+          <span class="block">Southeast MI #1 House Painters</span>
           <span class="block">Interior • Exterior • Commercial Painting Near Me</span>
         </h1>
         <p class="text-lg sm:text-xl text-white/90 mb-6 max-w-2xl mx-auto">
@@ -589,65 +584,135 @@
         <p class="text-lg text-gray-600">Expert answers from Troy's most trusted painting contractor</p>
       </div>
       
-      <div class="space-y-6">
+      <div class="space-y-3">
         <!-- FAQ Item 1 -->
-        <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-          <h3 class="text-xl font-semibold mb-3 text-primary">How much does house painting cost in Troy, Sterling Heights, and Rochester?</h3>
-          <p class="text-gray-700">Interior painting typically costs $3-6 per square foot, while exterior house painting ranges from $2-5 per square foot. Factors include surface preparation, paint quality, and project complexity. Contact our painting contractor team for a free, detailed estimate specific to your Troy, Sterling Heights, or Rochester home.</p>
+        <div class="bg-white border border-gray-200 rounded-lg shadow-sm">
+          <button class="w-full text-left p-4 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 rounded-lg" onclick="toggleFAQ('faq1')">
+            <div class="flex justify-between items-center">
+              <h3 class="text-lg font-semibold text-primary pr-4">How much does house painting cost in Troy, Sterling Heights, and Rochester?</h3>
+              <span id="faq1-icon" class="text-primary transform transition-transform duration-200 text-xl font-bold">+</span>
+            </div>
+          </button>
+          <div id="faq1" class="hidden px-4 pb-4">
+            <p class="text-gray-700 text-sm">Interior painting typically costs $3-6 per square foot, while exterior house painting ranges from $2-5 per square foot. Factors include surface preparation, paint quality, and project complexity. Contact our painting contractor team for a free, detailed estimate specific to your Troy, Sterling Heights, or Rochester home.</p>
+          </div>
         </div>
 
         <!-- FAQ Item 2 -->
-        <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-          <h3 class="text-xl font-semibold mb-3 text-primary">What makes MVP Painting the best house painters near me?</h3>
-          <p class="text-gray-700">We're Oakland County's top-rated painting contractor with 5-star reviews, licensed and insured professionals, premium Sherwin-Williams paint, and meticulous surface preparation. Our house painters serve Troy, Sterling Heights, Rochester, and Metro Detroit with exceptional quality and customer service.</p>
+        <div class="bg-white border border-gray-200 rounded-lg shadow-sm">
+          <button class="w-full text-left p-4 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 rounded-lg" onclick="toggleFAQ('faq2')">
+            <div class="flex justify-between items-center">
+              <h3 class="text-lg font-semibold text-primary pr-4">What makes MVP Painting the best house painters near me?</h3>
+              <span id="faq2-icon" class="text-primary transform transition-transform duration-200 text-xl font-bold">+</span>
+            </div>
+          </button>
+          <div id="faq2" class="hidden px-4 pb-4">
+            <p class="text-gray-700 text-sm">We're Oakland County's top-rated painting contractor with 5-star reviews, licensed and insured professionals, premium Sherwin-Williams paint, and meticulous surface preparation. Our house painters serve Troy, Sterling Heights, Rochester, and Metro Detroit with exceptional quality and customer service.</p>
+          </div>
         </div>
 
         <!-- FAQ Item 3 -->
-        <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-          <h3 class="text-xl font-semibold mb-3 text-primary">Do you provide free estimates for painting projects?</h3>
-          <p class="text-gray-700">Yes! We offer completely free, no-obligation painting estimates throughout Oakland and Macomb County. Our painting contractor will assess your interior painting, exterior painting, or commercial painting needs and provide a detailed quote within 24 hours.</p>
+        <div class="bg-white border border-gray-200 rounded-lg shadow-sm">
+          <button class="w-full text-left p-4 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 rounded-lg" onclick="toggleFAQ('faq3')">
+            <div class="flex justify-between items-center">
+              <h3 class="text-lg font-semibold text-primary pr-4">Do you provide free estimates for painting projects?</h3>
+              <span id="faq3-icon" class="text-primary transform transition-transform duration-200 text-xl font-bold">+</span>
+            </div>
+          </button>
+          <div id="faq3" class="hidden px-4 pb-4">
+            <p class="text-gray-700 text-sm">Yes! We offer completely free, no-obligation painting estimates throughout Oakland and Macomb County. Our painting contractor will assess your interior painting, exterior painting, or commercial painting needs and provide a detailed quote within 24 hours.</p>
+          </div>
         </div>
 
         <!-- FAQ Item 4 -->
-        <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-          <h3 class="text-xl font-semibold mb-3 text-primary">How long does it take to paint a house interior or exterior?</h3>
-          <p class="text-gray-700">Interior painting typically takes 2-4 days for an average home, while exterior house painting takes 3-5 days depending on size and weather. Our professional house painters work efficiently while maintaining the highest quality standards for homeowners in Troy, Sterling Heights, and surrounding areas.</p>
+        <div class="bg-white border border-gray-200 rounded-lg shadow-sm">
+          <button class="w-full text-left p-4 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 rounded-lg" onclick="toggleFAQ('faq4')">
+            <div class="flex justify-between items-center">
+              <h3 class="text-lg font-semibold text-primary pr-4">How long does it take to paint a house interior or exterior?</h3>
+              <span id="faq4-icon" class="text-primary transform transition-transform duration-200 text-xl font-bold">+</span>
+            </div>
+          </button>
+          <div id="faq4" class="hidden px-4 pb-4">
+            <p class="text-gray-700 text-sm">Interior painting typically takes 2-4 days for an average home, while exterior house painting takes 3-5 days depending on size and weather. Our professional house painters work efficiently while maintaining the highest quality standards for homeowners in Troy, Sterling Heights, and surrounding areas.</p>
+          </div>
         </div>
 
         <!-- FAQ Item 5 -->
-        <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-          <h3 class="text-xl font-semibold mb-3 text-primary">What types of painting services do you offer in Metro Detroit?</h3>
-          <p class="text-gray-700">MVP Painting offers comprehensive services including interior painting, exterior house painting, commercial painting, cabinet refinishing, deck staining, drywall repair, and texture work. We're your complete painting contractor solution serving Oakland County, Macomb County, and Metro Detroit.</p>
+        <div class="bg-white border border-gray-200 rounded-lg shadow-sm">
+          <button class="w-full text-left p-4 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 rounded-lg" onclick="toggleFAQ('faq5')">
+            <div class="flex justify-between items-center">
+              <h3 class="text-lg font-semibold text-primary pr-4">What types of painting services do you offer in Metro Detroit?</h3>
+              <span id="faq5-icon" class="text-primary transform transition-transform duration-200 text-xl font-bold">+</span>
+            </div>
+          </button>
+          <div id="faq5" class="hidden px-4 pb-4">
+            <p class="text-gray-700 text-sm">MVP Painting offers comprehensive services including interior painting, exterior house painting, commercial painting, cabinet refinishing, deck staining, drywall repair, and texture work. We're your complete painting contractor solution serving Oakland County, Macomb County, and Metro Detroit.</p>
+          </div>
         </div>
 
         <!-- FAQ Item 6 -->
-        <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-          <h3 class="text-xl font-semibold mb-3 text-primary">Are you licensed and insured house painters?</h3>
-          <p class="text-gray-700">Absolutely! MVP Painting is a fully licensed painting contractor with comprehensive liability insurance and worker's compensation coverage. We're BBB accredited and maintain all required certifications for professional house painting services in Michigan.</p>
+        <div class="bg-white border border-gray-200 rounded-lg shadow-sm">
+          <button class="w-full text-left p-4 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 rounded-lg" onclick="toggleFAQ('faq6')">
+            <div class="flex justify-between items-center">
+              <h3 class="text-lg font-semibold text-primary pr-4">Are you licensed and insured house painters?</h3>
+              <span id="faq6-icon" class="text-primary transform transition-transform duration-200 text-xl font-bold">+</span>
+            </div>
+          </button>
+          <div id="faq6" class="hidden px-4 pb-4">
+            <p class="text-gray-700 text-sm">Absolutely! MVP Painting is a fully licensed painting contractor with comprehensive liability insurance and worker's compensation coverage. We're BBB accredited and maintain all required certifications for professional house painting services in Michigan.</p>
+          </div>
         </div>
 
         <!-- FAQ Item 7 -->
-        <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-          <h3 class="text-xl font-semibold mb-3 text-primary">What paint brands do professional house painters recommend?</h3>
-          <p class="text-gray-700">We exclusively use premium Sherwin-Williams paint for superior coverage, durability, and color retention. As certified Sherwin-Williams painting contractors, we access the highest quality interior and exterior paints that provide long-lasting results for your Troy or Sterling Heights home.</p>
+        <div class="bg-white border border-gray-200 rounded-lg shadow-sm">
+          <button class="w-full text-left p-4 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 rounded-lg" onclick="toggleFAQ('faq7')">
+            <div class="flex justify-between items-center">
+              <h3 class="text-lg font-semibold text-primary pr-4">What paint brands do professional house painters recommend?</h3>
+              <span id="faq7-icon" class="text-primary transform transition-transform duration-200 text-xl font-bold">+</span>
+            </div>
+          </button>
+          <div id="faq7" class="hidden px-4 pb-4">
+            <p class="text-gray-700 text-sm">We exclusively use premium Sherwin-Williams paint for superior coverage, durability, and color retention. As certified Sherwin-Williams painting contractors, we access the highest quality interior and exterior paints that provide long-lasting results for your Troy or Sterling Heights home.</p>
+          </div>
         </div>
 
         <!-- FAQ Item 8 -->
-        <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-          <h3 class="text-xl font-semibold mb-3 text-primary">Do you offer commercial painting services for businesses?</h3>
-          <p class="text-gray-700">Yes! Our commercial painting contractor services include office buildings, retail spaces, restaurants, warehouses, and industrial facilities throughout Oakland and Macomb County. We work around your business schedule and provide minimal disruption professional commercial painting.</p>
+        <div class="bg-white border border-gray-200 rounded-lg shadow-sm">
+          <button class="w-full text-left p-4 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 rounded-lg" onclick="toggleFAQ('faq8')">
+            <div class="flex justify-between items-center">
+              <h3 class="text-lg font-semibold text-primary pr-4">Do you offer commercial painting services for businesses?</h3>
+              <span id="faq8-icon" class="text-primary transform transition-transform duration-200 text-xl font-bold">+</span>
+            </div>
+          </button>
+          <div id="faq8" class="hidden px-4 pb-4">
+            <p class="text-gray-700 text-sm">Yes! Our commercial painting contractor services include office buildings, retail spaces, restaurants, warehouses, and industrial facilities throughout Oakland and Macomb County. We work around your business schedule and provide minimal disruption professional commercial painting.</p>
+          </div>
         </div>
 
         <!-- FAQ Item 9 -->
-        <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-          <h3 class="text-xl font-semibold mb-3 text-primary">When is the best time to schedule exterior house painting in Michigan?</h3>
-          <p class="text-gray-700">Late spring through early fall (May-September) provides optimal conditions for exterior painting in Michigan. Our house painters schedule projects to avoid extreme temperatures and humidity. Contact our painting contractor team early to secure your preferred timeframe for your Troy or Rochester home.</p>
+        <div class="bg-white border border-gray-200 rounded-lg shadow-sm">
+          <button class="w-full text-left p-4 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 rounded-lg" onclick="toggleFAQ('faq9')">
+            <div class="flex justify-between items-center">
+              <h3 class="text-lg font-semibold text-primary pr-4">When is the best time to schedule exterior house painting in Michigan?</h3>
+              <span id="faq9-icon" class="text-primary transform transition-transform duration-200 text-xl font-bold">+</span>
+            </div>
+          </button>
+          <div id="faq9" class="hidden px-4 pb-4">
+            <p class="text-gray-700 text-sm">Late spring through early fall (May-September) provides optimal conditions for exterior painting in Michigan. Our house painters schedule projects to avoid extreme temperatures and humidity. Contact our painting contractor team early to secure your preferred timeframe for your Troy or Rochester home.</p>
+          </div>
         </div>
 
         <!-- FAQ Item 10 -->
-        <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-          <h3 class="text-xl font-semibold mb-3 text-primary">How do I choose the right painting contractor near me?</h3>
-          <p class="text-gray-700">Look for licensed and insured house painters with excellent reviews, detailed written estimates, quality paint warranties, and local references. MVP Painting checks all these boxes as Troy's most trusted painting contractor with transparent pricing and exceptional customer service.</p>
+        <div class="bg-white border border-gray-200 rounded-lg shadow-sm">
+          <button class="w-full text-left p-4 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 rounded-lg" onclick="toggleFAQ('faq10')">
+            <div class="flex justify-between items-center">
+              <h3 class="text-lg font-semibold text-primary pr-4">How do I choose the right painting contractor near me?</h3>
+              <span id="faq10-icon" class="text-primary transform transition-transform duration-200 text-xl font-bold">+</span>
+            </div>
+          </button>
+          <div id="faq10" class="hidden px-4 pb-4">
+            <p class="text-gray-700 text-sm">Look for licensed and insured house painters with excellent reviews, detailed written estimates, quality paint warranties, and local references. MVP Painting checks all these boxes as Troy's most trusted painting contractor with transparent pricing and exceptional customer service.</p>
+          </div>
         </div>
       </div>
 
@@ -819,9 +884,25 @@
     </div>
   </footer>
 
-  <!-- Page-specific JS (rotator + FAB) -->
+  <!-- Page-specific JS (rotator + FAB + FAQ) -->
   <script>
     // Mobile drawer is handled by site-wide JS (next <script> tag)
+
+    // FAQ Toggle Function
+    function toggleFAQ(faqId) {
+      const content = document.getElementById(faqId);
+      const icon = document.getElementById(faqId + '-icon');
+      
+      if (content.classList.contains('hidden')) {
+        content.classList.remove('hidden');
+        icon.textContent = '−';
+        icon.style.transform = 'rotate(180deg)';
+      } else {
+        content.classList.add('hidden');
+        icon.textContent = '+';
+        icon.style.transform = 'rotate(0deg)';
+      }
+    }
 
     // Hero rotator (skip if user prefers reduced motion)
     (function(){
